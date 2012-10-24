@@ -1,10 +1,15 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# some terminals need this I guess... lame.
+export TERM=xterm-256color
+
 # update path
 export PATH=$PATH:~/bin:~/scripts:./:~/android/tools/:~/android/platform-tools/:/flex/bin:/depot_tools/:/arduino/:/dart/bin/
 
 # aliases
+alias t='/home/john/projects/trk/trk.py'
+alias trk='/home/john/projects/trk/trk.py'
 alias su='sudo -s'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
