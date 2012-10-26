@@ -11,6 +11,7 @@ set smartindent
 set smarttab
 set showmode
 set showcmd
+
 " set relativenumber
 set undofile
 set colorcolumn=100
@@ -48,12 +49,14 @@ if exists("syntax_on")
 endif
 hi clear
 
+" super dark grey
+hi ColorColumn	ctermfg=none	ctermbg=0			cterm=none
+
 " dark grey
 hi NonText		ctermfg=2		ctermbg=none		cterm=none
 hi SpecialKey	ctermfg=2		ctermbg=none		cterm=none
 hi LineNr		ctermfg=2		ctermbg=none		cterm=none
 hi MatchParen	ctermfg=none	ctermbg=2			cterm=none
-hi ColorColumn	ctermfg=none	ctermbg=0			cterm=none
 
 " white
 hi Normal		ctermfg=7		ctermbg=none		cterm=none

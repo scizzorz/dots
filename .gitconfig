@@ -1,0 +1,39 @@
+[user]
+	name = John Weachock
+	email = jweachock@gmail.com
+
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	status = auto
+
+[color "branch"]
+	current = green bold
+	local = green bold
+	remote = yellow bold
+
+[color "diff"]
+	plain = yellow
+	meta = magenta bold
+	frag = blue bold
+	old = black bold
+	new = yellow bold
+	commit = yellow
+
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = blue bold
+
+[diff]
+	#external = /usr/bin/colordiff
+
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	cl = clone
+	df = diff
+	lg = log --oneline --graph
