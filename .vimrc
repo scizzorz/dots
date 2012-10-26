@@ -11,8 +11,9 @@ set smartindent
 set smarttab
 set showmode
 set showcmd
-
 " set relativenumber
+set directory=~/.vim/swap
+set undodir=~/.vim/undo
 set undofile
 set colorcolumn=100
 set ts=4
