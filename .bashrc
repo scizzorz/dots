@@ -32,28 +32,24 @@ parse_git_branch() {
 }
 
 # set the colors for the prompt
-hcolor="15"
-if [ `whoami` = root ]; then
-	ucolor="8"
-else
-	ucolor=$hcolor
-fi
-wcolor="11"
-gitcolor="8"
+if [ -f ./.bashcolors.sh ]; then
+	. .bashcolors.sh
 
-# prompt!
-W=$(echo $PWD | sed 's!'$HOME'!~!g')
-PROMPT_COMMAND='echo -ne "\033]0;${USER} ${HOSTNAME}: ${W}\007"'
-PS1="\[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
-PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
-case "$TERM" in
-xterm*|rxvt*)
+	# prompt!
+	W=$(echo $PWD | sed 's!'$HOME'!~!g')
+	PROMPT_COMMAND='echo -ne "\033]0;${USER} ${HOSTNAME}: ${W}\007"'
 	PS1="\[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
 	PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
-	;;
-*)
-	;;
-esac
+	case "$TERM" in
+	xterm*|rxvt*)
+		PS1="\[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
+		PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
+		;;
+	*)
+		;;
+	esac
+
+fi
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
