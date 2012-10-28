@@ -2,6 +2,9 @@
 	name = John Weachock
 	email = jweachock@gmail.com
 
+[core]
+	pager=cat
+
 [color]
 	ui = true
 	branch = auto

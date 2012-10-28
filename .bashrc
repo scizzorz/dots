@@ -58,6 +58,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+	eval $( dircolors -b ~/.dircolors )
 fi
 
 # enable programmable completion features (you don't need to enable

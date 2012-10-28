@@ -76,13 +76,13 @@ hi Constant		ctermfg=11		ctermbg=none		cterm=none
 hi PreProc		ctermfg=12		ctermbg=none		cterm=none
 
 " blue
-hi Underlined	ctermfg=13		ctermbg=none		cterm=none
-hi Type			ctermfg=13		ctermbg=none		cterm=none
-hi Identifier	ctermfg=13		ctermbg=none		cterm=none
-hi Statement	ctermfg=13		ctermbg=none		cterm=none
+hi Underlined	ctermfg=14		ctermbg=none		cterm=none
+hi Type			ctermfg=14		ctermbg=none		cterm=none
+hi Identifier	ctermfg=14		ctermbg=none		cterm=none
+hi Statement	ctermfg=14		ctermbg=none		cterm=none
 
 " dark blue
-hi Delimiter	ctermfg=14		ctermbg=none		cterm=none
+hi Delimiter	ctermfg=13		ctermbg=none		cterm=none
 
 " purple
 hi Comment		ctermfg=15		ctermbg=none		cterm=none
