@@ -37,7 +37,7 @@ if [ -f ./.bashcolors.sh ]; then
 
 	# prompt!
 	W=$(echo $PWD | sed 's!'$HOME'!~!g')
-	PROMPT_COMMAND='echo -ne "\033]0;${USER} ${HOSTNAME}: ${W}\007"'
+	PROMPT_COMMAND='echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
 	PS1="\[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
 	PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
 	case "$TERM" in
