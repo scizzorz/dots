@@ -70,7 +70,6 @@ hi Search		ctermfg=8		ctermbg=none		cterm=none
 hi Type			ctermfg=9		ctermbg=none		cterm=none
 
 " yellow
-hi Delimeter	ctermfg=10		ctermbg=none		cterm=none
 
 " green
 hi Constant		ctermfg=11		ctermbg=none		cterm=none
@@ -80,14 +79,18 @@ hi PreProc		ctermfg=12		ctermbg=none		cterm=none
 
 " cyan
 hi Special		ctermfg=13		ctermbg=none		cterm=none
+hi Delimeter	ctermfg=13		ctermbg=none		cterm=none
 
 " blue
 hi Underlined	ctermfg=14		ctermbg=none		cterm=none
-hi Identifier	ctermfg=14		ctermbg=none		cterm=none
 hi Statement	ctermfg=14		ctermbg=none		cterm=none
+hi Identifier	ctermfg=14		ctermbg=none		cterm=none
 
 " purple
 hi Comment		ctermfg=15		ctermbg=none		cterm=none
 
 au BufReadPost,FileReadPost *.js so ~/.vimjs
 au BufReadPost,FileReadPost *.py so ~/.vimpy
+au BufReadPost,FileReadPost *.py so ~/.vim/syntax/python.vim
+"au BufReadPost,FileReadPost *.php so ~/.vimphp
+au BufReadPost,FileReadPost *.php so ~/.vim/syntax/php.vim
