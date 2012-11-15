@@ -1,0 +1,5 @@
+syntax case match
+
+syntax match phpdelim "[\(\)\[\]\{\}\.\:]"
+
+hi link phpdelim Delimeter
