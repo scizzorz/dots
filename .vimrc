@@ -24,6 +24,12 @@ set list listchars=tab:»\ ,trail:·
 set wmh=0
 set wmw=0
 
+" jump to last position when reopening
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+	\| exe "normal! g'\"" | endif
+endif
+
 " mappings
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
@@ -67,12 +73,11 @@ hi Error 		ctermfg=8		ctermbg=none		cterm=none
 hi Search		ctermfg=8		ctermbg=none		cterm=none
 
 " orange
-hi Type			ctermfg=9		ctermbg=none		cterm=none
+hi Constant		ctermfg=9		ctermbg=none		cterm=none
 
 " yellow
 
 " green
-hi Constant		ctermfg=11		ctermbg=none		cterm=none
 
 " greenblue
 hi PreProc		ctermfg=12		ctermbg=none		cterm=none
@@ -83,6 +88,7 @@ hi Delimeter	ctermfg=13		ctermbg=none		cterm=none
 
 " blue
 hi Underlined	ctermfg=14		ctermbg=none		cterm=none
+hi Type			ctermfg=14		ctermbg=none		cterm=none
 hi Statement	ctermfg=14		ctermbg=none		cterm=none
 hi Identifier	ctermfg=14		ctermbg=none		cterm=none
 
