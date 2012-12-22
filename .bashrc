@@ -5,18 +5,21 @@
 export TERM=xterm-256color
 
 # update path
-export PATH=$PATH:~/bin:~/scripts:./:~/android/tools/:~/android/platform-tools/:/flex/bin:/depot_tools/:/arduino/:/dart/bin/
+export PATH=~/bin:~/scripts:./:~/android/tools/:~/android/platform-tools/:/flex/bin:/depot_tools/:/arduino/:/dart/bin/:$PATH
+
+# for arduino-mk
+export ARDMK_DIR=/usr/local
+export ARDUINO_DIR=/usr/share/arduino
+export AVR_TOOLS_DIR=/usr
 
 # aliases
-alias t='/home/john/projects/trk/trk.py'
-alias trk='/home/john/projects/trk/trk.py'
 alias su='sudo -s'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # don't put duplicate lines in the history and control size
 HISTCONTROL=ignoredups:ignorespace
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=9999
+HISTFILESIZE=9999
 shopt -s histappend
 
 # check the window size after each command and, if necessary,
@@ -38,11 +41,11 @@ if [ -f ./.bashcolors.sh ]; then
 	. .bashcolors.sh
 
 	# prompt!
-	PS1="\[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
+	PS1="\[$(tput setaf 2)\]\! \[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
 	PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
 	case "$TERM" in
 	xterm*|rxvt*)
-		PS1="\[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
+		PS1="\[$(tput setaf 2)\]\! \[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
 		PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
 		;;
 	*)
