@@ -1,3 +1,11 @@
+hi_id=2
 hi_project=9
+hi_context=11
+hi_priority=8
+hi_due=14
+hi_done=8
+
+id_size=3
+
 alias_project = re('(^|\s)\+\w+') and xre('^x\s*')
 alias_date = re('\[\d{1,2}\/\d{1,2}.*?\]') and xre('^x\s*')
