@@ -14,6 +14,7 @@ export PATH=~/bin:~/scripts:./:~/android/tools/:~/android/platform-tools/:/flex/
 export ARDMK_DIR=/usr/local
 export ARDUINO_DIR=/usr/share/arduino
 export AVR_TOOLS_DIR=/usr
+export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 
 # aliases
 alias su='sudo -s'
