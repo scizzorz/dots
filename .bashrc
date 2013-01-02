@@ -4,6 +4,9 @@
 # some terminals need this I guess... lame.
 export TERM=xterm-256color
 
+# use vim as the man pager
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\""
+
 # update path
 export PATH=~/bin:~/scripts:./:~/android/tools/:~/android/platform-tools/:/flex/bin:/depot_tools/:/arduino/:/dart/bin/:$PATH
 
