@@ -75,6 +75,7 @@ hi NonText		ctermfg=2		ctermbg=none		cterm=none
 hi SpecialKey	ctermfg=2		ctermbg=none		cterm=none
 hi LineNr		ctermfg=2		ctermbg=none		cterm=none
 hi MatchParen	ctermfg=none	ctermbg=2			cterm=none
+hi CursorLine	ctermfg=none	ctermbg=none		cterm=none
 
 " white
 hi Normal		ctermfg=7		ctermbg=none		cterm=none
@@ -92,6 +93,7 @@ hi Constant		ctermfg=9		ctermbg=none		cterm=none
 
 " greenblue
 hi PreProc		ctermfg=12		ctermbg=none		cterm=none
+hi CursorLineNr	ctermfg=12		ctermbg=none		cterm=none
 
 " cyan
 hi Special		ctermfg=13		ctermbg=none		cterm=none
