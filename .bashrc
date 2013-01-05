@@ -17,7 +17,6 @@ export AVR_TOOLS_DIR=/usr
 export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 
 # aliases
-alias su='sudo -s'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # don't put duplicate lines in the history and control size
