@@ -7,5 +7,9 @@ hi_done=8
 
 id_size=3
 
+editcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 @ > /home/john/.trkout
+markcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 @ > /home/john/.trkout
+writecmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2@ > /home/john/.trkout
+
 alias_project = re('(^|\s)\+\w+') and xre('^x\s*')
 alias_date = re('\[\d{1,2}\/\d{1,2}.*?\]') and xre('^x\s*')
