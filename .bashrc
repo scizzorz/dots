@@ -67,6 +67,10 @@ if [ -x /usr/bin/dircolors ]; then
 	eval $( dircolors -b ~/.dircolors )
 fi
 
+if [ -x ~/.motd ]; then
+	~/.motd
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
