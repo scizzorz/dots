@@ -94,9 +94,3 @@ hi Identifier	ctermfg=14		ctermbg=none		cterm=none
 
 " purple
 hi Comment		ctermfg=15		ctermbg=none		cterm=none
-
-au BufReadPost,FileReadPost *.js so ~/.vimjs
-au BufReadPost,FileReadPost *.py so ~/.vimpy
-au BufReadPost,FileReadPost *.py so ~/.vim/syntax/python.vim
-"au BufReadPost,FileReadPost *.php so ~/.vimphp
-au BufReadPost,FileReadPost *.php so ~/.vim/syntax/php.vim

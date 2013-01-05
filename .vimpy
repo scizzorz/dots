@@ -1,5 +1,0 @@
-syntax case match
-
-syntax match pydelim "[\(\)\[\]\{\}\.\:]"
-
-hi link pydelim Delimeter
