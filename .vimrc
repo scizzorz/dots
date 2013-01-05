@@ -1,28 +1,32 @@
 " settings
-set nocp
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
-set number
-set cindent
-set autoindent
-set smartindent
-set smarttab
-set showmode
-set showcmd
-" set relativenumber
-set directory=~/.vim/swap
-set undodir=~/.vim/undo
-set undofile
-set colorcolumn=100
-set ts=4
-set sw=4
-set mouse=a
-set encoding=utf-8
-set list listchars=tab:»\ ,trail:·
-set wmh=0
-set wmw=0
+set nocompatible              " remove vi compatibility
+set incsearch                 " show search matches as they're typed
+set hlsearch                  " highlight all search matches
+set ignorecase                " ignore case while searching
+set smartcase                 " don't ignore case while searching IF I use a capital
+set number                    " show line numbers
+set cindent                   " automatic C-style indenting
+set autoindent                " copy indent from current line when starting a new line
+set smarttab                  " makes tabs/backspace more helpful at the beginning of lines
+set showmode                  " show the mode when in insert/replace/visual
+set showcmd                   " show partial commands
+set directory=~/.vim/swap     " directory for swap files
+
+if has("persistent_undo")
+	set undodir=~/.vim/undo   " directory for undo files
+	set undofile              " force vim to save undo history as a file
+endif
+
+set tabstop=4                 " number of spaces that a tab counts for
+set shiftwidth=4              " number of spaces to use for each step of (auto)indent
+silent! set mouse=a           " enable mouse if it exists
+silent! set encoding=utf-8    " enable default encoding if it exists
+set list                      " show tabs and EOL
+set listchars=tab:»\ ,trail:· " show tabs as right arrow quotes and trailing spaces as bullets
+set winminheight=0            " the minimum height of a non-focused window
+set winminwidth=0             " the minimum width of a non-focused window
+set cursorline                " highlight the line with the cursor
+" set relativenumber          " show line numbers relative to the current line
 
 " jump to last position when reopening
 if has("autocmd")
@@ -31,13 +35,20 @@ if has("autocmd")
 endif
 
 " mappings
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <C-H> <C-W>h<C-W><Bar>
-map <C-L> <C-W>l<C-W><Bar>
+" map <C-HJKL> to move within windows instead of <C-W><HJKL>
+nmap <silent> <C-H> <Esc>:wincmd h<CR>
+nmap <silent> <C-J> <Esc>:wincmd j<CR>
+nmap <silent> <C-K> <Esc>:wincmd k<CR>
+nmap <silent> <C-L> <Esc>:wincmd l<CR>
+
+" map <Tab> and <S-Tab> to < and > respectively
 map <Tab> >
 map <S-Tab> <
+
+" enter in normal mode makes a new line
 map <Enter> o<Esc>
+
+" <j><j> in insert mode will simulate an escape
 inoremap jj <Esc>
 
 
