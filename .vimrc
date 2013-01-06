@@ -80,7 +80,8 @@ endif
 hi clear
 
 " super dark grey
-hi ColorColumn  ctermfg=none ctermbg=0    cterm=none
+hi CursorColumn ctermfg=none ctermbg=0    cterm=none
+hi VertSplit    ctermfg=0    ctermbg=0    cterm=none
 
 " dark grey
 hi NonText      ctermfg=2    ctermbg=none cterm=none
@@ -90,7 +91,6 @@ hi MatchParen   ctermfg=none ctermbg=2    cterm=none
 hi CursorLine   ctermfg=none ctermbg=none cterm=none
 hi Visual       ctermfg=none ctermbg=0    cterm=none
 hi StatusLineNC ctermfg=2    ctermbg=0    cterm=none
-hi VertSplit    ctermfg=0    ctermbg=0    cterm=none
 
 " white
 hi Normal       ctermfg=7    ctermbg=none cterm=none
