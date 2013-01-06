@@ -12,6 +12,7 @@ set showmode                  " show the mode when in insert/replace/visual
 set showcmd                   " show partial commands
 set directory=~/.vim/swap     " directory for swap files
 
+
 if has("persistent_undo")
 	set undodir=~/.vim/undo   " directory for undo files
 	set undofile              " force vim to save undo history as a file
@@ -27,14 +28,21 @@ set winminheight=0            " the minimum height of a non-focused window
 set winminwidth=0             " the minimum width of a non-focused window
 set cursorline                " highlight the line with the cursor
 set laststatus=2              " always show the status bar
+set viewoptions=folds         " only save folds with views
 set foldcolumn=1              " show a fold column!
+set foldmethod=manual         " manual folding
 " set foldmethod=indent         " set automatic folding
 " set relativenumber            " show line numbers relative to the current line
 
 " jump to last position when reopening
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+	autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 	\| exe "normal! g'\"" | endif
+
+	" automatically save and restore views (folds)
+	" maps have to be made *after* restoring or else the new maps will be 
+	autocmd BufWrite ?* mkview
+	autocmd BufRead ?* silent! loadview | nnoremap Z zd | nnoremap z za | vnoremap z zf
 endif
 
 " mappings
@@ -50,15 +58,6 @@ nmap <S-Tab> <
 
 " enter in normal mode makes a new line
 nmap <Enter> o<Esc>
-
-" Z in normal mode will delete a fold
-nnoremap Z zd
-
-" z in normal mode will toggle a fold
-nnoremap z za
-
-" z in visual mode will create a fold
-vnoremap z zf
 
 " <j><j> in insert mode will simulate an escape
 inoremap jj <Esc>
