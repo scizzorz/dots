@@ -27,7 +27,9 @@ set winminheight=0            " the minimum height of a non-focused window
 set winminwidth=0             " the minimum width of a non-focused window
 set cursorline                " highlight the line with the cursor
 set laststatus=2              " always show the status bar
-" set relativenumber          " show line numbers relative to the current line
+set foldcolumn=1              " show a fold column!
+" set foldmethod=indent         " set automatic folding
+" set relativenumber            " show line numbers relative to the current line
 
 " jump to last position when reopening
 if has("autocmd")
@@ -43,11 +45,20 @@ nmap <silent> <C-K> <Esc>:wincmd k<CR>
 nmap <silent> <C-L> <Esc>:wincmd l<CR>
 
 " map <Tab> and <S-Tab> to < and > respectively
-map <Tab> >
-map <S-Tab> <
+nmap <Tab> >
+nmap <S-Tab> <
 
 " enter in normal mode makes a new line
-map <Enter> o<Esc>
+nmap <Enter> o<Esc>
+
+" Z in normal mode will delete a fold
+nnoremap Z zd
+
+" z in normal mode will toggle a fold
+nnoremap z za
+
+" z in visual mode will create a fold
+vnoremap z zf
 
 " <j><j> in insert mode will simulate an escape
 inoremap jj <Esc>
@@ -56,7 +67,6 @@ inoremap jj <Esc>
 inoremap <End> <C-P>
 
 " custom commands
-
 " stupid shift key
 cabbrev WQ wq
 cabbrev Wq wq
@@ -113,6 +123,8 @@ hi Title        ctermfg=10   ctermbg=none cterm=none
 
 " green
 hi MatchParen   ctermfg=11   ctermbg=none cterm=none
+hi Folded       ctermfg=11   ctermbg=none cterm=none
+hi FoldColumn   ctermfg=11   ctermbg=none cterm=none
 
 " greenblue
 hi PreProc      ctermfg=12   ctermbg=none cterm=none
