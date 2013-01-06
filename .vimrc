@@ -51,6 +51,9 @@ map <Enter> o<Esc>
 " <j><j> in insert mode will simulate an escape
 inoremap jj <Esc>
 
+" rebound caps lock for autocompletion
+inoremap <End> <C-P>
+
 " custom commands
 
 " stupid shift key
