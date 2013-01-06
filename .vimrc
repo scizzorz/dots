@@ -51,6 +51,14 @@ map <Enter> o<Esc>
 " <j><j> in insert mode will simulate an escape
 inoremap jj <Esc>
 
+" custom commands
+
+" stupid shift key
+cabbrev WQ wq
+cabbrev Wq wq
+cabbrev W w
+cabbrev Q q
+cabbrev Q! q!
 
 " not sure
 filetype indent on
@@ -63,7 +71,7 @@ let c_gnu = 1
 
 syntax on
 if exists("syntax_on")
-  syntax reset
+	syntax reset
 endif
 hi clear
 
