@@ -26,6 +26,7 @@ set listchars=tab:»\ ,trail:· " show tabs as right arrow quotes and trailing s
 set winminheight=0            " the minimum height of a non-focused window
 set winminwidth=0             " the minimum width of a non-focused window
 set cursorline                " highlight the line with the cursor
+set laststatus=2              " always show the status bar
 " set relativenumber          " show line numbers relative to the current line
 
 " jump to last position when reopening
@@ -79,42 +80,53 @@ endif
 hi clear
 
 " super dark grey
-hi ColorColumn	ctermfg=none	ctermbg=0			cterm=none
+hi ColorColumn  ctermfg=none ctermbg=0    cterm=none
 
 " dark grey
-hi NonText		ctermfg=2		ctermbg=none		cterm=none
-hi SpecialKey	ctermfg=2		ctermbg=none		cterm=none
-hi LineNr		ctermfg=2		ctermbg=none		cterm=none
-hi MatchParen	ctermfg=none	ctermbg=2			cterm=none
-hi CursorLine	ctermfg=none	ctermbg=none		cterm=none
+hi NonText      ctermfg=2    ctermbg=none cterm=none
+hi SpecialKey   ctermfg=2    ctermbg=none cterm=none
+hi LineNr       ctermfg=2    ctermbg=none cterm=none
+hi MatchParen   ctermfg=none ctermbg=2    cterm=none
+hi CursorLine   ctermfg=none ctermbg=none cterm=none
+hi Visual       ctermfg=none ctermbg=0    cterm=none
+hi StatusLineNC ctermfg=2    ctermbg=0    cterm=none
+hi VertSplit    ctermfg=0    ctermbg=0    cterm=none
 
 " white
-hi Normal		ctermfg=7		ctermbg=none		cterm=none
+hi Normal       ctermfg=7    ctermbg=none cterm=none
+hi StatusLine   ctermfg=12   ctermbg=0    cterm=none
 
 " red
-hi Error 		ctermfg=8		ctermbg=none		cterm=none
-hi Search		ctermfg=8		ctermbg=none		cterm=none
+hi Error        ctermfg=8    ctermbg=none cterm=none
+hi Search       ctermfg=8    ctermbg=none cterm=none
+hi ErrorMsg     ctermfg=8    ctermbg=0    cterm=none
+hi WarningMsg   ctermfg=8    ctermbg=0    cterm=none
+hi IncSearch    ctermfg=8    ctermbg=0    cterm=none
 
 " orange
-hi Constant		ctermfg=9		ctermbg=none		cterm=none
+hi Constant     ctermfg=9    ctermbg=none cterm=none
+hi ModeMsg      ctermfg=9    ctermbg=0    cterm=none
+hi MoreMsg      ctermfg=9    ctermbg=0    cterm=none
 
 " yellow
+hi Title        ctermfg=10   ctermbg=none cterm=none
 
 " green
+hi MatchParen   ctermfg=11   ctermbg=none cterm=none
 
 " greenblue
-hi PreProc		ctermfg=12		ctermbg=none		cterm=none
-hi CursorLineNr	ctermfg=12		ctermbg=none		cterm=none
+hi PreProc      ctermfg=12   ctermbg=none cterm=none
+hi CursorLineNr ctermfg=12   ctermbg=none cterm=none
 
 " cyan
-hi Special		ctermfg=13		ctermbg=none		cterm=none
-hi Delimeter	ctermfg=13		ctermbg=none		cterm=none
+hi Special      ctermfg=13   ctermbg=none cterm=none
+hi Delimeter    ctermfg=13   ctermbg=none cterm=none
 
 " blue
-hi Underlined	ctermfg=14		ctermbg=none		cterm=none
-hi Type			ctermfg=14		ctermbg=none		cterm=none
-hi Statement	ctermfg=14		ctermbg=none		cterm=none
-hi Identifier	ctermfg=14		ctermbg=none		cterm=none
+hi Underlined   ctermfg=14   ctermbg=none cterm=none
+hi Type         ctermfg=14   ctermbg=none cterm=none
+hi Statement    ctermfg=14   ctermbg=none cterm=none
+hi Identifier   ctermfg=14   ctermbg=none cterm=none
 
 " purple
-hi Comment		ctermfg=15		ctermbg=none		cterm=none
+hi Comment      ctermfg=15   ctermbg=none cterm=none
