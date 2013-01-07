@@ -12,7 +12,6 @@ set showmode                  " show the mode when in insert/replace/visual
 set showcmd                   " show partial commands
 set directory=~/.vim/swap     " directory for swap files
 
-
 if has("persistent_undo")
 	set undodir=~/.vim/undo   " directory for undo files
 	set undofile              " force vim to save undo history as a file
@@ -31,18 +30,23 @@ set laststatus=2              " always show the status bar
 set viewoptions=folds         " only save folds with views
 set foldcolumn=1              " show a fold column!
 set foldmethod=manual         " manual folding
+set foldtext=getline(v:foldstart) " set fold line to be just the consumed line
 " set foldmethod=indent         " set automatic folding
 " set relativenumber            " show line numbers relative to the current line
+filetype indent on            " special indenting by filetype I think
 
-" jump to last position when reopening
+" auto commands
 if has("autocmd")
+	" jump to last position when reopening
 	autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 	\| exe "normal! g'\"" | endif
 
 	" automatically save and restore views (folds)
-	" maps have to be made *after* restoring or else the new maps will be 
+	" maps have to be made *after* restoring or else the new maps
+	" mess with the loadview
 	autocmd BufWrite ?* mkview
-	autocmd BufRead ?* silent! loadview | nnoremap Z zd | nnoremap z za | vnoremap z zf
+	autocmd BufRead ?* silent! loadview | nnoremap Z zd
+	" | nnoremap z za | vnoremap z zf
 endif
 
 " mappings
@@ -56,8 +60,9 @@ nmap <silent> <C-L> <Esc>:wincmd l<CR>
 nmap <Tab> >
 nmap <S-Tab> <
 
-" enter in normal mode makes a new line
-nmap <Enter> o<Esc>
+" zv and zt toggle folds (za is awkward to press)
+nnoremap zv za
+nnoremap zt za
 
 " <j><j> in insert mode will simulate an escape
 inoremap jj <Esc>
@@ -72,9 +77,6 @@ cabbrev Wq wq
 cabbrev W w
 cabbrev Q q
 cabbrev Q! q!
-
-" not sure
-filetype indent on
 
 " highlighting
 set background=dark
@@ -122,8 +124,6 @@ hi Title        ctermfg=10   ctermbg=none cterm=none
 
 " green
 hi MatchParen   ctermfg=11   ctermbg=none cterm=none
-hi Folded       ctermfg=11   ctermbg=none cterm=none
-hi FoldColumn   ctermfg=11   ctermbg=none cterm=none
 
 " greenblue
 hi PreProc      ctermfg=12   ctermbg=none cterm=none
@@ -132,6 +132,8 @@ hi CursorLineNr ctermfg=12   ctermbg=none cterm=none
 " cyan
 hi Special      ctermfg=13   ctermbg=none cterm=none
 hi Delimeter    ctermfg=13   ctermbg=none cterm=none
+hi Folded       ctermfg=13   ctermbg=none cterm=none
+hi FoldColumn   ctermfg=13   ctermbg=none cterm=none
 
 " blue
 hi Underlined   ctermfg=14   ctermbg=none cterm=none
