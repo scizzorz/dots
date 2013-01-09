@@ -49,10 +49,14 @@ if has("autocmd")
 	" | nnoremap z za | vnoremap z zf
 
 	" automatically reload vimrc when it's saved
-	au BufWritePost .vimrc so ~/.vimrc
+	autocmd BufWritePost .vimrc so ~/.vimrc
 
 	" automatically resize splits when the window is resized
-	au VimResized * exe "normal! \<c-w>="
+	autocmd VimResized * exe "normal! \<c-w>="
+
+	" update the title and stuff
+	autocmd BufEnter * let &titlestring = $USER . " " . hostname(). " | vim " . expand("%:t")
+	set title
 endif
 
 " mappings
