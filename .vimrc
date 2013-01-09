@@ -47,6 +47,12 @@ if has("autocmd")
 	autocmd BufWrite ?* mkview
 	autocmd BufRead ?* silent! loadview | nnoremap Z zd
 	" | nnoremap z za | vnoremap z zf
+
+	" automatically reload vimrc when it's saved
+	au BufWritePost .vimrc so ~/.vimrc
+
+	" automatically resize splits when the window is resized
+	au VimResized * exe "normal! \<c-w>="
 endif
 
 " mappings
@@ -60,15 +66,33 @@ nmap <silent> <C-L> <Esc>:wincmd l<CR>
 nmap <Tab> >
 nmap <S-Tab> <
 
+" map ; to :
+nnoremap ; :
+
+" Q repeats last recorded macro
+noremap Q @@
+
 " zv and zt toggle folds (za is awkward to press)
 nnoremap zv za
 nnoremap zt za
 
 " <j><j> in insert mode will simulate an escape
+" (only useful on a non-full keyboard)
 inoremap jj <Esc>
 
 " rebound caps lock for autocompletion
 inoremap <End> <C-P>
+
+" reselect visual block after indent / outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" keep search pattern at the center of the screen
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
 
 " custom commands
 " stupid shift key
@@ -77,6 +101,7 @@ cabbrev Wq wq
 cabbrev W w
 cabbrev Q q
 cabbrev Q! q!
+
 
 " highlighting
 set background=dark
@@ -105,9 +130,9 @@ hi StatusLineNC ctermfg=2    ctermbg=0    cterm=none
 
 " white
 hi Normal       ctermfg=7    ctermbg=none cterm=none
-hi StatusLine   ctermfg=12   ctermbg=0    cterm=none
 
 " red
+hi WhitespaceEOL ctermfg=8   ctermbg=none cterm=none
 hi Error        ctermfg=8    ctermbg=none cterm=none
 hi Search       ctermfg=8    ctermbg=none cterm=none
 hi ErrorMsg     ctermfg=8    ctermbg=0    cterm=none
@@ -128,6 +153,7 @@ hi MatchParen   ctermfg=11   ctermbg=none cterm=none
 " greenblue
 hi PreProc      ctermfg=12   ctermbg=none cterm=none
 hi CursorLineNr ctermfg=12   ctermbg=none cterm=none
+hi StatusLine   ctermfg=12   ctermbg=0    cterm=none
 
 " cyan
 hi Special      ctermfg=13   ctermbg=none cterm=none
@@ -143,3 +169,6 @@ hi Identifier   ctermfg=14   ctermbg=none cterm=none
 
 " purple
 hi Comment      ctermfg=15   ctermbg=none cterm=none
+
+
+match WhitespaceEOL /\s\+$/
