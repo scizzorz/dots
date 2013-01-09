@@ -91,13 +91,6 @@ inoremap <End> <C-P>
 vnoremap < <gv
 vnoremap > >gv
 
-" keep search pattern at the center of the screen
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-
 " custom commands
 " stupid shift key
 cabbrev WQ wq
