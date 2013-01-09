@@ -167,5 +167,4 @@ hi Identifier   ctermfg=14   ctermbg=none cterm=none
 " purple
 hi Comment      ctermfg=15   ctermbg=none cterm=none
 
-
 match WhitespaceEOL /\s\+$/
