@@ -55,7 +55,7 @@ if has("autocmd")
 	autocmd VimResized * exe "normal! \<c-w>="
 
 	" update the title and stuff
-	autocmd BufEnter * let &titlestring = $USER . " " . hostname(). " | vim " . expand("%:t")
+	autocmd BufEnter * let &titlestring = $USER . " " . hostname(). " | vim " . expand("%:~:p")
 	set title
 endif
 
