@@ -1,9 +1,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# some terminals need this I guess... lame.
-export TERM=xterm-256color
-
 # use vim as the man pager
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\""
 
@@ -37,21 +34,24 @@ parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
-W=$(echo $PWD | sed 's!'$HOME'!~!g')
-PROMPT_COMMAND='echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
 # set the colors for the prompt
 if [ -f ./.bashcolors.sh ]; then
 	. .bashcolors.sh
 
 	# prompt!
-	PS1="\[$(tput setaf 2)\]\! \[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
-	PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
 	case "$TERM" in
 	xterm*|rxvt*)
+		# some terminals need this I guess... lame.
+		export TERM=xterm-256color
+
+		W=$(echo $PWD | sed 's!'$HOME'!~!g')
+		PROMPT_COMMAND='echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
 		PS1="\[$(tput setaf 2)\]\! \[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
 		PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
 		;;
 	*)
+		PS1="\[$(tput setaf 7)\]\! \[$(tput setaf $ucolor_)\]\u \[$(tput setaf $hcolor_)\]\h \[$(tput setaf $wcolor_)\]\w\[$(tput setaf $gitcolor_)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor_)\] \\$\[$(tput sgr0)\] "
+		PS2="\[$(tput setaf $ucolor_)\]>\[$(tput sgr0)\]"
 		;;
 	esac
 
