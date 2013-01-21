@@ -34,6 +34,22 @@ parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
+parse_clk_status_color() {
+	C="none"
+	if [ -x ~/.clk.py ]; then
+		C=$(~/.clk.py status)
+	fi
+	if [ $C == "none" ]; then
+		tput setaf $clknocolor
+	fi
+	if [ $C == "in" ]; then
+		tput setaf $clkincolor
+	fi
+	if [ $C == "out" ]; then
+		tput setaf $clkoutcolor
+	fi
+}
+
 # set the colors for the prompt
 if [ -f ./.bashcolors.sh ]; then
 	. .bashcolors.sh
@@ -45,8 +61,9 @@ if [ -f ./.bashcolors.sh ]; then
 		export TERM=xterm-256color
 
 		W=$(echo $PWD | sed 's!'$HOME'!~!g')
+
 		PROMPT_COMMAND='echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$(tput setaf 2)\]\! \[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[$(tput setaf $wcolor)\] \\$\[$(tput sgr0)\] "
+		PS1="\[$(tput setaf 2)\]\! \[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\[\$(parse_clk_status_color)\] \\$\[$(tput sgr0)\] "
 		PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
 		;;
 	*)
