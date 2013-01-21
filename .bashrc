@@ -3,6 +3,7 @@
 
 # use vim as the man pager
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\""
+export EDITOR="/usr/bin/vim"
 
 # update path
 export PATH=~/bin:~/scripts:./:~/android/tools/:~/android/platform-tools/:/flex/bin:/depot_tools/:/arduino/:/dart/bin/:$PATH
@@ -16,7 +17,7 @@ export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 # aliases
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# don't put duplicate lines in the history and control size
+# don't put blank lines in the history and control size
 HISTCONTROL=ignorespace
 HISTSIZE=9999
 HISTFILESIZE=9999
