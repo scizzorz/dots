@@ -17,7 +17,7 @@ export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # don't put duplicate lines in the history and control size
-HISTCONTROL=ignoredups:ignorespace
+HISTCONTROL=ignorespace
 HISTSIZE=9999
 HISTFILESIZE=9999
 shopt -s histappend
