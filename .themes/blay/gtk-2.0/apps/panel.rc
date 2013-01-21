@@ -38,7 +38,7 @@ style "theme-panel" = "murrine-dark"
 style "xfce-tasklist-style"
 {
 	XfceTasklist::minimized-icon-lucency = 0
-	XfceTasklist::max-button-length=800
+	XfceTasklist::max-button-length=1600
 }
 
 style "theme-panel-text"
