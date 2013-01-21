@@ -33,15 +33,20 @@ parse_git_branch_shell() {
 }
 parse_git_status() {
 	if [ $(git status --porcelain 2> /dev/null | wc -l) -gt "0" ]; then
-		echo "*"
+		if [ $(git status --porcelain -uno 2> /dev/null | wc -l) -gt "0" ]; then
+			echo "*"
+		else
+			echo "?"
+		fi
 	fi
 }
 parse_git_ahead() {
 	numAhead=$(git status -b --porcelain 2> /dev/null | grep -oe 'ahead [0-9]\+' | grep --color=none -oe '[0-9]\+')
 	if [ "$numAhead" ]; then
-		echo " +$numAhead"
+		echo "+$numAhead"
 	fi
 }
+
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
