@@ -91,6 +91,17 @@ inoremap <End> <C-P>
 vnoremap < <gv
 vnoremap > >gv
 
+" change the behavior of "A" to set your cursor before a semi-colon if
+" it exists at the end of the line
+nnoremap A :call EndOfLine()<CR>a
+fu! EndOfLine()
+	normal $
+	if getline(".")[col(".")-1] == ';'
+		normal h
+	endif
+	normal a
+endfunction
+
 " custom commands
 " stupid shift key
 cabbrev WQ wq
