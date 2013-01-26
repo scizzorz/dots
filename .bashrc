@@ -83,13 +83,27 @@ if [ -f ./.bashcolors.sh ]; then
 
 		W=$(echo $PWD | sed 's!'$HOME'!~!g')
 
+		LINECOLOR=$(tput setaf 2)
+		USERCOLOR=$(tput setaf $ucolor)
+		HOSTCOLOR=$(tput setaf $hcolor)
+		WDIRCOLOR=$(tput setaf $wcolor)
+		GITCOLOR=$(tput setaf $gitcolor)
+		RESET=$(tput sgr0)
+
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$(tput setaf 2)\]\! \[$(tput setaf $ucolor)\]\u \[$(tput setaf $hcolor)\]\h \[$(tput setaf $wcolor)\]\w\[$(tput setaf $gitcolor)\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[\$(parse_clk_status_color)\] \\$\[$(tput sgr0)\] "
-		PS2="\[$(tput setaf $ucolor)\]>\[$(tput sgr0)\]"
+		PS1="\[$LINECOLOR\]\! \[$USERCOLOR\]\u \[$HOSTCOLOR\]\h \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[\$(parse_clk_status_color)\] \\$\[$RESET\] "
+		PS2="\[$USERCOLOR\]>\[$RESET\]"
 		;;
 	*)
-		PS1="\[$(tput setaf 7)\]\! \[$(tput setaf $ucolor_)\]\u \[$(tput setaf $hcolor_)\]\h \[$(tput setaf $wcolor_)\]\w\[$(tput setaf $gitcolor_)\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[$(tput setaf $wcolor_)\] \\$\[$(tput sgr0)\] "
-		PS2="\[$(tput setaf $ucolor_)\]>\[$(tput sgr0)\]"
+		LINECOLOR=$(tput setaf 7)
+		USERCOLOR=$(tput setaf $ucolor_)
+		HOSTCOLOR=$(tput setaf $hcolor_)
+		WDIRCOLOR=$(tput setaf $wcolor_)
+		GITCOLOR=$(tput setaf $gitcolor_)
+		RESET=$(tput sgr0)
+
+		PS1="\[$LINECOLOR\]\! \[$USERCOLOR\]\u \[$HOSTCOLOR\]\h \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[$WDIRCOLOR\] \\$\[$RESET\] "
+		PS2="\[$USERCOLOR\]>\[$RESET\]"
 		;;
 	esac
 
