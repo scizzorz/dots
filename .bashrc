@@ -18,7 +18,7 @@ export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # don't put blank lines in the history and control size
-HISTCONTROL=ignorespace
+HISTCONTROL=ignorespace:ignoredups
 HISTSIZE=9999
 HISTFILESIZE=9999
 shopt -s histappend
@@ -29,7 +29,7 @@ shopt -s checkwinsize
 
 # derp
 parse_git_branch_shell() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/~/'
 }
 parse_git_status() {
 	if [ $(git status --porcelain 2> /dev/null | wc -l) -gt "0" ]; then
@@ -48,7 +48,7 @@ parse_git_ahead() {
 }
 
 parse_git_branch() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/master/~/'
 }
 
 parse_clk_status_color() {
@@ -91,7 +91,7 @@ if [ -f ./.bashcolors.sh ]; then
 		RESET=$(tput sgr0)
 
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$LINECOLOR\]\! \[$USERCOLOR\]\u \[$HOSTCOLOR\]\h \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[\$(parse_clk_status_color)\] \\$\[$RESET\] "
+		PS1="\[$USERCOLOR\]\u \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[\$(parse_clk_status_color)\] \\$\[$RESET\] "
 		PS2="\[$USERCOLOR\]>\[$RESET\]"
 		;;
 	*)
