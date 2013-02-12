@@ -1,15 +1,17 @@
 hi_id=2
+hi_count=2
 hi_project=9
 hi_context=11
 hi_priority=8
 hi_due=14
+hi_overdue=8
 hi_done=8
 
-id_size=3
+id_size=4
 
-editcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 @ > /home/john/.trkout
-markcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 @ > /home/john/.trkout
-writecmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 @ > /home/john/.trkout
+editcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
+markcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
+writecmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
 
 alias_project = re('(^|\s)\+\w+') and xre('^x\s*')
 alias_date = re('\[\d{1,2}\/\d{1,2}.*?\]') and xre('^x\s*')
