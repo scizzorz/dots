@@ -74,7 +74,10 @@ nmap <S-Tab> <
 nnoremap ; :
 
 " Q repeats last recorded macro
-noremap Q @@
+nnoremap Q @@
+
+" U redoes
+nnoremap U <C-r>
 
 " zv and zt toggle folds (za is awkward to press)
 nnoremap zv za
