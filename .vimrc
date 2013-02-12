@@ -120,6 +120,11 @@ cabbrev Wq wq
 cabbrev W w
 cabbrev Q q
 cabbrev Q! q!
+" stupid e key
+cabbrev weq wq
+cabbrev Weq wq
+cabbrev WEq wq
+cabbrev WEQ wq
 
 
 " highlighting
