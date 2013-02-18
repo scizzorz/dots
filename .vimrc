@@ -28,9 +28,8 @@ set winminwidth=0             " the minimum width of a non-focused window
 set cursorline                " highlight the line with the cursor
 set laststatus=2              " always show the status bar
 set viewoptions=folds         " only save folds with views
-set textwidth=100
 " let &colorcolumn=join(range(101,999),",")
-silent! set colorcolumn=+1
+silent! set colorcolumn=101
 set foldcolumn=1              " show a fold column!
 set foldmethod=manual         " manual folding
 set foldtext=getline(v:foldstart) " set fold line to be just the consumed line
