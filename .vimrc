@@ -96,17 +96,6 @@ inoremap <End> <C-P>
 vnoremap < <gv
 vnoremap > >gv
 
-" change the behavior of "A" to set your cursor before a semi-colon if
-" it exists at the end of the line
-nnoremap A :call EndOfLine()<CR>a
-function! EndOfLine()
-	normal $
-	if getline(".")[col(".")-1] == ';'
-		normal h
-	endif
-	normal a
-endfunction
-
 " http://vim.wikia.com/wiki/Autocomplete_with_TAB_when_typing_words
 " Use TAB to complete when typing words, else inserts TABs as usual.
 function! TabOrComplete()
