@@ -133,60 +133,63 @@ if exists("syntax_on")
 endif
 hi clear
 
-" super dark grey
+" non-syntax things
+" Lines everywhere
 hi CursorColumn ctermfg=none ctermbg=0    cterm=none
 hi ColorColumn  ctermfg=none ctermbg=0    cterm=none
+hi CursorLine   ctermfg=none ctermbg=none cterm=none
+hi CursorLineNr ctermfg=12   ctermbg=none cterm=none
 hi VertSplit    ctermfg=0    ctermbg=0    cterm=none
 
-" dark grey
-hi NonText      ctermfg=2    ctermbg=none cterm=none
-hi SpecialKey   ctermfg=2    ctermbg=none cterm=none
-hi LineNr       ctermfg=2    ctermbg=none cterm=none
-hi MatchParen   ctermfg=none ctermbg=2    cterm=none
-hi CursorLine   ctermfg=none ctermbg=none cterm=none
+hi MatchParen   ctermfg=11   ctermbg=none cterm=none
+
 hi Visual       ctermfg=none ctermbg=0    cterm=none
-hi StatusLineNC ctermfg=2    ctermbg=0    cterm=none
+
+" Status line
+hi StatusLine   ctermfg=12   ctermbg=0    cterm=none
+hi StatusLineNC ctermfg=3    ctermbg=0    cterm=none
+
+" Fold column
+hi Folded       ctermfg=12   ctermbg=none cterm=none
+hi FoldColumn   ctermfg=12   ctermbg=none cterm=none
+
+" Autocomplete menu
+hi Pmenu        ctermfg=3   ctermbg=0    cterm=none
+hi PmenuSel     ctermfg=12  ctermbg=0    cterm=none
+
+" messages
+hi Error        ctermfg=8    ctermbg=none cterm=none
+hi ErrorMsg     ctermfg=8    ctermbg=0    cterm=none
+hi ModeMsg      ctermfg=10   ctermbg=0    cterm=none
+hi MoreMsg      ctermfg=10   ctermbg=0    cterm=none
+hi WarningMsg   ctermfg=8    ctermbg=0    cterm=none
 
 " white
 hi Normal       ctermfg=7    ctermbg=none cterm=none
 
-" red
+" syntax formatting (line number, whitespace, etc.)
+hi LineNr       ctermfg=2    ctermbg=none cterm=none
+hi NonText      ctermfg=2    ctermbg=none cterm=none
+hi SpecialKey   ctermfg=2    ctermbg=none cterm=none
 hi WhitespaceEOL ctermfg=8   ctermbg=none cterm=none
-hi Error        ctermfg=8    ctermbg=none cterm=none
 hi Search       ctermfg=8    ctermbg=none cterm=none
-hi ErrorMsg     ctermfg=8    ctermbg=0    cterm=none
-hi WarningMsg   ctermfg=8    ctermbg=0    cterm=none
 hi IncSearch    ctermfg=8    ctermbg=0    cterm=none
 
-" orange
-hi Constant     ctermfg=9    ctermbg=none cterm=none
-hi ModeMsg      ctermfg=9    ctermbg=0    cterm=none
-hi MoreMsg      ctermfg=9    ctermbg=0    cterm=none
+" syntax
+hi Comment      ctermfg=14   ctermbg=none cterm=none
+hi Constant     ctermfg=10   ctermbg=none cterm=none
+hi Identifier   ctermfg=11   ctermbg=none cterm=none
+hi Statement    ctermfg=13   ctermbg=none cterm=none
+hi PreProc      ctermfg=9    ctermbg=none cterm=none
+hi Type         ctermfg=12   ctermbg=none cterm=none
+hi Special      ctermfg=15   ctermbg=none cterm=none
+hi Underlined   ctermfg=7    ctermbg=none cterm=none
+hi Ignore       ctermfg=7    ctermbg=none cterm=none
+hi Error        ctermfg=8    ctermbg=none cterm=none
+hi Todo         ctermfg=12   ctermbg=none cterm=none
 
-" yellow
-hi Title        ctermfg=10   ctermbg=none cterm=none
-
-" green
-hi MatchParen   ctermfg=11   ctermbg=none cterm=none
-
-" greenblue
-hi PreProc      ctermfg=12   ctermbg=none cterm=none
-hi CursorLineNr ctermfg=12   ctermbg=none cterm=none
-hi StatusLine   ctermfg=12   ctermbg=0    cterm=none
-
-" cyan
-hi Special      ctermfg=13   ctermbg=none cterm=none
-hi Delimeter    ctermfg=13   ctermbg=none cterm=none
-hi Folded       ctermfg=13   ctermbg=none cterm=none
-hi FoldColumn   ctermfg=13   ctermbg=none cterm=none
-
-" blue
-hi Underlined   ctermfg=14   ctermbg=none cterm=none
-hi Type         ctermfg=14   ctermbg=none cterm=none
-hi Statement    ctermfg=14   ctermbg=none cterm=none
-hi Identifier   ctermfg=14   ctermbg=none cterm=none
-
-" purple
-hi Comment      ctermfg=15   ctermbg=none cterm=none
+" might want these back
+" hi Title        ctermfg=??   ctermbg=none cterm=none
+" hi Underlined   ctermfg=??   ctermbg=none cterm=none
 
 match WhitespaceEOL /\s\+$/
