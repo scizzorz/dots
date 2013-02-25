@@ -120,6 +120,7 @@ syn keyword pythonStatement	global assert
 syn keyword pythonStatement	lambda yield
 syn keyword pythonStatement	with
 syn keyword pythonStatement	def class nextgroup=pythonFunction skipwhite
+syn keyword pythonStatement self
 syn match   pythonFunction	"[a-zA-Z_][a-zA-Z0-9_]*" display contained
 syn keyword pythonRepeat	for while
 syn keyword pythonConditional	if elif else
@@ -245,7 +246,7 @@ syn match   pythonBinError	"\<0[bB][01]*[2-9]\d*[lL]\=\>" display
 
 if exists("python_highlight_builtin_objs") && python_highlight_builtin_objs != 0
   " Builtin objects and types
-  syn keyword pythonBuiltinObj	True False Ellipsis None NotImplemented
+  syn keyword pythonBoolean		True False Ellipsis None NotImplemented
   syn keyword pythonBuiltinObj	__debug__ __doc__ __file__ __name__ __package__
 endif
 
@@ -315,7 +316,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   endif
 
   HiLink pythonStatement	Statement
-  HiLink pythonPreCondit	Statement
+  HiLink pythonPreCondit	PreProc
   HiLink pythonFunction		Function
   HiLink pythonConditional	Conditional
   HiLink pythonRepeat		Repeat
@@ -359,6 +360,8 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonOctNumber	Number
   HiLink pythonBinNumber	Number
   HiLink pythonFloat		Float
+  HiLink pythonBoolean		Boolean
+
   HiLink pythonOctError	    Error
   HiLink pythonHexError		Error
   HiLink pythonBinError		Error

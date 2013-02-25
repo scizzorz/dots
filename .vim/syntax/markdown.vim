@@ -106,7 +106,7 @@ HtmlHiLink mkdURL           htmlString
 HtmlHiLink mkdID            Identifier
 HtmlHiLink mkdLinkDef       mkdID
 HtmlHiLink mkdLinkDefTarget mkdURL
-HtmlHiLink mkdLinkTitle     htmlString
+HtmlHiLink mkdLinkTitle     Constant
 
 HtmlHiLink mkdDelimiter     Delimiter
 
