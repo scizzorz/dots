@@ -29,12 +29,16 @@ shopt -s checkwinsize
 
 # derp
 parse_git_branch_shell() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/~/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/'
 }
 parse_git_status() {
-	if [ $(git status --porcelain 2> /dev/null | wc -l) -gt "0" ]; then
-		if [ $(git status --porcelain -uno 2> /dev/null | wc -l) -gt "0" ]; then
-			echo "*"
+	all=$(git status --porcelain 2> /dev/null | wc -l)
+	mod=$(git status --porcelain -uno 2> /dev/null | wc -l)
+	if [ $all -gt "0" ]; then
+		if [ $all -gt $mod ]; then
+			echo "!?"
+		elif [ $mod -gt "0" ]; then
+			echo "!"
 		else
 			echo "?"
 		fi
@@ -48,7 +52,7 @@ parse_git_ahead() {
 }
 
 parse_git_branch() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/master/~/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/master/-/'
 }
 
 parse_clk_status_color() {
