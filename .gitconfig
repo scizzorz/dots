@@ -17,17 +17,17 @@
 	remote = yellow bold
 
 [color "diff"]
-	plain = yellow
-	meta = magenta bold
-	frag = blue bold
-	old = black bold
-	new = yellow bold
-	commit = yellow
+	plain = white
+	meta = cyan bold
+	frag = yellow bold
+	old = red
+	new = green
+	commit = cyan
 
 [color "status"]
-	added = green bold
-	changed = yellow bold
-	untracked = blue bold
+	added = blue bold
+	changed = green bold
+	untracked = green bold
 
 [diff]
 	#external = /usr/bin/colordiff
