@@ -64,16 +64,16 @@ TERM xterm-debian
 #NORMAL 00 # no color code at all
 #FILE 00 # regular file: use no color at all
 RESET 0 # reset to "normal" color
-DIR 01;36 # directory
-LINK 01;34 # symbolic link. (If you set this to 'target' instead of a
+DIR 95 # directory
+LINK 94 # symbolic link. (If you set this to 'target' instead of a
  # numerical value, the color is as for the file pointed to.)
 MULTIHARDLINK 00 # regular file with more than one link
-FIFO 40;33 # pipe
-SOCK 01;35 # socket
-DOOR 01;35 # door
+FIFO 93 # pipe
+SOCK 95 # socket
+DOOR 95 # door
 BLK 40;33;01 # block device driver
 CHR 40;33;01 # character device driver
-ORPHAN 40;31;01 # symlink to nonexistent file, or non-stat'able file
+ORPHAN 90 # symlink to nonexistent file, or non-stat'able file
 SETUID 37;41 # file that is setuid (u+s)
 SETGID 30;43 # file that is setgid (g+s)
 CAPABILITY 30;41 # file with capability
@@ -81,7 +81,7 @@ STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
 OTHER_WRITABLE 34;42 # dir that is other-writable (o+w) and not sticky
 STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 # This is for files with execute permission:
-EXEC 01;33
+EXEC 93
 # List any file extensions like '.gz' or '.tar' that you would like ls
 # to colorize below. Put the extension, a space, and the color init string.
 # (and any comments you want to add after a '#')
@@ -95,100 +95,100 @@ EXEC 01;33
 # executable bit actually set.
 #.sh 01;32
 #.csh 01;32
- # archives or compressed (bright red)
-.tar 01;31
-.tgz 01;31
-.arj 01;31
-.taz 01;31
-.lzh 01;31
-.lzma 01;31
-.tlz 01;31
-.txz 01;31
-.zip 01;31
-.z 01;31
-.Z 01;31
-.dz 01;31
-.gz 01;31
-.lz 01;31
-.xz 01;31
-.bz2 01;31
-.bz 01;31
-.tbz 01;31
-.tbz2 01;31
-.tz 01;31
-.deb 01;31
-.rpm 01;31
-.jar 01;31
-.rar 01;31
-.ace 01;31
-.zoo 01;31
-.cpio 01;31
-.7z 01;31
-.rz 01;31
+ # archives or compressed (magenta)
+.tar 92
+.tgz 92
+.arj 92
+.taz 92
+.lzh 92
+.lzma 92
+.tlz 92
+.txz 92
+.zip 92
+.z 92
+.Z 92
+.dz 92
+.gz 92
+.lz 92
+.xz 92
+.bz2 92
+.bz 92
+.tbz 92
+.tbz2 92
+.tz 92
+.deb 92
+.rpm 92
+.jar 92
+.rar 92
+.ace 92
+.zoo 92
+.cpio 92
+.7z 92
+.rz 92
 # image formats
-.jpg 01;37
-.jpeg 01;37
-.gif 01;37
-.bmp 01;37
-.pbm 01;37
-.pgm 01;37
-.ppm 01;37
-.tga 01;37
-.xbm 01;37
-.xpm 01;37
-.tif 01;37
-.tiff 01;37
-.png 01;37
-.svg 01;37
-.svgz 01;37
-.mng 01;37
-.pcx 01;37
-.mov 01;37
-.mpg 01;37
-.mpeg 01;37
-.m2v 01;37
-.mkv 01;37
-.ogm 01;37
-.mp4 01;37
-.m4v 01;37
-.mp4v 01;37
-.vob 01;37
-.qt 01;37
-.nuv 01;37
-.wmv 01;37
-.asf 01;37
-.rm 01;37
-.rmvb 01;37
-.flc 01;37
-.avi 01;37
-.fli 01;37
-.flv 01;37
-.gl 01;37
-.dl 01;37
-.xcf 01;37
-.xwd 01;37
-.yuv 01;37
-.cgm 01;37
-.emf 01;37
+.jpg 96
+.jpeg 96
+.gif 96
+.bmp 96
+.pbm 96
+.pgm 96
+.ppm 96
+.tga 96
+.xbm 96
+.xpm 96
+.tif 96
+.tiff 96
+.png 96
+.svg 96
+.svgz 96
+.mng 96
+.pcx 96
+.mov 96
+.mpg 96
+.mpeg 96
+.m2v 96
+.mkv 96
+.ogm 96
+.mp4 96
+.m4v 96
+.mp4v 96
+.vob 96
+.qt 96
+.nuv 96
+.wmv 96
+.asf 96
+.rm 96
+.rmvb 96
+.flc 96
+.avi 96
+.fli 96
+.flv 96
+.gl 96
+.dl 96
+.xcf 96
+.xwd 96
+.yuv 96
+.cgm 96
+.emf 96
 # http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
-.axv 01;37
-.anx 01;37
-.ogv 01;37
-.ogx 01;37
+.axv 96
+.anx 96
+.ogv 96
+.ogx 96
 # audio formats
-.aac 00;32
-.au 00;32
-.flac 00;32
-.mid 00;32
-.midi 00;32
-.mka 00;32
-.mp3 00;28
-.mpc 00;32
-.ogg 00;32
-.ra 00;32
-.wav 00;32
+.aac 91
+.au 91
+.flac 91
+.mid 91
+.midi 91
+.mka 91
+.mp3 91
+.mpc 91
+.ogg 91
+.ra 91
+.wav 91
 # http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
-.axa 00;32
-.oga 00;32
-.spx 00;32
-.xspf 00;32
+.axa 91
+.oga 91
+.spx 91
+.xspf 91
