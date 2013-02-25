@@ -35,12 +35,13 @@ parse_git_status() {
 	all=$(git status --porcelain 2> /dev/null | wc -l)
 	mod=$(git status --porcelain -uno 2> /dev/null | wc -l)
 	if [ $all -gt "0" ]; then
-		if [ $all -gt $mod ]; then
-			echo "!?"
-		elif [ $mod -gt "0" ]; then
-			echo "!"
+		if [ $mod -gt "0" ]; then
+			echo -n "!"
+			if [ $all -gt $mod ]; then
+				echo -n "?"
+			fi
 		else
-			echo "?"
+			echo -n "?"
 		fi
 	fi
 }
