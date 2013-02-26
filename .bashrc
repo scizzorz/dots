@@ -82,7 +82,7 @@ if [ -f ./.bashcolors.sh ]; then
 
 	# prompt!
 	case "$TERM" in
-	xterm*|rxvt*)
+	xterm*|rxvt*|screen*)
 		# some terminals need this I guess... lame.
 		export TERM=xterm-256color
 
