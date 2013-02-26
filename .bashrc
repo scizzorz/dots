@@ -1,5 +1,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+[ $TERM != "screen" ] && exec tmux
 
 # use vim as the man pager
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\""
