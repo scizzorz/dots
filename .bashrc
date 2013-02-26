@@ -74,12 +74,12 @@ parse_clk_status_color() {
 }
 
 # set the colors for the prompt
-if [ -f ./.bashcolors.sh ]; then
+if [ -f ~/.bashcolors.sh ]; then
 	# this file is not included in my dots repo!
 	# it exports some colors used in the PS1 and PS2 variables
 	# it's not included so that each host can have its own
 	# unique colors without possibly causing any git conflicts
-	. .bashcolors.sh
+	. ~/.bashcolors.sh
 
 	# prompt!
 	case "$TERM" in
