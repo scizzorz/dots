@@ -1,11 +1,10 @@
-hi_id = 2
-hi_count = 2
+hi_id = 8
+hi_count = 8
 hi_project = 9
-hi_context = 11
-hi_priority = 8
-hi_due = 13
-hi_overdue = 8
-hi_done = 8
+hi_context = 2
+hi_priority =1
+hi_due = 14
+hi_overdue = 1
 
 editcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
 markcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
