@@ -1,5 +1,10 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+
+# this makes tmux play nicely with gnome-terminal
+if [ $TERM == 'xterm' ]; then
+	export TERM=xterm-256color
+fi
 [ $TERM != "screen" ] && exec tmux
 
 # use vim as the man pager
@@ -87,9 +92,14 @@ if [ -f ~/.bashcolors.sh ]; then
 
 	# prompt!
 	case "$TERM" in
-	xterm*|rxvt*|screen*)
-		# some terminals need this I guess... lame.
-		export TERM=xterm-256color
+	xterm*|screen*)
+		# makes my colors play nicely with stuff
+		if [ $TERM == "screen" ]; then
+			export TERM=screen-256color
+		fi
+		if [ $TERM == "xterm" ]; then
+			export TERM=xterm-256color
+		fi
 
 		W=$(echo $PWD | sed 's!'$HOME'!~!g')
 
