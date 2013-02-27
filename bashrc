@@ -17,7 +17,6 @@ export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 
 # aliases
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias vimp="/bin/sh -c \"col -b | vim -c 'set ts=8 cc=0 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\""
 
 # don't put blank lines in the history and control size
 HISTCONTROL=ignorespace:ignoredups
@@ -30,10 +29,14 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # derp
-parse_git_branch_shell() {
+function vimp {
+	/bin/sh -c \"col -b | vim -c 'set ft=$1 ts=8 cc=0 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\"
+}
+
+function parse_git_branch_shell {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/'
 }
-parse_git_status() {
+function parse_git_status {
 	all=$(git status --porcelain 2> /dev/null | wc -l)
 	mod=$(git status --porcelain -uno 2> /dev/null | wc -l)
 	if [ $all -gt "0" ]; then
@@ -47,18 +50,18 @@ parse_git_status() {
 		fi
 	fi
 }
-parse_git_ahead() {
+function parse_git_ahead {
 	numAhead=$(git status -b --porcelain 2> /dev/null | grep -oe 'ahead [0-9]\+' | grep --color=none -oe '[0-9]\+')
 	if [ "$numAhead" ]; then
 		echo "+$numAhead"
 	fi
 }
 
-parse_git_branch() {
+function parse_git_branch {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/master/-/'
 }
 
-parse_clk_status_color() {
+function parse_clk_status_color {
 	C="none"
 	if [ -x ~/.clk.py ]; then
 		C=$(~/.clk.py status)

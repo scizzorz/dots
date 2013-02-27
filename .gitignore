@@ -1,6 +1,6 @@
-.vim/swap/*
-.vim/undo/*
-.vim/view/*
-.vim/snippets
-.vim/doc
-.vim/.netrwhist
+vim/swap/*
+vim/undo/*
+vim/view/*
+vim/snippets
+vim/doc
+vim/.netrwhist
