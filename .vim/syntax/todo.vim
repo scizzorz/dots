@@ -8,7 +8,7 @@ syn match todoContext '\(^\|\s\)@[A-Za-z+@]\+'
 syn match todoPriority '\s*(\d)\s*'
 syn match todoDue '\[\d\{1,2\}/\d\{1,2\}\(/\d\{2,4\}\)\=\([@ ]\d\{1,2\}\(:\d\{1,2\}\)\=\(am\|pm\)\)\=\]'
 
-hi def link todoProject Constant
-hi def link todoContext MatchParen
-hi def link todoPriority Error
-hi def link todoDue Type
+hi todoProject   ctermfg=9  ctermbg=none cterm=none
+hi todoContext   ctermfg=2  ctermbg=none cterm=none
+hi todoPriority  ctermfg=1  ctermbg=none cterm=none
+hi todoDue       ctermfg=14 ctermbg=none cterm=none
