@@ -6,7 +6,7 @@ endif
 syn match todoProject '\(^\|\s\)+[A-Za-z+]\+'
 syn match todoContext '\(^\|\s\)@[A-Za-z+@]\+'
 syn match todoPriority '\s*(\d)\s*'
-syn match todoDue '\[\d\{1,2\}/\d\{1,2\}\(/\d\{2,4\}\)\=\([@ ]\d\{1,2\}\(:\d\{1,2\}\)\=\(am\|pm\)\)\=\]'
+syn match todoDue '\[\=\d\{1,2\}/\d\{1,2\}\(/\d\{2,4\}\)\=\([@ ]\d\{1,2\}\(:\d\{1,2\}\)\=\(am\|pm\)\)\=\]\='
 
 hi todoProject   ctermfg=9  ctermbg=none cterm=none
 hi todoContext   ctermfg=2  ctermbg=none cterm=none
