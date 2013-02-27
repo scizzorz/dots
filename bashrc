@@ -94,12 +94,7 @@ if [ -f ~/.bashcolors.sh ]; then
 	case "$TERM" in
 	xterm*|screen*)
 		# makes my colors play nicely with stuff
-		if [ $TERM == "screen" ]; then
-			export TERM=screen-256color
-		fi
-		if [ $TERM == "xterm" ]; then
-			export TERM=xterm-256color
-		fi
+		export TERM=xterm-256color
 
 		W=$(echo $PWD | sed 's!'$HOME'!~!g')
 
