@@ -1,0 +1,10 @@
+multiwin	multiwin.txt	/*multiwin*
+multiwin-\win	multiwin.txt	/*multiwin-\\win*
+multiwin-contents	multiwin.txt	/*multiwin-contents*
+multiwin-gf	multiwin.txt	/*multiwin-gf*
+multiwin-history	multiwin.txt	/*multiwin-history*
+multiwin-keys	multiwin.txt	/*multiwin-keys*
+multiwin-next-win	multiwin.txt	/*multiwin-next-win*
+multiwin-prev-win	multiwin.txt	/*multiwin-prev-win*
+multiwin-var	multiwin.txt	/*multiwin-var*
+multiwin.txt	multiwin.txt	/*multiwin.txt*

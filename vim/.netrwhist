@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/john/notes'
+let g:netrw_dirhist_2='/etc/apache2/conf.d'
+let g:netrw_dirhist_3='/home/john/.gconf/apps/gnome-terminal/profiles/Profile2'
+let g:netrw_dirhist_4='/home/john/.gconf/apps/gnome-terminal/profiles'
+let g:netrw_dirhist_5='/home/john/dots/.git'
