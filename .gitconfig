@@ -3,12 +3,13 @@
 	email = jweachock@gmail.com
 
 [core]
-	pager=cat
+	pager=/bin/sh -c \"col -b | vim -c 'set ft=mygit ts=8 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\"
+	#pager=cat
 
 [color]
 	ui = true
 	branch = auto
-	diff = auto
+	diff = false
 	status = auto
 
 [color "branch"]
