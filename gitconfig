@@ -12,22 +12,22 @@
 	status = auto
 
 [color "branch"]
-	current = green bold
-	local = green bold
-	remote = yellow bold
+	current = cyan bold
+	local = blue bold
+	remote = red bold
 
 [color "diff"]
 	plain = white
 	meta = cyan bold
-	frag = yellow bold
+	frag = cyan
 	old = red
 	new = green
-	commit = cyan
+	commit = black bold
 
 [color "status"]
-	added = blue bold
-	changed = green bold
-	untracked = green bold
+	added = green
+	changed = blue bold
+	untracked = cyan bold
 
 [alias]
 	st = status
