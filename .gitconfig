@@ -10,7 +10,6 @@
 	branch = auto
 	diff = auto
 	status = auto
-	pager = false
 
 [color "branch"]
 	current = green bold
@@ -29,9 +28,6 @@
 	added = blue bold
 	changed = green bold
 	untracked = green bold
-
-[diff]
-	#external = /usr/bin/colordiff
 
 [alias]
 	st = status
