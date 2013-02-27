@@ -9,8 +9,9 @@
 [color]
 	ui = true
 	branch = auto
-	diff = false
+	diff = auto
 	status = auto
+	pager = false
 
 [color "branch"]
 	current = green bold
