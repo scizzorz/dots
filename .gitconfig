@@ -3,8 +3,7 @@
 	email = jweachock@gmail.com
 
 [core]
-	pager=/bin/sh -c \"col -b | vim -c 'set ft=mygit ts=8 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\"
-	#pager=cat
+	pager = ~/dots/gitpager.sh
 
 [color]
 	ui = true
