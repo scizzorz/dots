@@ -30,7 +30,7 @@ shopt -s checkwinsize
 
 # derp
 function vimp {
-	/bin/sh -c \"col -b | vim -c 'set ft=$1 ts=8 cc=0 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\"
+	/bin/sh -c "col -b | vim -c 'set ft=$1 ts=8 cc=0 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -"
 }
 
 function parse_git_branch_shell {
