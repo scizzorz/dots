@@ -3,7 +3,7 @@
 [ $TERM != "screen" ] && exec tmux
 
 # use vim as the man pager
-export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\""
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 cc=0 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\""
 export EDITOR="/usr/bin/vim"
 
 # update path
@@ -17,7 +17,7 @@ export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 
 # aliases
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias vimp="/bin/sh -c \"col -b | vim -c 'set ts=8 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\""
+alias vimp="/bin/sh -c \"col -b | vim -c 'set ts=8 cc=0 nomod nolist nonu noma' -c 'noremap q <Esc>:q<Return>' -\""
 
 # don't put blank lines in the history and control size
 HISTCONTROL=ignorespace:ignoredups
