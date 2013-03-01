@@ -41,7 +41,7 @@ filetype indent on            " special indenting by filetype I think
 if has("autocmd")
 	" jump to last position when reopening
 	autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-	\| exe "normal! g'\"" | endif
+				\| exe "normal! g'\"" | endif
 
 	" automatically save and restore views (folds)
 	" maps have to be made *after* restoring or else the new maps
@@ -74,6 +74,12 @@ nmap <S-Tab> <
 
 " map ; to :
 nnoremap ; :
+
+" seriously, I hate q: more than anything in the whole world
+nnoremap q: :
+
+" remap = to auto indent the whole file
+nnoremap = ggVG=<C-o><C-o>
 
 " Q repeats last recorded macro
 nnoremap Q @@
