@@ -43,22 +43,18 @@ function parse_git_branch_shell {
 }
 function parse_git_status {
 	all=$(git status --porcelain 2> /dev/null | wc -l)
-	mod=$(git status --porcelain -uno 2> /dev/null | wc -l)
-	if [ $all -gt "0" ]; then
-		if [ $mod -gt "0" ]; then
-			echo -n "!"
-			if [ $all -gt $mod ]; then
-				echo -n "?"
-			fi
-		else
-			echo -n "?"
-		fi
-	fi
-}
-function parse_git_ahead {
+	modified=$(git status --porcelain -uno 2> /dev/null | wc -l)
+	untracked=$(($all-$modified))
 	numAhead=$(git status -b --porcelain 2> /dev/null | grep -oe 'ahead [0-9]\+' | grep --color=none -oe '[0-9]\+')
+
+	if [ $modified -gt "0" ]; then
+		echo -n " !$modified"
+	fi
+	if [ $untracked -gt "0" ]; then
+		echo -n " ?$untracked"
+	fi
 	if [ "$numAhead" ]; then
-		echo "+$numAhead"
+		echo -n " +$numAhead"
 	fi
 }
 
@@ -107,7 +103,7 @@ if [ -f ~/.bashcolors.sh ]; then
 		RESET=$(tput sgr0)
 
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$USERCOLOR\]\u \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[\$(parse_clk_status_color)\] \\$\[$RESET\] "
+		PS1="\[$USERCOLOR\]\u \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[\$(parse_clk_status_color)\] \\$\[$RESET\] "
 		PS2="\[$USERCOLOR\]>\[$RESET\]"
 
 		# resture the TERM to what it was
