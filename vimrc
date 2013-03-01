@@ -51,7 +51,7 @@ if has("autocmd")
 	" | nnoremap z za | vnoremap z zf
 
 	" automatically reload vimrc when it's saved
-	autocmd! BufWritePost .vimrc so ~/.vimrc
+	autocmd! BufWritePost vimrc,.vimrc so ~/.vimrc
 
 	" automatically resize splits when the window is resized
 	autocmd VimResized * exe "normal! \<c-w>="
