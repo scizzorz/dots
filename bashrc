@@ -94,6 +94,7 @@ if [ -f ~/.bashcolors.sh ]; then
 	case "$TERM" in
 	xterm*|screen*)
 		# makes my colors play nicely with stuff
+		restoreTerm="$TERM"
 		export TERM=xterm-256color
 
 		W=$(echo $PWD | sed 's!'$HOME'!~!g')
@@ -108,6 +109,9 @@ if [ -f ~/.bashcolors.sh ]; then
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
 		PS1="\[$USERCOLOR\]\u \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[\$(parse_clk_status_color)\] \\$\[$RESET\] "
 		PS2="\[$USERCOLOR\]>\[$RESET\]"
+
+		# resture the TERM to what it was
+		export TERM="$restoreTerm"
 		;;
 	*)
 		LINECOLOR=$(tput setaf 7)
