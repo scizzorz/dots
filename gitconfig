@@ -32,8 +32,15 @@
 [alias]
 	st = status
 	ci = commit
-	br = branch
+	br = checkout
+	cdbr = checkout
+	rmbr = branch -d
+	mkbr = branch
+	lsbr = branch
+	mvbr = branch -m
 	co = checkout
 	cl = clone
 	df = diff
 	lg = log --oneline --graph
+	mg = merge --no-ff
+	fuse = merge --no-ff

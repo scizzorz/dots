@@ -39,7 +39,7 @@ function vimp {
 }
 
 function parse_git_branch_shell {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/' -e 's/dev/+/'
 }
 function parse_git_status {
 	all=$(git status --porcelain 2> /dev/null | wc -l)
