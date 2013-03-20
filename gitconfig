@@ -32,11 +32,11 @@
 [alias]
 	st = status
 	ci = commit
-	br = checkout
+	br = branch
 	cdbr = checkout
 	rmbr = branch -d
 	mkbr = branch
-	lsbr = branch
+	lsbr = branch -v
 	mvbr = branch -m
 	co = checkout
 	cl = clone
