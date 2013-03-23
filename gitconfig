@@ -44,4 +44,4 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	mg = merge --no-ff
 	fuse = merge --no-ff
-
+	new = !sh -c 'git lg $1@{1}..$1@{0} "$@"'
