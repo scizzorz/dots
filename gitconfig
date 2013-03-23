@@ -41,6 +41,7 @@
 	co = checkout
 	cl = clone
 	df = diff
-	lg = log --oneline --graph
+	lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	mg = merge --no-ff
 	fuse = merge --no-ff
+
