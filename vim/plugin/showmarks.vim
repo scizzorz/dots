@@ -134,7 +134,7 @@ noremap <silent> m :exe 'norm \sm'.nr2char(getchar())<bar>call <sid>ShowMarks()<
 if g:showmarks_enable == 1
 	aug ShowMarks
 		au!
-		autocmd BufEnter,BufNewFile,BufRead,CursorHold * call s:ShowMarks()
+		autocmd BufEnter,CursorHold * call s:ShowMarks()
 	aug END
 endif
 
