@@ -180,6 +180,7 @@ hi SpecialKey   ctermfg=8     ctermbg=none cterm=none
 hi WhitespaceEOL ctermfg=1    ctermbg=none cterm=none
 hi Search       ctermfg=1     ctermbg=none cterm=none
 hi IncSearch    ctermfg=1     ctermbg=0    cterm=none
+hi SignColumn   ctermfg=none  ctermbg=none cterm=none
 
 " syntax
 hi Error        ctermfg=1     ctermbg=none cterm=none
@@ -193,17 +194,6 @@ hi Special      ctermfg=13    ctermbg=none cterm=none
 hi Statement    ctermfg=14    ctermbg=none cterm=none
 hi Underlined   ctermfg=15    ctermbg=none cterm=none
 hi Ignore       ctermfg=15    ctermbg=none cterm=none
-
-" showmarks.vim
-let g:showmarks_textlower="'\t"
-let g:showmarks_textupper="'\t"
-let g:showmarks_textother="'\t"
-let g:showmarks_include="abcdefghijlmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ[]"
-hi ShowMarksHLl ctermfg=14   ctermbg=none cterm=none
-hi ShowMarksHLu ctermfg=14   ctermbg=none cterm=none
-hi ShowMarksHLo ctermfg=14   ctermbg=none cterm=none
-hi ShowMarksHLm ctermfg=14   ctermbg=none cterm=none
-hi SignColumn   ctermfg=none ctermbg=none cterm=none
 
 " TODO might want these back
 " hi Title        ctermfg=??   ctermbg=none cterm=none
