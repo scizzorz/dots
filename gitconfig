@@ -30,7 +30,7 @@
 	untracked = cyan bold
 
 [alias]
-	st = status
+	st = status -s
 	ci = commit
 	br = branch
 	cdbr = checkout
@@ -41,7 +41,7 @@
 	co = checkout
 	cl = clone
 	df = diff
-	lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lg = log --graph --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad%C(blue)%d%C(reset) %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	mg = merge --no-ff
 	fuse = merge --no-ff
 	new = !sh -c 'git lg $1@{1}..$1@{0} "$@"'
