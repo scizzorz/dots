@@ -102,6 +102,10 @@ inoremap <End> <C-P>
 vnoremap < <gv
 vnoremap > >gv
 
+" courtesy of Steve Losh
+noremap H ^
+noremap L $
+
 " http://vim.wikia.com/wiki/Autocomplete_with_TAB_when_typing_words
 " Use TAB to complete when typing words, else inserts TABs as usual.
 function! TabOrComplete()
