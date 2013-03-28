@@ -85,6 +85,9 @@ syntax region htmlH6       start="^\s*######"              end="\($\|#\+\)" cont
 syntax match  htmlH1       /^.\+\n=\+$/ contains=@Spell
 syntax match  htmlH2       /^.\+\n-\+$/ contains=@Spell
 
+syntax match pyfwMode "^\[\(meta\|source\)\]$"
+syntax match pyfwKeys "^\(title\|datetime\|page\|navkey\|tags\|redirect\|link\)"
+
 "highlighting for Markdown groups
 HtmlHiLink htmlH1						Constant
 HtmlHiLink htmlH2						Constant
@@ -107,6 +110,8 @@ HtmlHiLink mkdID            Identifier
 HtmlHiLink mkdLinkDef       mkdID
 HtmlHiLink mkdLinkDefTarget mkdURL
 HtmlHiLink mkdLinkTitle     Constant
+hi def link pyfwMode Keyword
+hi def link pyfwKeys Keyword
 
 HtmlHiLink mkdDelimiter     Delimiter
 
