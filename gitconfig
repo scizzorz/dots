@@ -42,6 +42,7 @@
 	cl = clone
 	df = diff
 	lg = log --graph --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad%C(blue)%d%C(reset) %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad%C(blue)%d%C(reset) %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	mg = merge --no-ff
 	fuse = merge --no-ff
 	new = !sh -c 'git lg $1@{1}..$1@{0} "$@"'

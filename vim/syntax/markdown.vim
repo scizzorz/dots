@@ -85,7 +85,7 @@ syntax region htmlH6       start="^\s*######"              end="\($\|#\+\)" cont
 syntax match  htmlH1       /^.\+\n=\+$/ contains=@Spell
 syntax match  htmlH2       /^.\+\n-\+$/ contains=@Spell
 
-syntax match pyfwMode "^\[\(meta\|source\)\]$"
+syntax match pyfwMode "^\[\(meta\|preview\|full\)\]$"
 syntax match pyfwKeys "^\(title\|datetime\|page\|navkey\|tags\|redirect\|link\)"
 
 "highlighting for Markdown groups
