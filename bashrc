@@ -8,7 +8,7 @@ fi
 [ $TERM != "screen" ] && exec tmux
 
 # use vim as the man pager
-export MANPAGER='/bin/bash -c "vim -c \"silent! set ft=man ts=8 cc=0 nomod nolist nu rnu noma\" -c \"noremap q <Esc>:q!<Return>\" -c \"unmap q:\" -c \"noremap j <C-e>\" -c \"noremap k <C-y>\"</dev/tty <(col -b)"'
+export MANPAGER='/bin/bash -c "vim -c \"silent! set ft=man ts=8 cc=0 nomod nolist nonu nornu noma\" -c \"noremap q <Esc>:q!<Return>\" -c \"unmap q:\" -c \"noremap j <C-e>\" -c \"noremap k <C-y>\"</dev/tty <(col -b)"'
 export EDITOR="/usr/bin/vim"
 
 # update path
@@ -35,7 +35,7 @@ shopt -s checkwinsize
 
 # derp
 function vimp {
-	/bin/bash -c "vim -c 'silent! set ft=$1 ts=8 cc=0 nomod nolist nu rnu noma' -c 'noremap q <Esc>:q!<Return>' -c 'unmap q:' -c 'noremap j <C-e>' -c 'noremap k <C-y>'</dev/tty <(col -b)"
+	/bin/bash -c "vim -c 'silent! set ft=$1 ts=8 cc=0 nomod nolist nonu nornu noma' -c 'noremap q <Esc>:q!<Return>' -c 'unmap q:' -c 'noremap j <C-e>' -c 'noremap k <C-y>'</dev/tty <(col -b)"
 }
 
 function parse_git_branch_shell {
