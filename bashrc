@@ -104,7 +104,7 @@ if [ -f ~/.bashcolors.sh ]; then
 		RESET=$(tput sgr0)
 
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$USERCOLOR\]\u \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[\$(parse_clk_status_color)\] \\$\[$RESET\] "
+		PS1="\[$USERCOLOR\]\u \[$HOSTCOLOR\]\h \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[\$(parse_clk_status_color)\] \\$\[$RESET\] "
 		PS2="\[$USERCOLOR\]>\[$RESET\]"
 
 		# resture the TERM to what it was
