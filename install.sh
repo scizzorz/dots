@@ -22,6 +22,7 @@ inst $TO/.tmux.conf $FROM/tmux.conf
 inst $TO/.trkrc $FROM/trkrc
 inst $TO/.vim $FROM/vim
 inst $TO/.vimrc $FROM/vimrc
+inst $TO/.pylintrc $FROM/pylintrc
 
 echo "Installing $FROM/fonts/* as $TO/.fonts/*..."
 if [ ! -e $TO/.fonts ]; then
