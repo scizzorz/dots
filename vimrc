@@ -71,22 +71,30 @@ endif
 
 " mappings
 " map <C-HJKL> to move within windows instead of <C-W><HJKL>
-nmap <silent> <C-H> <Esc>:wincmd h<CR>
-nmap <silent> <C-J> <Esc>:wincmd j<CR>
-nmap <silent> <C-K> <Esc>:wincmd k<CR>
-nmap <silent> <C-L> <Esc>:wincmd l<CR>
+map <silent> <C-H> <Esc>:wincmd h<CR>
+map <silent> <C-J> <Esc>:wincmd j<CR>
+map <silent> <C-K> <Esc>:wincmd k<CR>
+map <silent> <C-L> <Esc>:wincmd l<CR>
 
 " map ; to :
 nnoremap ; :
+vmap ; :
+
+" map : in visual to *just* a colon, dump the automatic range insertion
+vnoremap : :<Backspace><Backspace><Backspace><Backspace><Backspace>
 
 " remap = to auto indent the whole file
 nnoremap = ggVG=<C-o><C-o>
 
 " Q repeats last recorded macro
-nnoremap Q @@
+map Q @@
 
 " U redoes
-nnoremap U <C-r>
+map U <C-r>
+
+" Y yanks until the end of line
+" makes it act like S, D, C
+nmap Y y$
 
 " zv and zt toggle folds (za is awkward to press)
 nnoremap zv za
@@ -94,21 +102,19 @@ nnoremap zt za
 
 " <j><j> in insert mode will simulate an escape
 " (only useful on a non-full keyboard)
-inoremap jj <Esc>
-
-" rebound caps lock for autocompletion
-inoremap <End> <C-P>
+imap jj <Esc>
 
 " reselect visual block after indent / outdent
 vnoremap < <gv
 vnoremap > >gv
 
 " courtesy of Steve Losh
+" map H and L to move all the way left and all the way right
 noremap H ^
 noremap L $
 
 " http://vim.wikia.com/wiki/Autocomplete_with_TAB_when_typing_words
-" Use TAB to complete when typing words, else inserts TABs as usual.
+" Use tab to complete when typing words, else inserts tabs as usual.
 function! TabOrComplete()
 	if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
 		return "\<C-N>"
