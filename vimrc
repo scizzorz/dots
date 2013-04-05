@@ -11,6 +11,7 @@ set smarttab                  " makes tabs/backspace more helpful at the beginni
 set showmode                  " show the mode when in insert/replace/visual
 set showcmd                   " show partial commands
 set directory=~/.vim/swap     " directory for swap files
+set so=4                      " keep the cursor outside of the top/bottom 4 lines when scrolling
 
 if has("persistent_undo")
 	set undodir=~/.vim/undo   " directory for undo files
@@ -39,6 +40,9 @@ filetype indent on            " special indenting by filetype I think
 
 " auto commands
 if has("autocmd")
+	" clear all autocommands
+	autocmd!
+
 	" jump to last position when reopening
 	autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 				\| exe "normal! g'\"" | endif
@@ -51,7 +55,7 @@ if has("autocmd")
 	" | nnoremap z za | vnoremap z zf
 
 	" automatically reload vimrc when it's saved
-	autocmd! BufWritePost vimrc,.vimrc so ~/.vimrc
+	autocmd BufWritePost vimrc,.vimrc so ~/.vimrc
 
 	" automatically resize splits when the window is resized
 	autocmd VimResized * exe "normal! \<c-w>="
@@ -59,6 +63,10 @@ if has("autocmd")
 	" update the title and stuff
 	autocmd BufEnter * let &titlestring = $USER . " " . hostname(). " | vim " . expand("%:~:p")
 	set title
+
+	" I seriously hate q: more than anything in the whole world
+	" but I can't do anything about it
+	" if you know how to turn that off, PLEASE LET ME KNOW
 endif
 
 " mappings
@@ -68,15 +76,8 @@ nmap <silent> <C-J> <Esc>:wincmd j<CR>
 nmap <silent> <C-K> <Esc>:wincmd k<CR>
 nmap <silent> <C-L> <Esc>:wincmd l<CR>
 
-" map <Tab> and <S-Tab> to < and > respectively
-nmap <Tab> >
-nmap <S-Tab> <
-
 " map ; to :
 nnoremap ; :
-
-" seriously, I hate q: more than anything in the whole world
-nnoremap q: :
 
 " remap = to auto indent the whole file
 nnoremap = ggVG=<C-o><C-o>
