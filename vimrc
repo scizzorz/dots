@@ -36,6 +36,7 @@ set foldmethod=manual         " manual folding
 set foldtext=getline(v:foldstart) " set fold line to be just the consumed line
 " set foldmethod=indent         " set automatic folding
 " set relativenumber            " show line numbers relative to the current line
+let mapleader=","             " remap the leader key from \ to ,
 filetype indent on            " special indenting by filetype I think
 
 " auto commands
@@ -75,6 +76,12 @@ map <silent> <C-H> <Esc>:wincmd h<CR>
 map <silent> <C-J> <Esc>:wincmd j<CR>
 map <silent> <C-K> <Esc>:wincmd k<CR>
 map <silent> <C-L> <Esc>:wincmd l<CR>
+
+" map <Leader><Space> to remove all whitespace
+nmap <Leader><Space> :%s/\s*$//<Enter><C-o>
+
+" map <Leader>m to run :!make
+nmap <Leader>m :!make<Enter>
 
 " map ; to :
 nnoremap ; :
