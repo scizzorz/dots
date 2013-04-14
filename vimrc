@@ -196,8 +196,8 @@ hi LineNr       ctermfg=8     ctermbg=none cterm=none
 hi NonText      ctermfg=8     ctermbg=none cterm=none
 hi SpecialKey   ctermfg=8     ctermbg=none cterm=none
 hi WhitespaceEOL ctermfg=1    ctermbg=none cterm=none
-hi Search       ctermfg=13    ctermbg=none cterm=none
-hi IncSearch    ctermfg=13    ctermbg=0    cterm=none
+hi Search       ctermfg=1     ctermbg=none cterm=none
+hi IncSearch    ctermfg=1     ctermbg=0    cterm=none
 hi SignColumn   ctermfg=none  ctermbg=none cterm=none
 
 " syntax
