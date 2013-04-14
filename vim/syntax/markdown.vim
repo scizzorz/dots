@@ -86,7 +86,7 @@ syntax match  htmlH1       /^.\+\n=\+$/ contains=@Spell
 syntax match  htmlH2       /^.\+\n-\+$/ contains=@Spell
 
 syntax match pyfwMode "^\[\(meta\|preview\|full\)\]$"
-syntax match pyfwKeys "^\(title\|datetime\|page\|navkey\|tags\|redirect\|link\)"
+syntax match pyfwKeys "^\(title\|datetime\|page_title\|page\|navkey\|tags\|redirect\|link\)"
 
 "highlighting for Markdown groups
 HtmlHiLink htmlH1						Constant
