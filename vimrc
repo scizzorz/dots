@@ -29,15 +29,31 @@ set winminwidth=0             " the minimum width of a non-focused window
 set cursorline                " highlight the line with the cursor
 set laststatus=2              " always show the status bar
 set viewoptions=folds         " only save folds with views
-" let &colorcolumn=join(range(101,999),",")
-silent! set colorcolumn=101
 set foldcolumn=1              " show a fold column!
-set foldmethod=manual         " manual folding
-set foldtext=getline(v:foldstart) " set fold line to be just the consumed line
-" set foldmethod=indent         " set automatic folding
-" set relativenumber            " show line numbers relative to the current line
+set foldtext=FoldText()       " set the collapsed fold text
+set foldmethod=indent         " set automatic folding
 let mapleader=","             " remap the leader key from \ to ,
 filetype indent on            " special indenting by filetype I think
+
+" adapted from :help fold.txt
+" displays the first line of the fold at the appropriate indentation
+function! FoldText()
+	let line = getline(v:foldstart)
+	let stripped = substitute(line, '^\s*\(.\{-}\)\s*$', '\1', '')
+
+	let dashes = v:folddashes
+	let tabbed = substitute(dashes, '-', '    ', 'g')
+
+	let line2 = getline(v:foldend)
+	let stripped2 = substitute(line2, '^\s*\(.\{-}\)\s*$', '\1', '')
+
+	let diff = v:foldend - v:foldstart
+
+
+	return tabbed . stripped . ' + ' . diff . ' more'
+endfunction
+
+" v:foldstart . ' - ' . v:foldend . ': '. getline(v:foldstart) " set fold line to be just the consumed line
 
 " auto commands
 if has("autocmd")
@@ -53,7 +69,8 @@ if has("autocmd")
 	" mess with the loadview
 	autocmd BufWrite ?* mkview
 	autocmd BufRead ?* silent! loadview | nnoremap Z zd
-	" | nnoremap z za | vnoremap z zf
+	"| nnoremap zO zR | nnoremap zC zM
+	"| nnoremap z za | vnoremap z zf
 
 	" automatically reload vimrc when it's saved
 	autocmd BufWritePost vimrc,.vimrc so ~/.vimrc
@@ -106,6 +123,10 @@ nmap Y y$
 " zv and zt toggle folds (za is awkward to press)
 nnoremap zv za
 nnoremap zt za
+
+" remap zV and zT to recursive toggling
+nnoremap zV zA
+nnoremap zT zA
 
 " <j><j> in insert mode will simulate an escape
 " (only useful on a non-full keyboard)
