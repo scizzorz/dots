@@ -22,6 +22,7 @@ export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 
 # aliases
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias please='sudo $(history -p !-1)'
 
 # don't put blank lines in the history and control size
 HISTCONTROL=ignorespace:ignoredups
@@ -127,7 +128,7 @@ fi
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    alias ls='ls -p --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
