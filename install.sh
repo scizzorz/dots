@@ -35,3 +35,5 @@ if [ ! -e $TO/.themes ]; then
 	mkdir $TO/.themes
 fi
 cp -rf $FROM/themes/* $TO/.themes/
+
+echo "Use schemer.py to set gnome-terminal palette colors."
