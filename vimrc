@@ -96,7 +96,7 @@ map <silent> <C-K> <Esc>:wincmd k<CR>
 map <silent> <C-L> <Esc>:wincmd l<CR>
 
 " map <Leader><Space> to remove all whitespace
-nmap <Leader><Space> :%s/\s*$//<Enter><C-o>
+nmap <Leader><Space> :%s/\s\+$//<Enter><C-o>
 
 " map <Leader>m to run :!make
 nmap <Leader>m :!make<Enter>
