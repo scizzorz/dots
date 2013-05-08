@@ -47,7 +47,7 @@ function parse_git_status {
 	all=$(git status --porcelain 2> /dev/null | wc -l)
 	modified=$(git status --porcelain -uno 2> /dev/null | wc -l)
 	untracked=$(($all-$modified))
-	numAhead=$(git status -b --porcelain 2> /dev/null | grep -oe 'ahead [0-9]\+' | grep --color=none -oe '[0-9]\+')
+	numAhead=$(git rev-list origin..HEAD | wc -l)
 
 	if [ $modified -gt "0" ]; then
 		echo -n " !$modified"
