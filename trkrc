@@ -1,14 +1,15 @@
 hi_id = 8
 hi_count = 8
-hi_project = 9
-hi_context = 2
-hi_priority =1
+hi_plus = 9
+hi_at = 2
+hi_hash = 10
+hi_priority = 1
 hi_due = 14
 hi_due_soon = 4
 hi_overdue = 1
 
 soon = 86400
 
-editcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
-markcmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
-writecmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
+edit_cmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
+del_cmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
+add_cmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
