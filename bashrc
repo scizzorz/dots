@@ -55,7 +55,7 @@ function parse_git_status {
 	if [ $untracked -gt "0" ]; then
 		echo -n " ?$untracked"
 	fi
-	if [ "$numAhead" ]; then
+	if [ $numAhead -gt "0" ]; then
 		echo -n " +$numAhead"
 	fi
 }
