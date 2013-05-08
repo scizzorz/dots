@@ -32,6 +32,7 @@ set viewoptions=folds         " only save folds with views
 set foldcolumn=1              " show a fold column!
 set foldtext=FoldText()       " set the collapsed fold text
 set foldmethod=indent         " set automatic folding
+set foldignore=               " always fold everything based on indent; don't ignore comments
 set nomagic                   " turn off magic in regexps
 let mapleader=","             " remap the leader key from \ to ,
 filetype indent on            " special indenting by filetype I think
@@ -70,6 +71,7 @@ if has("autocmd")
 	" mess with the loadview
 	autocmd BufWrite ?* mkview
 	autocmd BufRead ?* silent! loadview | nnoremap Z zd
+	autocmd BufRead * set foldignore=
 	"| nnoremap zO zR | nnoremap zC zM
 	"| nnoremap z za | vnoremap z zf
 
