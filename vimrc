@@ -11,7 +11,7 @@ set smarttab                  " makes tabs/backspace more helpful at the beginni
 set showmode                  " show the mode when in insert/replace/visual
 set showcmd                   " show partial commands
 set directory=~/.vim/swap     " directory for swap files
-set so=4                      " keep the cursor outside of the top/bottom 4 lines when scrolling
+set scrolloff=4               " keep the cursor outside of the top/bottom 4 lines when scrolling
 
 if has("persistent_undo")
 	set undodir=~/.vim/undo   " directory for undo files
@@ -28,6 +28,7 @@ set winminheight=0            " the minimum height of a non-focused window
 set winminwidth=0             " the minimum width of a non-focused window
 set cursorline                " highlight the line with the cursor
 set laststatus=2              " always show the status bar
+set statusline=%F%(\ %m%)\ \[%l/%L\]%(\ %r%)%(\ %h%)%=%{&ft}\ %P\  " useful statusline: full filepath [+] [31/250] [RO] [Help]                 vim  1%
 set viewoptions=folds         " only save folds with views
 set foldcolumn=1              " show a fold column!
 set foldtext=FoldText()       " set the collapsed fold text
