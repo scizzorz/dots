@@ -33,6 +33,8 @@ set foldcolumn=1              " show a fold column!
 set foldtext=FoldText()       " set the collapsed fold text
 set foldmethod=indent         " set automatic folding
 set foldignore=               " always fold everything based on indent; don't ignore comments
+set wildmenu                  " enable the wild menu (EX command completion)
+set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class " ignore these extensions (courtesy of Armin Ronacher)
 set nomagic                   " turn off magic in regexps
 let mapleader=","             " remap the leader key from \ to ,
 filetype indent on            " special indenting by filetype I think
@@ -196,6 +198,9 @@ hi Visual       ctermfg=none  ctermbg=0    cterm=none
 " Status line
 hi StatusLine   ctermfg=10    ctermbg=0    cterm=none
 hi StatusLineNC ctermfg=7     ctermbg=0    cterm=none
+
+" Wild menu. Oh how I wish I could decouple you from the status line...
+hi WildMenu     ctermfg=9     ctermbg=0    cterm=none
 
 " Fold column
 hi Folded       ctermfg=12    ctermbg=none cterm=none
