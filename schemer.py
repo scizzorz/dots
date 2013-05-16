@@ -28,7 +28,7 @@ def main(profile):
 
 	# used for the accent colors
 	accent_offset = 0
-	accent_hues = (0, 120, 240, 60, 300, 150, 30, 150, 270, 90, 330, 210)
+	accent_hues = (0, 120, 240, 60, 300, 180, 30, 150, 270, 90, 330, 210)
 	accent_sat = 100
 	accent_lum = 65
 
