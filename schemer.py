@@ -19,7 +19,12 @@ def main(profile):
 	# the "base" colors
 	base_hue = 210
 	base_sat = 10
-	base_lums = (20, 60, 40, 90)
+	base_lums = (20, 40, 60, 90)
+
+	bg_hue = base_hue
+	bg_sat = base_sat
+	bg_lum = 0
+	bg_alpha = 0.90
 
 	# used for the accent colors
 	accent_offset = 0
@@ -31,8 +36,8 @@ def main(profile):
 
 	# set the base colors
 	palette[0] = hsl_to_hex(base_hue, base_sat, base_lums[0])
-	palette[7] = hsl_to_hex(base_hue, base_sat, base_lums[1])
-	palette[8] = hsl_to_hex(base_hue, base_sat, base_lums[2])
+	palette[7] = hsl_to_hex(base_hue, base_sat, base_lums[2])
+	palette[8] = hsl_to_hex(base_hue, base_sat, base_lums[1])
 	palette[15] = hsl_to_hex(base_hue, base_sat, base_lums[3])
 
 	# set each accent color
@@ -43,8 +48,8 @@ def main(profile):
 	# apply the settings
 	set_val(profile, 'palette', 'string', ':'.join(palette))
 	set_val(profile, 'foreground_color', 'string', palette[15])
-	set_val(profile, 'background_color', 'string', '#000000000000')
-	set_val(profile, 'background_darkness', 'float', '0.90')
+	set_val(profile, 'background_color', 'string',hsl_to_hex(bg_hue, bg_sat, bg_lum))
+	set_val(profile, 'background_darkness', 'float', '%.2f' % bg_alpha)
 
 if __name__ == '__main__':
 	if len(sys.argv) != 2:
