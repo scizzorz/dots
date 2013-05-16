@@ -28,7 +28,7 @@ set winminheight=0            " the minimum height of a non-focused window
 set winminwidth=0             " the minimum width of a non-focused window
 set cursorline                " highlight the line with the cursor
 set laststatus=2              " always show the status bar
-set statusline=%F%(\ %m%)\ \[%l/%L\]%(\ %r%)%(\ %h%)%=%{&ft}\ %P\  " useful statusline: full filepath [+] [31/250] [RO] [Help]                 vim  1%
+set statusline=%F%(\ %m%)\ \[%l/%L\ %P\]%(\ %r%)%(\ %h%)%=%{&ft}\  " useful statusline: full filepath [+] [31/250 1%] [RO] [Help]                 vim
 set viewoptions=folds         " only save folds with views
 set foldcolumn=1              " show a fold column!
 set foldtext=FoldText()       " set the collapsed fold text
