@@ -41,6 +41,7 @@
 	co = checkout
 	cl = clone
 	df = diff
+	dfs = diff --staged
 	lg = log --graph --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad%C(blue)%d%C(reset) %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad%C(blue)%d%C(reset) %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	mg = merge --no-ff
