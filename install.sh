@@ -37,3 +37,4 @@ fi
 cp -rf $FROM/themes/* $TO/.themes/
 
 echo "Use schemer.py to set gnome-terminal palette colors."
+echo "Copy bashcolors.sh.example to ~/.bashcolors.sh and update the colors."

@@ -40,8 +40,7 @@ function vimp {
 }
 
 function parse_git_branch_shell {
-	#git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/' -e 's/dev/*/'
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/'
 }
 function parse_git_status {
 	all=$(git status --porcelain 2> /dev/null | wc -l)
@@ -97,16 +96,14 @@ if [ -f ~/.bashcolors.sh ]; then
 
 		W=$(echo $PWD | sed 's!'$HOME'!~!g')
 
-		LINECOLOR=$(tput setaf 2)
-		USERCOLOR=$(tput setaf $ucolor)
 		HOSTCOLOR=$(tput setaf $hcolor)
-		WDIRCOLOR=$(tput setaf $wcolor)
 		GITCOLOR=$(tput setaf $gitcolor)
+		PROMPTCOLOR=$(tput setaf $pcolor)
 		RESET=$(tput sgr0)
 
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$USERCOLOR\]\u \[$HOSTCOLOR\]\h \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[\$(parse_clk_status_color)\] \\$\[$RESET\] "
-		PS2="\[$USERCOLOR\]>\[$RESET\]"
+		PS1="\[$HOSTCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
+		PS2="\[$HOSTCOLOR\]...\[$RESET\] "
 
 		# resture the TERM to what it was
 		export TERM="$restoreTerm"
