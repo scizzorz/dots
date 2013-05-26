@@ -59,26 +59,6 @@ function parse_git_status {
 	fi
 }
 
-function parse_git_branch {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/' -e 's/master/-/'
-}
-
-function parse_clk_status_color {
-	C="none"
-	if [ -x ~/.clk.py ]; then
-		C=$(~/.clk.py status)
-	fi
-	if [ $C == "none" ]; then
-		tput setaf $clknocolor
-	fi
-	if [ $C == "in" ]; then
-		tput setaf $clkincolor
-	fi
-	if [ $C == "out" ]; then
-		tput setaf $clkoutcolor
-	fi
-}
-
 # set the colors for the prompt
 if [ -f ~/.bashcolors.sh ]; then
 	# this file is not included in my dots repo!
