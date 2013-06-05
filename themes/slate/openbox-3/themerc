@@ -73,11 +73,11 @@ window.inactive.button.disabled.image.color: #233d42
 
 !! colours
 window.*.client.color: #ddeaed
-border.color: #222222
+border.color: #233d42
 
 !! width
 borderWidth: 1
-padding.width: 1
+padding.width: 0
 window.handle.width: 0
 window.client.padding.width: 0
 menu.overlap: 8
