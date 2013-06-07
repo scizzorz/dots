@@ -48,6 +48,9 @@ function parse_git_status {
 	untracked=$(($all-$modified))
 	numAhead=$(git rev-list origin..HEAD 2> /dev/null | wc -l)
 
+	# this technically isn't "git" status, but it's useful stuff
+	numJobs=$(jobs | wc -l)
+
 	if [ $modified -gt "0" ]; then
 		echo -n " !$modified"
 	fi
@@ -56,6 +59,9 @@ function parse_git_status {
 	fi
 	if [ $numAhead -gt "0" ]; then
 		echo -n " +$numAhead"
+	fi
+	if [ $numJobs -gt "0" ]; then
+		echo -n " %$numJobs"
 	fi
 }
 
