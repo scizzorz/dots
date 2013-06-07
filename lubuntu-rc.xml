@@ -221,6 +221,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<width>357</width>
 			</action>
 		</keybind>
+
 		<keybind key="W-5">
 			<action name="UnmaximizeFull"/>
 			<action name="MoveResizeTo">
@@ -254,6 +255,43 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<x>1271</x>
 				<y>531</y>
 				<height>431</height>
+				<width>357</width>
+			</action>
+		</keybind>
+
+		<keybind key="W-9">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>50</x>
+				<y>50</y>
+				<height>912</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-0">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>457</x>
+				<y>50</y>
+				<height>912</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-minus">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>864</x>
+				<y>50</y>
+				<height>912</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-equal">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>1271</x>
+				<y>50</y>
+				<height>912</height>
 				<width>357</width>
 			</action>
 		</keybind>
