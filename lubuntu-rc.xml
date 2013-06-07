@@ -184,22 +184,133 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 		<keybind key="W-KP_5">
 			<action name="ToggleMaximize"/>
 		</keybind>
+
+		<keybind key="W-1">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>50</x>
+				<y>50</y>
+				<height>431</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-2">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>457</x>
+				<y>50</y>
+				<height>431</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-3">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>864</x>
+				<y>50</y>
+				<height>431</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-4">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>1271</x>
+				<y>50</y>
+				<height>431</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-5">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>50</x>
+				<y>531</y>
+				<height>431</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-6">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>457</x>
+				<y>531</y>
+				<height>431</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-7">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>864</x>
+				<y>531</y>
+				<height>431</height>
+				<width>357</width>
+			</action>
+		</keybind>
+		<keybind key="W-8">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeTo">
+				<x>1271</x>
+				<y>531</y>
+				<height>431</height>
+				<width>357</width>
+			</action>
+		</keybind>
+
 		<keybind key="W-KP_4">
 			<action name="UnmaximizeFull"/>
 			<action name="MoveResizeTo">
-				<x>0</x>
-				<y>0</y>
-				<height>1031</height>
-				<width>840</width>
+				<x>50</x>
+				<y>50</y>
+				<height>912</height>
+				<width>764</width>
 			</action>
 		</keybind>
 		<keybind key="W-KP_6">
 			<action name="UnmaximizeFull"/>
 			<action name="MoveResizeTo">
-				<x>-0</x>
-				<y>0</y>
-				<height>1031</height>
-				<width>840</width>
+				<x>864</x>
+				<y>50</y>
+				<height>912</height>
+				<width>764</width>
+			</action>
+		</keybind>
+
+		<keybind key="W-KP_7">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeto">
+				<x>50</x>
+				<y>50</y>
+				<height>431</height>
+				<width>764</width>
+			</action>
+		</keybind>
+		<keybind key="W-KP_1">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeto">
+				<x>50</x>
+				<y>531</y>
+				<height>431</height>
+				<width>764</width>
+			</action>
+		</keybind>
+		<keybind key="W-KP_9">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeto">
+				<x>864</x>
+				<y>50</y>
+				<height>431</height>
+				<width>764</width>
+			</action>
+		</keybind>
+		<keybind key="W-KP_3">
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeto">
+				<x>864</x>
+				<y>531</y>
+				<height>431</height>
+				<width>764</width>
 			</action>
 		</keybind>
 
