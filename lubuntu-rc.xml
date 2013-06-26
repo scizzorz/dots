@@ -181,8 +181,17 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 		</keybind>
 
 		<!-- window tiling -->
+		<keybind key="W-KP_Add">
+			<action name="ToggleMaximize" />
+		</keybind>
 		<keybind key="W-KP_5">
-			<action name="ToggleMaximize"/>
+			<action name="UnmaximizeFull"/>
+			<action name="MoveResizeto">
+				<x>50</x>
+				<y>50</y>
+				<height>912</height>
+				<width>1578</width>
+			</action>
 		</keybind>
 
 		<keybind key="W-1">
@@ -373,7 +382,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 		<!-- commands -->
 		<keybind key="C-S-q">
 			<action name="Execute">
-				<command>lubuntu-logout</command>
+				<command>lxlock</command>
 			</action>
 		</keybind>
 		<keybind key="C-S-r">
