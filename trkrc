@@ -10,6 +10,4 @@ hi_overdue = 1
 
 soon = 86400
 
-edit_cmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
-del_cmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
-add_cmd = python /home/john/projects/trk/trk.py --config /home/john/.trkrc2 + > /home/john/.trkout
+remote = ember:.todo
