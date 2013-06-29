@@ -8,6 +8,8 @@ syntax clear
 syn match gitDiffAdd '^+.*'
 syn match gitDiffRm '^-.*'
 syn match gitDiffRef '^ .*'
+syn match gitDiffRefTab '^\t.*'
+syn match gitDiffDesc '^@@.*'
 syn match gitCommit '[a-f0-9]\{7,40\}'
 syn match gitCommitLine 'commit [a-f0-9]\{40\}'
 syn match gitAuthor '<[a-zA-Z]* [a-zA-Z ]*>$'
@@ -20,6 +22,8 @@ syn match gitComment '^    .*'
 hi gitDiffAdd       ctermfg=2  ctermbg=none cterm=none
 hi gitDiffRm        ctermfg=1  ctermbg=none cterm=none
 hi gitDiffRef       ctermfg=8  ctermbg=none cterm=none
+hi gitDiffRefTab    ctermfg=8  ctermbg=none cterm=none
+hi gitDiffDesc      ctermfg=6  ctermbg=none cterm=none
 
 hi gitCommit        ctermfg=9  ctermbg=none cterm=none
 hi gitCommitLine    ctermfg=9  ctermbg=none cterm=none
