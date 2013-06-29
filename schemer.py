@@ -32,25 +32,25 @@ def main(profile):
 
 	# used for the background color
 	bg_hue = base_hue
-	bg_sat = 20
-	bg_lum = 10
-	bg_alpha = 0.98
+	bg_sat = 00
+	bg_lum = 15
+	bg_alpha = 1.00
 
 	# accents
-	red =      (355, 80, 70)
-	green =    (90, 80, 65)
-	blue =     (230, 80, 70)
-	yellow =   (50, 80, 70)
-	magenta =  (265, 80, 75)
-	cyan =     (195, 75, 70)
+	red =      (355, 80, 65)
+	green =    (90, 80, 60)
+	blue =     (230, 80, 65)
+	yellow =   (50, 80, 65)
+	magenta =  (265, 80, 70)
+	cyan =     (195, 75, 65)
 
 	# bright accents
-	bred =     (15, 80, 70)
-	bgreen =   (80, 76, 73)
-	bblue =    (210, 80, 80)
-	byellow =  (30, 70, 73)
-	bmagenta = (320, 80, 75)
-	bcyan =    (150, 75, 75)
+	bred =     (15, 80, 65)
+	bgreen =   (80, 76, 68)
+	bblue =    (210, 80, 75)
+	byellow =  (30, 70, 68)
+	bmagenta = (320, 80, 70)
+	bcyan =    (150, 75, 70)
 
 	# initialize blank palette
 	palette = [(0, 0, 0) for x in range(16)]
