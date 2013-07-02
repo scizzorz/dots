@@ -150,6 +150,10 @@ vnoremap > >gv
 noremap H ^
 noremap L $
 
+" I hate it when K manpages, so I'll make it useful
+map K {
+map J }
+
 " http://vim.wikia.com/wiki/Autocomplete_with_TAB_when_typing_words
 " Use tab to complete when typing words, else inserts tabs as usual.
 function! TabOrComplete()
