@@ -23,6 +23,9 @@ export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 # aliases
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias please='sudo $(history -p !-1)'
+alias t='~/dev/trk/trk.py'
+alias tl='~/dev/trk/trk.py --file=todo'
+alias c='~/dev/colors/colors.py'
 
 # don't put blank lines in the history and control size
 HISTCONTROL=ignorespace:ignoredups
@@ -121,6 +124,10 @@ fi
 
 if [ -x ~/.motd ]; then
 	~/.motd
+fi
+
+if [ -x ~/dev/trk/trk.py ]; then
+	~/dev/trk/trk.py
 fi
 
 # enable programmable completion features (you don't need to enable
