@@ -67,6 +67,11 @@ function parse_git_status {
 		echo -n " %$numJobs"
 	fi
 }
+function parse_local_trk_status {
+	if [ -f todo ]; then
+		echo -n "+"
+	fi
+}
 
 # set the colors for the prompt
 if [ -f ~/.bashcolors.sh ]; then
@@ -91,7 +96,7 @@ if [ -f ~/.bashcolors.sh ]; then
 		RESET=$(tput sgr0)
 
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$HOSTCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
+		PS1="\[$HOSTCOLOR\]\w\[$PROMPTCOLOR\]\$(parse_local_trk_status)\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
 		PS2="\[$HOSTCOLOR\]...\[$RESET\] "
 
 		# resture the TERM to what it was
