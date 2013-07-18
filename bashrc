@@ -12,7 +12,12 @@ export MANPAGER='/bin/bash -c "vim -c \"silent! set ft=man ts=8 fdc=0 cc=0 nomod
 export EDITOR="/usr/bin/vim"
 
 # update path
-export PATH=~/bin:~/scripts:./:~/android/tools/:~/android/platform-tools/:/flex/bin:/depot_tools/:/arduino/:/dart/bin/:$PATH
+export PATH=$PATH:./
+export PATH=$PATH:~/bin
+export PATH=$PATH:~/scripts
+export PATH=$PATH:~/android/tools
+export PATH=$PATH:~/android/platform-tools
+export PATH=$PATH:~/dev/pebble/arm-cs-tools/bin
 
 # for arduino-mk
 export ARDMK_DIR=/usr/local
