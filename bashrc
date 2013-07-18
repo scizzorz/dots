@@ -29,7 +29,6 @@ export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias please='sudo $(history -p !-1)'
 alias t='~/dev/trk/trk.py'
-alias tl='~/dev/trk/trk.py --file=todo'
 alias c='~/dev/colors/colors.py'
 
 # don't put blank lines in the history and control size
@@ -72,11 +71,6 @@ function parse_git_status {
 		echo -n " %$numJobs"
 	fi
 }
-function parse_local_trk_status {
-	if [ -f todo ]; then
-		echo -n "+"
-	fi
-}
 
 # set the colors for the prompt
 if [ -f ~/.bashcolors.sh ]; then
@@ -101,7 +95,7 @@ if [ -f ~/.bashcolors.sh ]; then
 		RESET=$(tput sgr0)
 
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$HOSTCOLOR\]\w\[$PROMPTCOLOR\]\$(parse_local_trk_status)\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
+		PS1="\[$HOSTCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
 		PS2="\[$HOSTCOLOR\]...\[$RESET\] "
 
 		# resture the TERM to what it was
