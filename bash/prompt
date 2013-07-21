@@ -1,0 +1,65 @@
+function parse_git_branch_shell {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/'
+}
+
+function parse_git_status {
+	all=$(git status --porcelain 2> /dev/null | wc -l)
+	modified=$(git status --porcelain -uno 2> /dev/null | wc -l)
+	untracked=$(($all-$modified))
+	numAhead=$(git rev-list origin..HEAD 2> /dev/null | wc -l)
+
+	# this technically isn't "git" status, but it's useful stuff
+	numJobs=$(jobs | wc -l)
+
+	if [ $modified -gt "0" ]; then
+		echo -n " !$modified"
+	fi
+	if [ $untracked -gt "0" ]; then
+		echo -n " ?$untracked"
+	fi
+	if [ $numAhead -gt "0" ]; then
+		echo -n " +$numAhead"
+	fi
+	if [ $numJobs -gt "0" ]; then
+		echo -n " %$numJobs"
+	fi
+}
+
+# set the colors for the prompt
+if [ -f ~/dots/bash/colors ]; then
+	. ~/dots/bash/colors
+
+	# prompt!
+	case "$TERM" in
+	xterm*|screen*)
+		# makes my colors play nicely with stuff
+		restoreTerm="$TERM"
+		export TERM=xterm-256color
+
+		W=$(echo $PWD | sed 's!'$HOME'!~!g')
+
+		HOSTCOLOR=$(tput setaf $hcolor)
+		GITCOLOR=$(tput setaf $gitcolor)
+		PROMPTCOLOR=$(tput setaf $pcolor)
+		RESET=$(tput sgr0)
+
+		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
+		PS1="\[$HOSTCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
+		PS2="\[$HOSTCOLOR\]...\[$RESET\] "
+
+		# resture the TERM to what it was
+		export TERM="$restoreTerm"
+		;;
+	*)
+		LINECOLOR=$(tput setaf 7)
+		USERCOLOR=$(tput setaf $ucolor_)
+		HOSTCOLOR=$(tput setaf $hcolor_)
+		WDIRCOLOR=$(tput setaf $wcolor_)
+		GITCOLOR=$(tput setaf $gitcolor_)
+		RESET=$(tput sgr0)
+
+		PS1="\[$LINECOLOR\]\! \[$USERCOLOR\]\u \[$HOSTCOLOR\]\h \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[$WDIRCOLOR\] \\$\[$RESET\] "
+		PS2="\[$USERCOLOR\]>\[$RESET\]"
+		;;
+	esac
+fi

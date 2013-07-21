@@ -14,7 +14,7 @@ FROM=$(pwd)
 TO=~
 echo "Installing from $FROM to $TO"
 inst $TO/.vimrc $FROM/vimrc
-inst $TO/.bashrc $FROM/bashrc
+inst $TO/.bashrc $FROM/bash/rc
 inst $TO/.colordiffrc $FROM/colordiffrc
 inst $TO/.dircolors $FROM/dircolors
 inst $TO/.gitconfig $FROM/gitconfig
@@ -37,4 +37,4 @@ fi
 cp -rf $FROM/themes/* $TO/.themes/
 
 echo "Use schemer.py to set gnome-terminal palette colors."
-echo "Copy bashcolors.sh.example to ~/.bashcolors.sh and update the colors."
+echo "Copy bash/colors.ex to bash/colors and update the colors."

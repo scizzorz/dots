@@ -1,0 +1,33 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# this makes tmux play nicely with gnome-terminal
+if [ $TERM == 'xterm' ]; then
+	export TERM=xterm-256color
+fi
+[ $TERM != "screen" ] && exec tmux
+
+if [ -f ~/dots/bash/env ]; then
+	. ~/dots/bash/env
+fi
+if [ -f ~/dots/bash/alias ]; then
+	. ~/dots/bash/alias
+fi
+if [ -f ~/dots/bash/prompt ]; then
+	. ~/dots/bash/prompt
+fi
+
+if [ -x ~/.motd ]; then
+	~/.motd
+fi
+
+if [ -x ~/dev/trk/trk.py ]; then
+	~/dev/trk/trk.py
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
