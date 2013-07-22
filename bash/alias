@@ -1,6 +1,6 @@
 # derp
 function vimp {
-	/bin/bash -c "vim -c 'silent! set ft=$1 ls=0 ts=8 nomod nolist nonu noma nofen fdc=0 cc=0 nornu' -c 'noremap q <Esc>:q!<Return>' -c 'noremap j <C-e>' -c 'noremap k <C-y>'</dev/tty <(col -b)"
+	/bin/bash -c "vim -c 'set ft=$1' -S ~/dots/vimp.rc </dev/tty <(col -b)"
 }
 
 # aliases
