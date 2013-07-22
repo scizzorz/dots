@@ -1,5 +1,5 @@
 # use vim as the man pager
-export MANPAGER='/bin/bash -c "vim -c \"silent! set ft=man ts=8 fdc=0 cc=0 nomod nolist nonu nornu noma nofen\" -c \"noremap q <Esc>:q!<Return>\" -c \"noremap j <C-e>\" -c \"noremap k <C-y>\"</dev/tty <(col -b)"'
+export MANPAGER='/bin/bash -c "vim -c \"silent! set ft=man ls=0 ts=8 nomod nolist nonu noma nofen fdc=0 cc=0 nornu\" -c \"noremap q <Esc>:q!<Return>\" -c \"noremap j <C-e>\" -c \"noremap k <C-y>\"</dev/tty <(col -b)"'
 export EDITOR="/usr/bin/vim"
 
 # update path
