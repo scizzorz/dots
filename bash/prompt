@@ -1,3 +1,5 @@
+# vim:ft=sh
+
 function parse_git_branch_shell {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/'
 }

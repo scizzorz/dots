@@ -1,3 +1,5 @@
+# vim:ft=sh
+
 export hcolor="5"
 export gitcolor="7"
 
