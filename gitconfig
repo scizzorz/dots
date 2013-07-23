@@ -33,34 +33,10 @@
 	st = status -s
 	ci = commit
 	br = branch
-	cdbr = checkout
-	rmbr = branch -d
-	mkbr = branch
-	lsbr = branch -v
-	mvbr = branch -m
 	co = checkout
-	cl = clone
 	df = diff
 	dfs = diff --staged
 	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad%C(blue)%d%C(reset) %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	la = !git l --all
 	lg = !git l --graph
 	lga = !git lg --all
-	mg = merge --no-ff
-	fuse = merge --no-ff
-	new = !sh -c 'git lg $1@{1}..$1@{0} "$@"'
-	switch = !legit switch \"$@\"
-	branches = !legit branches
-	sprout = !legit sprout \"$@\"
-	unpublish = !legit unpublish \"$@\"
-	harvest = !legit harvest \"$@\"
-	sync = !legit sync \"$@\"
-	publish = !legit publish \"$@\"
-	graft = !legit graft \"$@\"
-
-	sw = !legit switch \"$@\"
-	sp = !legit sprout \"$@\"
-	unpub = !legit unpublish \"$@\"
-	hv = !legit harvest \"$@\"
-	pub = !legit publish \"$@\"
-	gr = !legit graft \"$@\"
