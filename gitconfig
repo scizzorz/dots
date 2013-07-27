@@ -37,6 +37,11 @@
 	df = diff
 	dfs = diff --staged
 	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad%C(blue)%d%C(reset) %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	ls = !git l --simplify-by-decoration
 	la = !git l --all
+	las = !git ls --all
 	lg = !git l --graph
+	lgs = !git ls --graph
 	lga = !git lg --all
+	lgas = !git ls --graph --all
+	unstage = reset HEAD
