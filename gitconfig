@@ -30,18 +30,24 @@
 	untracked = cyan bold
 
 [alias]
+	unstage = reset HEAD
+	us = reset HEAD
 	st = status -s
 	ci = commit
 	br = branch
 	co = checkout
 	df = diff
 	dfs = diff --staged
-	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad%C(blue)%d%C(reset) %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+	top = log --pretty=format:'%C(bold red)%h%C(reset)%C(blue)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
+	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad %C(bold yellow)%an%C(reset)%C(blue)%d%C(reset) %s%C(reset)' --abbrev-commit --date-order --date=short
+
 	ls = !git l --simplify-by-decoration
 	la = !git l --all
-	las = !git ls --all
 	lg = !git l --graph
-	lgs = !git ls --graph
-	lga = !git lg --all
-	lgas = !git ls --graph --all
-	unstage = reset HEAD
+
+	las = !git l --all --simplify-by-decoration
+	lgs = !git l --graph --simplify-by-decoration
+	lga = !git l --graph --all
+
+	lgas = !git l --graph --all --simplify-by-decoration
