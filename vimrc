@@ -111,10 +111,9 @@ nmap <Leader>/ :let @/ = ""<CR>
 
 " map ; to :
 nnoremap ; :
-vmap ; :
 
-" map : in visual to *just* a colon, dump the automatic range insertion
-vnoremap : :<Backspace><Backspace><Backspace><Backspace><Backspace>
+" in visual mode, map ; to : without an automatic range, but let : still insert the range
+vnoremap ; :<Backspace><Backspace><Backspace><Backspace><Backspace>
 
 " remap = to auto indent the whole file
 nnoremap = ggVG=<C-o><C-o>
@@ -151,8 +150,8 @@ noremap H ^
 noremap L $
 
 " I hate it when K manpages, so I'll make it useful
-map K {
-map J }
+map K {j
+map J }k
 
 " http://vim.wikia.com/wiki/Autocomplete_with_TAB_when_typing_words
 " Use tab to complete when typing words, else inserts tabs as usual.
