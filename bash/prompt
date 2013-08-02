@@ -1,7 +1,10 @@
 # vim:ft=sh
 
-function parse_git_branch_shell {
+function parse_git_branch {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/'
+}
+function parse_git_commit {
+	git log -1 --format="%h" 2> /dev/null
 }
 
 function parse_git_status {
@@ -47,7 +50,7 @@ if [ -f ~/dots/bash/colors ]; then
 		RESET=$(tput sgr0)
 
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$DIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
+		PS1="\[$DIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch) \$(parse_git_commit)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
 		if [ "$host" != $(hostname) ]; then
 			PS1="\[$HOSTCOLOR\]\h "$PS1
 		fi
@@ -56,7 +59,7 @@ if [ -f ~/dots/bash/colors ]; then
 		# resture the TERM to what it was
 		export TERM="$restoreTerm"
 		;;
-	*)
+	*) # this case no longer works because I haven't maintained it in ages
 		LINECOLOR=$(tput setaf 7)
 		USERCOLOR=$(tput setaf $ucolor_)
 		HOSTCOLOR=$(tput setaf $hcolor_)
@@ -64,7 +67,7 @@ if [ -f ~/dots/bash/colors ]; then
 		GITCOLOR=$(tput setaf $gitcolor_)
 		RESET=$(tput sgr0)
 
-		PS1="\[$LINECOLOR\]\! \[$USERCOLOR\]\u \[$HOSTCOLOR\]\h \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch_shell)\$(parse_git_status)\$(parse_git_ahead)\[$WDIRCOLOR\] \\$\[$RESET\] "
+		PS1="\[$LINECOLOR\]\! \[$USERCOLOR\]\u \[$HOSTCOLOR\]\h \[$WDIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch)\$(parse_git_status)\$(parse_git_ahead)\[$WDIRCOLOR\] \\$\[$RESET\] "
 		PS2="\[$USERCOLOR\]>\[$RESET\]"
 		;;
 	esac
