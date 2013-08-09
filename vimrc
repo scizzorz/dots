@@ -198,7 +198,7 @@ hi CursorLine   ctermfg=none  ctermbg=none cterm=none
 hi CursorLineNr ctermfg=10    ctermbg=none cterm=none
 hi VertSplit    ctermfg=0     ctermbg=none cterm=none
 
-hi MatchParen   ctermfg=2     ctermbg=none cterm=none
+hi MatchParen   ctermfg=9     ctermbg=none cterm=none
 
 hi Visual       ctermfg=none  ctermbg=0    cterm=none
 
@@ -245,7 +245,7 @@ hi Todo         ctermfg=1     ctermbg=none cterm=none
 hi Identifier   ctermfg=2     ctermbg=none cterm=none
 hi Type         ctermfg=3     ctermbg=none cterm=none
 hi Constant     ctermfg=4     ctermbg=none cterm=none
-hi Comment      ctermfg=5     ctermbg=none cterm=none
+hi Comment      ctermfg=7     ctermbg=none cterm=none
 hi Statement    ctermfg=6     ctermbg=none cterm=none
 hi PreProc      ctermfg=9     ctermbg=none cterm=none
 hi Special      ctermfg=13    ctermbg=none cterm=none

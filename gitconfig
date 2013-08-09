@@ -39,8 +39,8 @@
 	df = diff
 	dfs = diff --staged
 
-	top = log --pretty=format:'%C(bold red)%h%C(reset)%C(blue)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
-	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad %C(bold yellow)%an%C(reset)%C(blue)%d%C(reset) %s%C(reset)' --abbrev-commit --date-order --date=short
+	top = log --pretty=format:'%C(bold red)%h%C(reset)%C(auto)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
+	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad %C(bold yellow)%an%C(reset)%C(auto)%d%C(reset) %s%C(reset)' --abbrev-commit --date-order --date=short
 
 	ls = !git l --simplify-by-decoration
 	la = !git l --all
