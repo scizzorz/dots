@@ -29,6 +29,16 @@
 	changed = blue bold
 	untracked = cyan bold
 
+# how the hell do I un-boold these things?
+# it seems like they've still got the bolds
+# from other places
+[color "decorate"]
+	branch = blue
+	remoteBranch = red
+	HEAD = cyan
+	tag = magenta
+	stash = black
+
 [alias]
 	unstage = reset HEAD
 	us = reset HEAD
