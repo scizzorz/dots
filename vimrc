@@ -210,8 +210,8 @@ hi StatusLineNC ctermfg=7     ctermbg=0    cterm=none
 hi WildMenu     ctermfg=9     ctermbg=0    cterm=none
 
 " Fold column
-hi Folded       ctermfg=10    ctermbg=none cterm=none
-hi FoldColumn   ctermfg=10    ctermbg=none cterm=none
+hi Folded       ctermfg=11    ctermbg=none cterm=none
+hi FoldColumn   ctermfg=11    ctermbg=none cterm=none
 
 " Autocomplete menu
 hi Pmenu        ctermfg=7     ctermbg=0    cterm=none
