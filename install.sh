@@ -38,3 +38,5 @@ cp -rf $FROM/themes/* $TO/.themes/
 
 echo "Use schemer.py to set gnome-terminal palette colors."
 echo "Copy bash/colors.ex to bash/colors and update the colors."
+echo "Manually symlink openbox-rc.xml to ~/.config/openbox/rc.xml"
+echo "Manually symlink tint2rc to ~/.config/tint2/tint2rc"
