@@ -26,14 +26,14 @@ def set_val(profile, key, _type, val):
 def main(profile):
 	# used for black, brightblack, white, and brightwhite
 	# the "base" colors
-	base_hue = 190
-	base_sat = 30
+	base_hue = 210
+	base_sat = 10
 	base_lums = (20, 40, 60, 90)
 
 	# used for the background color
 	bg_hue = base_hue
-	bg_sat = 00
-	bg_lum = 15
+	bg_sat = 10
+	bg_lum = 10
 	bg_alpha = 1.00
 
 	# accents
