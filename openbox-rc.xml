@@ -370,7 +370,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 		<!-- commands -->
 		<keybind key="C-S-q">
 			<action name="Execute">
-				<command>lxlock</command>
+				<command>cb-lock</command>
 			</action>
 		</keybind>
 		<keybind key="C-S-r">
