@@ -29,7 +29,7 @@ border_color = #000000 0
 # ID 4 - task urgent
 rounded = 0
 border_width = 1
-background_color = #454C54 100
+background_color = #000000 0
 border_color = #17191C 100
 
 # ID 5 - taskbar
@@ -82,7 +82,7 @@ taskbar_name_font_color = #888888 100
 taskbar_name_active_font_color = #888888 100
 
 # Tasks
-urgent_nb_of_blink = 7
+urgent_nb_of_blink = 8
 task_icon = 0
 task_text = 1
 task_centered = 0
@@ -103,7 +103,7 @@ task_iconified_icon_asb = 80 0 0
 task_font = Liberation Sans 06_55 10
 task_font_color = #E3E6E8 50
 task_active_font_color = #E3E6E8 100
-task_urgent_font_color = #E3E6E8 100
+task_urgent_font_color = #E3E6E8 75
 task_iconified_font_color = #E3E6E8 50
 font_shadow = 0
 
@@ -129,7 +129,7 @@ systray_icon_size = 24
 systray_icon_asb = 100 0 0
 
 # Clock
-time1_format = %H:%M
+time1_format = %l:%M%P
 time1_font = Liberation Sans 10
 #time2_format = %A %d %B
 #time2_font = Liberation Sans 6
