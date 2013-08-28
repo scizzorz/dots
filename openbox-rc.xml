@@ -88,6 +88,12 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 			<name>II</name>
 			<name>III</name>
 			<name>IV</name>
+			<name>V</name>
+			<name>VIV</name>
+			<name>VII</name>
+			<name>VIII</name>
+			<name>IX</name>
+			<name>X</name>
 		</names>
 		<popupTime>1000</popupTime>
 	</desktops>
