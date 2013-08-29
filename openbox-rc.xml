@@ -735,26 +735,6 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 					<to>next</to>
 				</action>
 			</mousebind>
-			<mousebind button="A-Up" action="Click">
-				<action name="GoToDesktop">
-					<to>previous</to>
-				</action>
-			</mousebind>
-			<mousebind button="A-Down" action="Click">
-				<action name="GoToDesktop">
-					<to>next</to>
-				</action>
-			</mousebind>
-			<mousebind button="C-A-Up" action="Click">
-				<action name="GoToDesktop">
-					<to>previous</to>
-				</action>
-			</mousebind>
-			<mousebind button="C-A-Down" action="Click">
-				<action name="GoToDesktop">
-					<to>next</to>
-				</action>
-			</mousebind>
 			<mousebind button="Left" action="Press">
 				<action name="Focus"/>
 				<action name="Raise"/>
@@ -762,6 +742,12 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 			<mousebind button="Right" action="Press">
 				<action name="Focus"/>
 				<action name="Raise"/>
+			</mousebind>
+			<mousebind button="Button6" action="Click">
+				<action name="RemoveDesktop"/>
+			</mousebind>
+			<mousebind button="Button7" action="Click">
+				<action name="AddDesktop"/>
 			</mousebind>
 		</context>
 		<context name="Root">
