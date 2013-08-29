@@ -61,3 +61,5 @@
 	lga = !git l --graph --all
 
 	lgas = !git l --graph --all --simplify-by-decoration
+[push]
+	default = simple
