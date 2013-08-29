@@ -15,7 +15,6 @@ TO=~
 echo "Installing from $FROM to $TO"
 inst $TO/.vimrc $FROM/vimrc
 inst $TO/.bashrc $FROM/bash/rc
-inst $TO/.colordiffrc $FROM/colordiffrc
 inst $TO/.dircolors $FROM/dircolors
 inst $TO/.gitconfig $FROM/gitconfig
 inst $TO/.tmux.conf $FROM/tmux.conf
@@ -23,6 +22,7 @@ inst $TO/.trkrc $FROM/trkrc
 inst $TO/.vim $FROM/vim
 inst $TO/.vimrc $FROM/vimrc
 inst $TO/.pylintrc $FROM/pylintrc
+inst $TO/.conkyrc $FROM/conkyrc
 
 echo "Installing $FROM/fonts/* as $TO/.fonts/*..."
 if [ ! -e $TO/.fonts ]; then
