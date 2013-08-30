@@ -36,7 +36,7 @@ color3 5E76ED
 color4 EDD55E
 color5 A875EF # HOST COLOR!
 color6 62C7E8
-color7 ED825E
+color7 E6AD74
 color8 C2EB6F
 color9 8CBFF2
 
@@ -46,10 +46,18 @@ color9 8CBFF2
 TEXT
 Uptime${goto 60}$color4$uptime_short$color
 User${goto 60}$color5${exec whoami}$color
-Host${goto 60}$color5$nodename$color${goto 100}${addr eth0}
-Load${goto 60}$color6${loadavg 1}$color${goto 100}${loadavg 2}${goto 140}${loadavg 3}
-CPU${goto 60}$color9${cpu cpu0}%$color${goto 100}${freq_g}GHz
-RAM${goto 60}$color9$memperc%$color${goto 100}$memmax
-Swap${goto 60}$color9$swapperc%$color${goto 100}$swapmax
-Disk${goto 60}$color2${fs_used_perc /}%$color${goto 100}${fs_size /}
-Home${goto 60}$color2${fs_used_perc /home}%$color${goto 100}${fs_size /home}
+Host${goto 60}$color5$nodename$color${goto 110}${addr eth0}
+Load${goto 60}$color6${loadavg 1}$color${goto 110}${loadavg 2}${goto 160}${loadavg 3}
+CPU${goto 60}$color9${cpu cpu0}%$color${goto 110}${freq_g}GHz
+RAM${goto 60}$color9$memperc%$color${goto 110}$memmax
+Swap${goto 60}$color9$swapperc%$color${goto 110}$swapmax
+Disk${goto 60}$color2${fs_used_perc /}%$color${goto 110}${fs_size /}
+Home${goto 60}$color2${fs_used_perc /home}%$color${goto 110}${fs_size /home}
+$hr
+Machines
+${goto 60}${color5}hex${color}${goto 110}${execpi 300 ~/bin/ping.sh hex.soofw.com}
+${goto 60}${color2}spore${color}${goto 110}${execpi 300 ~/bin/ping.sh spore.soofw.com}
+${goto 60}${color6}haze${color}${goto 110}${execpi 300 ~/bin/ping.sh haze.soofw.com}
+${goto 60}${color3}bubble${color}${goto 110}${execpi 300 ~/bin/ping.sh bubble.soofw.com}
+${goto 60}${color7}ember${color}${goto 110}${execpi 300 ~/bin/ping.sh ember.soofw.com}
+${goto 60}${color4}spark${color}${goto 110}${execpi 300 ~/bin/ping.sh spark.soofw.com}
