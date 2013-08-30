@@ -49,6 +49,8 @@
 	df = diff
 	dfs = diff --staged
 
+	stl = !git log --pretty=format:'%C(white)%h%C(auto)%d' -1 && git log --pretty=format:'%C(blue)%ad%C(reset)' --date=local -1 && git log --pretty=format:%s -1 && git status -s
+
 	top = log --pretty=format:'%C(bold red)%h%C(reset)%C(auto)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
 	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad %C(bold yellow)%an%C(reset)%C(auto)%d%C(reset) %s%C(reset)' --abbrev-commit --date-order --date=short
 
@@ -61,5 +63,6 @@
 	lga = !git l --graph --all
 
 	lgas = !git l --graph --all --simplify-by-decoration
+
 [push]
 	default = simple
