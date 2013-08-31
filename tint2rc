@@ -18,7 +18,7 @@ border_color = #17191C 100
 rounded = 0
 border_width = 0
 background_color = #454C54 100
-border_color = #17191C 100
+border_color = #000000 0
 
 # ID 3 - task
 rounded = 0
@@ -28,9 +28,9 @@ border_color = #000000 0
 
 # ID 4 - task urgent
 rounded = 0
-border_width = 1
+border_width = 0
 background_color = #000000 0
-border_color = #17191C 100
+border_color = #000000 0
 
 # ID 5 - taskbar
 rounded = 0
