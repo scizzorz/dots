@@ -28,6 +28,7 @@
 	added = green
 	changed = blue bold
 	untracked = cyan bold
+	branch = blue
 
 # how the hell do I un-boold these things?
 # it seems like they've still got the bolds
@@ -42,7 +43,7 @@
 [alias]
 	unstage = reset HEAD
 	us = reset HEAD
-	st = status -s
+	st = status -sb
 	ci = commit
 	br = branch
 	co = checkout
