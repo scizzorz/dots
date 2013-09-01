@@ -51,13 +51,13 @@ Load${goto 60}$color6${loadavg 1}$color${goto 110}${loadavg 2}${goto 160}${loada
 CPU${goto 60}$color9${cpu cpu0}%$color${goto 110}${freq_g}GHz
 RAM${goto 60}$color9$memperc%$color${goto 110}$memmax
 Swap${goto 60}$color9$swapperc%$color${goto 110}$swapmax
-Disk${goto 60}$color2${fs_used_perc /}%$color${goto 110}${fs_size /}
+Root${goto 60}$color2${fs_used_perc /}%$color${goto 110}${fs_size /}
 Home${goto 60}$color2${fs_used_perc /home}%$color${goto 110}${fs_size /home}
 $hr
 Machines
-${goto 60}${color5}hex${color}${goto 110}${execpi 300 ~/bin/ping.sh hex.soofw.com}
-${goto 60}${color2}spore${color}${goto 110}${execpi 300 ~/bin/ping.sh spore.soofw.com}
-${goto 60}${color6}haze${color}${goto 110}${execpi 300 ~/bin/ping.sh haze.soofw.com}
-${goto 60}${color3}bubble${color}${goto 110}${execpi 300 ~/bin/ping.sh bubble.soofw.com}
-${goto 60}${color7}ember${color}${goto 110}${execpi 300 ~/bin/ping.sh ember.soofw.com}
-${goto 60}${color4}spark${color}${goto 110}${execpi 300 ~/bin/ping.sh spark.soofw.com}
+${goto 60}${color5}hex${color}${goto 110}${execpi 300 ~/dots/ping.sh hex.soofw.com}
+${goto 60}${color2}spore${color}${goto 110}${execpi 300 ~/dots/ping.sh spore.soofw.com}
+${goto 60}${color6}haze${color}${goto 110}${execpi 300 ~/dots/ping.sh haze.soofw.com}
+${goto 60}${color3}bubble${color}${goto 110}${execpi 300 ~/dots/ping.sh bubble.soofw.com}
+${goto 60}${color7}ember${color}${goto 110}${execpi 300 ~/dots/ping.sh ember.soofw.com}
+${goto 60}${color4}spark${color}${goto 110}${execpi 300 ~/dots/ping.sh spark.soofw.com}
