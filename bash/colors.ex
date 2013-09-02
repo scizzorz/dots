@@ -3,7 +3,7 @@
 export hcolor="13"
 export dcolor="5"
 export gitcolor="8"
-export host="hex"
+export host=""
 
 if [ `whoami` = root ]; then
 	export pcolor="1"
