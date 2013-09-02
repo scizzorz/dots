@@ -34,7 +34,7 @@ color1 ED5E6A
 color2 99EA47
 color3 5E76ED
 color4 EDD55E
-color5 A875EF # HOST COLOR!
+color5 A875EF
 color6 62C7E8
 color7 E6AD74
 color8 C2EB6F
@@ -44,17 +44,20 @@ color9 8CBFF2
 #  Output
 ##############################################
 TEXT
+Time${goto 60}$color4${time %I:%M%P}$color
+Date${goto 60}$color4${time %b %e}$color${goto 110}${time %a}
 Uptime${goto 60}$color4$uptime_short$color
+
 User${goto 60}$color5${exec whoami}$color
 Host${goto 60}$color5$nodename$color${goto 110}${addr eth0}
+
 Load${goto 60}$color6${loadavg 1}$color${goto 110}${loadavg 2}${goto 160}${loadavg 3}
-CPU${goto 60}$color9${cpu cpu0}%$color${goto 110}${freq_g}GHz
-RAM${goto 60}$color9$memperc%$color${goto 110}$memmax
-Swap${goto 60}$color9$swapperc%$color${goto 110}$swapmax
-Root${goto 60}$color2${fs_used_perc /}%$color${goto 110}${fs_size /}
-Home${goto 60}$color2${fs_used_perc /home}%$color${goto 110}${fs_size /home}
-$hr
-Machines
+CPU${goto 60}$color6${cpu cpu0}%$color${goto 110}${freq_g}GHz
+RAM${goto 60}$color6$memperc%$color${goto 110}$memmax
+Swap${goto 60}$color6$swapperc%$color${goto 110}$swapmax
+
+${execp ~/dots/disks.sh}
+
 ${goto 60}${color5}hex${color}${goto 110}${execpi 300 ~/dots/ping.sh hex.soofw.com}
 ${goto 60}${color2}spore${color}${goto 110}${execpi 300 ~/dots/ping.sh spore.soofw.com}
 ${goto 60}${color6}haze${color}${goto 110}${execpi 300 ~/dots/ping.sh haze.soofw.com}
