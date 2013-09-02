@@ -43,7 +43,7 @@
 [alias]
 	unstage = reset HEAD
 	us = reset HEAD
-	st = status -sb
+	st = status -s
 	ci = commit
 	br = branch
 	co = checkout

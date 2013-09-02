@@ -12,6 +12,10 @@ alias b='bumpy'
 alias c='termcolors'
 alias mg='~/dev/multigit/multigit.sh'
 
+if [ -f ~/dev/multigit/helpers.sh ]; then
+	source ~/dev/multigit/helpers.sh
+fi
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
