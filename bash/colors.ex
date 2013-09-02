@@ -1,7 +1,9 @@
 # vim:ft=sh
 
-export hcolor="5"
-export gitcolor="7"
+export hcolor="13"
+export dcolor="5"
+export gitcolor="8"
+export host="hex"
 
 if [ `whoami` = root ]; then
 	export pcolor="1"

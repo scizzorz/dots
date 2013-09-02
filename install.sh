@@ -3,11 +3,13 @@
 function inst {
 	echo "Installing $2 as $1..."
 	if [ -e $1 ]; then
-		#mv $1 $1.bak
-		mv $1 $1.bak
+		if [ -h $1 ]; then
+			rm $1 # remove existing symbolic links
+		else
+			mv $1 $1.bak # backup existing files
+		fi
 	fi
-	#ln -s $2 $1
-	ln -s $2 $1
+	ln -s $2 $1 # symlink
 }
 
 FROM=$(pwd)
@@ -18,25 +20,29 @@ inst $TO/.bashrc $FROM/bash/rc
 inst $TO/.dircolors $FROM/dircolors
 inst $TO/.gitconfig $FROM/gitconfig
 inst $TO/.tmux.conf $FROM/tmux.conf
-inst $TO/.trkrc $FROM/trkrc
 inst $TO/.vim $FROM/vim
 inst $TO/.vimrc $FROM/vimrc
 inst $TO/.pylintrc $FROM/pylintrc
 inst $TO/.conkyrc $FROM/conkyrc
+inst $TO/.gtk-bookmarks $FROM/gtk-bookmarks
 
 echo "Installing $FROM/fonts/* as $TO/.fonts/*..."
-if [ ! -e $TO/.fonts ]; then
-	mkdir $TO/.fonts
-fi
+mkdir -p $TO/.fonts
 cp -rf $FROM/fonts/* $TO/.fonts/
 
 echo "Installing $FROM/themes/* as $TO/.themes/*..."
-if [ ! -e $TO/.themes ]; then
-	mkdir $TO/.themes
-fi
+mkdir -p $TO/.themes
 cp -rf $FROM/themes/* $TO/.themes/
 
-echo "Use schemer.py to set gnome-terminal palette colors."
-echo "Copy bash/colors.ex to bash/colors and update the colors."
-echo "Manually symlink openbox-rc.xml to ~/.config/openbox/rc.xml"
-echo "Manually symlink tint2rc to ~/.config/tint2/tint2rc"
+python schemer.py Default
+if [ ! -f bash/colors ]; then
+	cp bash/colors.ex bash/colors
+fi
+
+mkdir -p $TO/.config/openbox
+inst $TO/.config/openbox/rc.xml $FROM/openbox-rc.xml
+
+mkdir -p $TO/.config/tint2
+inst $TO/.config/tint2/tint2rc $FROM/tint2rc
+
+echo "Update bash/colors manually"
