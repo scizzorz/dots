@@ -9,19 +9,10 @@ if [ $TERM == 'xterm' ]; then
 fi
 [ $TERM != "screen" ] && hash tmux &>/dev/null && exec tmux
 
-if [ -f ~/dots/bash/env ]; then
-	. ~/dots/bash/env
-fi
-if [ -f ~/dots/bash/alias ]; then
-	. ~/dots/bash/alias
-fi
-if [ -f ~/dots/bash/prompt ]; then
-	. ~/dots/bash/prompt
-fi
-
-if [ -x ~/.motd ]; then
-	~/.motd
-fi
+[ -f ~/dots/bash/env ] && source ~/dots/bash/env
+[ -f ~/dots/bash/alias ] && source ~/dots/bash/alias
+[ -f ~/dots/bash/prompt ] && source ~/dots/bash/prompt
+[ -x ~/.motd ] && ~/.motd
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
