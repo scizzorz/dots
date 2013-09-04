@@ -10,11 +10,7 @@ alias please='sudo $(history -p !-1)'
 alias t='~/dev/trk/bin/trk'
 alias b='bumpy'
 alias c='termcolors'
-alias mg='~/dev/multigit/multigit.sh'
-
-if [ -f ~/dev/multigit/helpers.sh ]; then
-	source ~/dev/multigit/helpers.sh
-fi
+alias mg='multigit'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
