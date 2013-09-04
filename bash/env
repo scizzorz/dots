@@ -12,6 +12,12 @@ export PATH=$PATH:~/android/tools
 export PATH=$PATH:~/android/platform-tools
 export PATH=$PATH:~/dev/pebble/arm-cs-tools/bin
 
+if [ -f ~/dev/pathfinder/pathfinder.sh ]; then
+	source ~/dev/pathfinder/pathfinder.sh
+	pathfinder
+	sourcefinder
+fi
+
 # for arduino-mk
 export ARDMK_DIR=/usr/local
 export ARDUINO_DIR=/usr/share/arduino
