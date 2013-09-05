@@ -59,7 +59,6 @@ Swap${goto 60}$color6$swapperc%$color${goto 110}$swapmax
 ${execp ~/dots/disks.sh}
 
 ${goto 60}${color5}hex${color}${goto 110}${execpi 300 ~/dots/ping.sh hex.soofw.com}
-${goto 60}${color2}spore${color}${goto 110}${execpi 300 ~/dots/ping.sh spore.soofw.com}
 ${goto 60}${color6}haze${color}${goto 110}${execpi 300 ~/dots/ping.sh haze.soofw.com}
 ${goto 60}${color3}bubble${color}${goto 110}${execpi 300 ~/dots/ping.sh bubble.soofw.com}
 ${goto 60}${color7}ember${color}${goto 110}${execpi 300 ~/dots/ping.sh ember.soofw.com}
