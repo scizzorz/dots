@@ -1,0 +1,6 @@
+[submodule "vim/bundle/vim-jinja"]
+	path = vim/bundle/vim-jinja
+	url = gh:mitsuhiko/vim-jinja.git
+[submodule "vim/bundle/vim-python-combined"]
+	path = vim/bundle/vim-python-combined
+	url = gh:mitsuhiko/vim-python-combined.git
