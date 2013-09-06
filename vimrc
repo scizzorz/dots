@@ -195,27 +195,27 @@ hi clear
 hi CursorColumn ctermfg=none  ctermbg=0    cterm=none
 hi ColorColumn  ctermfg=none  ctermbg=0    cterm=none
 hi CursorLine   ctermfg=none  ctermbg=none cterm=none
-hi CursorLineNr ctermfg=10    ctermbg=none cterm=none
-hi VertSplit    ctermfg=0     ctermbg=none cterm=none
+hi CursorLineNr ctermfg=6     ctermbg=none cterm=none
+hi VertSplit    ctermfg=0     ctermbg=0    cterm=none
 
 hi MatchParen   ctermfg=9     ctermbg=none cterm=none
 
 hi Visual       ctermfg=none  ctermbg=0    cterm=none
 
 " Status line
-hi StatusLine   ctermfg=10    ctermbg=0    cterm=none
+hi StatusLine   ctermfg=6    ctermbg=0    cterm=none
 hi StatusLineNC ctermfg=7     ctermbg=0    cterm=none
 
 " Wild menu. Oh how I wish I could decouple you from the status line...
 hi WildMenu     ctermfg=9     ctermbg=0    cterm=none
 
 " Fold column
-hi Folded       ctermfg=11    ctermbg=none cterm=none
-hi FoldColumn   ctermfg=11    ctermbg=none cterm=none
+hi Folded       ctermfg=7    ctermbg=none cterm=none
+hi FoldColumn   ctermfg=7    ctermbg=none cterm=none
 
 " Autocomplete menu
 hi Pmenu        ctermfg=7     ctermbg=0    cterm=none
-hi PmenuSel     ctermfg=10    ctermbg=0    cterm=none
+hi PmenuSel     ctermfg=6     ctermbg=0    cterm=none
 hi PmenuSbar    ctermfg=7     ctermbg=7    cterm=none
 hi PmenuThumb   ctermfg=8     ctermbg=8    cterm=none
 
@@ -242,13 +242,13 @@ hi SignColumn   ctermfg=none  ctermbg=none cterm=none
 " syntax TODO
 hi Error        ctermfg=1     ctermbg=none cterm=none
 hi Todo         ctermfg=1     ctermbg=none cterm=none
-hi Identifier   ctermfg=2     ctermbg=none cterm=none
+hi Identifier   ctermfg=11    ctermbg=none cterm=none
 hi Type         ctermfg=3     ctermbg=none cterm=none
-hi Constant     ctermfg=4     ctermbg=none cterm=none
-hi Comment      ctermfg=7     ctermbg=none cterm=none
+hi Constant     ctermfg=12    ctermbg=none cterm=none
+hi Comment      ctermfg=5     ctermbg=none cterm=none
 hi Statement    ctermfg=6     ctermbg=none cterm=none
 hi PreProc      ctermfg=9     ctermbg=none cterm=none
-hi Special      ctermfg=13    ctermbg=none cterm=none
+hi Special      ctermfg=14    ctermbg=none cterm=none
 hi Underlined   ctermfg=15    ctermbg=none cterm=none
 hi Ignore       ctermfg=15    ctermbg=none cterm=none
 
