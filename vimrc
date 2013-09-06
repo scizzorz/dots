@@ -257,3 +257,6 @@ hi Ignore       ctermfg=15    ctermbg=none cterm=none
 " hi Underlined   ctermfg=??   ctermbg=none cterm=none
 
 match WhitespaceEOL /\s\+$/
+
+
+execute pathogen#infect()
