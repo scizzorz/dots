@@ -13,7 +13,7 @@ own_window_type desktop
 #own_window_argb_visual yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 200 200
+minimum_size 200 800
 maximum_width 240
 draw_shades no
 draw_outline yes
@@ -63,3 +63,10 @@ ${goto 60}${color6}haze${color}${goto 110}${execpi 300 ~/dots/ping.sh haze.soofw
 ${goto 60}${color3}bubble${color}${goto 110}${execpi 300 ~/dots/ping.sh bubble.soofw.com}
 ${goto 60}${color7}ember${color}${goto 110}${execpi 300 ~/dots/ping.sh ember.soofw.com}
 ${goto 60}${color4}spark${color}${goto 110}${execpi 300 ~/dots/ping.sh spark.soofw.com}
+
+
+${execi 86400 curl -s http://developerexcuses.com/ | perl -ne '/center.*nofollow.*?>(.*?)<\/a>/ and print "$1\n"' | fold -sw 35}
+
+${execi 86400 fortune -s fortunes | fold -sw 35}
+
+${execi 86400 fortune -s literature | fold -sw 35}
