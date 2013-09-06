@@ -10,3 +10,6 @@
 [submodule "pathfinder/multigit"]
 	path = pathfinder/multigit
 	url = gh:scizzorz/multigit.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = gh:plasticboy/vim-markdown
