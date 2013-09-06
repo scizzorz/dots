@@ -4,3 +4,9 @@
 [submodule "vim/bundle/vim-python-combined"]
 	path = vim/bundle/vim-python-combined
 	url = gh:mitsuhiko/vim-python-combined.git
+[submodule "pathfinder/st"]
+	path = pathfinder/st
+	url = gh:nferraz/st.git
+[submodule "pathfinder/multigit"]
+	path = pathfinder/multigit
+	url = gh:scizzorz/multigit.git
