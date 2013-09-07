@@ -14,6 +14,11 @@ function inst {
 
 FROM=$(pwd)
 TO=~
+
+echo "Initializing git submodules..."
+git submodule init
+git submodule update
+
 echo "Installing from $FROM to $TO"
 inst $TO/.vimrc $FROM/vimrc
 inst $TO/.bashrc $FROM/bash/rc
