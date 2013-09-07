@@ -20,6 +20,7 @@ endif
 
 set tabstop=4                 " number of spaces that a tab counts for
 set shiftwidth=4              " number of spaces to use for each step of (auto)indent
+set shiftround                " always round indents to shiftwidth
 silent! set mouse=a           " enable mouse if it exists
 silent! set encoding=utf-8    " enable default encoding if it exists
 set list                      " show tabs and EOL
