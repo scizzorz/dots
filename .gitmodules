@@ -13,3 +13,9 @@
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = gh:plasticboy/vim-markdown
+[submodule "vim/bundle/css"]
+	path = vim/bundle/css
+	url = gh:JulesWang/css.vim
+[submodule "vim/bundle/html5"]
+	path = vim/bundle/html5
+	url = gh:othree/html5.vim
