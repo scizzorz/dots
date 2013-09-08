@@ -1,24 +1,24 @@
-[submodule "vim/bundle/vim-jinja"]
-	path = vim/bundle/vim-jinja
-	url = gh:mitsuhiko/vim-jinja.git
-[submodule "vim/bundle/vim-python-combined"]
-	path = vim/bundle/vim-python-combined
-	url = gh:mitsuhiko/vim-python-combined.git
 [submodule "pathfinder/st"]
 	path = pathfinder/st
 	url = gh:nferraz/st.git
 [submodule "pathfinder/multigit"]
 	path = pathfinder/multigit
 	url = gh:scizzorz/multigit.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = gh:plasticboy/vim-markdown
 [submodule "vim/bundle/css"]
 	path = vim/bundle/css
 	url = gh:JulesWang/css.vim
 [submodule "vim/bundle/html5"]
 	path = vim/bundle/html5
 	url = gh:othree/html5.vim
-[submodule "vim/bundle/vim-commentary"]
-	path = vim/bundle/vim-commentary
+[submodule "vim/bundle/commentary"]
+	path = vim/bundle/commentary
 	url = gh:tpope/vim-commentary
+[submodule "vim/bundle/jinja"]
+	path = vim/bundle/jinja
+	url = gh:mitsuhiko/vim-jinja
+[submodule "vim/bundle/python-combined"]
+	path = vim/bundle/python-combined
+	url = gh:mitsuhiko/vim-python-combined
+[submodule "vim/bundle/markdown"]
+	path = vim/bundle/markdown
+	url = gh:plasticboy/vim-markdown
