@@ -22,3 +22,6 @@
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
 	url = gh:plasticboy/vim-markdown
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = gh:tpope/vim-surround
