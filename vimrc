@@ -18,8 +18,9 @@ if has("persistent_undo")
 	set undofile              " force vim to save undo history as a file
 endif
 
-set tabstop=4                 " number of spaces that a tab counts for
-set shiftwidth=4              " number of spaces to use for each step of (auto)indent
+set noexpandtab               " use real tabs, like real men
+set tabstop=2                 " number of spaces that a tab counts for
+set shiftwidth=2              " number of spaces to use for each step of (auto)indent
 set shiftround                " always round indents to shiftwidth
 silent! set mouse=a           " enable mouse if it exists
 silent! set encoding=utf-8    " enable default encoding if it exists
@@ -48,7 +49,7 @@ function! FoldText()
 	let stripped = substitute(line, '^\s*\(.\{-}\)\s*$', '\1', '')
 
 	let dashes = v:folddashes
-	let tabbed = substitute(dashes, '-', '    ', 'g')
+	let tabbed = substitute(dashes, '-', '  ', 'g')
 
 	let line2 = getline(v:foldend)
 	let stripped2 = substitute(line2, '^\s*\(.\{-}\)\s*$', '\1', '')
