@@ -25,7 +25,7 @@ set shiftround                " always round indents to shiftwidth
 silent! set mouse=a           " enable mouse if it exists
 silent! set encoding=utf-8    " enable default encoding if it exists
 set list                      " show tabs and EOL
-set listchars=tab:»\ ,trail:· " show tabs as right arrow quotes and trailing spaces as bullets
+set listchars=tab:\|\ ,trail:· " show tabs as right arrow quotes and trailing spaces as bullets
 set winminheight=0            " the minimum height of a non-focused window
 set winminwidth=0             " the minimum width of a non-focused window
 set cursorline                " highlight the line with the cursor
@@ -49,7 +49,7 @@ function! FoldText()
 	let stripped = substitute(line, '^\s*\(.\{-}\)\s*$', '\1', '')
 
 	let dashes = v:folddashes
-	let tabbed = substitute(dashes, '-', '  ', 'g')
+	let tabbed = substitute(dashes, '-', '| ', 'g')
 
 	let line2 = getline(v:foldend)
 	let stripped2 = substitute(line2, '^\s*\(.\{-}\)\s*$', '\1', '')
@@ -212,7 +212,7 @@ hi StatusLineNC ctermfg=7     ctermbg=0    cterm=none
 hi WildMenu     ctermfg=9     ctermbg=0    cterm=none
 
 " Fold column
-hi Folded       ctermfg=7    ctermbg=none cterm=none
+hi Folded       ctermfg=8    ctermbg=none cterm=none
 hi FoldColumn   ctermfg=7    ctermbg=none cterm=none
 
 " Autocomplete menu
