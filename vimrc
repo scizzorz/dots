@@ -40,7 +40,6 @@ set wildmenu                  " enable the wild menu (EX command completion)
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class " ignore these extensions (courtesy of Armin Ronacher)
 set nomagic                   " turn off magic in regexps
 let mapleader=","             " remap the leader key from \ to ,
-filetype indent on            " special indenting by filetype I think
 
 " adapted from :help fold.txt
 " displays the first line of the fold at the appropriate indentation
