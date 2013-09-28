@@ -1,16 +1,20 @@
 # vim:ft=sh
 
+# vi-style command editing
+# holy smokes is this the best feature ever
+set -o vi
+
 # use vim as the man pager
 export MANPAGER='/bin/bash -c "vim -c \"set ft=man\" -S ~/dots/vimp.rc </dev/tty <(col -b)"'
 export EDITOR="/usr/bin/vim"
 
 # update path
-export PATH=$PATH:./
-export PATH=$PATH:~/bin
-export PATH=$PATH:~/scripts
-export PATH=$PATH:~/android/tools
-export PATH=$PATH:~/android/platform-tools
-export PATH=$PATH:~/dev/pebble/arm-cs-tools/bin
+export PATH=./:$PATH
+export PATH=~/bin:$PATH
+export PATH=~/scripts:$PATH
+export PATH=~/android/tools:$PATH
+export PATH=~/android/platform-tools:$PATH
+export PATH=~/dev/pebble/arm-cs-tools/bin:$PATH
 
 if [ -f ~/dev/pathfinder/pathfinder.sh ]; then
 	source ~/dev/pathfinder/pathfinder.sh

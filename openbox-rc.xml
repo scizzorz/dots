@@ -187,17 +187,8 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 		</keybind>
 
 		<!-- window tiling -->
-		<keybind key="H-S-Return">
-			<action name="ToggleMaximize" />
-		</keybind>
 		<keybind key="H-Return">
-			<action name="UnmaximizeFull"/>
-			<action name="MoveResizeto">
-				<x>2%</x>
-				<y>2%</y>
-				<height>94%</height>
-				<width>96%</width>
-			</action>
+			<action name="ToggleMaximize" />
 		</keybind>
 
 		<keybind key="H-q">

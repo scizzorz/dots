@@ -1,5 +1,12 @@
-# vim:ft=sh
+# vim: ft=sh:
 
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+
+function parse_virtualenv {
+	if [ "$VIRTUAL_ENV" ]; then
+		echo -n $(basename $VIRTUAL_ENV)" "
+	fi
+}
 function parse_git_branch {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' -e 's/master/-/'
 }
@@ -50,7 +57,7 @@ if [ -f ~/dots/bash/colors ]; then
 		RESET=$(tput sgr0)
 
 		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
-		PS1="\[$DIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch)\$(parse_git_commit)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
+		PS1="\[$GITCOLOR\]\$(parse_virtualenv)\[$DIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch)\$(parse_git_commit)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
 		if [ "$host" != $(hostname) ]; then
 			PS1="\[$HOSTCOLOR\]\h "$PS1
 		fi
