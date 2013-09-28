@@ -40,6 +40,7 @@ set wildmenu                  " enable the wild menu (EX command completion)
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class " ignore these extensions (courtesy of Armin Ronacher)
 set nomagic                   " turn off magic in regexps
 let mapleader=","             " remap the leader key from \ to ,
+filetype indent on
 
 " adapted from :help fold.txt
 " displays the first line of the fold at the appropriate indentation
@@ -55,11 +56,8 @@ function! FoldText()
 
 	let diff = v:foldend - v:foldstart
 
-
 	return tabbed . stripped . ' + ' . diff . ' more'
 endfunction
-
-" v:foldstart . ' - ' . v:foldend . ': '. getline(v:foldstart) " set fold line to be just the consumed line
 
 " auto commands
 if has("autocmd")
@@ -76,8 +74,6 @@ if has("autocmd")
 	autocmd BufWrite ?* mkview
 	autocmd BufRead ?* silent! loadview | nnoremap Z zd
 	autocmd BufRead * set foldignore=
-	"| nnoremap zO zR | nnoremap zC zM
-	"| nnoremap z za | vnoremap z zf
 
 	" automatically reload vimrc when it's saved
 	autocmd BufWritePost vimrc,.vimrc so ~/.vimrc
@@ -151,8 +147,8 @@ noremap H ^
 noremap L $
 
 " I hate it when K manpages, so I'll make it useful
-map K {j
-map J }k
+map K {
+map J }
 
 " http://vim.wikia.com/wiki/Autocomplete_with_TAB_when_typing_words
 " Use tab to complete when typing words, else inserts tabs as usual.
@@ -253,11 +249,6 @@ hi Special      ctermfg=14    ctermbg=none cterm=none
 hi Underlined   ctermfg=15    ctermbg=none cterm=none
 hi Ignore       ctermfg=15    ctermbg=none cterm=none
 
-" TODO might want these back
-" hi Title        ctermfg=??   ctermbg=none cterm=none
-" hi Underlined   ctermfg=??   ctermbg=none cterm=none
-
 match WhitespaceEOL /\s\+$/
-
 
 execute pathogen#infect()
