@@ -80,14 +80,6 @@ if has("autocmd")
 
 	" automatically resize splits when the window is resized
 	autocmd VimResized * exe "normal! \<c-w>="
-
-	" update the title and stuff
-	autocmd BufEnter * let &titlestring = $USER . " " . hostname(). " | vim " . expand("%:~:p")
-	set title
-
-	" I seriously hate q: more than anything in the whole world
-	" but I can't do anything about it
-	" if you know how to turn that off, PLEASE LET ME KNOW
 endif
 
 " mappings

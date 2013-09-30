@@ -56,7 +56,24 @@ if [ -f ~/dots/bash/colors ]; then
 		PROMPTCOLOR=$(tput setaf $pcolor)
 		RESET=$(tput sgr0)
 
-		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} ${W}\007"'
+		PROMPT_COMMAND='history -a; history -n; echo -ne "\033]0;${USER} ${HOSTNAME} bash $(echo $PWD | sed s:$HOME:~:g)\007"'
+
+		# via http://mg.pov.lt/blog/bash-prompt.html
+		function show_command_in_title_bar {
+			case "$BASH_COMMAND" in
+				*\033]0*)
+					# The command is trying to set the title bar as well;
+					# this is most likely the execution of $PROMPT_COMMAND.
+					# In any case nested escapes confuse the terminal, so don't
+					# output them.
+					;;
+				*)
+					echo -ne "\033]0;${USER} ${HOSTNAME} ${BASH_COMMAND}\007"
+					;;
+			esac
+		}
+		trap show_command_in_title_bar DEBUG
+
 		PS1="\[$GITCOLOR\]\$(parse_virtualenv)\[$DIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch)\$(parse_git_commit)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
 		if [ "$host" != $(hostname) ]; then
 			PS1="\[$HOSTCOLOR\]\h "$PS1
