@@ -361,7 +361,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 		<!-- commands -->
 		<keybind key="C-S-q">
 			<action name="Execute">
-				<command>cb-lock</command>
+				<command>i3lock -c 2e3338</command>
 			</action>
 		</keybind>
 		<keybind key="C-S-r">

@@ -39,6 +39,7 @@ set foldignore=               " always fold everything based on indent; don't ig
 set wildmenu                  " enable the wild menu (EX command completion)
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class " ignore these extensions (courtesy of Armin Ronacher)
 set nomagic                   " turn off magic in regexps
+set cc=80                     " set a line at the 80th column
 let mapleader=","             " remap the leader key from \ to ,
 filetype indent on
 
