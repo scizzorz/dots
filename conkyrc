@@ -31,7 +31,7 @@ cpu_avg_samples 2
 override_utf8_locale no
 
 color1 ED5E6A
-color2 99EA47
+color2 C2EB6F
 color3 5E76ED
 color4 EDD55E
 color5 A875EF
@@ -45,24 +45,25 @@ color9 8CBFF2
 ##############################################
 TEXT
 Time${goto 60}$color4${time %I:%M%P}$color
-Date${goto 60}$color4${time %b %e}$color${goto 110}${time %a}
+Date${goto 60}$color4${time %b %e}$color${goto 120}${time %a}
 Uptime${goto 60}$color4$uptime_short$color
 
 User${goto 60}$color5${exec whoami}$color
-Host${goto 60}$color5$nodename$color${goto 110}${addr eth0}
+Host${goto 60}$color5$nodename$color${goto 120}${addr eth0}
 
-Load${goto 60}$color6${loadavg 1}$color${goto 110}${loadavg 2}${goto 160}${loadavg 3}
-CPU${goto 60}$color6${cpu cpu0}%$color${goto 110}${freq_g}GHz
-RAM${goto 60}$color6$memperc%$color${goto 110}$memmax
-Swap${goto 60}$color6$swapperc%$color${goto 110}$swapmax
+Load${goto 60}$color6${loadavg 1}$color${goto 120}${loadavg 2}${goto 160}${loadavg 3}
+CPU${goto 60}$color6${cpu cpu0}%$color${goto 120}${freq_g}GHz
+RAM${goto 60}$color6$memperc%$color${goto 120}$memmax
+Swap${goto 60}$color6$swapperc%$color${goto 120}$swapmax
 
 ${execp ~/dots/disks.sh}
 
-${goto 60}${color5}hex${color}${goto 110}${execpi 300 ~/dots/ping.sh hex.soofw.com}
-${goto 60}${color6}haze${color}${goto 110}${execpi 300 ~/dots/ping.sh haze.soofw.com}
-${goto 60}${color3}bubble${color}${goto 110}${execpi 300 ~/dots/ping.sh bubble.soofw.com}
-${goto 60}${color7}ember${color}${goto 110}${execpi 300 ~/dots/ping.sh ember.soofw.com}
-${goto 60}${color4}spark${color}${goto 110}${execpi 300 ~/dots/ping.sh spark.soofw.com}
+${goto 60}${color5}hex${color}${goto 120}${execpi 300 ~/dots/ping.sh hex.soofw.com}
+${goto 60}${color6}haze${color}${goto 120}${execpi 300 ~/dots/ping.sh haze.soofw.com}
+${goto 60}${color3}bubble${color}${goto 120}${execpi 300 ~/dots/ping.sh bubble.soofw.com}
+${goto 60}${color2}xscizzor${color}${goto 120}${execpi 300 ~/dots/ping.sh xscizzor.soofw.com}
+${goto 60}${color7}ember${color}${goto 120}${execpi 300 ~/dots/ping.sh ember.soofw.com}
+${goto 60}${color4}spark${color}${goto 120}${execpi 300 ~/dots/ping.sh spark.soofw.com}
 
 
 ${execi 86400 curl -s http://developerexcuses.com/ | perl -ne '/center.*nofollow.*?>(.*?)<\/a>/ and print "$1\n"' | fold -sw 35}
