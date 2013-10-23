@@ -37,6 +37,12 @@ function parse_git_status {
 	fi
 }
 
+function parse_error {
+	if [ $? -ne 0 ]; then
+		echo -n "x ";
+	fi
+}
+
 # set the colors for the prompt
 if [ -f ~/dots/bash/colors ]; then
 	. ~/dots/bash/colors
@@ -50,6 +56,7 @@ if [ -f ~/dots/bash/colors ]; then
 
 		W=$(echo $PWD | sed 's!'$HOME'!~!g')
 
+		ERROR=$(tput setaf 1)
 		HOSTCOLOR=$(tput setaf $hcolor)
 		DIRCOLOR=$(tput setaf $dcolor)
 		GITCOLOR=$(tput setaf $gitcolor)
@@ -74,7 +81,7 @@ if [ -f ~/dots/bash/colors ]; then
 		}
 		trap show_command_in_title_bar DEBUG
 
-		PS1="\[$GITCOLOR\]\$(parse_virtualenv)\[$DIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch)\$(parse_git_commit)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
+		PS1="\[$ERROR\]\$(parse_error)\[$GITCOLOR\]\$(parse_virtualenv)\[$DIRCOLOR\]\w\[$GITCOLOR\]\$(parse_git_branch)\$(parse_git_commit)\$(parse_git_status)\[$PROMPTCOLOR\] »\[$RESET\] "
 		if [ "$host" != $(hostname) ]; then
 			PS1="\[$HOSTCOLOR\]\h "$PS1
 		fi
