@@ -32,7 +32,7 @@ set cursorline                " highlight the line with the cursor
 set laststatus=2              " always show the status bar
 set statusline=%F%(\ %m%)\ \[%l/%L\ %P\]%(\ %r%)%(\ %h%)%=%{&ft}\  " useful statusline: full filepath [+] [31/250 1%] [RO] [Help]                 vim
 set viewoptions=folds         " only save folds with views
-set foldcolumn=1              " show a fold column!
+set foldcolumn=0              " show a fold column!
 set foldtext=FoldText()       " set the collapsed fold text
 set foldmethod=indent         " set automatic folding
 set foldignore=               " always fold everything based on indent; don't ignore comments
