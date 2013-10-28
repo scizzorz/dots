@@ -18,8 +18,8 @@ function parse_git_status {
 	all=$(git status --porcelain 2> /dev/null | wc -l)
 	modified=$(git status --porcelain -uno 2> /dev/null | wc -l)
 	untracked=$(($all-$modified))
-	diffAdd=$(git df --numstat 2>/dev/null | awk '{ sum += $1 } END { print sum }')
-	diffDel=$(git df --numstat 2>/dev/null | awk '{ sum += $2 } END { print sum }')
+	diffAdd=$(git df --numstat 2>/dev/null | awk 'BEGIN { sum = 0 } { sum += $1 } END { print sum }')
+	diffDel=$(git df --numstat 2>/dev/null | awk 'BEGIN { sum = 0 } { sum += $2 } END { print sum }')
 
 	# this technically isn't "git" status, but it's useful stuff
 	numJobs=$(jobs | wc -l)
