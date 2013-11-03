@@ -31,6 +31,7 @@ inst $TO/.pylintrc $FROM/pylintrc
 inst $TO/.conkyrc $FROM/conkyrc
 inst $TO/.gtk-bookmarks $FROM/gtk-bookmarks
 inst $TO/.xmodmap $FROM/xmodmap
+inst $TO/.Xdefaults $FROM/Xdefaults
 
 echo "Installing $FROM/fonts/* as $TO/.fonts/*..."
 mkdir -p $TO/.fonts

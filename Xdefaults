@@ -1,0 +1,34 @@
+!-----------------------------------------------------------------------------
+! colors
+
+*background: #16191C
+*foreground: #E2E5E8
+*cursorColor: #E2E5E8
+
+*color0: #2D3238
+*color1: #ED5E6A
+*color2: #99EA47
+*color3: #5E76ED
+
+*color4: #EDD55E
+*color5: #A875EF
+*color6: #62C7E8
+*color7: #8E99A3
+
+*color8: #5B6570
+*color9: #ED825E
+*color10: #C2EB6F
+*color11: #8CBFF2
+
+*color12: #E6AD74
+*color13: #EF75C6
+*color14: #79EBB2
+*color15: #E2E5E8
+
+URxvt*font: xft:ProggyCleanTTSZ:size=12:antialias=false
+URxvt*boldFont: xft:ProggyCleanTTSZ:size=12:antialias=false
+URxvt*geometry: 80x24
+URxvt*urlLauncher: google-chrome
+URxvt*scrollBar: false
+URxvt*scrollColor: #000000
+URxvt*letterSpace: -2

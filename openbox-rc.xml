@@ -383,7 +383,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 		</keybind>
 		<keybind key="C-A-x">
 			<action name="Execute">
-				<command>gnome-terminal</command>
+				<command>urxvt</command>
 			</action>
 		</keybind>
 		<keybind key="C-A-c">
