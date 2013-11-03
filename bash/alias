@@ -20,6 +20,7 @@ function venv {
 		source "$1/bin/activate"
 	else
 		virtualenv "$1"
+		source "$1/bin/activate"
 	fi
 }
 
