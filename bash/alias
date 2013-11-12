@@ -15,12 +15,36 @@ alias v='vim'
 
 function venv {
 	if [ -z "$@" ]; then
+		echo "Deactivating..."
 		deactivate
 	elif [ -f "$1/bin/activate" ]; then
+		echo "Activating $1..."
 		source "$1/bin/activate"
 	else
+		echo "Creating $1..."
 		virtualenv "$1"
+		echo "Activating $1..."
 		source "$1/bin/activate"
+	fi
+}
+
+function venv3 {
+	if [ -z "$@" ]; then
+		echo "Deactivating..."
+		deactivate
+	elif [ -f "$1/bin/activate" ]; then
+		echo "Activating $1..."
+		source "$1/bin/activate"
+	else
+		echo "Creating $1..."
+		pyvenv-3.3 "$1"
+		echo "Activating $1..."
+		source "$1/bin/activate"
+		echo "Installing setuptools..."
+		wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - 2>/dev/null | python &>/dev/null
+		echo "Installing pip..."
+		curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py &>/dev/null
+		python get-pip.py &>/dev/null
 	fi
 }
 
