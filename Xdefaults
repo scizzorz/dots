@@ -6,23 +6,23 @@
 *cursorColor: #E2E5E8
 
 *color0: #2D3238
-*color1: #ED5E6A
-*color2: #99EA47
-*color3: #5E76ED
+*color1: #FF6161
+*color2: #61FF61
+*color3: #6161FF
 
-*color4: #EDD55E
-*color5: #A875EF
-*color6: #62C7E8
+*color4: #FFFF61
+*color5: #B061FF
+*color6: #61B0FF
 *color7: #8E99A3
 
 *color8: #5B6570
-*color9: #ED825E
-*color10: #C2EB6F
-*color11: #8CBFF2
+*color9: #FF61B0
+*color10: #B0FF61
+*color11: #61FFFF
 
-*color12: #E6AD74
-*color13: #EF75C6
-*color14: #79EBB2
+*color12: #FFB061
+*color13: #FF61FF
+*color14: #61FFB0
 *color15: #E2E5E8
 
 URxvt*font: xft:ProggyCleanTTSZ:size=12:antialias=false
@@ -32,3 +32,29 @@ URxvt*urlLauncher: google-chrome
 URxvt*scrollBar: false
 URxvt*scrollColor: #000000
 URxvt*letterSpace: -2
+
+
+! slush v1
+slush1*background: #16191C
+slush1*foreground: #E2E5E8
+slush1*cursorColor: #E2E5E8
+
+slush1*color0: #2D3238
+slush1*color1: #ED5E6A
+slush1*color2: #99EA47
+slush1*color3: #5E76ED
+
+slush1*color4: #EDD55E
+slush1*color5: #A875EF
+slush1*color6: #62C7E8
+slush1*color7: #8E99A3
+
+slush1*color8: #5B6570
+slush1*color9: #ED825E
+slush1*color10: #C2EB6F
+slush1*color11: #8CBFF2
+
+slush1*color12: #E6AD74
+slush1*color13: #EF75C6
+slush1*color14: #79EBB2
+slush1*color15: #E2E5E8
