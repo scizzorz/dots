@@ -45,6 +45,8 @@ function venv3 {
 		echo "Installing pip..."
 		curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py &>/dev/null
 		python get-pip.py &>/dev/null
+		echo "Cleaning up..."
+		rm get-pip.py setuptools*.tar.gz
 	fi
 }
 
