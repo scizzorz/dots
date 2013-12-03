@@ -149,10 +149,10 @@ tooltip_font_color = #E3E6E8 100
 tooltip_font = Liberation Sans normal 10
 
 # Mouse
-mouse_middle = none
-mouse_right = close
-mouse_scroll_up = toggle
-mouse_scroll_down = iconify
+mouse_middle = close
+mouse_right = none
+mouse_scroll_up = none
+mouse_scroll_down = none
 
 # Battery
 battery = 1
