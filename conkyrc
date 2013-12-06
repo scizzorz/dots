@@ -30,15 +30,15 @@ uppercase no
 cpu_avg_samples 2
 override_utf8_locale no
 
-color1 ED5E6A
-color2 C2EB6F
-color3 5E76ED
-color4 EDD55E
-color5 A875EF
-color6 62C7E8
-color7 E6AD74
-color8 C2EB6F
-color9 8CBFF2
+color1 FF6161
+color2 61FF61
+color3 6161FF
+color4 FFFF61
+color5 B061FF
+color6 61B0FF
+color7 FF61B0
+color8 B0FF61
+color9 61FFFF
 
 ##############################################
 #  Output
@@ -60,8 +60,9 @@ ${execp ~/dots/disks.sh}
 
 ${goto 60}${color5}hex${color}${goto 120}${execpi 300 ~/dots/ping.sh hex.soofw.com}
 ${goto 60}${color6}haze${color}${goto 120}${execpi 300 ~/dots/ping.sh haze.soofw.com}
-${goto 60}${color7}ember${color}${goto 120}${execpi 300 ~/dots/ping.sh ember.soofw.com}
 ${goto 60}${color4}spark${color}${goto 120}${execpi 300 ~/dots/ping.sh spark.soofw.com}
+${goto 60}${color3}bubble${color}${goto 120}${execpi 300 ~/dots/ping.sh bubble.soofw.com}
+${goto 60}${color}memento${color}${goto 120}${execpi 300 ~/dots/ping.sh memento.soofw.com}
 
 
 ${execi 86400 curl -s http://developerexcuses.com/ | perl -ne '/center.*nofollow.*?>(.*?)<\/a>/ and print "$1\n"' | fold -sw 35}
