@@ -29,6 +29,10 @@ export ARDUINO_DIR=/usr/share/arduino
 export AVR_TOOLS_DIR=/usr
 export AVRDUDE_CONF=/usr/share/arduino/hardware/tools/avrdude.conf
 
+# for leap sdk
+export PYTHONPATH=~/leap/sdk/lib:$PYTHONPATH
+export PYTHONPATH=~/leap/sdk/lib/x64:$PYTHONPATH
+
 # don't put blank lines in the history and control size
 HISTCONTROL=ignorespace:ignoredups
 HISTSIZE=9999
