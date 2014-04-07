@@ -158,6 +158,9 @@ inoremap <Tab> <C-R>=TabOrComplete()<CR>
 " stupid shift key
 cabbrev WQ wq
 cabbrev Wq wq
+cabbrev WQA wqa
+cabbrev WQa wqa
+cabbrev Wqa wqa
 cabbrev W w
 cabbrev Q q
 cabbrev Q! q!
