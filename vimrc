@@ -18,7 +18,7 @@ if has("persistent_undo")
 	set undofile              " force vim to save undo history as a file
 endif
 
-set noexpandtab               " use real tabs, like real men
+set noexpandtab               " use real tabs, like real people
 set tabstop=2                 " number of spaces that a tab counts for
 set shiftwidth=2              " number of spaces to use for each step of (auto)indent
 set shiftround                " always round indents to shiftwidth
