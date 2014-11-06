@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 function inst {
 	echo "Installing $2 as $1..."
@@ -21,7 +21,7 @@ git submodule update
 
 echo "Installing from $FROM to $TO"
 inst $TO/.vimrc $FROM/vimrc
-inst $TO/.bashrc $FROM/bash/rc
+inst $TO/.zshrc $FROM/zshrc
 inst $TO/.dircolors $FROM/dircolors
 inst $TO/.gitconfig $FROM/gitconfig
 inst $TO/.tmux.conf $FROM/tmux.conf
@@ -41,15 +41,8 @@ echo "Installing $FROM/themes/* as $TO/.themes/*..."
 mkdir -p $TO/.themes
 cp -rf $FROM/themes/* $TO/.themes/
 
-python schemer.py Default
-if [ ! -f bash/colors ]; then
-	cp bash/colors.ex bash/colors
-fi
-
 mkdir -p $TO/.config/openbox
 inst $TO/.config/openbox/rc.xml $FROM/openbox-rc.xml
 
 mkdir -p $TO/.config/tint2
 inst $TO/.config/tint2/tint2rc $FROM/tint2rc
-
-echo "Update bash/colors manually"
