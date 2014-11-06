@@ -40,7 +40,7 @@ parse_git_dir() {
 	fi
 }
 
-# Set up prompt
+# set up prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
@@ -51,3 +51,26 @@ export EDITOR=vim
 
 # for Rust
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+# $PATH nonsense
+export PATH=./:$PATH
+export PATH=~/bin:$PATH
+export PATH=~/scripts:$PATH
+
+# set up alises
+alias please='sudo $(history -p !-1)'
+
+venv() {
+	if [ -z "$@" ]; then
+		echo "Deactivating..."
+		deactivate
+	elif [ -f "$1/bin/activate" ]; then
+		echo "Activating $1..."
+		source "$1/bin/activate"
+	else
+		echo "Creating $1..."
+		virtualenv "$@"
+		echo "Activating $1"...
+		source "$1/bin/activate"
+	fi
+}
