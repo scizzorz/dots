@@ -20,6 +20,7 @@ git submodule init
 git submodule update
 
 echo "Installing from $FROM to $TO"
+inst $TO/.xinitrc $FROM/xinitrc
 inst $TO/.vimrc $FROM/vimrc
 inst $TO/.zshrc $FROM/zshrc
 inst $TO/.dircolors $FROM/dircolors
