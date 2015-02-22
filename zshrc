@@ -52,6 +52,9 @@ export EDITOR=vim
 # for Rust
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
+# for Ruby
+export PATH=~/.gem/ruby/2.1.0/bin:$PATH
+
 # $PATH nonsense
 export PATH=./:$PATH
 export PATH=~/bin:$PATH
