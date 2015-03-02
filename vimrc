@@ -90,6 +90,12 @@ map <silent> <C-J> <Esc>:wincmd j<CR>
 map <silent> <C-K> <Esc>:wincmd k<CR>
 map <silent> <C-L> <Esc>:wincmd l<CR>
 
+map <silent> <C-M> <Esc>:bn<CR>
+map <silent> <C-N> <Esc>:bp<CR>
+
+map <silent> <C-P> <Esc>:res +1<CR>
+map <silent> <C-O> <Esc>:res -1<CR>
+
 " map <Leader><Space> to remove all whitespace
 nmap <Leader><Space> :%s/\s\+$//<CR><C-o>
 
