@@ -2,17 +2,19 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword maskConvention this self new
+syn keyword maskConvention this self new result
 
-syn keyword maskKeyword func class type impl enum
-syn keyword maskKeyword if elif else
-syn keyword maskKeyword loop while until for
+syn keyword maskKeyword func class trait impl enum
+syn keyword maskKeyword pass break continue return
+syn keyword maskKeyword if for while until loop elif else
 syn keyword maskKeyword static
-syn keyword maskKeyword print return
+syn keyword maskKeyword print
 
-syn keyword maskType int float string bool seq array map
+syn keyword maskOperator as of is in
+syn keyword maskOperator and or xor not
 
-syn keyword maskResult result
+syn keyword maskType int float str bool seq array map
+
 syn keyword maskBoolean none true false
 
 syn match   maskNumber "\<\d\>" display
@@ -29,11 +31,11 @@ syn region  maskString start=+"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ keepend
 syn match   maskComment "#.*$" display
 
 hi link maskConvention Special
+hi link maskOperator Operator
 hi link maskKeyword Keyword
 hi link maskType Type
 hi link maskBoolean Boolean
 hi link maskString String
-hi link maskResult Constant
 hi link maskNumber Number
 hi link maskFloat Number
 hi link maskComment Comment
