@@ -14,8 +14,8 @@ set directory=~/.vim/swap     " directory for swap files
 set scrolloff=4               " keep the cursor outside of the top/bottom 4 lines when scrolling
 
 if has("persistent_undo")
-	set undodir=~/.vim/undo   " directory for undo files
-	set undofile              " force vim to save undo history as a file
+  set undodir=~/.vim/undo   " directory for undo files
+  set undofile              " force vim to save undo history as a file
 endif
 
 set expandtab                 " use... spaces...
@@ -46,41 +46,41 @@ filetype indent on
 " adapted from :help fold.txt
 " displays the first line of the fold at the appropriate indentation
 function! FoldText()
-	let line = getline(v:foldstart)
-	let stripped = substitute(line, '^\s*\(.\{-}\)\s*$', '\1', '')
+  let line = getline(v:foldstart)
+  let stripped = substitute(line, '^\s*\(.\{-}\)\s*$', '\1', '')
 
-	let dashes = v:folddashes
-	let tabbed = substitute(dashes, '-', '| ', 'g')
+  let dashes = v:folddashes
+  let tabbed = substitute(dashes, '-', '| ', 'g')
 
-	let line2 = getline(v:foldend)
-	let stripped2 = substitute(line2, '^\s*\(.\{-}\)\s*$', '\1', '')
+  let line2 = getline(v:foldend)
+  let stripped2 = substitute(line2, '^\s*\(.\{-}\)\s*$', '\1', '')
 
-	let diff = v:foldend - v:foldstart
+  let diff = v:foldend - v:foldstart
 
-	return tabbed . stripped . ' + ' . diff . ' more'
+  return tabbed . stripped . ' + ' . diff . ' more'
 endfunction
 
 " auto commands
 if has("autocmd")
-	" clear all autocommands
-	autocmd!
+  " clear all autocommands
+  autocmd!
 
-	" jump to last position when reopening
-	autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-				\| exe "normal! g'\"" | endif
+  " jump to last position when reopening
+  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g'\"" | endif
 
-	" automatically save and restore views (folds)
-	" maps have to be made *after* restoring or else the new maps
-	" mess with the loadview
-	autocmd BufWrite ?* mkview
-	autocmd BufRead ?* silent! loadview | nnoremap Z zd
-	autocmd BufRead * set foldignore=
+  " automatically save and restore views (folds)
+  " maps have to be made *after* restoring or else the new maps
+  " mess with the loadview
+  autocmd BufWrite ?* mkview
+  autocmd BufRead ?* silent! loadview | nnoremap Z zd
+  autocmd BufRead * set foldignore=
 
-	" automatically reload vimrc when it's saved
-	autocmd BufWritePost vimrc,.vimrc so ~/.vimrc
+  " automatically reload vimrc when it's saved
+  autocmd BufWritePost vimrc,.vimrc so ~/.vimrc
 
-	" automatically resize splits when the window is resized
-	autocmd VimResized * exe "normal! \<c-w>="
+  " automatically resize splits when the window is resized
+  autocmd VimResized * exe "normal! \<c-w>="
 endif
 
 " mappings
@@ -146,11 +146,11 @@ map J }
 " http://vim.wikia.com/wiki/Autocomplete_with_TAB_when_typing_words
 " Use tab to complete when typing words, else inserts tabs as usual.
 function! TabOrComplete()
-	if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-		return "\<C-N>"
-	else
-		return "\<Tab>"
-	endif
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
 endfunction
 inoremap <Tab> <C-R>=TabOrComplete()<CR>
 
@@ -179,7 +179,7 @@ let c_gnu = 1
 
 syntax on
 if exists("syntax_on")
-	syntax reset
+  syntax reset
 endif
 hi clear
 
