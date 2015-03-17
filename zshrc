@@ -40,6 +40,14 @@ parse_git_dir() {
 	fi
 }
 
+x() {
+  input="$@"
+  if [ ! -t 0 ]; then
+    input=/dev/stdin
+  fi
+  cat "$input" | xsel -b
+}
+
 # set up prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
