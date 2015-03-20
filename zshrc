@@ -54,6 +54,15 @@ setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
 export PROMPT='$fg_bold[black]$(parse_venv)$fg_no_bold[magenta]%~$fg_bold[black]$(parse_git_dir)%(1j, %%%j,) %(?,$fg_no_bold[green],$fg_no_bold[red])» $reset_color%b'
 
+# set up window titles
+function precmd {
+  print -Pn "\e]0;%m %~\a"
+}
+
+function preexec {
+  print -Pn "\e]0;$(hostname) %~ $1\a"
+}
+
 # set up default editor
 export EDITOR=vim
 
