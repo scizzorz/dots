@@ -7,7 +7,8 @@
 
 # get default sink name
 SINK_NAME=$(pacmd dump | perl -a -n -e 'print $F[1] if /set-default-sink/')
-SINK_BUILTIN=$(pacmd list-sinks | grep -o 'alsa_output\.pci.\+\.analog-stereo')
+SINK_BUILTIN=$(pacmd list-sinks | grep -o 'alsa_output\.hw_1_0')
+SINK_BOTH=combined
 SINK_HEADSET=$(pacmd list-sinks | grep -o 'alsa_output\.usb.\+Kraken.\+\.analog-stereo')
 
 case "$1" in
@@ -16,6 +17,10 @@ case "$1" in
 	;;
 	headset)
 		SINK_NAME=$SINK_HEADSET
+  ;;
+  both)
+    SINK_NAME=$SINK_BOTH
+  ;;
 esac
 
 # set max allowed volume; 0x10000 = 100%

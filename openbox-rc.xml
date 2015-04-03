@@ -349,15 +349,6 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 		<keybind key="C-S-r">
 			<action name="Reconfigure"/>
 		</keybind>
-		<keybind key="W-e">
-			<action name="Execute">
-				<startupnotify>
-					<enabled>true</enabled>
-					<name>PCManFM</name>
-				</startupnotify>
-				<command>pcmanfm</command>
-			</action>
-		</keybind>
 		<keybind key="C-A-z">
 			<action name="Execute">
 				<command>gmrun</command>
@@ -378,6 +369,21 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 			<action name="ToggleFullscreen"/>
 		</keybind>
 		<!-- volume -->
+		<keybind key="W-e">
+			<action name="Execute">
+				<command>/home/john/dots/pulse.sh both plus</command>
+			</action>
+		</keybind>
+		<keybind key="W-w">
+			<action name="Execute">
+				<command>/home/john/dots/pulse.sh both minus</command>
+			</action>
+		</keybind>
+		<keybind key="W-q">
+			<action name="Execute">
+				<command>/home/john/dots/pulse.sh both mute</command>
+			</action>
+		</keybind>
 		<keybind key="W-d">
 			<action name="Execute">
 				<command>/home/john/dots/pulse.sh headset plus</command>
