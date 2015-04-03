@@ -2,18 +2,51 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword maskConvention this self new result
+syn keyword maskConvention this result
 
-syn keyword maskKeyword func class trait impl enum
-syn keyword maskKeyword pass break continue return
-syn keyword maskKeyword if for while until loop elif else
-syn keyword maskKeyword static
-syn keyword maskKeyword print
+syn keyword maskKeyword type embed import alias
+syn keyword maskKeyword pass break continue return print
+syn keyword maskKeyword if elif else for while until loop finally break
+syn keyword maskKeyword func
 
-syn keyword maskOperator as of is in
-syn keyword maskOperator and or xor not
+syn keyword maskKeyOperator in is as to
+syn keyword maskKeyOperator and or xor not
 
-syn keyword maskType int float str bool seq array map
+syn match maskOperator "\v\:"
+syn match maskOperator "\v\="
+syn match maskOperator "\v\."
+syn match maskOperator "\v\-\>"
+syn match maskOperator "\v\("
+syn match maskOperator "\v\)"
+syn match maskOperator "\v\["
+syn match maskOperator "\v\]"
+syn match maskOperator "\v\=\>"
+syn match maskOperator "\v\&"
+syn match maskOperator "\v\&\&"
+syn match maskOperator "\v\|"
+syn match maskOperator "\v\|\|"
+syn match maskOperator "\v\^"
+syn match maskOperator "\v>\>"
+syn match maskOperator "\v\<\<"
+syn match maskOperator "\v\$"
+syn match maskOperator "\v\+"
+syn match maskOperator "\v\-"
+syn match maskOperator "\v\~"
+syn match maskOperator "\v\*"
+syn match maskOperator "\v\*\*"
+syn match maskOperator "\v\/"
+syn match maskOperator "\v\/\/"
+syn match maskOperator "\v\%"
+syn match maskOperator "\v\%\%"
+syn match maskOperator "\v\<\="
+syn match maskOperator "\v\<"
+syn match maskOperator "\v\>\="
+syn match maskOperator "\v\>"
+syn match maskOperator "\v\=\="
+syn match maskOperator "\v\!\="
+
+syn keyword maskType self int float str bool seq array map
+syn match maskGenType "\v\?\w+"
 
 syn keyword maskBoolean none true false
 
@@ -31,9 +64,11 @@ syn region  maskString start=+"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ keepend
 syn match   maskComment "#.*$" display
 
 hi link maskConvention Special
-hi link maskOperator Operator
+hi link maskKeyOperator Operator
+hi link maskOperator ModeMsg
 hi link maskKeyword Keyword
 hi link maskType Type
+hi link maskGenType Identifier
 hi link maskBoolean Boolean
 hi link maskString String
 hi link maskNumber Number
