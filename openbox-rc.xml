@@ -134,6 +134,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 	</dock>
 	<keyboard>
 		<chainQuitKey>C-g</chainQuitKey>
+
 		<!-- switch desktops -->
 		<keybind key="C-A-Left">
 			<action name="GoToDesktop">
@@ -157,10 +158,12 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<monitor>next</monitor>
 			</action>
 		</keybind>
+
 		<!-- close window -->
 		<keybind key="A-F4">
 			<action name="Close"/>
 		</keybind>
+
 		<!-- screenshots -->
 		<keybind key="Print">
 			<action name="Execute">
@@ -172,6 +175,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<command>scrot -u -b</command>
 			</action>
 		</keybind>
+
 		<!-- alt+tab -->
 		<keybind key="A-Tab">
 			<action name="NextWindow">
@@ -192,10 +196,13 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				</finalactions>
 			</action>
 		</keybind>
+
 		<!-- window tiling -->
+    <!-- maximize -->
 		<keybind key="H-Return">
 			<action name="ToggleMaximize"/>
 		</keybind>
+    <!-- top half eighths -->
 		<keybind key="H-q">
 			<action name="UnmaximizeFull"/>
 			<action name="MoveResizeTo">
@@ -232,6 +239,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<width>23%</width>
 			</action>
 		</keybind>
+    <!-- bottom half eighths -->
 		<keybind key="H-a">
 			<action name="UnmaximizeFull"/>
 			<action name="MoveResizeTo">
@@ -268,6 +276,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<width>23%</width>
 			</action>
 		</keybind>
+    <!-- vertical quarters -->
 		<keybind key="H-z">
 			<action name="UnmaximizeFull"/>
 			<action name="MoveResizeTo">
@@ -304,6 +313,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<width>23%</width>
 			</action>
 		</keybind>
+    <!-- left/right pane -->
 		<keybind key="H-h">
 			<action name="UnmaximizeFull"/>
 			<action name="MoveResizeTo">
@@ -340,12 +350,14 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<width>48%</width>
 			</action>
 		</keybind>
+
 		<!-- commands -->
 		<keybind key="C-S-q">
 			<action name="Execute">
 				<command>i3lock -d -c 2e3338</command>
 			</action>
 		</keybind>
+
 		<!-- lights -->
 		<keybind key="C-S-1">
 			<action name="Execute">
@@ -417,11 +429,14 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<command>google-chrome</command>
 			</action>
 		</keybind>
+
 		<!-- fullscreen -->
 		<keybind key="F11">
 			<action name="ToggleFullscreen"/>
 		</keybind>
+
 		<!-- volume -->
+		<!-- both -->
 		<keybind key="W-e">
 			<action name="Execute">
 				<command>/home/john/dots/pulse.sh both plus</command>
@@ -437,6 +452,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<command>/home/john/dots/pulse.sh both mute</command>
 			</action>
 		</keybind>
+		<!-- headset -->
 		<keybind key="W-d">
 			<action name="Execute">
 				<command>/home/john/dots/pulse.sh headset plus</command>
@@ -452,6 +468,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<command>/home/john/dots/pulse.sh headset mute</command>
 			</action>
 		</keybind>
+		<!-- builtin -->
 		<keybind key="W-c">
 			<action name="Execute">
 				<command>/home/john/dots/pulse.sh builtin plus</command>
@@ -467,6 +484,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<command>/home/john/dots/pulse.sh builtin mute</command>
 			</action>
 		</keybind>
+		<!-- media keys -> builtin -->
 		<keybind key="XF86AudioRaiseVolume">
 			<action name="Execute">
 				<command>/home/john/dots/pulse.sh builtin plus</command>
@@ -482,36 +500,9 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<command>/home/john/dots/pulse.sh builtin mute</command>
 			</action>
 		</keybind>
-		<!-- terminals -->
-		<keybind key="XF86WWW">
-			<action name="Execute">
-				<command>gnome-terminal</command>
-			</action>
-		</keybind>
-		<keybind key="XF86Terminal">
-			<action name="Execute">
-				<command>gnome-terminal</command>
-			</action>
-		</keybind>
-		<!-- calculator -->
-		<keybind key="XF86Calculator">
-			<action name="Execute">
-				<command>galculator</command>
-			</action>
-		</keybind>
-		<!-- computer button? -->
-		<keybind key="XF86MyComputer">
-			<action name="Execute">
-				<command>pcmanfm</command>
-			</action>
-		</keybind>
-		<!-- power button? -->
-		<keybind key="XF86PowerOff">
-			<action name="Execute">
-				<command>lubuntu-logout</command>
-			</action>
-		</keybind>
+
 	</keyboard>
+
 	<mouse>
 		<dragThreshold>8</dragThreshold>
 		<!-- number of pixels the mouse must move before a drag begins -->
