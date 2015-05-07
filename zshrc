@@ -79,6 +79,7 @@ export PATH=~/scripts:$PATH
 
 # set up alises
 alias please='sudo $(history -p !-1)'
+alias ls='ls -F --color=auto'
 
 venv() {
 	if [ -z "$@" ]; then
