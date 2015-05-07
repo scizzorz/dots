@@ -346,6 +346,59 @@ Copy the file to $HOME/.config/openbox/ instead. -->
 				<command>i3lock -d -c 2e3338</command>
 			</action>
 		</keybind>
+		<!-- lights -->
+		<keybind key="C-S-1">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 0</command>
+			</action>
+		</keybind>
+		<keybind key="C-S-2">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 36</command>
+			</action>
+		</keybind>
+		<keybind key="C-S-3">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 72</command>
+			</action>
+		</keybind>
+		<keybind key="C-S-4">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 108</command>
+			</action>
+		</keybind>
+		<keybind key="C-S-5">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 144</command>
+			</action>
+		</keybind>
+		<keybind key="C-S-6">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 180</command>
+			</action>
+		</keybind>
+		<keybind key="C-S-7">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 216</command>
+			</action>
+		</keybind>
+		<keybind key="C-S-8">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 252</command>
+			</action>
+		</keybind>
+		<keybind key="C-S-9">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 288</command>
+			</action>
+		</keybind>
+		<keybind key="C-S-0">
+			<action name="Execute">
+				<command>/home/john/bin/lights -u 324</command>
+			</action>
+		</keybind>
+
+		<!-- shortcuts -->
 		<keybind key="C-S-r">
 			<action name="Reconfigure"/>
 		</keybind>
