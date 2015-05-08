@@ -36,6 +36,7 @@ set foldcolumn=0              " show a fold column!
 set foldtext=FoldText()       " set the collapsed fold text
 set foldmethod=indent         " set automatic folding
 set foldignore=               " always fold everything based on indent; don't ignore comments
+set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\  " set all fillchars to space. these are used in things like fold text.
 set wildmenu                  " enable the wild menu (EX command completion)
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class " ignore these extensions (courtesy of Armin Ronacher)
 set nomagic                   " turn off magic in regexps
@@ -50,7 +51,7 @@ function! FoldText()
   let stripped = substitute(line, '^\s*\(.\{-}\)\s*$', '\1', '')
 
   let dashes = v:folddashes
-  let tabbed = substitute(dashes, '-', '| ', 'g')
+  let tabbed = substitute(dashes, '-', '  ', 'g')
 
   let line2 = getline(v:foldend)
   let stripped2 = substitute(line2, '^\s*\(.\{-}\)\s*$', '\1', '')
