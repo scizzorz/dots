@@ -1,5 +1,5 @@
 [ -z "$PS1" ] && return
-[ $TERM != "screen" ] && hash tmux &>/dev/null && exec tmux
+[ $TERM != "screen" ] && [ $TERM != "linux" ] && hash tmux &>/dev/null && exec tmux
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
