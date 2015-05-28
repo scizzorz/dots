@@ -150,6 +150,12 @@ noremap L $
 map K {
 map J }
 
+" GET OUTTA TOWN, COMMAND HISTORY
+nnoremap q: :q
+
+" GET OUTTA TOWN, DEFAULT <CR>
+nnoremap <CR> <nop>
+
 " http://vim.wikia.com/wiki/Autocomplete_with_TAB_when_typing_words
 " Use tab to complete when typing words, else inserts tabs as usual.
 function! TabOrComplete()
@@ -176,7 +182,9 @@ cabbrev weq wq
 cabbrev Weq wq
 cabbrev WEq wq
 cabbrev WEQ wq
-
+" stupid backwards keys
+cabbrev qw wq
+cabbrev Qw wq
 
 " highlighting
 set background=dark
