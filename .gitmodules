@@ -37,3 +37,6 @@
 [submodule "vim/bundle/nim"]
 	path = vim/bundle/nim
 	url = https://github.com/zah/nimrod.vim.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab
