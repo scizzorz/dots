@@ -249,6 +249,12 @@ hi Special      ctermfg=14    ctermbg=none cterm=none
 hi Underlined   ctermfg=15    ctermbg=none cterm=none
 hi Ignore       ctermfg=15    ctermbg=none cterm=none
 
+" diff
+hi DiffAdd     ctermfg=2      ctermbg=0    cterm=none
+hi DiffChange  ctermfg=4      ctermbg=0    cterm=none
+hi DiffDelete  ctermfg=1      ctermbg=0    cterm=none
+hi DiffText    ctermfg=6      ctermbg=0    cterm=none
+
 match WhitespaceEOL /\s\+$/
 
 execute pathogen#infect()
