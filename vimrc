@@ -156,17 +156,6 @@ nnoremap q: :q
 " GET OUTTA TOWN, DEFAULT <CR>
 nnoremap <CR> <nop>
 
-" http://vim.wikia.com/wiki/Autocomplete_with_TAB_when_typing_words
-" Use tab to complete when typing words, else inserts tabs as usual.
-function! TabOrComplete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-inoremap <Tab> <C-R>=TabOrComplete()<CR>
-
 " custom commands
 " stupid shift key
 cabbrev WQ wq
@@ -259,6 +248,12 @@ hi PreProc      ctermfg=9     ctermbg=none cterm=none
 hi Special      ctermfg=14    ctermbg=none cterm=none
 hi Underlined   ctermfg=15    ctermbg=none cterm=none
 hi Ignore       ctermfg=15    ctermbg=none cterm=none
+
+" diff
+hi DiffAdd     ctermfg=2      ctermbg=0    cterm=none
+hi DiffChange  ctermfg=4      ctermbg=0    cterm=none
+hi DiffDelete  ctermfg=1      ctermbg=0    cterm=none
+hi DiffText    ctermfg=6      ctermbg=0    cterm=none
 
 match WhitespaceEOL /\s\+$/
 
