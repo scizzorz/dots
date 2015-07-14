@@ -1,5 +1,5 @@
 [ -z "$PS1" ] && return
-[ $TERM != "screen" ] && [ $TERM != "linux" ] && hash tmux &>/dev/null && exec tmux
+#[ $TERM != "screen" ] && [ $TERM != "linux" ] && hash tmux &>/dev/null && exec tmux
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -112,3 +112,5 @@ if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
   ZSH_HIGHLIGHT_STYLES[path_approx]=fg=white
   ZSH_HIGHLIGHT_STYLES[globbing]=fg=cyan
 fi
+
+export TERM=xterm
