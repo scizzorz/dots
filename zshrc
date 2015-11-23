@@ -60,7 +60,7 @@ function precmd {
 }
 
 function preexec {
-  print -Pn "\e]0;$(hostname) %~ $1\a"
+  print -Pn "\e]0;$(hostname) %~ » $1\a"
 }
 
 # set up default editor
@@ -94,6 +94,15 @@ venv() {
 		echo "Activating $1"...
 		source "$1/bin/activate"
 	fi
+}
+
+t() {
+  if [ -z "$1" ]; then
+    tmux ls
+  elif tmux attach -t "$1"; then
+  else
+    tmux new -s "$1";
+  fi
 }
 
 # zsh syntax highlighting
