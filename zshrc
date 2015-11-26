@@ -52,7 +52,7 @@ x() {
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
-export PROMPT='$fg_bold[black]$(parse_venv)$fg_no_bold[magenta]%~$fg_bold[black]$(parse_git_dir)%(1j, %%%j,) %(?,$fg_no_bold[green],$fg_no_bold[red])» $reset_color%b'
+export PROMPT='%{$fg_bold[black]%}$(parse_venv)%{$fg_no_bold[magenta]%}%~%{$fg_bold[black]%}$(parse_git_dir)%(1j, %%%j,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
 
 # set up window titles
 function precmd {
