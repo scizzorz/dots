@@ -105,6 +105,10 @@ t() {
   fi
 }
 
+:q() {
+  exit
+}
+
 # zsh syntax highlighting
 if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
