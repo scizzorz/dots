@@ -71,6 +71,12 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # for Ruby
 export PATH=~/.gem/ruby/2.1.0/bin:$PATH
+export PATH=~/.gem/ruby/2.2.0/bin:$PATH
+
+# for Android
+export PATH=/opt/android-sdk/tools:$PATH
+export PATH=/opt/android-sdk/platform-tools:$PATH
+export PATH=/opt/android-sdk/build-tools:$PATH
 
 # $PATH nonsense
 export PATH=./:$PATH
@@ -80,6 +86,7 @@ export PATH=~/scripts:$PATH
 # set up alises
 alias please='sudo $(history -p !-1)'
 alias ls='ls -F --color=auto'
+alias :e='vim'
 
 venv() {
 	if [ -z "$@" ]; then
@@ -99,10 +106,14 @@ venv() {
 t() {
   if [ -z "$1" ]; then
     tmux ls
-  elif tmux attach -t "$1"; then
+  elif tmux attach -t "$1" &> /dev/null; then
   else
     tmux new -s "$1";
   fi
+}
+
+:wq() {
+  exit
 }
 
 :q() {
@@ -127,3 +138,6 @@ if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 fi
 
 export TERM=xterm
+
+# added by travis gem
+[ -f /home/john/.travis/travis.sh ] && source /home/john/.travis/travis.sh
