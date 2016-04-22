@@ -17,12 +17,15 @@ MAX_PIX=36
 case "$1" in
   builtin)
     SINK_NAME=$SINK_BUILTIN
+    SINK_RGB='\x0\x7F\xFF'
   ;;
   headset)
     SINK_NAME=$SINK_HEADSET
+    SINK_RGB='\xFF\x7F\x0'
   ;;
   both)
     SINK_NAME=$SINK_BOTH
+    SINK_RGB='\xFF\x7F\xFF'
   ;;
 esac
 
@@ -47,7 +50,7 @@ function plus() {
   START_PIX_HEX=$(echo "obase=16; $MIN_PIX" | bc)
   END_PIX_HEX=$(echo "obase=16; $END_PIX" | bc)
   echo "$START_PIX_HEX to $END_PIX_HEX"
-  echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX'\x0\x7F\xFF\x2\x4' > /dev/ttyACM*
+  echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
 }
 
 function minus() {
@@ -62,7 +65,7 @@ function minus() {
   START_PIX_HEX=$(echo "obase=16; $MIN_PIX" | bc)
   END_PIX_HEX=$(echo "obase=16; $END_PIX" | bc)
   echo "$START_PIX_HEX to $END_PIX_HEX"
-  echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX'\x0\x7F\xFF\x2\x4' > /dev/ttyACM*
+  echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
 }
 
 function mute() {
