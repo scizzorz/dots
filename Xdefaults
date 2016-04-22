@@ -31,6 +31,7 @@ URxvt*geometry: 80x24
 URxvt*urlLauncher: google-chrome
 URxvt*scrollBar: false
 URxvt*scrollColor: #000000
+URxvt*searchable-scrollback: CM-s
 
 
 ! slush v1

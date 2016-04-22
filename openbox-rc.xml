@@ -212,6 +212,17 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     <keybind key="H-Return">
       <action name="ToggleMaximize"/>
     </keybind>
+    <!-- left+center monitor -->
+    <keybind key="H-i">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x> <!-- FIXME moves relative to monitor, which makes sense... -->
+        <y>0</y>
+        <height>100%</height>
+        <width>200%</width>
+      </action>
+    </keybind>
+    <!-- FIXME add center+right monitor -->
     <!-- top half eighths -->
     <keybind key="H-q">
       <action name="UnmaximizeFull"/>
