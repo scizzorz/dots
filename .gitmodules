@@ -46,3 +46,6 @@
 [submodule "vim/bundle/signature"]
 	path = vim/bundle/signature
 	url = git@github.com:kshenoy/vim-signature.git
+[submodule "vim/bundle/minimap"]
+	path = vim/bundle/minimap
+	url = git@github.com:naddeoa/vim-visual-page-percent.git
