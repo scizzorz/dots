@@ -153,8 +153,19 @@ noremap H ^
 noremap L $
 
 " I hate it when K manpages, so I'll make it useful
-map K {
-map J }
+noremap K {
+noremap J }
+
+" use brackets to jump to the next one in that direction
+map { F{
+map } f}
+map ( F(
+map ) f)
+map [ F[
+map ] f]
+nmap < F<
+nmap > f>
+
 
 " GET OUTTA TOWN, COMMAND HISTORY
 nnoremap q: :q
