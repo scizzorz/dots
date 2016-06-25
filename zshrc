@@ -60,7 +60,7 @@ function precmd {
 }
 
 function preexec {
-  print -Pn "\e]0;$(hostname) %~ » $1\a"
+  print -Pn "\e]0;» $1\a"
 }
 
 # set up default editor

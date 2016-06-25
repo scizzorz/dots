@@ -1,39 +1,39 @@
 [submodule "pathfinder/st"]
 	path = pathfinder/st
-	url = git@github.com:nferraz/st
+	url = https://github.com/nferraz/st
 [submodule "pathfinder/multigit"]
 	path = pathfinder/multigit
-	url = git@github.com:scizzorz/multigit
+	url = https://github.com/scizzorz/multigit
 [submodule "vim/bundle/css"]
 	path = vim/bundle/css
-	url = git@github.com:JulesWang/css.vim
+	url = https://github.com/JulesWang/css.vim
 [submodule "vim/bundle/html5"]
 	path = vim/bundle/html5
-	url = git@github.com:othree/html5.vim
+	url = https://github.com/othree/html5.vim
 [submodule "vim/bundle/commentary"]
 	path = vim/bundle/commentary
-	url = git@github.com:tpope/vim-commentary
+	url = https://github.com/tpope/vim-commentary
 [submodule "vim/bundle/jinja"]
 	path = vim/bundle/jinja
-	url = git@github.com:mitsuhiko/vim-jinja
+	url = https://github.com/mitsuhiko/vim-jinja
 [submodule "vim/bundle/python-combined"]
 	path = vim/bundle/python-combined
-	url = git@github.com:mitsuhiko/vim-python-combined
+	url = https://github.com/mitsuhiko/vim-python-combined
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
-	url = git@github.com:plasticboy/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
-	url = git@github.com:tpope/vim-surround
+	url = https://github.com/tpope/vim-surround
 [submodule "vim/bundle/scala"]
 	path = vim/bundle/scala
-	url = git@github.com:derekwyatt/vim-scala
+	url = https://github.com/derekwyatt/vim-scala
 [submodule "vim/bundle/rust"]
 	path = vim/bundle/rust
-	url = git@github.com:wting/rust.vim.git
+	url = https://github.com/wting/rust.vim.git
 [submodule "vim/bundle/coffeescript"]
 	path = vim/bundle/coffeescript
-	url = git@github.com:kchmck/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script
 [submodule "vim/bundle/nim"]
 	path = vim/bundle/nim
 	url = https://github.com/zah/nimrod.vim.git
@@ -45,7 +45,7 @@
 	url = https://github.com/Superbil/llvm.vim
 [submodule "vim/bundle/signature"]
 	path = vim/bundle/signature
-	url = git@github.com:kshenoy/vim-signature.git
+	url = https://github.com/kshenoy/vim-signature.git
 [submodule "vim/bundle/minimap"]
 	path = vim/bundle/minimap
-	url = git@github.com:naddeoa/vim-visual-page-percent.git
+	url = https://github.com/naddeoa/vim-visual-page-percent.git

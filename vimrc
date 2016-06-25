@@ -12,6 +12,7 @@ set showmode                  " show the mode when in insert/replace/visual
 set showcmd                   " show partial commands
 set directory=~/.vim/swap     " directory for swap files
 set scrolloff=4               " keep the cursor outside of the top/bottom 4 lines when scrolling
+set backspace=indent,eol,start "let me backspace over this crap
 
 if has("persistent_undo")
   set undodir=~/.vim/undo   " directory for undo files

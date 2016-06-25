@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function inst {
+inst() {
 	echo "Installing $2 as $1..."
 	if [ -e $1 ]; then
 		if [ -h $1 ]; then
