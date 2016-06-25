@@ -41,8 +41,14 @@
 	stash = black
 
 [alias]
-	unstage = reset HEAD
-	us = reset HEAD
+	unstage = reset -q HEAD --
+	discard = checkout --
+	tags = tag
+	branches = branch -a
+	remotes = remote -v
+	stashes = stash list
+	contributors = shortlog -s -n
+
 	st = status -s
 	ci = commit
 	br = branch
@@ -54,10 +60,6 @@
 
 	top = log --pretty=format:'%C(bold red)%h%C(reset)%C(auto)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
 	l = log --pretty=format:'%C(bold red)%h%C(reset) %C(green)%ad %C(bold yellow)%an%C(reset)%C(auto)%d%C(reset) %s%C(reset)' --abbrev-commit --date-order --date=short
-
-	ls = !git l --simplify-by-decoration
-	la = !git l --all
-	lg = !git l --graph
 
 	las = !git l --all --simplify-by-decoration
 	lgs = !git l --graph --simplify-by-decoration
