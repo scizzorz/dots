@@ -99,6 +99,9 @@ map <silent> <C-I> <Esc>:res -1<CR>
 map <silent> <C-U> <Esc>:res +1<CR>
 map <silent> <C-Y> <Esc>:vertical res -1<CR>
 
+" map <Leader>s to sort the current paragraph
+nmap <Leader>s KjVJk:sort<CR>
+
 " map <Leader><Space> to remove all whitespace
 nmap <Leader><Space> :%s/\s\+$//<CR><C-o>
 
