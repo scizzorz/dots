@@ -131,13 +131,11 @@ map U <C-r>
 " makes it act like S, D, C
 nmap Y y$
 
-" zv and zt toggle folds (za is awkward to press)
+" zv toggles folds (za is awkward to press)
 nnoremap zv za
-nnoremap zt za
 
-" remap zV and zT to recursive toggling
+" zV does recursive toggling
 nnoremap zV zA
-nnoremap zT zA
 
 " <j><j> in insert mode will simulate an escape
 " (only useful on a non-full keyboard)
