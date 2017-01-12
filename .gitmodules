@@ -49,3 +49,6 @@
 [submodule "vim/bundle/minimap"]
 	path = vim/bundle/minimap
 	url = https://github.com/naddeoa/vim-visual-page-percent.git
+[submodule "vim/bundle/glsl"]
+	path = vim/bundle/glsl
+	url = https://github.com/tikhomirov/vim-glsl.git
