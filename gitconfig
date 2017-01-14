@@ -53,6 +53,7 @@
 	ci = commit
 	br = branch
 	co = checkout
+  cp = cherry-pick
 	df = diff
 	dfs = diff --staged
 
