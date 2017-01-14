@@ -4,8 +4,8 @@ endif
 
 syn keyword rainConvention main
 
-syn keyword rainKeyword return let pass print
-syn keyword rainKeyword if while loop until break continue extern
+syn keyword rainKeyword return let pass print from import
+syn keyword rainKeyword if while loop for in until break continue extern
 
 syn match rainOperator "\v\("
 syn match rainOperator "\v\)"
