@@ -7,9 +7,10 @@
 
 # get default sink name
 SINK_NAME=$(pacmd dump | perl -a -n -e 'print $F[1] if /set-default-sink/')
-SINK_BUILTIN="alsa_output.pci-0000_00_1b.0.analog-stereo"
+SINK_BUILTIN="alsa_output.pci-0000_06_00.0.analog-stereo"
 SINK_BOTH=combined
 SINK_HEADSET="alsa_output.usb-Razer_Razer_Kraken_7.1_Chroma-00.analog-stereo"
+#SINK_HEADSET="alsa_output.usb-Creative_Technology_Ltd._Sound_BlasterX_H7_00000675-00.analog-stereo"
 
 MIN_PIX=12
 MAX_PIX=36
