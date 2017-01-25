@@ -4,9 +4,9 @@ endif
 
 syn keyword rainConvention main
 
-syn keyword rainKeyword as break continue else extern for from if
-syn keyword rainKeyword import in is let loop pass print return save
-syn keyword rainKeyword until while
+syn keyword rainKeyword as break catch continue else export extern for
+syn keyword rainKeyword from func if import in is let loop pass return
+syn keyword rainKeyword save until while with
 
 syn match rainOperator "\v\("
 syn match rainOperator "\v\)"
@@ -37,7 +37,7 @@ syn match rainOperator "\v\>"
 syn match rainOperator "\v\=\="
 syn match rainOperator "\v\!\="
 
-syn keyword rainType bool data float int str func
+syn keyword rainType bool cdata float int str func
 
 syn keyword rainBoolean true false null table
 
