@@ -2,12 +2,11 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword rainStdlib array core except iter process string
+syn keyword rainStdlib array core env except file iter process string
 syn keyword rainBuiltin main print exit panic
 
-syn keyword rainKeyword as break catch continue else export extern for
-syn keyword rainKeyword from func if import in is let loop pass return
-syn keyword rainKeyword save until while with
+syn keyword rainKeyword as break catch continue else foreign from func if
+syn keyword rainKeyword import in is let loop pass return save until while with
 
 syn match rainOperator "\v\("
 syn match rainOperator "\v\)"
