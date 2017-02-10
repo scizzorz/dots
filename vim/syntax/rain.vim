@@ -2,11 +2,14 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword rainStdlib array core env except file iter process string
+syn keyword rainStdlib array core env except file iter process re string
 syn keyword rainBuiltin main print exit panic
 
-syn keyword rainKeyword as break catch continue else foreign from func if
-syn keyword rainKeyword import in is let loop pass return save until while with
+syn keyword rainKeyword as break catch continue else export for foreign from
+syn keyword rainKeyword func if import in is let loop library link macro pass
+syn keyword rainKeyword return save until while with
+
+syn match   rainMacro  "@[a-zA-Z_][a-zA-Z0-9_]*\(\.[a-zA-Z_][a-zA-Z0-9_]*\)*"
 
 syn match rainOperator "\v\("
 syn match rainOperator "\v\)"
@@ -53,7 +56,7 @@ hi link rainKeyOperator Operator
 hi link rainOperator ModeMsg
 hi link rainKeyword Keyword
 hi link rainType Type
-hi link rainLib PreProc
+hi link rainMacro PreProc
 hi link rainBoolean Boolean
 hi link rainString String
 hi link rainNumber Number
