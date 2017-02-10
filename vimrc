@@ -196,6 +196,9 @@ set t_Co=256
 let python_highlight_all = 1
 let c_gnu = 1
 
+" stupid Vim remembering where I was in the git commit file
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
 syntax on
 if exists("syntax_on")
   syntax reset
