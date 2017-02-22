@@ -106,6 +106,8 @@ venv() {
 t() {
   if [ -z "$1" ]; then
     tmux ls
+  elif [[ "$1" == '+'* ]]; then
+    tmux new-session -t ${1: 1}
   elif tmux attach -t "$1" &> /dev/null; then
   else
     tmux new -s "$1";
