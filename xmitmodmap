@@ -1,0 +1,7 @@
+clear lock
+keycode 0x42 = Hyper_L
+remove mod4 = Hyper_L
+add mod3 = Hyper_L
+
+keycode 49 = Escape asciitilde
+keycode 9 = grave
