@@ -385,7 +385,12 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     <!-- commands -->
     <keybind key="C-S-q">
       <action name="Execute">
-        <command>i3lock -d -c 2e3338</command>
+        <command>/home/john/dots/lock.sh</command>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>/home/john/dots/lock.sh</command>
       </action>
     </keybind>
 
