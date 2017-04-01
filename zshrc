@@ -40,14 +40,6 @@ parse_git_dir() {
 	fi
 }
 
-x() {
-  input="$@"
-  if [ ! -t 0 ]; then
-    input=/dev/stdin
-  fi
-  cat "$input" | xsel -b
-}
-
 # set up prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
@@ -83,11 +75,17 @@ export PATH=./:$PATH
 export PATH=~/bin:$PATH
 export PATH=~/scripts:$PATH
 
+# for SerPix
+export PYTHONPATH=~/dev/arduino/serpix:$PYTHONPATH
+
 # set up alises
 alias please='sudo $(history -p !-1)'
 alias ls='ls -F --color=auto'
 alias :e='vim'
+alias :q='exit'
+alias :wq='exit'
 
+# manage virtualenvs
 venv() {
 	if [ -z "$@" ]; then
 		echo "Deactivating..."
@@ -97,12 +95,13 @@ venv() {
 		source "$1/bin/activate"
 	else
 		echo "Creating $1..."
-		virtualenv "$@"
+		python -m venv "$@"
 		echo "Activating $1"...
 		source "$1/bin/activate"
 	fi
 }
 
+# manage tmux
 t() {
   if [ -z "$1" ]; then
     tmux ls
@@ -114,12 +113,13 @@ t() {
   fi
 }
 
-:wq() {
-  exit
-}
-
-:q() {
-  exit
+# copy things to clipboard
+x() {
+  input="$@"
+  if [ ! -t 0 ]; then
+    input=/dev/stdin
+  fi
+  cat "$input" | xsel -b
 }
 
 # zsh syntax highlighting
