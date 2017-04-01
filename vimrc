@@ -5,7 +5,6 @@ set hlsearch                  " highlight all search matches
 set ignorecase                " ignore case while searching
 set smartcase                 " don't ignore case while searching IF I use a capital
 set number                    " show line numbers
-set cindent                   " automatic C-style indenting
 set autoindent                " copy indent from current line when starting a new line
 set smarttab                  " makes tabs/backspace more helpful at the beginning of lines
 set showmode                  " show the mode when in insert/replace/visual
