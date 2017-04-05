@@ -26,12 +26,18 @@ parse_venv() {
 }
 
 parse_git_dir() {
-	local GIT_BRANCH="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ \1/')"
-	local GIT_COMMIT="$(git log -1 --format="/%h" 2>/dev/null)"
+	local GIT_BRANCH="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+	local GIT_COMMIT="$(git log -1 --format="%h" 2>/dev/null)"
 	local GIT_ALL="$(git status --porcelain 2>/dev/null | wc -l)"
 	local GIT_MOD="$(git status --porcelain -uno 2>/dev/null | wc -l )"
 	local GIT_UNT="$(($GIT_ALL-$GIT_MOD))"
-	echo -n "$GIT_BRANCH$GIT_COMMIT"
+	if [[ -z $GIT_BRANCH ]]; then
+		# no repo
+	elif [[ $GIT_BRANCH =~ "detached" ]]; then
+		echo -n " $GIT_COMMIT"
+	else
+		echo -n " $GIT_BRANCH/$GIT_COMMIT"
+	fi
 	if [ $GIT_UNT -gt "0" ]; then
 		echo -n " ?$GIT_UNT"
 	fi
