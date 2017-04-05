@@ -101,7 +101,7 @@ venv() {
 		source "$1/bin/activate"
 	else
 		echo "Creating $1..."
-		python -m venv "$@"
+		python3 -m venv "$@"
 		echo "Activating $1"...
 		source "$1/bin/activate"
 	fi
