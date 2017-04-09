@@ -112,7 +112,10 @@ t() {
   if [ -z "$1" ]; then
     tmux ls
   elif [[ "$1" == '+'* ]]; then
-    tmux new-session -t ${1: 1}
+    origin="${1: 1}"
+    num=$(tmux ls | grep "^$origin" | wc -l)
+    num=$(($num + 1))
+    tmux new -t $origin -s $origin$num
   elif tmux attach -t "$1" &> /dev/null; then
   else
     tmux new -s "$1";
