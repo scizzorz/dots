@@ -21,7 +21,7 @@ autoload -U colors && colors
 
 parse_venv() {
 	if [ "$VIRTUAL_ENV" ]; then
-		echo " ∴"
+		echo " @"
 	fi
 }
 
@@ -50,7 +50,7 @@ parse_git_dir() {
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
-export PROMPT='%{$fg_bold[black]%}%{$fg_no_bold[magenta]%}%~%{$fg_bold[black]%}$(parse_git_dir)$(parse_venv)%(1j, ∞,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
+export PROMPT='%{$fg_bold[black]%}%{$fg_no_bold[magenta]%}%~%{$fg_bold[black]%}$(parse_git_dir)$(parse_venv)%(1j, %%,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
 
 # set up window titles
 function precmd {
