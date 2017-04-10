@@ -21,7 +21,7 @@ autoload -U colors && colors
 
 parse_venv() {
 	if [ "$VIRTUAL_ENV" ]; then
-		echo $(basename $VIRTUAL_ENV)" "
+		echo " ∴"
 	fi
 }
 
