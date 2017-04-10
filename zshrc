@@ -89,6 +89,7 @@ alias please='sudo $(history -p !-1)'
 alias ls='ls -F --color=auto'
 alias :e='vim'
 alias :q='exit'
+alias q='exit'
 alias :wq='exit'
 
 # manage virtualenvs
