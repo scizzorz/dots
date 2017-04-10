@@ -113,6 +113,7 @@ venv() {
 			python3 -m venv "$@"
 			echo "Activating $1"...
 			source "$1/bin/activate"
+			pip install --upgrade pip
 		fi
 	fi
 }
