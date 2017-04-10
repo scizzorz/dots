@@ -94,16 +94,26 @@ alias :wq='exit'
 # manage virtualenvs
 venv() {
 	if [ -z "$@" ]; then
-		echo "Deactivating..."
-		deactivate
-	elif [ -f "$1/bin/activate" ]; then
-		echo "Activating $1..."
-		source "$1/bin/activate"
+		if [ "$VIRTUAL_ENV" ]; then
+			echo "$VIRTUAL_ENV"
+		else
+			echo "Not in a virtualenv"
+		fi
 	else
-		echo "Creating $1..."
-		python3 -m venv "$@"
-		echo "Activating $1"...
-		source "$1/bin/activate"
+		if [ "$VIRTUAL_ENV" ]; then
+			echo "Deactivating $VIRTUAL_ENV..."
+			deactivate
+		fi
+
+		if [ -f "$1/bin/activate" ]; then
+			echo "Activating $1..."
+			source "$1/bin/activate"
+		elif [ "$1" != "-" ]; then
+			echo "Creating $1..."
+			python3 -m venv "$@"
+			echo "Activating $1"...
+			source "$1/bin/activate"
+		fi
 	fi
 }
 
