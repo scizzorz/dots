@@ -36,13 +36,13 @@ parse_git_dir() {
 	elif [[ $GIT_BRANCH =~ "detached" ]]; then
 		echo -n " $GIT_COMMIT"
 	else
-		echo -n " $GIT_BRANCH/$GIT_COMMIT"
-	fi
-	if [ $GIT_UNT -gt "0" ]; then
-		echo -n " ?$GIT_UNT"
+		echo -n "/$GIT_BRANCH $GIT_COMMIT"
 	fi
 	if [ $GIT_MOD -gt "0" ]; then
-		echo -n " !$GIT_MOD"
+		echo -n " *$GIT_MOD"
+	fi
+	if [ $GIT_UNT -gt "0" ]; then
+		echo -n " +$GIT_UNT"
 	fi
 }
 
