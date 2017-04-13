@@ -121,16 +121,49 @@ venv() {
 
 # manage tmux
 t() {
-  if [ -z "$1" ]; then
-    tmux ls
-  elif [[ "$1" == '+'* ]]; then
-    origin="${1: 1}"
-    num=$(tmux ls | grep "^$origin" | wc -l)
-    num=$(($num + 1))
-    tmux new -t $origin -s $origin$num
-  elif tmux attach -t "$1" &> /dev/null; then
+  if [[ "$1" == *':'* ]]; then
+    arr=("${(s/:/)1}")
+    SSH=$arr[1]
+    SESS=$arr[2]
   else
-    tmux new -s "$1";
+    SSH=
+    SESS="$1"
+  fi
+
+  if [ -z "$SESS" ]; then
+    if [ -z "$SSH" ]; then
+      tmux ls
+    else
+      ssh -t "$SSH" tmux ls
+    fi
+
+  elif [[ "$SESS" == '+'* ]]; then
+    origin="${SESS: 1}"
+    if [ -z "$SSH" ]; then
+      num=$(tmux ls | grep "^$origin" | wc -l)
+      num=$(($num + 1))
+      tmux new -t $origin -s $origin$num
+    else
+      num=$(ssh -t "$SSH" tmux ls | grep "^$origin" | wc -l)
+      num=$(($num + 1))
+      ssh -t "$SSH" tmux new -t $origin -s $origin$num
+
+    fi
+
+  else
+    if [ -z "$SSH" ]; then
+      if tmux attach -t "$SESS" &> /dev/null; then
+      else
+        tmux new -s "$SESS"
+      fi
+
+    else
+      if ssh -t "$SSH" "tmux attach -t '$SESS' &> /dev/null"; then
+      else
+        ssh -t "$SSH" tmux new -s "$SESS"
+      fi
+
+    fi
   fi
 }
 
