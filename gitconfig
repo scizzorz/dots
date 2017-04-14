@@ -61,7 +61,7 @@
 
 	top = log --pretty=format:'%C(bold blue)%h%C(reset)%C(auto)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
 
-	lr = log --graph --pretty=format:'%C(bold blue)%h%C(reset)%C(cyan)% D%C(reset) %s %C(white)%ad%C(reset) %C(bold black)%an%C(reset)' --abbrev-commit --date-order --date=short -30
+	lr = log --graph --pretty=format:'%C(bold blue)%h%C(reset)%C(cyan)% D%C(reset) %s %C(white)%ad%C(reset) %C(bold black)%an%C(reset)' --abbrev-commit --abbrev=0 --date-order --date=short -30
 	lra = !git lr --all
 
 	l = log --pretty=format:'%C(bold blue)%h%C(reset) %C(green)%ad %C(cyan)%an%C(reset)%C(auto)%d%C(reset) %s%C(reset)' --abbrev-commit --date-order --date=short
