@@ -54,7 +54,13 @@ export PROMPT='%{$fg_bold[black]%}%{$fg_no_bold[magenta]%}%~%{$fg_bold[black]%}$
 
 # set up window titles
 function precmd {
-  print -Pn "\e]0;%m %~\a"
+  local exit_status=$?
+  if [ $exit_status -ne 0 ]; then
+    psvar[1]=" ✕"
+  else
+    psvar[1]=
+  fi
+  print -Pn "\e]0;%m %~%1v\a"
 }
 
 function preexec {
