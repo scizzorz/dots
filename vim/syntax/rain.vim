@@ -9,7 +9,7 @@ syn keyword rainCore env except types
 syn keyword rainConv self main init
 
 syn keyword rainKeyword as break catch continue else export for foreign from
-syn keyword rainKeyword func if import in let loop library link macro pass
+syn keyword rainKeyword func if import in var loop library link macro pass
 syn keyword rainKeyword return save until while with
 
 syn match   rainMacro  "@[a-zA-Z_][a-zA-Z0-9_]*\(\.[a-zA-Z_][a-zA-Z0-9_]*\)*"
@@ -56,7 +56,7 @@ syn region  rainString start=+"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ keepend
 
 syn match   rainComment "#.*$" display
 
-hi link rainBase Question
+hi link rainBase Special
 hi link rainCore Identifier
 hi link rainConv Special
 hi link rainOp   ModeMsg
