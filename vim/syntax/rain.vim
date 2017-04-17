@@ -17,8 +17,8 @@ syn keyword rainKeyword func if import in var loop library link macro pass
 syn keyword rainKeyword return save until while with
 
 syn match   rainMacro  "@[a-zA-Z_][a-zA-Z0-9_]*\(\.[a-zA-Z_][a-zA-Z0-9_]*\)*"
-syn keyword rainMacro compound expr args params block argblock stmt
-syn keyword rainMacro name namestr
+"syn keyword rainMacro compound expr args params block argblock stmt
+"syn keyword rainMacro name namestr
 
 syn match   rainOp "\v\."
 syn match   rainOp "\v\:"
