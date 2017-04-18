@@ -40,3 +40,6 @@
 [submodule "vim/bundle/glsl"]
 	path = vim/bundle/glsl
 	url = https://github.com/tikhomirov/vim-glsl.git
+[submodule "vim/bundle/ack"]
+	path = vim/bundle/ack
+	url = git@github.com:mileszs/ack.vim.git

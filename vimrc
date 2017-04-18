@@ -111,6 +111,11 @@ nmap <Leader>m :!make<CR>
 " map <Leader>/ to clear search
 nmap <Leader>/ :let @/ = ""<CR>
 
+" map C-f to ack.vim as the silver searcher and fix a stdout leak
+nnoremap <C-f> :Ack!<Space>
+let g:ackprg = 'ag --vimgrep'
+set shellpipe=>
+
 " map ; to :
 nnoremap ; :
 
