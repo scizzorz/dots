@@ -94,6 +94,7 @@ export PYTHONPATH=~/dev/arduino/serpix:$PYTHONPATH
 alias please='sudo $(history -p !-1)'
 alias ls='ls -F --color=auto'
 alias grep='grep -I'
+alias ag='ag --color-match "30;31"'
 alias :e='vim'
 alias :q='exit'
 alias q='exit'
