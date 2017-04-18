@@ -90,6 +90,9 @@ export PATH=~/scripts:$PATH
 # for SerPix
 export PYTHONPATH=~/dev/arduino/serpix:$PYTHONPATH
 
+# For FZF
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 # set up alises
 alias please='sudo $(history -p !-1)'
 alias ls='ls -F --color=auto'
