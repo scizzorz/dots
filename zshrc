@@ -210,3 +210,4 @@ export TERM=xterm
 [ -f /home/john/.travis/travis.sh ] && source /home/john/.travis/travis.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.proxy.sh ] && source ~/.proxy.sh
