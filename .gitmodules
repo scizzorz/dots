@@ -28,9 +28,6 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
-[submodule "vim/bundle/llvm"]
-	path = vim/bundle/llvm
-	url = https://github.com/Superbil/llvm.vim
 [submodule "vim/bundle/signature"]
 	path = vim/bundle/signature
 	url = https://github.com/kshenoy/vim-signature.git
