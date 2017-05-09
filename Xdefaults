@@ -6,23 +6,23 @@
 *cursorColor: #E2E5E8
 
 *color0: #2D3238
-*color1: #FF6161
-*color2: #61FF61
-*color3: #6161FF
+*color1: #FF5533
+*color2: #33FF55
+*color3: #5533FF
 
-*color4: #FFFF61
-*color5: #B061FF
-*color6: #61B0FF
+*color4: #DDFF33
+*color5: #BB33FF
+*color6: #3377FF
 *color7: #8E99A3
 
 *color8: #5B6570
-*color9: #FF61B0
-*color10: #B0FF61
-*color11: #61FFFF
+*color9: #FF3377
+*color10: #99FF33
+*color11: #33DDFF
 
-*color12: #FFB061
-*color13: #FF61FF
-*color14: #61FFB0
+*color12: #FF9933
+*color13: #FF33DD
+*color14: #33FFBB
 *color15: #E2E5E8
 
 URxvt*font: xft:ProggyCleanTTSZ:size=12:antialias=false
