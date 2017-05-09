@@ -208,3 +208,5 @@ export TERM=xterm
 
 # added by travis gem
 [ -f /home/john/.travis/travis.sh ] && source /home/john/.travis/travis.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
