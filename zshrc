@@ -83,6 +83,12 @@ export PATH=/opt/android-sdk/tools:$PATH
 export PATH=/opt/android-sdk/platform-tools:$PATH
 export PATH=/opt/android-sdk/build-tools:$PATH
 
+# for Hadoop
+export PATH=~/hadoop/hadoop-2.7.3/bin:$PATH
+export PATH=~/hadoop/hive-1.2.2/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-9-openjdk-amd64
+export HADOOP_USER_NAME=weachockjr
+
 # $PATH nonsense
 export PATH=./:$PATH
 export PATH=~/bin:$PATH
