@@ -342,6 +342,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
       </action>
     </keybind>
 
+
     <!-- shortcuts -->
     <keybind key="C-S-r">
       <action name="Reconfigure"/>
@@ -353,7 +354,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     </keybind>
     <keybind key="C-A-x">
       <action name="Execute">
-        <command>alacritty</command>
+        <command>/home/weachockjr/alacritty/target/release/alacritty</command>
       </action>
     </keybind>
     <keybind key="C-A-c">
@@ -385,19 +386,24 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     </keybind>
 
     <!-- volume -->
-    <keybind key="W-c">
+    <keybind key="W-z">
       <action name="Execute">
-        <command>/home/john/dots/bin/volume.sh plus</command>
+        <command>amixer sset Master 10</command>
       </action>
     </keybind>
     <keybind key="W-x">
       <action name="Execute">
-        <command>/home/john/dots/bin/volume.sh minus</command>
+        <command>amixer sset Master 15</command>
       </action>
     </keybind>
-    <keybind key="W-z">
+    <keybind key="W-c">
       <action name="Execute">
-        <command>/home/john/dots/bin/volume.sh mute</command>
+        <command>amixer sset Master 25</command>
+      </action>
+    </keybind>
+    <keybind key="W-v">
+      <action name="Execute">
+        <command>amixer sset Master 45</command>
       </action>
     </keybind>
 
