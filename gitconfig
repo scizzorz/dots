@@ -49,6 +49,7 @@
 	stashes = stash list
 	contributors = shortlog -s -n
 
+	psuh = push
 	st = status -s
 	ci = commit
 	br = branch
