@@ -33,7 +33,7 @@ esac
 # set max allowed volume; 0x10000 = 100%
 #                         0x08000 = 50%
 #                         0x05555 = 33%
-VOL_MAX="0x04000"
+VOL_MAX="0x10000"
 
 STEPS=$((MAX_PIX - MIN_PIX))
 VOL_STEP=$((VOL_MAX / STEPS + 1))
