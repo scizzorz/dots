@@ -108,6 +108,10 @@ alias :q='exit'
 alias q='exit'
 alias :wq='exit'
 
+pc() {
+  python -c "print($1)"
+}
+
 # manage virtualenvs
 venv() {
   # Deactivate any existing virtualenv
