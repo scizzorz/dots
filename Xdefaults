@@ -1,45 +1,42 @@
 !-----------------------------------------------------------------------------
 ! colors
 
+! DARK!
 *background: #16191C
 *foreground: #E2E5E8
 *cursorColor: #E2E5E8
-
-!*background: #E2E5E8
-!*foreground: #16191C
-!*cursorColor: #16191C
 
 ! black
 *color0: #2D3238
 *color8: #5B6570
 
-! red
-*color1: #FF2525
-*color9: #F82476
-
-! green
-*color2: #23F423
-*color10: #CCFD24
-
-! blue
-*color3: #4E3EEE
-*color11: #2CADEB
-
-! yellow
-*color4: #FFCE25
-*color12: #FF8825
-
-! magenta
-*color5: #A92DED
-*color13: #EF23C8
-
-! cyan
-*color6: #376EED
-*color14: #22ECAF
-
 ! white
 *color7: #8E99A3
 *color15: #C7CCD1
+
+! red
+*color1: #e61728
+*color9: #e6177e
+
+! green
+*color2: #00cc54
+*color10: #70bf00
+
+! blue
+*color3: #7a45e6
+*color11: #4d5bff
+
+! yellow
+*color4: #ccba00
+*color12: #d9830b
+
+! magenta
+*color5: #ad3ae6
+*color13: #e617d4
+
+! cyan
+*color6: #0b83d9
+*color14: #12b3a5
 
 
 URxvt*font: xft:Roboto Mono:pixelsize=14:antialias=true
