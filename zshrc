@@ -47,10 +47,11 @@ parse_git_dir() {
 }
 
 # set up prompt
+export HOSTCOLOR='$fg_no_bold[magenta]'
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
-export PROMPT='%{$fg_bold[black]%}%{$fg_no_bold[magenta]%}%~%{$fg_bold[black]%}$(parse_git_dir)$(parse_venv)%(1j, %%,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
+export PROMPT='%{$fg_no_bold[white]%}%{'$HOSTCOLOR'%}%~%{$fg_no_bold[white]%}$(parse_git_dir)$(parse_venv)%(1j, %%,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
 
 # set up window titles
 function precmd {
@@ -225,7 +226,7 @@ if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
   ZSH_HIGHLIGHT_STYLES[globbing]=fg=cyan
 fi
 
-export TERM=xterm
+export TERM=xterm-256color
 
 # added by travis gem
 [ -f /home/john/.travis/travis.sh ] && source /home/john/.travis/travis.sh
