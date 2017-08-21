@@ -250,7 +250,7 @@ hi WarningMsg   ctermfg=1     ctermbg=none cterm=none
 
 " normal text
 " This should also be decoupled from the stupid command line / statusline at the bottom
-hi Normal       ctermfg=15    ctermbg=none cterm=none
+hi Normal       ctermfg=none  ctermbg=none cterm=none
 
 " syntax formatting (line number, whitespace, etc.)
 hi LineNr       ctermfg=8     ctermbg=none cterm=none
