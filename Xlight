@@ -1,13 +1,14 @@
 ! vim: set ft=xdefaults:
 ! LIGHT!
-*background: #E2E5E8
-*foreground: #16191C
-*cursorColor: #16191C
+
+*background: #e3e8e6
+*foreground: #171a1c
+*cursorColor: #171a1c
 
 ! "black"
-*color0: #C7CCD1
-*color8: #8E99A3
+*color0: #c7d1ce
+*color8: #8fa3a1
 
 ! "white"
-*color7: #5B6570
-*color15: #2D3238
+*color7: #5c6e70
+*color15: #2e3538
