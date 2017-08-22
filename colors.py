@@ -96,64 +96,50 @@ def find_shade(hue, lum, tol=0.01):
   raise Exception('Can\'t find a shade for: hue=' + str(hue) + ', lum=' + str(lum))
 
 
-def find_grey(hue, lum, tol=0.01):
-  '''Find a shade within a certain tolerance of a target luminance.'''
+def find_grey(hue, lum):
+  '''Find the grey that's closest to the target luminance.'''
 
   s = 10
+  greys = []
   for v in range(100, -1, -1):
     r, g, b = hsl2rgb(hue, s / 100, v / 100)
     this_lum = luminance(r, g, b)
-    if abs(this_lum - lum) < tol:
-      return r, g, b
+    greys.append((abs(this_lum - lum), (r, g, b)))
 
-  raise Exception('Can\'t find a grey for: hue=' + str(hue) + ', lum=' + str(lum))
+  greys = sorted(greys, key=lambda x: x[0])
+  return greys[0][1]
 
 
 # Scheme inputs
 # TODO argparse this crap
 
 light = False
-ansi = True
-hue_lum = 0.50
+ansi = False
+hue_lum = 0.60
 dark_hue = 210
 light_hue = 150
 grey_lums = [
-  0.10,
-  0.20,
-  0.40,
-  0.60,
-  0.80,
-  0.90,
+  0.15,
+  0.25,
+  0.45,
+  0.65,
+  0.85,
+  0.95,
 ]
 
 hues = {
-  'red': 355,
-  'orange': 25,
-  'yellow': 55,
-  'lime': 85,
-  'green': 145,
-  'teal': 175,
-  'cyan': 205,
-  'blue': 235,
-  'indigo': 260,
-  'purple': 280,
-  'magenta': 305,
-  'pink': 330,
-}
-
-hues = {
-  'red': 350,
+  'red': 0,
   'orange': 30,
   'yellow': 60,
   'lime': 85,
   'green': 137,
   'teal': 170,
-  'cyan': 200,
-  'blue': 225,
-  'indigo': 250,
-  'purple': 275,
+  'cyan': 195,
+  'blue': 215,
+  'indigo': 248,
+  'purple': 278,
   'magenta': 300,
-  'pink': 325,
+  'pink': 330,
 }
 
 
@@ -224,13 +210,16 @@ for color, hue in hues.items():
 # compute greys
 for i, grey_lum in enumerate(grey_lums):
   hue = start_hue + (end_hue - start_hue) * (grey_lum - min_lum) / lum_gap
+  hue = int(hue)
   r, g, b = find_grey(hue, grey_lum)
+  hues['base{}'.format(i)] = hue
   colors['base{}'.format(i)] = rgb2hex(r, g, b)
 
-# dump colors in Xresources format
-for color, index in sorted(color_order.items(), key=lambda x: x[1]):
-  lum = hex_luminance(colors[color])
-  print('! {} (lum = {:.3f})\n*{}: #{}'.format(color, lum, index, colors[color]))
+if __name__ == '__main__':
+  # dump colors in Xresources format
+  for color, index in sorted(color_order.items(), key=lambda x: x[1]):
+    lum = hex_luminance(colors[color])
+    print('! {} (hue = {}, lum = {:.3f})\n*{}: #{}'.format(color, hues[color], lum, index, colors[color]))
 
-# dirty trick relies on 'foreground' being the last lexicographic key
-print('*{}: #{}'.format('cursorColor', colors[color]))
+  # dirty trick relies on 'foreground' being the last lexicographic key
+  print('*{}: #{}'.format('cursorColor', colors[color]))
