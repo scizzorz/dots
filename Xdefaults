@@ -1,43 +1,45 @@
 ! vim: set ft=xdefaults:
 ! colors
 
-! DARK!
-*background: #171a1c
-*foreground: #e3e8e6
-*cursorColor: #e3e8e6
+! base0 (lum = 0.107)
+*background: #191c1e
+! base1 (lum = 0.207)
+*color0: #30363a
+! red (lum = 0.504)
+*color1: #ea0027
+! lime (lum = 0.504)
+*color10: #5a9b00
+! indigo (lum = 0.504)
+*color11: #775bff
+! orange (lum = 0.504)
+*color12: #c16000
+! magenta (lum = 0.507)
+*color13: #c900c9
+! teal (lum = 0.505)
+*color14: #009e83
+! base4 (lum = 0.805)
+*color15: #c6d1cd
+! green (lum = 0.509)
+*color2: #00a82f
+! blue (lum = 0.505)
+*color3: #4473ff
+! yellow (lum = 0.506)
+*color4: #898900
+! purple (lum = 0.507)
+*color5: #a62bff
+! cyan (lum = 0.507)
+*color6: #008dd3
+! base3 (lum = 0.603)
+*color7: #8ba09e
+! base2 (lum = 0.409)
+*color8: #5b6d70
+! pink (lum = 0.504)
+*color9: #dd0081
+! base5 (lum = 0.901)
+*foreground: #e2e8e5
+*cursorColor: #e2e8e5
 
-! black
-*color0: #2e3538
-*color8: #5c6e70
-
-! white
-*color7: #8fa3a1
-*color15: #c7d1ce
-
-! red
-*color1: #df3528
-*color9: #d13676
-
-! green
-*color2: #00a700
-*color10: #699600
-
-! blue
-*color3: #3075ff
-*color11: #636de6
-
-! yellow
-*color4: #997d00
-*color12: #bd5f00
-
-! magenta
-*color5: #a240e6
-*color13: #c236ac
-
-! cyan
-*color6: #0089d4
-*color14: #009c7f
-
+# urxvt settings
 URxvt*font: xft:ProggyCleanTTSZ:size=12:antialias=false
 URxvt*boldFont: xft:ProggyCleanTTSZ:size=12:antialias=false
 URxvt*geometry: 90x24
@@ -51,34 +53,9 @@ URxvt*letterSpace: 0
 ! URxvt.keysym.M-c: perl:clipboard:copy
 ! URxvt.keysym.M-v: perl:clipboard:paste
 
+# urxvt zoom
 URxvt.keysym.C-1: command:\033]710;xft:ProggyCleanTTSZ:size=12:antialias=false\007\033]711;xft:ProggyCleanTTSZ:size=12:antialias=false\007\033]711;
 URxvt.keysym.C-2: command:\033]710;xft:ProggyCleanTTSZ:size=24:antialias=false\007\033]711;xft:ProggyCleanTTSZ:size=24:antialias=false\007\033]711;
 
 URxvt*iso14755: False
 URxvt*iso14755_52: False
-
-
-! slush v1
-slush1*background: #16191C
-slush1*foreground: #E2E5E8
-slush1*cursorColor: #E2E5E8
-
-slush1*color0: #2D3238
-slush1*color1: #ED5E6A
-slush1*color2: #99EA47
-slush1*color3: #5E76ED
-
-slush1*color4: #EDD55E
-slush1*color5: #A875EF
-slush1*color6: #62C7E8
-slush1*color7: #8E99A3
-
-slush1*color8: #5B6570
-slush1*color9: #ED825E
-slush1*color10: #C2EB6F
-slush1*color11: #8CBFF2
-
-slush1*color12: #E6AD74
-slush1*color13: #EF75C6
-slush1*color14: #79EBB2
-slush1*color15: #E2E5E8

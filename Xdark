@@ -1,7 +1,7 @@
-! base0 (lum = 0.901)
-*background: #e2e8e5
-! base1 (lum = 0.805)
-*color0: #c6d1cd
+! base0 (lum = 0.107)
+*background: #191c1e
+! base1 (lum = 0.207)
+*color0: #30363a
 ! red (lum = 0.504)
 *color1: #ea0027
 ! lime (lum = 0.504)
@@ -14,8 +14,8 @@
 *color13: #c900c9
 ! teal (lum = 0.505)
 *color14: #009e83
-! base4 (lum = 0.207)
-*color15: #30363a
+! base4 (lum = 0.805)
+*color15: #c6d1cd
 ! green (lum = 0.509)
 *color2: #00a82f
 ! blue (lum = 0.505)
@@ -26,12 +26,12 @@
 *color5: #a62bff
 ! cyan (lum = 0.507)
 *color6: #008dd3
-! base3 (lum = 0.409)
-*color7: #5b6d70
-! base2 (lum = 0.603)
-*color8: #8ba09e
+! base3 (lum = 0.603)
+*color7: #8ba09e
+! base2 (lum = 0.409)
+*color8: #5b6d70
 ! pink (lum = 0.504)
 *color9: #dd0081
-! base5 (lum = 0.107)
-*foreground: #191c1e
-*cursorColor: #191c1e
+! base5 (lum = 0.901)
+*foreground: #e2e8e5
+*cursorColor: #e2e8e5
