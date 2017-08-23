@@ -47,7 +47,7 @@ parse_git_dir() {
 }
 
 # set up prompt
-export HOSTCOLOR='$fg_no_bold[magenta]'
+export HOSTCOLOR='$fg_bold[magenta]'
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
