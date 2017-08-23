@@ -1,37 +1,37 @@
-! base0 (hue = 210, lum = 0.146)
-*background: #22262a
-! base1 (hue = 202, lum = 0.248)
-*color0: #394146
-! base3 (hue = 172, lum = 0.653)
-*color1: #9aaca9
-! orange (hue = 30, lum = 0.607)
-*color10: #e87400
-! lime (hue = 85, lum = 0.605)
-*color11: #6cba00
-! teal (hue = 170, lum = 0.602)
-*color12: #00bc9d
-! blue (hue = 215, lum = 0.606)
-*color13: #569cff
-! purple (hue = 278, lum = 0.609)
-*color14: #c45eff
-! pink (hue = 330, lum = 0.610)
-*color15: #ff3a9c
+! base0 (hue = 210, lum = 0.196)
+*background: #2d3338
+! base1 (hue = 202, lum = 0.298)
+*color0: #444e54
 ! red (hue = 0, lum = 0.608)
-*color2: #ff5151
-! yellow (hue = 60, lum = 0.609)
-*color3: #a5a500
-! green (hue = 137, lum = 0.609)
-*color4: #00c939
-! cyan (hue = 195, lum = 0.606)
-*color5: #00aee8
+*color1: #ff5151
+! lime (hue = 85, lum = 0.605)
+*color10: #6cba00
 ! indigo (hue = 248, lum = 0.610)
-*color6: #9484ff
+*color11: #9484ff
+! orange (hue = 30, lum = 0.607)
+*color12: #e87400
 ! magenta (hue = 300, lum = 0.610)
-*color7: #f200f2
-! base2 (hue = 187, lum = 0.450)
-*color8: #64787b
-! base4 (hue = 157, lum = 0.852)
-*color9: #d4dcd9
+*color13: #f200f2
+! teal (hue = 170, lum = 0.602)
+*color14: #00bc9d
+! base4 (hue = 156, lum = 0.873)
+*color15: #dae1de
+! green (hue = 137, lum = 0.609)
+*color2: #00c939
+! blue (hue = 215, lum = 0.606)
+*color3: #569cff
+! yellow (hue = 60, lum = 0.609)
+*color4: #a5a500
+! purple (hue = 278, lum = 0.609)
+*color5: #c45eff
+! cyan (hue = 195, lum = 0.606)
+*color6: #00aee8
+! base3 (hue = 170, lum = 0.700)
+*color7: #a8b7b5
+! base2 (hue = 186, lum = 0.503)
+*color8: #708689
+! pink (hue = 330, lum = 0.610)
+*color9: #ff3a9c
 ! base5 (hue = 150, lum = 0.949)
 *foreground: #f0f3f2
 *cursorColor: #f0f3f2

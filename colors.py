@@ -114,16 +114,16 @@ def find_grey(hue, lum):
 # TODO argparse this crap
 
 light = False
-ansi = False
+ansi = True
 hue_lum = 0.60
 dark_hue = 210
 light_hue = 150
 grey_lums = [
-  0.15,
-  0.25,
-  0.45,
-  0.65,
-  0.85,
+  0.20,
+  0.30,
+  0.50,
+  0.70,
+  0.875,
   0.95,
 ]
 
