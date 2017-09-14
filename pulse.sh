@@ -53,7 +53,7 @@ function plus() {
   START_PIX_HEX=$(echo "obase=16; $MIN_PIX" | bc)
   END_PIX_HEX=$(echo "obase=16; $END_PIX" | bc)
   echo "$START_PIX_HEX to $END_PIX_HEX"
-  echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
+  #echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
 }
 
 function minus() {
@@ -68,7 +68,7 @@ function minus() {
   START_PIX_HEX=$(echo "obase=16; $MIN_PIX" | bc)
   END_PIX_HEX=$(echo "obase=16; $END_PIX" | bc)
   echo "$START_PIX_HEX to $END_PIX_HEX"
-  echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
+  #echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
 }
 
 function mute() {

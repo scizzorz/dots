@@ -54,8 +54,8 @@ URxvt*letterSpace: -1
 ! URxvt.keysym.M-v: perl:clipboard:paste
 
 ! urxvt zoom
-URxvt.keysym.C-1: command:\033]710;xft:ProggyCleanTTSZ:size=12:antialias=false\007\033]711;xft:ProggyCleanTTSZ:size=12:antialias=false\007\033]711;
-URxvt.keysym.C-2: command:\033]710;xft:ProggyCleanTTSZ:size=24:antialias=false\007\033]711;xft:ProggyCleanTTSZ:size=24:antialias=false\007\033]711;
+URxvt.keysym.C-1: command:\033]710;xft:Fira Mono:size=11\007\033]711;xft:Fira Mono:size=11\007\033]711;
+URxvt.keysym.C-2: command:\033]710;xft:Fira Mono:size=16:antialias=false\007\033]711;xft:Fira Mono:size=16\007\033]711;
 
 URxvt*iso14755: False
 URxvt*iso14755_52: False

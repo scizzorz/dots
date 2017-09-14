@@ -170,16 +170,6 @@ Copy the file to $HOME/.config/openbox/ instead. -->
         <command>scrot</command>
       </action>
     </keybind>
-    <keybind key="H-Print">
-      <action name="Execute">
-        <command>sh -c 'recordmydesktop -x 1920 -y 18 --width 1920 --height 1038 --no-sound &amp;&amp; aplay /home/john/dots/ping.wav'</command>
-      </action>
-    </keybind>
-    <keybind key="H-Pause">
-      <action name="Execute">
-        <command>pkill recordmydesktop</command>
-      </action>
-    </keybind>
     <keybind key="A-Print">
       <action name="Execute">
         <command>scrot -u -b</command>
@@ -428,64 +418,12 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     <!-- commands -->
     <keybind key="C-S-q">
       <action name="Execute">
-        <command>/home/john/dots/lock.sh</command>
+        <command>/home/weachockjr/dots/lock.sh</command>
       </action>
     </keybind>
     <keybind key="W-l">
       <action name="Execute">
-        <command>/home/john/dots/lock.sh</command>
-      </action>
-    </keybind>
-
-    <!-- lights -->
-    <keybind key="C-S-1">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 0</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-2">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 36</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-3">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 72</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-4">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 108</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-5">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 144</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-6">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 180</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-7">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 216</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-8">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 252</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-9">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 288</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-0">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 324</command>
+        <command>/home/weachockjr/dots/lock.sh</command>
       </action>
     </keybind>
 
@@ -515,71 +453,20 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     </keybind>
 
     <!-- volume -->
-    <!-- both -->
-    <keybind key="W-e">
-      <action name="Execute">
-        <command>/home/john/dots/pulse.sh both plus</command>
-      </action>
-    </keybind>
-    <keybind key="W-w">
-      <action name="Execute">
-        <command>/home/john/dots/pulse.sh both minus</command>
-      </action>
-    </keybind>
-    <keybind key="W-q">
-      <action name="Execute">
-        <command>/home/john/dots/pulse.sh both mute</command>
-      </action>
-    </keybind>
-    <!-- headset -->
-    <keybind key="W-d">
-      <action name="Execute">
-        <!-- <command>/home/john/dots/pulse.sh headset plus</command> -->
-        <command>xdotool keyup Super_L key XF86AudioNext keydown Super_L</command>
-      </action>
-    </keybind>
-    <keybind key="W-s">
-      <action name="Execute">
-        <!-- <command>/home/john/dots/pulse.sh headset minus</command> -->
-        <command>xdotool keyup Super_L key XF86AudioPlay keydown Super_L</command>
-      </action>
-    </keybind>
-    <keybind key="W-a">
-      <action name="Execute">
-        <!-- <command>/home/john/dots/pulse.sh headset mute</command> -->
-        <command>xdotool keyup Super_L key XF86AudioPrev keydown Super_L</command>
-      </action>
-    </keybind>
-    <!-- builtin -->
-    <keybind key="W-c">
-      <action name="Execute">
-        <command>/home/john/dots/pulse.sh builtin plus</command>
-      </action>
-    </keybind>
-    <keybind key="W-x">
-      <action name="Execute">
-        <command>/home/john/dots/pulse.sh builtin minus</command>
-      </action>
-    </keybind>
-    <keybind key="W-z">
-      <action name="Execute">
-        <command>/home/john/dots/pulse.sh builtin mute</command>
-      </action>
-    </keybind>
-    <!-- media keys -> builtin -->
+    <!-- media keys -->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>/home/john/dots/pulse.sh builtin plus</command>
+        <command>/home/weachockjr/dots/pulse.sh default plus</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>/home/john/dots/pulse.sh builtin minus</command>
+        <command>/home/weachockjr/dots/pulse.sh default minus</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
-        <command>/home/john/dots/pulse.sh builtin mute</command>
+        <command>/home/weachockjr/dots/pulse.sh default mute</command>
       </action>
     </keybind>
 
