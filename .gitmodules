@@ -43,3 +43,9 @@
 [submodule "vim/bundle/fzf"]
 	path = vim/bundle/fzf
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/bundle/ale"]
+	path = vim/bundle/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "vim/bundle/youcompleteme"]
+	path = vim/bundle/youcompleteme
+	url = https://github.com/Valloric/YouCompleteMe.git
