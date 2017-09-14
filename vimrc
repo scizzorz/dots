@@ -220,6 +220,9 @@ hi CursorLine   ctermfg=none  ctermbg=none cterm=none
 hi CursorLineNr ctermfg=6     ctermbg=none cterm=none
 hi VertSplit    ctermfg=0     ctermbg=0    cterm=none
 
+hi SpellBad     ctermfg=1     ctermbg=0    cterm=None
+hi SpellCap     ctermfg=4     ctermbg=0    cterm=None
+
 hi MatchParen   ctermfg=9     ctermbg=none cterm=none
 
 hi Visual       ctermfg=none  ctermbg=0    cterm=none
@@ -229,7 +232,7 @@ hi StatusLine   ctermfg=6    ctermbg=0    cterm=none
 hi StatusLineNC ctermfg=7     ctermbg=0    cterm=none
 
 " Wild menu. Oh how I wish I could decouple you from the status line...
-hi WildMenu     ctermfg=9     ctermbg=0    cterm=none
+hi WildMenu     ctermfg=14    ctermbg=0    cterm=none
 
 " Fold column
 hi Folded       ctermfg=8    ctermbg=none cterm=none
@@ -263,7 +266,7 @@ hi SignColumn   ctermfg=none  ctermbg=none cterm=none
 
 " syntax TODO
 hi Error        ctermfg=1     ctermbg=none cterm=none
-hi Todo         ctermfg=1     ctermbg=none cterm=none
+hi Todo         ctermfg=4     ctermbg=none cterm=none
 hi Identifier   ctermfg=11    ctermbg=none cterm=none
 hi Type         ctermfg=3     ctermbg=none cterm=none
 hi Constant     ctermfg=12    ctermbg=none cterm=none
