@@ -99,6 +99,12 @@ map <silent> <C-I> <Esc>:res -1<CR>
 map <silent> <C-U> <Esc>:res +1<CR>
 map <silent> <C-Y> <Esc>:vertical res -1<CR>
 
+nmap \ <Plug>(ale_next_wrap)
+nmap \| <Plug>(ale_previous_wrap)
+nmap <Leader>n <Plug>(ale_next_wrap)
+nmap <Leader>N <Plug>(ale_previous_wrap)
+nmap <CR> :YcmCompleter GoTo<CR>
+
 " map <Leader>s to sort the current paragraph
 nmap <Leader>s KjVJk:sort<CR>
 
@@ -175,9 +181,6 @@ nmap > f>
 " GET OUTTA TOWN, COMMAND HISTORY
 nnoremap q: :q
 
-" GET OUTTA TOWN, DEFAULT <CR>
-nnoremap <CR> <nop>
-
 " custom commands
 " stupid shift key
 cabbrev WQ wq
@@ -196,6 +199,9 @@ cabbrev WEQ wq
 " stupid backwards keys
 cabbrev qw wq
 cabbrev Qw wq
+
+" turn on sign column with ale
+let g:ale_sign_column_always=1
 
 " highlighting
 set background=dark
