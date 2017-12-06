@@ -57,6 +57,7 @@
   cp = cherry-pick
 	df = diff
 	dfs = diff --staged
+  fa = fetch --all --prune
 
 	stl = !git log --pretty=format:'%C(bold blue)%h%C(auto)%d' -1 && git log --pretty=format:'%C(white)%an • %ad%C(reset) %C(bold black)(%ar)%C(reset)' --date=local -1 && git log --pretty=format:%s -1 && echo && git status -s
 
