@@ -103,7 +103,6 @@ nmap \ <Plug>(ale_next_wrap)
 nmap \| <Plug>(ale_previous_wrap)
 nmap <Leader>n <Plug>(ale_next_wrap)
 nmap <Leader>N <Plug>(ale_previous_wrap)
-nmap <CR> :YcmCompleter GoTo<CR>
 
 " map <Leader>s to sort the current paragraph
 nmap <Leader>s KjVJk:sort<CR>
@@ -121,6 +120,8 @@ nmap <Leader>/ :let @/ = ""<CR>
 nnoremap <C-g> :Ack!<Space>
 let g:ackprg = 'ag --vimgrep'
 set shellpipe=>
+
+let g:visualPagePercent_window_char = '*'
 
 " map  to use fzf
 nnoremap <C-f> :Files<CR>
@@ -167,6 +168,9 @@ noremap L $
 noremap K {
 noremap J }
 
+noremap ' `
+noremap ` '
+
 " use brackets to jump to the next one in that direction
 map { F{
 map } f}
@@ -202,6 +206,9 @@ cabbrev Qw wq
 
 " turn on sign column with ale
 let g:ale_sign_column_always=1
+let g:ale_linters = {
+      \  'python': ['flake8'],
+      \}
 
 " highlighting
 set background=dark
