@@ -293,37 +293,37 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     <keybind key="H-z">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>1%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>24%</width>
+        <x>24</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>830</width>
       </action>
     </keybind>
     <keybind key="H-x">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>26%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>24%</width>
+        <x>878</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>830</width>
       </action>
     </keybind>
     <keybind key="H-c">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>51%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>24%</width>
+        <x>1732</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>830</width>
       </action>
     </keybind>
     <keybind key="H-v">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>76%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>23%</width>
+        <x>2586</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>830</width>
       </action>
     </keybind>
 
@@ -331,40 +331,40 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     <keybind key="H-1">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>1%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>32%</width>
+        <x>24</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>1114</width>
       </action>
     </keybind>
 
     <keybind key="H-3">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>34%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>32%</width>
+        <x>1162</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>1114</width>
       </action>
     </keybind>
 
     <keybind key="H-5">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>67%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>32%</width>
+        <x>2300</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>1114</width>
       </action>
     </keybind>
 
     <keybind key="H-2">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>1%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>65%</width>
+        <x>24</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>2252</width>
       </action>
     </keybind>
 
@@ -372,9 +372,9 @@ Copy the file to $HOME/.config/openbox/ instead. -->
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>34%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>65%</width>
+        <y>24</y>
+        <height>1368</height>
+        <width>2252</width>
       </action>
     </keybind>
 
@@ -382,46 +382,46 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     <keybind key="H-backslash">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>26%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>49%</width>
+        <x>878</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>1684</width>
       </action>
     </keybind>
     <keybind key="H-h">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>1%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>49%</width>
+        <x>24</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>1684</width>
       </action>
     </keybind>
     <keybind key="H-j">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>1%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>74%</width>
+        <x>24</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>2538</width>
       </action>
     </keybind>
     <keybind key="H-k">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>26%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>73%</width>
+        <x>878</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>2538</width>
       </action>
     </keybind>
     <keybind key="H-l">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>51%</x>
-        <y>1%</y>
-        <height>96%</height>
-        <width>48%</width>
+        <x>1732</x>
+        <y>24</y>
+        <height>1368</height>
+        <width>1684</width>
       </action>
     </keybind>
 
