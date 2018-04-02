@@ -247,3 +247,4 @@ export TERM=xterm-256color
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.proxy.sh ] && source ~/.proxy.sh
+[ -f ~/.cargo/env ] && source ~/.cargo/env
