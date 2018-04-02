@@ -55,6 +55,9 @@ export PROMPT='%{$fg_no_bold[white]%}%{'$HOSTCOLOR'%}%~%{$fg_no_bold[white]%}$(p
 
 # set up window titles
 function precmd {
+  flag=$(date +%s)" "$(pwd)
+  echo "$flag" >> ~/.active
+
   local exit_status=$?
   if [ $exit_status -ne 0 ]; then
     psvar[1]=" ✕"
@@ -169,6 +172,8 @@ t() {
     SESS="$1"
   fi
 
+  start=$(date +%s)
+
   if [ -z "$SESS" ]; then
     if [ -z "$SSH" ]; then
       tmux ls
@@ -182,11 +187,12 @@ t() {
       num=$(tmux ls | grep "^$origin" | wc -l)
       num=$(($num + 1))
       tmux new -t $origin -s $origin$num
+      echo "$origin $start $(date +%s)" >> ~/.tmux.hist
     else
       num=$(ssh -t "$SSH" tmux ls | grep "^$origin" | wc -l)
       num=$(($num + 1))
       ssh -t "$SSH" tmux new -t $origin -s $origin$num
-
+      echo "$SSH:$origin $start $(date +%s)" >> ~/.tmux.hist
     fi
 
   else
@@ -195,12 +201,14 @@ t() {
       else
         tmux new -s "$SESS"
       fi
+      echo "$SESS $start $(date +%s)" >> ~/.tmux.hist
 
     else
       if ssh -t "$SSH" "tmux attach -t '$SESS' &> /dev/null"; then
       else
         ssh -t "$SSH" tmux new -s "$SESS"
       fi
+      echo "$SSH:$SESS $start $(date +%s)" >> ~/.tmux.hist
 
     fi
   fi
