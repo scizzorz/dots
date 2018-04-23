@@ -40,8 +40,8 @@
 *cursorColor: #f0f3f2
 
 ! urxvt settings
-URxvt*font: xft:Fira Mono:size=10
-URxvt*boldFont: xft:Fira Mono:size=10
+URxvt*font: xft:Fira Mono:size=11
+URxvt*boldFont: xft:Fira Mono:size=11
 URxvt*geometry: 90x24
 URxvt*urlLauncher: google-chrome
 URxvt*scrollBar: false
