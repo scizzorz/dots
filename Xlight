@@ -1,7 +1,7 @@
-! base0 (hue = 150, lum = 0.949)
-*background: #f0f3f2
-! base1 (hue = 156, lum = 0.873)
-*color0: #dae1de
+! base0 (hue = 30, lum = 0.949)
+*background: #f3f2f0
+! base1 (hue = 32, lum = 0.872)
+*color0: #e1deda
 ! red (hue = 0, lum = 0.608)
 *color1: #ff5151
 ! lime (hue = 80, lum = 0.609)
@@ -14,7 +14,7 @@
 *color13: #de3aff
 ! teal (hue = 165, lum = 0.604)
 *color14: #00bf8f
-! base4 (hue = 202, lum = 0.298)
+! base4 (hue = 201, lum = 0.298)
 *color15: #444e54
 ! green (hue = 135, lum = 0.608)
 *color2: #00c932
@@ -26,10 +26,10 @@
 *color5: #be63ff
 ! cyan (hue = 185, lum = 0.606)
 *color6: #00b6c6
-! base3 (hue = 186, lum = 0.503)
-*color7: #708689
-! base2 (hue = 170, lum = 0.700)
-*color8: #a8b7b5
+! base3 (hue = 198, lum = 0.501)
+*color7: #72848c
+! base2 (hue = 40, lum = 0.700)
+*color8: #b7b2a8
 ! pink (hue = 320, lum = 0.608)
 *color9: #ff26b6
 ! base5 (hue = 210, lum = 0.196)

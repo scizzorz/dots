@@ -1,7 +1,7 @@
 ! base0 (hue = 210, lum = 0.196)
 *background: #2d3338
-! base1 (hue = 202, lum = 0.298)
-*color0: #444e54
+! base1 (hue = 207, lum = 0.304)
+*color0: #474f56
 ! red (hue = 0, lum = 0.608)
 *color1: #ff5151
 ! lime (hue = 80, lum = 0.609)
@@ -14,8 +14,8 @@
 *color13: #de3aff
 ! teal (hue = 165, lum = 0.604)
 *color14: #00bf8f
-! base4 (hue = 156, lum = 0.873)
-*color15: #dae1de
+! base4 (hue = 39, lum = 0.872)
+*color15: #e1deda
 ! green (hue = 135, lum = 0.608)
 *color2: #00c932
 ! blue (hue = 220, lum = 0.604)
@@ -26,12 +26,12 @@
 *color5: #be63ff
 ! cyan (hue = 185, lum = 0.606)
 *color6: #00b6c6
-! base3 (hue = 170, lum = 0.700)
-*color7: #a8b7b5
-! base2 (hue = 186, lum = 0.503)
-*color8: #708689
+! base3 (hue = 43, lum = 0.702)
+*color7: #b7b3a8
+! base2 (hue = 198, lum = 0.501)
+*color8: #72848c
 ! pink (hue = 320, lum = 0.608)
 *color9: #ff26b6
-! base5 (hue = 150, lum = 0.949)
-*foreground: #f0f3f2
-*cursorColor: #f0f3f2
+! base5 (hue = 30, lum = 0.949)
+*foreground: #f3f2f0
+*cursorColor: #f3f2f0

@@ -117,7 +117,7 @@ light = False
 ansi = True
 hue_lum = 0.60
 dark_hue = 210
-light_hue = 150
+light_hue = 30
 grey_lums = [
   0.20,
   0.30,
@@ -209,7 +209,16 @@ for color, hue in hues.items():
 
 # compute greys
 for i, grey_lum in enumerate(grey_lums):
-  hue = start_hue + (end_hue - start_hue) * (grey_lum - min_lum) / lum_gap
+  # old hue picker
+  # hue = start_hue + (end_hue - start_hue) * (grey_lum - min_lum) / lum_gap
+
+  direction = (lambda x: abs(x) / x)(end_hue - start_hue)
+
+  if i < 3:
+    hue = start_hue + direction * (10 + 10 * i) * (grey_lum - min_lum) / lum_gap
+  else:
+    hue = end_hue - direction * (50 - i * 10) * (grey_lum - min_lum) / lum_gap
+
   hue = int(hue)
   r, g, b = find_grey(hue, grey_lum)
   hues['base{}'.format(i)] = hue
