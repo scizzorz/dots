@@ -99,13 +99,20 @@ map <silent> <C-I> <Esc>:res -1<CR>
 map <silent> <C-U> <Esc>:res +1<CR>
 map <silent> <C-Y> <Esc>:vertical res -1<CR>
 
+map <silent> <C-D> <Esc>:stop<CR>
+
 nmap \ <Plug>(ale_next_wrap)
 nmap \| <Plug>(ale_previous_wrap)
 nmap <Leader>n <Plug>(ale_next_wrap)
 nmap <Leader>N <Plug>(ale_previous_wrap)
 
+" map F10 to identify syntax highlighting group?
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " map <Leader>s to sort the current paragraph
-nmap <Leader>s KjVJk:sort<CR>
+nmap <Leader>s vip:sort<CR>
 
 " map <Leader><Space> to remove all whitespace
 nmap <Leader><Space> :%s/\s\+$//<CR><C-o>
@@ -289,12 +296,26 @@ hi PreProc      ctermfg=9     ctermbg=none cterm=none
 hi Special      ctermfg=14    ctermbg=none cterm=none
 hi Underlined   ctermfg=15    ctermbg=none cterm=none
 hi Ignore       ctermfg=15    ctermbg=none cterm=none
+hi Operator     ctermfg=7     ctermbg=none cterm=none
 
 " diff
 hi DiffAdd     ctermfg=2      ctermbg=0    cterm=none
 hi DiffChange  ctermfg=4      ctermbg=0    cterm=none
 hi DiffDelete  ctermfg=1      ctermbg=0    cterm=none
 hi DiffText    ctermfg=6      ctermbg=0    cterm=none
+
+" rust
+hi link rustModPath Identifier
+hi link rustPubScope Identifier
+hi link rustPubScopeDelim Operator
+hi link rustQuestionMark Operator
+hi link rustModPathSep Operator
+hi link rustSelf Keyword
+hi link rustSuper Keyword
+hi link rustEnumVariant Special
+
+hi rustEscape ctermfg=2 ctermbg=none cterm=none
+hi link rustLifetime rustEscape
 
 match WhitespaceEOL /\s\+$/
 
