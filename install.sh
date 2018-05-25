@@ -1,15 +1,17 @@
 #!/bin/sh
 
 inst() {
-	echo "Installing $2 as $1..."
-	if [ -e $1 ]; then
-		if [ -h $1 ]; then
-			rm $1 # remove existing symbolic links
-		else
-			mv $1 $1.bak # backup existing files
-		fi
-	fi
-	ln -s $2 $1 # symlink
+  echo "Installing $2 as $1..."
+  if [ -e $1 ]; then
+    if [ -h $1 ]; then
+      echo "  Removing symlink $1"
+      rm $1 # remove existing symbolic links
+    else
+      echo "  Backing up file $1"
+      mv $1 $1.bak # backup existing files
+    fi
+  fi
+  ln -s $2 $1 # symlink
 }
 
 FROM=$(pwd)
@@ -29,7 +31,6 @@ inst $TO/.tmux.conf $FROM/tmux.conf
 inst $TO/.vim $FROM/vim
 inst $TO/.vimrc $FROM/vimrc
 inst $TO/.pylintrc $FROM/pylintrc
-inst $TO/.conkyrc $FROM/conkyrc
 inst $TO/.gtk-bookmarks $FROM/gtk-bookmarks
 inst $TO/.xmodmap $FROM/xmodmap
 inst $TO/.Xdefaults $FROM/Xdefaults
