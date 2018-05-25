@@ -47,7 +47,7 @@ URxvt*urlLauncher: google-chrome
 URxvt*scrollBar: false
 URxvt*scrollColor: #000000
 URxvt*searchable-scrollback: CM-s
-URxvt*letterSpace: -2
+URxvt*letterSpace: -1
 
 ! URxvt.perl-ext-common: default,clipboard
 ! URxvt.keysym.M-c: perl:clipboard:copy
