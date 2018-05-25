@@ -290,6 +290,7 @@ hi Todo         ctermfg=4     ctermbg=none cterm=none
 hi Identifier   ctermfg=11    ctermbg=none cterm=none
 hi Type         ctermfg=3     ctermbg=none cterm=none
 hi Constant     ctermfg=12    ctermbg=none cterm=none
+hi String       ctermfg=10    ctermbg=none cterm=none
 hi Comment      ctermfg=5     ctermbg=none cterm=none
 hi Statement    ctermfg=6     ctermbg=none cterm=none
 hi PreProc      ctermfg=9     ctermbg=none cterm=none
