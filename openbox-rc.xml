@@ -521,7 +521,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     </keybind>
     <keybind key="C-A-x">
       <action name="Execute">
-        <command>urxvt</command>
+        <command>~/alacritty/target/release/alacritty</command>
       </action>
     </keybind>
     <keybind key="C-A-c">
