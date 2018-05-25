@@ -12,12 +12,6 @@ set showcmd                   " show partial commands
 set directory=~/.vim/swap     " directory for swap files
 set scrolloff=4               " keep the cursor outside of the top/bottom 4 lines when scrolling
 set backspace=indent,eol,start "let me backspace over this crap
-
-if has("persistent_undo")
-  set undodir=~/.vim/undo   " directory for undo files
-  set undofile              " force vim to save undo history as a file
-endif
-
 set expandtab                 " use... spaces...
 set tabstop=2                 " number of spaces that a tab counts for
 set shiftwidth=2              " number of spaces to use for each step of (auto)indent
@@ -25,7 +19,7 @@ set shiftround                " always round indents to shiftwidth
 silent! set mouse=a           " enable mouse if it exists
 silent! set encoding=utf-8    " enable default encoding if it exists
 set list                      " show tabs and EOL
-set listchars=tab:\|\ ,trail:· " show tabs as right arrow quotes and trailing spaces as bullets
+set listchars=tab:\|\ ,trail:· " show tabs as pipes and trailing spaces as bullets
 set winminheight=0            " the minimum height of a non-focused window
 set winminwidth=0             " the minimum width of a non-focused window
 set cursorline                " highlight the line with the cursor
@@ -40,9 +34,14 @@ set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\  " set all fillchars to spa
 set wildmenu                  " enable the wild menu (EX command completion)
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class " ignore these extensions (courtesy of Armin Ronacher)
 set nomagic                   " turn off magic in regexps
-set cc=80                     " set a line at the 80th column
+set cc=100                    " set a line at the 100th column
 let mapleader=","             " remap the leader key from \ to ,
 filetype indent on
+
+if has("persistent_undo")
+  set undodir=~/.vim/undo   " directory for undo files
+  set undofile              " force vim to save undo history as a file
+endif
 
 " adapted from :help fold.txt
 " displays the first line of the fold at the appropriate indentation
@@ -70,13 +69,6 @@ if has("autocmd")
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g'\"" | endif
 
-  " automatically save and restore views (folds)
-  " maps have to be made *after* restoring or else the new maps
-  " mess with the loadview
-  autocmd BufWrite ?* mkview
-  autocmd BufRead ?* silent! loadview | nnoremap Z zd
-  autocmd BufRead * set foldignore=
-
   " automatically reload vimrc when it's saved
   autocmd BufWritePost vimrc,.vimrc so ~/.vimrc
 
@@ -91,16 +83,20 @@ map <silent> <C-J> <Esc>:wincmd j<CR>
 map <silent> <C-K> <Esc>:wincmd k<CR>
 map <silent> <C-L> <Esc>:wincmd l<CR>
 
+" map <C-NM> to navigate between buffers
 map <silent> <C-M> <Esc>:bn<CR>
 map <silent> <C-N> <Esc>:bp<CR>
 
+" map <C-YUIO> to resize splits (it's confusing)
 map <silent> <C-O> <Esc>:vertical res +1<CR>
 map <silent> <C-I> <Esc>:res -1<CR>
 map <silent> <C-U> <Esc>:res +1<CR>
 map <silent> <C-Y> <Esc>:vertical res -1<CR>
 
+" map <C-D> to suspend (normally <C-Z>)
 map <silent> <C-D> <Esc>:stop<CR>
 
+" map \ and | to shift between ALE chunks
 nmap \ <Plug>(ale_next_wrap)
 nmap \| <Plug>(ale_previous_wrap)
 nmap <Leader>n <Plug>(ale_next_wrap)
@@ -114,7 +110,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " map <Leader>s to sort the current paragraph
 nmap <Leader>s vip:sort<CR>
 
-" map <Leader><Space> to remove all whitespace
+" map <Leader><Space> to remove all trailing whitespace
 nmap <Leader><Space> :%s/\s\+$//<CR><C-o>
 
 " map <Leader>m to run :!make
