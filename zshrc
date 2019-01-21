@@ -90,6 +90,7 @@ export PATH=/opt/android-sdk/build-tools:$PATH
 export PATH=./:$PATH
 export PATH=~/bin:$PATH
 export PATH=~/scripts:$PATH
+export PATH=~/pico-8:$PATH
 
 # for SerPix
 export PYTHONPATH=~/dev/arduino/serpix:$PYTHONPATH

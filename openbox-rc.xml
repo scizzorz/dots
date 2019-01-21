@@ -214,6 +214,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     </keybind>
 
     <!-- top half eighths -->
+    <!--
     <keybind key="H-q">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
@@ -250,8 +251,10 @@ Copy the file to $HOME/.config/openbox/ instead. -->
         <width>23%</width>
       </action>
     </keybind>
+    -->
 
     <!-- bottom half eighths -->
+    <!--
     <keybind key="H-a">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
@@ -288,8 +291,10 @@ Copy the file to $HOME/.config/openbox/ instead. -->
         <width>23%</width>
       </action>
     </keybind>
+    -->
 
     <!-- vertical quarters -->
+    <!--
     <keybind key="H-z">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
@@ -326,9 +331,10 @@ Copy the file to $HOME/.config/openbox/ instead. -->
         <width>846</width>
       </action>
     </keybind>
+    -->
 
     <!-- vertical thirds -->
-    <keybind key="H-1">
+    <keybind key="H-q">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>11</x>
@@ -338,7 +344,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
       </action>
     </keybind>
 
-    <keybind key="H-3">
+    <keybind key="H-e">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>1154</x>
@@ -348,7 +354,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
       </action>
     </keybind>
 
-    <keybind key="H-5">
+    <keybind key="H-t">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>2297</x>
@@ -358,7 +364,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
       </action>
     </keybind>
 
-    <keybind key="H-2">
+    <keybind key="H-w">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>11</x>
@@ -368,7 +374,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
       </action>
     </keybind>
 
-    <keybind key="H-4">
+    <keybind key="H-r">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>1154</x>
@@ -379,7 +385,16 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     </keybind>
 
     <!-- left/right pane -->
-    <keybind key="H-backslash">
+    <keybind key="H-a">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>11</x>
+        <y>11</y>
+        <height>1394</height>
+        <width>1703</width>
+      </action>
+    </keybind>
+    <keybind key="H-s">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>868</x>
@@ -388,13 +403,23 @@ Copy the file to $HOME/.config/openbox/ instead. -->
         <width>1703</width>
       </action>
     </keybind>
+    <keybind key="H-d">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>1725</x>
+        <y>11</y>
+        <height>1394</height>
+        <width>1703</width>
+      </action>
+    </keybind>
+
     <keybind key="H-h">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>11</x>
         <y>11</y>
         <height>1394</height>
-        <width>1703</width>
+        <width>846</width>
       </action>
     </keybind>
     <keybind key="H-j">
@@ -418,10 +443,10 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     <keybind key="H-l">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>1725</x>
+        <x>2582</x>
         <y>11</y>
         <height>1394</height>
-        <width>1703</width>
+        <width>846</width>
       </action>
     </keybind>
 
@@ -437,79 +462,6 @@ Copy the file to $HOME/.config/openbox/ instead. -->
       </action>
     </keybind>
 
-    <!-- lights -->
-    <keybind key="C-S-1">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 0</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-2">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 36</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-3">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 72</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-4">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 108</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-5">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 144</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-6">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 180</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-7">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 216</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-8">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 252</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-9">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 288</command>
-      </action>
-    </keybind>
-    <keybind key="C-S-0">
-      <action name="Execute">
-        <command>/home/john/bin/lights -u 324</command>
-      </action>
-    </keybind>
-
-    <keybind key="W-z">
-      <action name="Execute">
-        <command>amixer sset Master 10</command>
-      </action>
-    </keybind>
-    <keybind key="W-x">
-      <action name="Execute">
-        <command>amixer sset Master 15</command>
-      </action>
-    </keybind>
-    <keybind key="W-c">
-      <action name="Execute">
-        <command>amixer sset Master 25</command>
-      </action>
-    </keybind>
-    <keybind key="W-v">
-      <action name="Execute">
-        <command>amixer sset Master 45</command>
-      </action>
-    </keybind>
-
     <!-- shortcuts -->
     <keybind key="C-S-r">
       <action name="Reconfigure"/>
@@ -521,7 +473,7 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     </keybind>
     <keybind key="C-A-x">
       <action name="Execute">
-        <command>~/alacritty/target/release/alacritty</command>
+        <command>alacritty</command>
       </action>
     </keybind>
     <keybind key="C-A-c">

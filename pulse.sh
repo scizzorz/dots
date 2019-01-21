@@ -7,7 +7,7 @@
 
 # get default sink name
 SINK_NAME=$(pacmd dump | perl -a -n -e 'print $F[1] if /set-default-sink/')
-SINK_BUILTIN="alsa_output.pci-0000_06_00.0.analog-stereo"
+SINK_BUILTIN="alsa_output.pci-0000_06_00.0.iec958-stereo"
 SINK_BOTH=combined
 SINK_HEADSET="alsa_output.usb-Razer_Razer_Kraken_7.1_Chroma-00.analog-stereo"
 #SINK_HEADSET="alsa_output.usb-Creative_Technology_Ltd._Sound_BlasterX_H7_00000675-00.analog-stereo"
@@ -21,11 +21,11 @@ case "$1" in
     SINK_RGB='\x0\x7F\xFF'
   ;;
   headset)
-    SINK_NAME=$SINK_HEADSET
+    #SINK_NAME=$SINK_HEADSET
     SINK_RGB='\xFF\x7F\x0'
   ;;
   both)
-    SINK_NAME=$SINK_BOTH
+    #SINK_NAME=$SINK_BOTH
     SINK_RGB='\xFF\x7F\xFF'
   ;;
 esac
@@ -41,6 +41,9 @@ VOL_STEP=$((VOL_MAX / STEPS + 1))
 VOL_NOW=`pacmd dump | grep -P "^set-sink-volume $SINK_NAME\s+" | perl -p -n -e 's/.+\s(.x.+)$/$1/'`
 MUTE_STATE=`pacmd dump | grep -P "^set-sink-mute $SINK_NAME\s+" | perl -p -n -e 's/.+\s(yes|no)$/$1/'`
 
+echo "vol_now: $VOL_NOW"
+echo "mute_state: $MUTE_STATE"
+
 function plus() {
   VOL_NEW=$((VOL_NOW + VOL_STEP))
   if [ $VOL_NEW -gt $((VOL_MAX)) ]; then
@@ -53,7 +56,7 @@ function plus() {
   START_PIX_HEX=$(echo "obase=16; $MIN_PIX" | bc)
   END_PIX_HEX=$(echo "obase=16; $END_PIX" | bc)
   echo "$START_PIX_HEX to $END_PIX_HEX"
-  echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
+  #echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
 }
 
 function minus() {
@@ -68,7 +71,7 @@ function minus() {
   START_PIX_HEX=$(echo "obase=16; $MIN_PIX" | bc)
   END_PIX_HEX=$(echo "obase=16; $END_PIX" | bc)
   echo "$START_PIX_HEX to $END_PIX_HEX"
-  echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
+  #echo -en '\x3\x5\x'$START_PIX_HEX'\x'$END_PIX_HEX$SINK_RGB'\x2\x4' > /dev/ttyACM*
 }
 
 function mute() {
