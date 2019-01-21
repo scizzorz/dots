@@ -107,11 +107,17 @@ alias ls='ls -F --color=auto'
 alias grep='grep -I'
 alias ag='ag --color-match "30;31"'
 alias it='git'
+alias g='git'
 alias im='vim'
+alias v='vim'
 alias :e='vim'
 alias :q='exit'
 alias q='exit'
 alias :wq='exit'
+alias p='python'
+alias p2='python2'
+alias p3='python3'
+alias pe='pipenv'
 
 pc() {
   python -c "print($1)"

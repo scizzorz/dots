@@ -50,6 +50,8 @@
 	contributors = shortlog -s -n
 
 	psuh = push
+  ppush = push
+  poush = push
 	st = status -s
 	ci = commit
 	br = branch
