@@ -52,3 +52,6 @@
 [submodule "vim/bundle/rust"]
 	path = vim/bundle/rust
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim/bundle/pico8"]
+	path = vim/bundle/pico8
+	url = https://github.com/justinj/vim-pico8-syntax
