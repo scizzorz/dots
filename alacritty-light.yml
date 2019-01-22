@@ -78,13 +78,13 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 11.0
+  size: 10.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
     x: -1
-    y: 0
+    y: -1
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
@@ -108,35 +108,35 @@ custom_cursor_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x2d3338'
-    foreground: '0xf3f2f0'
+    background: '0xf3f2f0'
+    foreground: '0x2d3338'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x2d3338'
-    cursor: '0xf3f2f0'
+    text: '0xf3f2f0'
+    cursor: '0x2d3338'
 
   # Normal colors
   normal:
-    black:   '0x474f56'
+    black:   '0xe1deda'
     red:     '0xff5151'
     green:   '0x00c932'
     yellow:  '0x6397ff'
     blue:    '0xa5a500'
     magenta: '0xbe63ff'
     cyan:    '0x00b6b6'
-    white:   '0xb7b3a8'
+    white:   '0x72848c'
 
   # Bright colors
   bright:
-    black:   '0x72848c'
+    black:   '0xb7b3a8'
     red:     '0xff26b6'
     green:   '0x7ab700'
     yellow:  '0x8e84ff'
     blue:    '0xe87400'
     magenta: '0xde3aff'
     cyan:    '0x00bf8f'
-    white:   '0xe1deda'
+    white:   '0x474f56'
 
 # Visual Bell
 #

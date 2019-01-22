@@ -47,6 +47,7 @@ mkdir -p $TO/.config/openbox
 inst $TO/.config/openbox/rc.xml $FROM/openbox-rc.xml
 
 mkdir -p $TO/.config/alacritty
+./set-alacritty-theme.sh dark
 inst $TO/.config/alacritty/alacritty.yml $FROM/alacritty.yml
 
 mkdir -p $TO/.config/tint2
