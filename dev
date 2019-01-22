@@ -6,4 +6,5 @@ tmux -V
 vim --version | head -n1 | sed 's/VIM - Vi IMproved \([0-9]\+\.[0-9]\+\).*/vim \1/'
 git --version | sed -e 's/ version//'
 python --version
+python2 --version
 python3 --version
