@@ -47,11 +47,14 @@ parse_git_dir() {
 }
 
 # set up prompt
-export HOSTCOLOR='$fg_no_bold[magenta]'
+export PROMPT_COLOR=$'\033[96m' # bright cyan
+export PROMPT_PREFIX='%{$fg_no_bold[white]%}%m ' # hostname
+[ -f ~/.prompt.sh ] && source ~/.prompt.sh
+
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
-export PROMPT='%{$fg_no_bold[white]%}%{'$HOSTCOLOR'%}%~%{$fg_no_bold[white]%}$(parse_git_dir)$(parse_venv)%(1j, %%,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
+export PROMPT=$PROMPT_PREFIX'%{$fg_no_bold[white]%}%{'$PROMPT_COLOR'%}%~%{$fg_no_bold[white]%}$(parse_git_dir)$(parse_venv)%(1j, %%,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
 
 # set up window titles
 function precmd {
