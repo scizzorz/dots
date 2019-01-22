@@ -6,3 +6,4 @@ vim/doc
 vim/.netrwhist
 bash/colors
 alacritty.yml
+prompt.sh

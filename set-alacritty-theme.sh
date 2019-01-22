@@ -1,3 +1,3 @@
 #!/bin/sh
-rm alacritty.yml
+rm -f alacritty.yml
 ln -s alacritty-$1.yml alacritty.yml

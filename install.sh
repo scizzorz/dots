@@ -50,5 +50,7 @@ mkdir -p $TO/.config/alacritty
 ./set-alacritty-theme.sh dark
 inst $TO/.config/alacritty/alacritty.yml $FROM/alacritty.yml
 
+./set-prompt-theme.sh default
+
 mkdir -p $TO/.config/tint2
 inst $TO/.config/tint2/tint2rc $FROM/tint2rc

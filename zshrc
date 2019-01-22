@@ -49,7 +49,7 @@ parse_git_dir() {
 # set up prompt
 export PROMPT_COLOR=$'\033[96m' # bright cyan
 export PROMPT_PREFIX='%{$fg_no_bold[white]%}%m ' # hostname
-[ -f ~/.prompt.sh ] && source ~/.prompt.sh
+[ -f ~/dots/prompt.sh ] && source ~/dots/prompt.sh
 
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
