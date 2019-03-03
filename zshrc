@@ -106,7 +106,7 @@ export WINEARCH=win32
 
 # set up alises
 alias please='sudo $(history -p !-1)'
-alias ls='ls -F --color=auto'
+alias ls='exa -F'
 alias grep='grep -I'
 alias ag='ag --color-match "30;31"'
 alias it='git'
