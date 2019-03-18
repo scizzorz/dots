@@ -4,6 +4,7 @@
 
 [core]
 	pager = ~/dots/gitpager.sh
+	abbrev = 4
 
 [color]
 	ui = true
