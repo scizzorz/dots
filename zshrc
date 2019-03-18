@@ -218,6 +218,22 @@ t() {
   fi
 }
 
+# manage docker-based workspaces
+d() {
+  SESS="$1"
+
+  if [ -z "$SESS" ]; then
+    ls ~/.workspaces
+
+  else
+    docker run --rm -it \
+      -v ~/.ssh/id_rsa:/home/john/.ssh/id_rsa \
+      -v ~/.ssh/id_rsa.pub:/home/john/.ssh/id_rsa.pub \
+      -v ~/.workspaces/"$SESS":/home/john/dev \
+      scizzorz/arch
+  fi
+}
+
 # copy things to clipboard
 x() {
   input="$@"
