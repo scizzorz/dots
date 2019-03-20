@@ -221,6 +221,7 @@ t() {
 # manage docker-based workspaces
 d() {
   SESS="$1"
+  shift
 
   if [ -z "$SESS" ]; then
     ls ~/.workspaces
@@ -230,6 +231,7 @@ d() {
       -v ~/.ssh/id_rsa:/home/john/.ssh/id_rsa \
       -v ~/.ssh/id_rsa.pub:/home/john/.ssh/id_rsa.pub \
       -v ~/.workspaces/"$SESS":/home/john/dev \
+      "$@" \
       scizzorz/arch
   fi
 }
