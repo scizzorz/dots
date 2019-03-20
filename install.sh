@@ -18,8 +18,7 @@ FROM=$(pwd)
 TO=~
 
 echo "Initializing git submodules..."
-git submodule init
-git submodule update
+git submodule update --init --recursive
 
 echo "Installing from $FROM to $TO"
 inst $TO/.xinitrc $FROM/xinitrc
