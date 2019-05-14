@@ -1,5 +1,6 @@
 from math import sqrt
 
+
 def hex2rgb(code):
   '''Convert a 6-digit hex code into an rgb triplet.'''
 
@@ -20,7 +21,7 @@ def hsl2rgb(h, s, l):
 
   c = (1 - abs(2 * l - 1)) * s
   x = c * (1 - abs((h / 60) % 2 - 1))
-  m = l - c/2
+  m = l - c / 2
 
   if 0 <= h < 60:
     r, g, b = c, x, 0
@@ -167,21 +168,21 @@ ansi_order = {
 }
 
 rainbow_order = {
-  'base1':  'color0',
-  'base2':  'color8',
-  'base3':  'color1',
-  'base4':  'color9',
-  'red':    'color2',
+  'base1': 'color0',
+  'base2': 'color8',
+  'base3': 'color1',
+  'base4': 'color9',
+  'red': 'color2',
   'orange': 'color10',
   'yellow': 'color3',
-  'lime':   'color11',
-  'green':  'color4',
-  'teal':   'color12',
-  'cyan':   'color5',
-  'blue':   'color13',
+  'lime': 'color11',
+  'green': 'color4',
+  'teal': 'color12',
+  'cyan': 'color5',
+  'blue': 'color13',
   'indigo': 'color6',
   'purple': 'color14',
-  'pink':   'color15',
+  'pink': 'color15',
   'magenta': 'color7',
   'base0': 'background',
   'base5': 'foreground',
