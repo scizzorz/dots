@@ -221,18 +221,43 @@ t() {
 # manage docker-based workspaces
 d() {
   SESS="$1"
-  shift
 
   if [ -z "$SESS" ]; then
     ls ~/.workspaces
 
   else
-    docker run --rm -it \
-      -v ~/.ssh/id_rsa:/home/john/.ssh/id_rsa \
-      -v ~/.ssh/id_rsa.pub:/home/john/.ssh/id_rsa.pub \
-      -v ~/.workspaces/"$SESS":/home/john/dev \
-      "$@" \
-      scizzorz/arch
+    shift
+    exists=$(docker ps -aqf "name=$SESS")
+
+    # create a container if it doesn't exist
+    if [ -z "$exists" ]; then
+      echo "Creating container..."
+      exists=$(docker run \
+          --dns $DNS \
+          --env "http_proxy=$http_proxy" \
+          --env "https_proxy=$https_proxy" \
+          --env "no_proxy=$no_proxy" \
+          --detach \
+          --hostname "$SESS" \
+          --interactive \
+          --name "$SESS" \
+          --rm \
+          --tty \
+          --volume ~/.ssh/id_rsa.pub:/home/john/.ssh/id_rsa.pub \
+          --volume ~/.ssh/id_rsa:/home/john/.ssh/id_rsa \
+          --volume ~/.workspaces/"$SESS":/home/john/dev \
+          "$@" \
+          scizzorz/arch)
+    fi
+
+    echo "Entering container..."
+    docker exec \
+      --interactive \
+      --tty \
+      --user john \
+      $exists \
+      /usr/bin/zsh
+
   fi
 }
 
