@@ -98,8 +98,8 @@ export PATH=~/pico-8:$PATH
 # for SerPix
 export PYTHONPATH=~/dev/arduino/serpix:$PYTHONPATH
 
-# For FZF
-export FZF_DEFAULT_COMMAND='ag -g ""'
+# For Skim
+export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 
 # For Wine
 export WINEARCH=win32

@@ -119,9 +119,9 @@ nmap <Leader>m :!make<CR>
 " map <Leader>/ to clear search
 nmap <Leader>/ :let @/ = ""<CR>
 
-" map to ack.vim as the silver searcher and fix a stdout leak
+" map to ack.vim to use ripgrepand fix a stdout leak
 nnoremap <C-g> :Ack!<Space>
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'rg --vimgrep'
 set shellpipe=>
 
 let g:visualPagePercent_window_char = '*'

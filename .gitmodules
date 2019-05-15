@@ -34,9 +34,6 @@
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/fzf"]
-	path = vim/bundle/fzf
-	url = https://github.com/junegunn/fzf.vim.git
 [submodule "vim/bundle/ale"]
 	path = vim/bundle/ale
 	url = https://github.com/w0rp/ale.git
@@ -52,3 +49,6 @@
 [submodule "vim/bundle/pico8"]
 	path = vim/bundle/pico8
 	url = https://github.com/justinj/vim-pico8-syntax
+[submodule "vim/bundle/skim"]
+	path = vim/bundle/skim
+	url = https://github.com/lotabout/skim.vim
