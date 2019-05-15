@@ -20,6 +20,8 @@ TO=~
 echo "Initializing git submodules..."
 git submodule update --init --recursive
 
+mkdir -p $TO/.config
+
 echo "Installing from $FROM to $TO"
 inst $TO/.xinitrc $FROM/xinitrc
 inst $TO/.vimrc $FROM/vimrc
@@ -33,6 +35,7 @@ inst $TO/.pylintrc $FROM/pylintrc
 inst $TO/.gtk-bookmarks $FROM/gtk-bookmarks
 inst $TO/.xmodmap $FROM/xmodmap
 inst $TO/.Xdefaults $FROM/Xdefaults
+inst $TO/.config/flake8 $FROM/flake8
 
 echo "Installing $FROM/fonts/* as $TO/.fonts/*..."
 mkdir -p $TO/.fonts
