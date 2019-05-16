@@ -219,6 +219,7 @@ t() {
 }
 
 # manage docker-based workspaces
+export DNS=1.1.1.1
 d() {
   SESS="$1"
 
