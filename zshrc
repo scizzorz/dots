@@ -222,6 +222,8 @@ t() {
 export DNS=1.1.1.1
 d() {
   SESS="$1"
+  mkdir -p ~/.workspaces/"$SESS"
+  mkdir -p ~/.workspaces/.share
 
   if [ -z "$SESS" ]; then
     ls ~/.workspaces
@@ -241,12 +243,14 @@ d() {
           --detach \
           --hostname "$SESS" \
           --interactive \
-          --name "$SESS" \
+          --name "$SESS-workspace" \
           --rm \
           --tty \
+          --volume /var/run/docker.sock:/var/run/docker.sock \
           --volume ~/.ssh/id_rsa.pub:/home/john/.ssh/id_rsa.pub \
           --volume ~/.ssh/id_rsa:/home/john/.ssh/id_rsa \
           --volume ~/.workspaces/"$SESS":/home/john/dev \
+          --volume ~/.workspaces/.share:/home/john/shr \
           "$@" \
           scizzorz/arch)
     fi
