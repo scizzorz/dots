@@ -253,6 +253,19 @@ d() {
           --volume ~/.workspaces/.share:/home/john/shr \
           "$@" \
           scizzorz/arch)
+
+      # need to add myself to whatever group owns /var/run/docker.sock inside
+      # the container. this can't be done as part of the image because the
+      # permissions on the socket are set by the *host* machine, so it varies
+      # from host to host. eg, on my home machine, the docker group is gid 992,
+      # but on my work machine, it's 995. inside the container, those are
+      # (currently) mapped to kvm and audio respectively, while the docker
+      # group is gid 977. moral of the story is that user permissions are
+      # hard in docker images and that's why they usually just run as root, I
+      # guess.
+      docker exec \
+        $exists \
+        /usr/bin/zsh -c 'usermod john -a -G $(exa -lg /var/run/docker.sock | cut -d" " -f4)'
     fi
 
     echo "Entering container..."
