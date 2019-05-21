@@ -49,6 +49,12 @@ parse_git_dir() {
 # set up prompt
 export PROMPT_COLOR=$'\033[96m' # bright cyan
 export PROMPT_PREFIX='%{$fg_no_bold[white]%}%m ' # hostname
+
+# skip the host if we're in tmux
+if [ -n "$TMUX" ]; then
+  export PROMPT_PREFIX=''
+fi
+
 [ -f ~/dots/prompt.sh ] && source ~/dots/prompt.sh
 
 export VIRTUAL_ENV_DISABLE_PROMPT=true
