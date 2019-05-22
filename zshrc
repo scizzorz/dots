@@ -1,30 +1,33 @@
 [ -z "$PS1" ] && return
-#[ $TERM != "screen" ] && [ $TERM != "linux" ] && hash tmux &>/dev/null && exec tmux
 
-# Lines configured by zsh-newuser-install
+# configure history
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt autocd
-unsetopt beep
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/john/.zshrc'
 
+# turn off beepies
+unsetopt beep
+
+# ???
+bindkey -e
+
+# set up completion system
+zstyle :compinstall filename '/home/john/.zshrc'
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
-# Load colors
+# enable colors
 autoload -U colors && colors
 
+# used by prompt to show an @ sign if a Python virtualenv is active
+export VIRTUAL_ENV_DISABLE_PROMPT=true
 parse_venv() {
 	if [ "$VIRTUAL_ENV" ]; then
 		echo " @"
 	fi
 }
 
+# used by prompt to show git branch / commit / status
 parse_git_dir() {
 	local GIT_BRANCH="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
 	local GIT_COMMIT="$(git rev-list HEAD --abbrev-commit --abbrev=0 -n1 2>/dev/null)"
@@ -51,7 +54,6 @@ export PROMPT_COLOR=$'\033[96m' # bright cyan
 export PROMPT_PREFIX='%{$fg_no_bold[white]%}%m ' # hostname
 [ -f ~/dots/prompt.sh ] && source ~/dots/prompt.sh
 
-export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
 export PROMPT=$PROMPT_PREFIX'%{$fg_no_bold[white]%}%{'$PROMPT_COLOR'%}%~%{$fg_no_bold[white]%}$(parse_git_dir)$(parse_venv)%(1j, %%,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
@@ -77,26 +79,14 @@ function preexec {
 # set up default editor
 export EDITOR=vim
 
-# for Rust
+# for Rust (is this still used in 2019?)
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-
-# for Ruby
-export PATH=~/.gem/ruby/2.1.0/bin:$PATH
-export PATH=~/.gem/ruby/2.2.0/bin:$PATH
-
-# for Android
-export PATH=/opt/android-sdk/tools:$PATH
-export PATH=/opt/android-sdk/platform-tools:$PATH
-export PATH=/opt/android-sdk/build-tools:$PATH
 
 # $PATH nonsense
 export PATH=./:$PATH
 export PATH=~/bin:$PATH
 export PATH=~/scripts:$PATH
 export PATH=~/pico-8:$PATH
-
-# for SerPix
-export PYTHONPATH=~/dev/arduino/serpix:$PYTHONPATH
 
 # For Skim
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
@@ -105,10 +95,8 @@ export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || r
 export WINEARCH=win32
 
 # set up alises
-alias please='sudo $(history -p !-1)'
 alias ls='exa -F'
 alias grep='grep -I'
-alias ag='ag --color-match "30;31"'
 alias it='git'
 alias g='git'
 alias im='vim'
@@ -122,6 +110,7 @@ alias p2='python2'
 alias p3='python3'
 alias pe='pipenv'
 
+# python calculator
 pc() {
   python -c "print($1)"
 }
@@ -165,7 +154,7 @@ venv() {
   source "${target}/bin/activate"
 }
 
-# manage tmux
+# manage tmux sessions
 t() {
   if [[ "$1" == *':'* ]]; then
     arr=("${(s/:/)1}")
@@ -323,11 +312,11 @@ if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
   ZSH_HIGHLIGHT_STYLES[globbing]=fg=cyan
 fi
 
+# $TERM is magic
 export TERM=xterm-256color
 
-# added by travis gem
-[ -f /home/john/.travis/travis.sh ] && source /home/john/.travis/travis.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# set up proxy variables in an untracked file
 [ -f ~/.proxy.sh ] && source ~/.proxy.sh
+
+# does Cargo still use this?
 [ -f ~/.cargo/env ] && source ~/.cargo/env
