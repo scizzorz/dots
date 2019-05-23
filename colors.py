@@ -1,5 +1,6 @@
 from PIL import Image
 from PIL import ImageDraw
+from PIL import ImageFont
 from math import sqrt
 import click
 import yaml
@@ -118,6 +119,74 @@ def find_grey(hue, lum):
   return greys[0]['rgb']
 
 
+def generate_simple_colors_image(greys, colors, size=32, padding=8, filename='colors-simple.png'):
+  total_colors = len(colors) + len(greys)
+
+  img = Image.new('RGB', (total_colors * size, size * 2), color='#' + greys[0])
+  draw = ImageDraw.Draw(img)
+
+  draw.rectangle((0, size, total_colors * size, size * 2), fill='#' + greys[-1])
+
+  for i, hex in enumerate(greys):
+    x = padding + size * i
+    y = padding
+    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
+
+  for i, hex in enumerate(reversed(greys)):
+    x = padding + size * i
+    y = padding + size
+    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
+
+  for i, hex in enumerate(colors.values()):
+    x = padding + size * (i + len(greys))
+    y = padding
+    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
+    draw.rectangle((x, y + size, x + (size - padding * 2), y + size + (size - padding * 2)), fill='#' + hex)
+
+  with open(filename, 'wb') as fp:
+    img.save(fp, format='PNG')
+
+
+def generate_labeled_colors_image(greys, colors, filename='colors-labeled.png'):
+  total_colors = len(colors) + len(greys)
+
+  size = 64
+  padding = 16
+  width = size * 9
+  height = total_colors * size
+
+  img = Image.new('RGB', (width, height), color='#' + greys[0])
+  draw = ImageDraw.Draw(img)
+  font = ImageFont.truetype('fonts/FiraMono.ttf', size // 4)
+
+  draw.rectangle((width / 2, 0, width, height), fill='#' + greys[-1])
+
+  for i, hex in enumerate(greys):
+    x = padding
+    y = padding + i * size
+    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
+    draw.text((x + size - padding, y + padding / 2), f' shade {i}: #{hex}', font=font, fill='#' + hex)
+
+  for i, hex in enumerate(reversed(greys)):
+    x = padding + width / 2
+    y = padding + size * i
+    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
+    draw.text((x + size - padding, y + padding / 2), f' shade {i}: #{hex}', font=font, fill='#' + hex)
+
+  for i, (color, hex) in enumerate(colors.items()):
+    x = padding
+    y = padding + size * (i + len(greys))
+    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
+    draw.text((x + size - padding, y + padding / 2), f'{color:>8}: #{hex}', font=font, fill='#' + hex)
+
+    x = padding + width / 2
+    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
+    draw.text((x + size - padding, y + padding / 2), f'{color:>8}: #{hex}', font=font, fill='#' + hex)
+
+  with open(filename, 'wb') as fp:
+    img.save(fp, format='PNG')
+
+
 @click.command()
 @click.argument('config', type=str, default='colors.yml')
 @click.option('--mode', '-m', default='dark', type=click.Choice(('light', 'dark')))
@@ -135,32 +204,35 @@ def main(config, mode):
     colors[color] = rgb2hex(*hsv2rgb(hue, sat, val))
 
   # compute greys
-  start_hue = data['light_hue'] if mode == 'light' else data['dark_hue']
-  end_hue = data['dark_hue'] if mode == 'light' else data['light_hue']
+  dark_hue = data['dark_hue']
+  light_hue = data['light_hue']
 
-  grey_lums = sorted(data['grey_lums'], reverse=mode == 'light')
+  grey_lums = sorted(data['grey_lums'])
   min_lum = grey_lums[0]
   max_lum = grey_lums[-1]
 
   # this is just arbitary based on my taste
-  hue_chunk = (start_hue - end_hue) / len(grey_lums) / 2
+  hue_chunk = (dark_hue - light_hue) / len(grey_lums) / 2
 
   greys = []
   for i, grey_lum in enumerate(grey_lums):
     scale = (grey_lum - min_lum) / (max_lum - min_lum) * 2
 
-    # in the first half of greys, we want to base our result off of the start_hue.
-    # in the second half, we want to base our result off the end_hue.
+    # in the first half of greys, we want to base our result off of the dark_hue.
+    # in the second half, we want to base our result off the light_hue.
     if i < len(grey_lums) / 2:
-      # as we leave i=0, scale goes up and our hue should leave start_hue
-      hue = start_hue - hue_chunk * scale
+      # as we leave i=0, scale goes up and our hue should leave dark_hue
+      hue = dark_hue - hue_chunk * scale
     else:
-      # as we approach i=len, scale keeps going up and our hue should approach end_hue
-      hue = end_hue + hue_chunk * (2 - scale)
+      # as we approach i=len, scale keeps going up and our hue should approach light_hue
+      hue = light_hue + hue_chunk * (2 - scale)
 
     r, g, b = find_grey(int(hue), grey_lum)
 
     greys.append(rgb2hex(r, g, b))
+
+  if mode == 'light':
+    greys = list(reversed(greys))
 
   # dump colors
   for color, hex in colors.items():
@@ -170,25 +242,9 @@ def main(config, mode):
   for i, hex in enumerate(greys):
     print(f' shade {i}: #{hex}')
 
-  size = 32
-  padding = 8
-  total_colors = len(colors) + len(greys)
-
-  img = Image.new('RGB', (total_colors * size, size), color='#' + greys[0])
-  draw = ImageDraw.Draw(img)
-
-  for i, hex in enumerate(greys):
-    x = padding + size * i
-    y = padding
-    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
-
-  for i, hex in enumerate(colors.values()):
-    x = padding + size * (i + len(greys))
-    y = padding
-    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
-
-  with open('colors.png', 'wb') as fp:
-    img.save(fp, format='PNG')
+  # generate images
+  generate_simple_colors_image(greys, colors)
+  generate_labeled_colors_image(greys, colors)
 
 
 if __name__ == '__main__':
