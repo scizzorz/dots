@@ -219,7 +219,7 @@ def main(config, mode):
   max_lum = grey_lums[-1]
 
   # this is just arbitary based on my taste
-  hue_chunk = (dark_hue - light_hue) / len(grey_lums) / 2
+  hue_chunk = (dark_hue - light_hue) / data['hue_steps']
 
   greys = []
   for i, grey_lum in enumerate(grey_lums):
