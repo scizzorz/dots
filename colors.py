@@ -125,11 +125,8 @@ def main(config, mode):
   with open(config) as fp:
     data = yaml.load(fp, Loader=yaml.FullLoader)
 
-  start_hue = data['light_hue'] if mode == 'light' else data['dark_hue']
-  end_hue = data['dark_hue'] if mode == 'light' else data['light_hue']
-  grey_lums = sorted(data['grey_lums'], reverse=mode == 'light')
-  min_lum = grey_lums[0]
-  lum_delta = grey_lums[-1] - grey_lums[0]
+  if len(data['grey_lums']) % 2 == 1:
+    raise Exception('Not sure how to handle odd number of greys.')
 
   # compute colors
   colors = {}
@@ -138,17 +135,30 @@ def main(config, mode):
     colors[color] = rgb2hex(*hsv2rgb(hue, sat, val))
 
   # compute greys
+  start_hue = data['light_hue'] if mode == 'light' else data['dark_hue']
+  end_hue = data['dark_hue'] if mode == 'light' else data['light_hue']
+
+  grey_lums = sorted(data['grey_lums'], reverse=mode == 'light')
+  min_lum = grey_lums[0]
+  max_lum = grey_lums[-1]
+
+  # this is just arbitary based on my taste
+  hue_chunk = (start_hue - end_hue) / len(grey_lums) / 2
+
   greys = []
   for i, grey_lum in enumerate(grey_lums):
-    direction = math.copysign(1, end_hue - start_hue)
+    scale = (grey_lum - min_lum) / (max_lum - min_lum) * 2
 
-    if i < 3:
-      hue = start_hue + direction * (10 + 10 * i) * (grey_lum - min_lum) / lum_delta
+    # in the first half of greys, we want to base our result off of the start_hue.
+    # in the second half, we want to base our result off the end_hue.
+    if i < len(grey_lums) / 2:
+      # as we leave i=0, scale goes up and our hue should leave start_hue
+      hue = start_hue - hue_chunk * scale
     else:
-      hue = end_hue - direction * (50 - i * 10) * (grey_lum - min_lum) / lum_delta
+      # as we approach i=len, scale keeps going up and our hue should approach end_hue
+      hue = end_hue + hue_chunk * (2 - scale)
 
-    hue = int(hue)
-    r, g, b = find_grey(hue, grey_lum)
+    r, g, b = find_grey(int(hue), grey_lum)
 
     greys.append(rgb2hex(r, g, b))
 
