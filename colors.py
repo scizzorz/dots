@@ -120,28 +120,25 @@ def find_grey(hue, lum):
 
 @click.command()
 @click.argument('config', type=str, default='colors.yml')
-def main(config):
+@click.option('--mode', '-m', default='dark', type=click.Choice(('light', 'dark')))
+def main(config, mode):
   with open(config) as fp:
     data = yaml.load(fp, Loader=yaml.FullLoader)
 
-  if data['mode'] not in ('light', 'dark'):
-    raise Exception('Invalid mode')
-
-  colors = {}
-  greys = []
-
-  start_hue = data['light_hue'] if data['mode'] == 'light' else data['dark_hue']
-  end_hue = data['dark_hue'] if data['mode'] == 'light' else data['light_hue']
-  grey_lums = sorted(data['grey_lums'], reverse=data['mode'] == 'light')
+  start_hue = data['light_hue'] if mode == 'light' else data['dark_hue']
+  end_hue = data['dark_hue'] if mode == 'light' else data['light_hue']
+  grey_lums = sorted(data['grey_lums'], reverse=mode == 'light')
   min_lum = grey_lums[0]
   lum_delta = grey_lums[-1] - grey_lums[0]
 
   # compute colors
+  colors = {}
   for color, hue in data['color_hues'].items():
     sat, val = find_shade(hue, data['color_lum'])
     colors[color] = rgb2hex(*hsv2rgb(hue, sat, val))
 
   # compute greys
+  greys = []
   for i, grey_lum in enumerate(grey_lums):
     direction = math.copysign(1, end_hue - start_hue)
 
@@ -155,9 +152,11 @@ def main(config):
 
     greys.append(rgb2hex(r, g, b))
 
+  # dump colors
   for color, hex in colors.items():
     print(f'{color:>8}: #{hex}')
 
+  # dump greys
   for i, hex in enumerate(greys):
     print(f' shade {i}: #{hex}')
 
