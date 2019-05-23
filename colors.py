@@ -1,7 +1,7 @@
+from PIL import Image
+from PIL import ImageDraw
 from math import sqrt
-import math
 import click
-import PIL as pil
 import yaml
 
 
@@ -169,6 +169,26 @@ def main(config, mode):
   # dump greys
   for i, hex in enumerate(greys):
     print(f' shade {i}: #{hex}')
+
+  size = 32
+  padding = 8
+  total_colors = len(colors) + len(greys)
+
+  img = Image.new('RGB', (total_colors * size, size), color='#' + greys[0])
+  draw = ImageDraw.Draw(img)
+
+  for i, hex in enumerate(greys):
+    x = padding + size * i
+    y = padding
+    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
+
+  for i, hex in enumerate(colors.values()):
+    x = padding + size * (i + len(greys))
+    y = padding
+    draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
+
+  with open('colors.png', 'wb') as fp:
+    img.save(fp, format='PNG')
 
 
 if __name__ == '__main__':
