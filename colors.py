@@ -194,10 +194,73 @@ def generate_labeled_colors_image(greys, colors, filename='colors-labeled.png'):
     img.save(fp, format='PNG')
 
 
+formats = {}
+
+
+def add_format(fn):
+  formats[fn.__name__] = fn
+  return fn
+
+
+@add_format
+def text(config, greys, colors):
+  # dump colors
+  for color, hex in colors.items():
+    print(f'{color:>8}: #{hex}')
+
+  # dump greys
+  for i, hex in enumerate(greys):
+    print(f' shade {i}: #{hex}')
+
+
+@add_format
+def alacritty(config, greys, colors):
+  output = {
+    'colors': {
+      'primary': {
+        'background': greys[0],
+        'foreground': greys[5],
+      },
+      'cursor': {
+        'text': greys[0],
+        'cursor': greys[5],
+      },
+      'normal': {
+        'black': greys[1],
+        'red': colors['red'],
+        'green': colors['green'],
+        'yellow': colors['blue'],  # this happened a while ago and I'm just too lazy to fix all
+        'blue': colors['yellow'],  # my color schemes now
+        'magenta': colors['purple'],
+        'cyan': colors['cyan'],
+        'white': greys[3],
+      },
+      'bright': {
+        'black': greys[2],
+        'red': colors['pink'],
+        'green': colors['lime'],
+        'yellow': colors['indigo'],
+        'blue': colors['orange'],
+        'magenta': colors['magenta'],
+        'cyan': colors['teal'],
+        'white': greys[4],
+      },
+    },
+  }
+
+  for section, colors in output['colors'].items():
+    for name, color in colors.items():
+      colors[name] = f'0x{color}'
+
+  import sys
+  yaml.dump(output, sys.stdout)
+
+
 @click.command()
 @click.argument('config', type=str, default='colors.yml')
 @click.option('--mode', '-m', default='dark', type=click.Choice(('light', 'dark')))
-def main(config, mode):
+@click.option('--format', '-f', default=list(formats)[0], type=click.Choice(formats))
+def main(config, mode, format):
   with open(config) as fp:
     data = yaml.load(fp, Loader=yaml.FullLoader)
 
@@ -241,13 +304,7 @@ def main(config, mode):
   if mode == 'light':
     greys = list(reversed(greys))
 
-  # dump colors
-  for color, hex in colors.items():
-    print(f'{color:>8}: #{hex}')
-
-  # dump greys
-  for i, hex in enumerate(greys):
-    print(f' shade {i}: #{hex}')
+  formats[format](data, greys, colors)
 
   # generate images
   generate_simple_colors_image(greys, colors)
