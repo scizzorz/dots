@@ -77,7 +77,8 @@ def luminance(r, g, b):
   R = r / 255
   G = g / 255
   B = b / 255
-  return sqrt(0.299 * R**2 + 0.587 * G**2 + 0.114 * B**2)
+
+  return sqrt(0.3 * R**2 + 0.6 * G**2 + 0.1 * B**2)
 
 
 def hex_luminance(code):
