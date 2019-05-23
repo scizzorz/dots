@@ -162,16 +162,22 @@ def generate_labeled_colors_image(greys, colors, filename='colors-labeled.png'):
   draw.rectangle((width / 2, 0, width, height), fill='#' + greys[-1])
 
   for i, hex in enumerate(greys):
+    # draw text in opposite color if it's the first shade
+    text_color = greys[-1] if i == 0 else hex
+
     x = padding
     y = padding + i * size
     draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
-    draw.text((x + size - padding, y + padding / 2), f' shade {i}: #{hex}', font=font, fill='#' + hex)
+    draw.text((x + size - padding, y + padding / 2), f' shade {i}: #{hex}', font=font, fill='#' + text_color)
 
   for i, hex in enumerate(reversed(greys)):
+    # draw text in opposite color if it's the first shade
+    text_color = greys[0] if i == 0 else hex
+
     x = padding + width / 2
     y = padding + size * i
     draw.rectangle((x, y, x + (size - padding * 2), y + (size - padding * 2)), fill='#' + hex)
-    draw.text((x + size - padding, y + padding / 2), f' shade {i}: #{hex}', font=font, fill='#' + hex)
+    draw.text((x + size - padding, y + padding / 2), f' shade {i}: #{hex}', font=font, fill='#' + text_color)
 
   for i, (color, hex) in enumerate(colors.items()):
     x = padding
