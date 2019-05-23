@@ -2,20 +2,20 @@ dark_hue: 210
 light_hue: 30
 hue_steps: 10
 grey_lums:
-  - 0.20
+  - 0.19
   - 0.35
   - 0.50
   - 0.70
   - 0.80
   - 0.95
 
-color_lum: 0.60
+color_lum: 0.55
 color_hues:
   red: 0
   orange: 30
   yellow: 60
-  lime: 80
-  green: 135
+  lime: 85
+  green: 130
   teal: 165
   cyan: 185
   blue: 220
