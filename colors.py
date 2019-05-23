@@ -1,4 +1,8 @@
 from math import sqrt
+import math
+import click
+import PIL as pil
+import yaml
 
 
 def hex2rgb(code):
@@ -105,131 +109,58 @@ def find_grey(hue, lum):
   for v in range(100, -1, -1):
     r, g, b = hsl2rgb(hue, s / 100, v / 100)
     this_lum = luminance(r, g, b)
-    greys.append((abs(this_lum - lum), (r, g, b)))
+    greys.append({
+      'lum_delta': abs(this_lum - lum),
+      'rgb': (r, g, b),
+    })
 
-  greys = sorted(greys, key=lambda x: x[0])
-  return greys[0][1]
-
-
-# Scheme inputs
-# TODO argparse this crap
-
-light = False
-ansi = True
-hue_lum = 0.60
-dark_hue = 210
-light_hue = 30
-grey_lums = [
-  0.20,
-  0.30,
-  0.50,
-  0.70,
-  0.875,
-  0.95,
-]
-
-hues = {
-  'red': 0,
-  'orange': 30,
-  'yellow': 60,
-  'lime': 80,
-  'green': 135,
-  'teal': 165,
-  'cyan': 185,
-  'blue': 220,
-  'indigo': 245,
-  'purple': 275,
-  'magenta': 290,
-  'pink': 320,
-}
+  greys = sorted(greys, key=lambda x: x['lum_delta'])
+  return greys[0]['rgb']
 
 
-# Scheme order
+@click.command()
+@click.argument('config', type=str, default='colors.yml')
+def main(config):
+  with open(config) as fp:
+    data = yaml.load(fp, Loader=yaml.FullLoader)
 
-ansi_order = {
-  'red': 'color1',
-  'pink': 'color9',
-  'green': 'color2',
-  'lime': 'color10',
-  'blue': 'color3',
-  'indigo': 'color11',
-  'yellow': 'color4',
-  'orange': 'color12',
-  'purple': 'color5',
-  'magenta': 'color13',
-  'cyan': 'color6',
-  'teal': 'color14',
-  'base0': 'background',
-  'base1': 'color0',
-  'base2': 'color8',
-  'base3': 'color7',
-  'base4': 'color15',
-  'base5': 'foreground',
-}
+  if data['mode'] not in ('light', 'dark'):
+    raise Exception('Invalid mode')
 
-rainbow_order = {
-  'base1': 'color0',
-  'base2': 'color8',
-  'base3': 'color1',
-  'base4': 'color9',
-  'red': 'color2',
-  'orange': 'color10',
-  'yellow': 'color3',
-  'lime': 'color11',
-  'green': 'color4',
-  'teal': 'color12',
-  'cyan': 'color5',
-  'blue': 'color13',
-  'indigo': 'color6',
-  'purple': 'color14',
-  'pink': 'color15',
-  'magenta': 'color7',
-  'base0': 'background',
-  'base5': 'foreground',
-}
+  colors = {}
+  greys = []
 
+  start_hue = data['light_hue'] if data['mode'] == 'light' else data['dark_hue']
+  end_hue = data['dark_hue'] if data['mode'] == 'light' else data['light_hue']
+  grey_lums = sorted(data['grey_lums'], reverse=data['mode'] == 'light')
+  min_lum = grey_lums[0]
+  lum_delta = grey_lums[-1] - grey_lums[0]
 
-# Computation
+  # compute colors
+  for color, hue in data['color_hues'].items():
+    sat, val = find_shade(hue, data['color_lum'])
+    colors[color] = rgb2hex(*hsv2rgb(hue, sat, val))
 
-colors = {}
-greys = []
+  # compute greys
+  for i, grey_lum in enumerate(grey_lums):
+    direction = math.copysign(1, end_hue - start_hue)
 
-color_order = ansi_order if ansi else rainbow_order
+    if i < 3:
+      hue = start_hue + direction * (10 + 10 * i) * (grey_lum - min_lum) / lum_delta
+    else:
+      hue = end_hue - direction * (50 - i * 10) * (grey_lum - min_lum) / lum_delta
 
-start_hue = light_hue if light else dark_hue
-end_hue = dark_hue if light else light_hue
+    hue = int(hue)
+    r, g, b = find_grey(hue, grey_lum)
 
-grey_lums = sorted(grey_lums, reverse=light)
-min_lum = grey_lums[0]
-lum_gap = grey_lums[5] - grey_lums[0]
+    greys.append(rgb2hex(r, g, b))
 
-# compute colors
-for color, hue in hues.items():
-  sat, val = find_shade(hue, hue_lum)
-  colors[color] = rgb2hex(*hsv2rgb(hue, sat, val))
+  for color, hex in colors.items():
+    print(f'{color:>8}: #{hex}')
 
-# compute greys
-for i, grey_lum in enumerate(grey_lums):
-  # old hue picker
-  # hue = start_hue + (end_hue - start_hue) * (grey_lum - min_lum) / lum_gap
+  for i, hex in enumerate(greys):
+    print(f' shade {i}: #{hex}')
 
-  direction = (lambda x: abs(x) / x)(end_hue - start_hue)
-
-  if i < 3:
-    hue = start_hue + direction * (10 + 10 * i) * (grey_lum - min_lum) / lum_gap
-  else:
-    hue = end_hue - direction * (50 - i * 10) * (grey_lum - min_lum) / lum_gap
-
-  hue = int(hue)
-  r, g, b = find_grey(hue, grey_lum)
-  hues['base{}'.format(i)] = hue
-  colors['base{}'.format(i)] = rgb2hex(r, g, b)
 
 if __name__ == '__main__':
-  # dump colors in Xresources format
-  for color, index in sorted(color_order.items(), key=lambda x: x[1]):
-    lum = hex_luminance(colors[color])
-    print('! {} (hue = {}, lum = {:.3f})\n*{}: #{}'.format(color, hues[color], lum, index, colors[color]))
-
-  # dirty trick relies on 'foreground' being the last lexicographic key
-  print('*{}: #{}'.format('cursorColor', colors[color]))
+  main()
