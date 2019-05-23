@@ -215,6 +215,7 @@ def text(config, greys, colors):
 
 @add_format
 def alacritty(config, greys, colors):
+  map = config['alacritty_map']
   output = {
     'colors': {
       'primary': {
@@ -227,22 +228,22 @@ def alacritty(config, greys, colors):
       },
       'normal': {
         'black': greys[1],
-        'red': colors['red'],
-        'green': colors['green'],
-        'yellow': colors['blue'],  # this happened a while ago and I'm just too lazy to fix all
-        'blue': colors['yellow'],  # my color schemes now
-        'magenta': colors['purple'],
-        'cyan': colors['cyan'],
+        'red': colors[map['red']],
+        'green': colors[map['green']],
+        'yellow': colors[map['yellow']],
+        'blue': colors[map['blue']],
+        'magenta': colors[map['magenta']],
+        'cyan': colors[map['cyan']],
         'white': greys[3],
       },
       'bright': {
         'black': greys[2],
-        'red': colors['pink'],
-        'green': colors['lime'],
-        'yellow': colors['indigo'],
-        'blue': colors['orange'],
-        'magenta': colors['magenta'],
-        'cyan': colors['teal'],
+        'red': colors[map['br_red']],
+        'green': colors[map['br_green']],
+        'yellow': colors[map['br_yellow']],
+        'blue': colors[map['br_blue']],
+        'magenta': colors[map['br_magenta']],
+        'cyan': colors[map['br_cyan']],
         'white': greys[4],
       },
     },

@@ -23,3 +23,17 @@ color_hues:
   purple: 275
   magenta: 290
   pink: 320
+
+alacritty_map:
+  red: red
+  green: green
+  yellow: blue # this happened a while ago and I'm just too
+  blue: yellow # lazy to fix all my color schemes now
+  magenta: purple
+  cyan: cyan
+  br_red: pink
+  br_green: lime
+  br_yellow: indigo
+  br_blue: orange
+  br_magenta: magenta
+  br_cyan: teal
