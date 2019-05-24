@@ -10,15 +10,15 @@ color_hues:
   red: 0
   orange: 30
   yellow: 60
-  lime: 85
-  green: 130
+  lime: 90
+  green: 120
   teal: 165
   cyan: 185
-  blue: 220
-  indigo: 245
-  purple: 275
-  magenta: 290
-  pink: 320
+  blue: 210
+  indigo: 240
+  purple: 270
+  magenta: 300
+  pink: 330
 
 ansi_map:
   red: red
