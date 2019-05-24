@@ -215,7 +215,7 @@ def text(config, greys, colors):
 
 @add_format
 def alacritty(config, greys, colors):
-  map = config['alacritty_map']
+  map = config['ansi_map']
   output = {
     'colors': {
       'primary': {
@@ -255,6 +255,37 @@ def alacritty(config, greys, colors):
 
   import sys
   yaml.dump(output, sys.stdout)
+
+
+@add_format
+def hterm(config, greys, colors):
+  map = config['ansi_map']
+  output = [
+    greys[1],
+    colors[map['red']],
+    colors[map['green']],
+    colors[map['yellow']],
+    colors[map['blue']],
+    colors[map['magenta']],
+    colors[map['cyan']],
+    greys[3],
+
+    greys[2],
+    colors[map['red']],
+    colors[map['green']],
+    colors[map['yellow']],
+    colors[map['blue']],
+    colors[map['magenta']],
+    colors[map['cyan']],
+    greys[4],
+  ]
+
+  output = ['#' + hex for hex in output]
+
+  print(f'background: #{greys[0]}')
+  print(f'cursor: #{greys[5]}')
+  import json
+  print(json.dumps(output, indent=2))
 
 
 @click.command()
