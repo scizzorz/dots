@@ -1,3 +1,4 @@
+from math import sqrt
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
@@ -92,6 +93,24 @@ def rel_luminance(c1, c2):
   ldark = min(l1, l2)
   llight = max(l1, l2)
   return (llight + 0.05) / (ldark + 0.05)
+
+
+def lighten(lum, contrast):
+  '''Compute a lighter luminance that matches the given contrast ratio.'''
+
+  return contrast * (lum + 0.05) - 0.05
+
+
+def midway(lo, hi):
+  '''Compute the midway luminance between two points.'''
+
+  return sqrt((lo + 0.05) * (hi + 0.05)) - 0.05
+
+
+def darken(lum, contrast):
+  '''Compute a darker luminance that matches the given contrast ratio.'''
+
+  return (lum + 0.05) / contrast - 0.05
 
 
 def hex_luminance(code):
@@ -217,9 +236,15 @@ def add_format(fn):
 
 @add_format
 def text(config, greys, colors):
+  black = hex2rgb(greys[0])
+  white = hex2rgb(greys[-1])
+
   # dump colors
   for color, hex in colors.items():
+    rgb = hex2rgb(hex)
     print(f'{color:>8}: #{hex}')
+    print(f'  dark ratio:', rel_luminance(black, rgb))
+    print(f'  light ratio:', rel_luminance(white, rgb))
 
   # dump greys
   for i, hex in enumerate(greys):
