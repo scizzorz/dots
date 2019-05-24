@@ -9,6 +9,7 @@ verify_ssl = true
 pillow = "*"
 click = "*"
 pyyaml = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.6"

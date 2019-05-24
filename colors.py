@@ -1,7 +1,6 @@
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-from math import sqrt
 import click
 import yaml
 
@@ -74,11 +73,25 @@ def hsv2rgb(h, s, v):
 def luminance(r, g, b):
   '''Compute perceived luminance of an rgb triplet.'''
 
-  R = r / 255
-  G = g / 255
-  B = b / 255
+  def fix(v):
+    Vb = v / 255
+    return Vb / 12.92 if Vb <= 0.03928 else ((Vb + 0.055) / 1.055) ** 2.4
 
-  return sqrt(0.25 * R**2 + 0.65 * G**2 + 0.10 * B**2)
+  R = fix(r)
+  G = fix(g)
+  B = fix(b)
+
+  return 0.2126 * R + 0.7152 * G + 0.0722 * B
+
+
+def rel_luminance(c1, c2):
+  '''Compute the contrast ratio between two rgb triplets.'''
+
+  l1 = luminance(*c1)
+  l2 = luminance(*c2)
+  ldark = min(l1, l2)
+  llight = max(l1, l2)
+  return (llight + 0.05) / (ldark + 0.05)
 
 
 def hex_luminance(code):
