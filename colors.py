@@ -1,9 +1,28 @@
-from math import sqrt
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
+from math import sqrt
 import click
 import yaml
+
+# This script is responsible for generating the color palette based on a few
+# rules and configuration settings from colors.yml. It uses some formulas
+# borrowed from the W3 for accessibility of colors:
+#   relative luminance of an RGB color: https://www.w3.org/TR/WCAG20/#relativeluminancedef
+#   contrast ratio of two colors: https://www.w3.org/TR/WCAG20/#contrast-ratiodef
+
+# The basic gist is to generate a "black" and a "white" color with a desired
+# hue and relative luminance. From there, it will generate two shades lighter
+# than the black and two shades darker than the light using a constant contrast
+# ratio.
+#   ie: black:grey1 == grey1:grey2 == grey2:grey3 == grey3:grey4 == grey4:white
+# The hues are slightly shifted as it progresses. Afterwards, it determines the
+# midway luminance between the black and white.
+#   ie: black:middle == middle:white
+# This should provide consistent readability between the dark and light themes.
+# Using the midway luminance and a list of user-provided hues, it finds the
+# closest shade of that hue to the target luminance. The end result is a happy
+# color scheme.
 
 
 def hex2rgb(code):
