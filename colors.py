@@ -334,42 +334,44 @@ def main(config, mode, format):
   with open(config) as fp:
     data = yaml.load(fp, Loader=yaml.FullLoader)
 
-  if len(data['grey_lums']) % 2 == 1:
-    raise Exception('Not sure how to handle odd number of greys.')
-
-  # compute colors
-  colors = {}
-  for color, hue in data['color_hues'].items():
-    sat, val = find_shade(hue, data['color_lum'])
-    colors[color] = rgb2hex(*hsv2rgb(hue, sat, val))
-
   # compute greys
   dark_hue = data['dark_hue']
   light_hue = data['light_hue']
+  grey_contrast = data['grey_contrast']
 
-  grey_lums = sorted(data['grey_lums'])
-  min_lum = grey_lums[0]
-  max_lum = grey_lums[-1]
+  # compute grey luminance values
+  min_lum = data['dark_lum']
+  lv2_lum = lighten(min_lum, grey_contrast)
+  lv3_lum = lighten(lv2_lum, grey_contrast)
 
-  # this is just arbitary based on my taste
-  hue_chunk = (dark_hue - light_hue) / data['hue_steps']
+  max_lum = data['light_lum']
+  lv5_lum = darken(max_lum, grey_contrast)
+  lv4_lum = darken(lv5_lum, grey_contrast)
 
+  grey_lums = [min_lum, lv2_lum, lv3_lum, lv4_lum, lv5_lum, max_lum]
+
+  # compute final grey colors
   greys = []
   for i, grey_lum in enumerate(grey_lums):
-    scale = (grey_lum - min_lum) / (max_lum - min_lum) * 2
 
     # in the first half of greys, we want to base our result off of the dark_hue.
     # in the second half, we want to base our result off the light_hue.
     if i < len(grey_lums) / 2:
       # as we leave i=0, scale goes up and our hue should leave dark_hue
-      hue = dark_hue - hue_chunk * scale
+      hue = dark_hue - 10 * (grey_contrast ** i)
     else:
       # as we approach i=len, scale keeps going up and our hue should approach light_hue
-      hue = light_hue + hue_chunk * (2 - scale)
+      hue = light_hue + 10 * (grey_contrast ** (5 - i))
 
     r, g, b = find_grey(int(hue), grey_lum)
-
     greys.append(rgb2hex(r, g, b))
+
+  # compute colors
+  colors = {}
+  color_lum = midway(min_lum, max_lum)
+  for color, hue in data['color_hues'].items():
+    sat, val = find_shade(hue, color_lum)
+    colors[color] = rgb2hex(*hsv2rgb(hue, sat, val))
 
   if mode == 'light':
     greys = list(reversed(greys))
