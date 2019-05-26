@@ -322,12 +322,12 @@ def hterm(config, greys, colors):
     greys[3],
 
     greys[2],
-    colors[map['red']],
-    colors[map['green']],
-    colors[map['yellow']],
-    colors[map['blue']],
-    colors[map['magenta']],
-    colors[map['cyan']],
+    colors[map['br_red']],
+    colors[map['br_green']],
+    colors[map['br_yellow']],
+    colors[map['br_blue']],
+    colors[map['br_magenta']],
+    colors[map['br_cyan']],
     greys[4],
   ]
 
