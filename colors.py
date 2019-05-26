@@ -255,15 +255,9 @@ def add_format(fn):
 
 @add_format
 def text(config, greys, colors):
-  black = hex2rgb(greys[0])
-  white = hex2rgb(greys[-1])
-
   # dump colors
   for color, hex in colors.items():
-    rgb = hex2rgb(hex)
     print(f'{color:>8}: #{hex}')
-    print(f'  dark ratio:', rel_luminance(black, rgb))
-    print(f'  light ratio:', rel_luminance(white, rgb))
 
   # dump greys
   for i, hex in enumerate(greys):
