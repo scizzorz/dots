@@ -339,6 +339,19 @@ def hterm(config, greys, colors):
   print(json.dumps(output, indent=2))
 
 
+@add_format
+def css3(config, greys, colors):
+  print(':root {')
+
+  for i, shade in enumerate(greys):
+    print(f'  --base{i}: #{shade};')
+
+  for key, hex in colors.items():
+    print(f'  --{key}: #{hex};')
+
+  print('}')
+
+
 @click.command()
 @click.argument('config', type=str, default='colors.yml')
 @click.option('--mode', '-m', default='dark', type=click.Choice(('light', 'dark')))
