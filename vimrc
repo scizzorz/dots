@@ -321,6 +321,34 @@ hi link rustEnumVariant Special
 hi rustEscape ctermfg=2 ctermbg=none cterm=none
 hi link rustLifetime rustEscape
 
+" html / markdown
+hi htmlH1     ctermfg=6   ctermbg=none  cterm=none
+hi htmlTitle  ctermfg=6   ctermbg=none  cterm=none
+hi htmlLink   ctermfg=3   ctermbg=none  cterm=none
+hi htmlBold   ctermfg=4   ctermbg=none  cterm=none
+hi mkdDelimiter ctermfg=7 ctermbg=none  cterm=none
+hi mkdCode    ctermfg=15   ctermbg=0  cterm=none
+hi link mkdCodeDelimiter mkdDelimiter
+hi link mkdListItem mkdDelimiter
+hi link mkdBold mkdDelimiter
+hi link mkdBoldItalic mkdDelimiter
+hi link mkdItalic mkdDelimiter
+hi link mkdHeading mkdDelimiter
+hi link htmlBoldUnderline htmlBold
+hi link htmlBoldItalic htmlBold
+hi link htmlBoldUnderlineItalic htmlBold
+hi link htmlBoldItalicUnderline htmlBold
+hi link htmlUnderlineBold htmlBold
+hi link htmlUnderlineItalic htmlBold
+hi link htmlUnderline htmlBold
+hi link htmlUnderlineBoldItalic htmlBold
+hi link htmlUnderlineItalicBold htmlBold
+hi link htmlItalicBold htmlBold
+hi link htmlItalicUnderline htmlBold
+hi link htmlItalic htmlBold
+hi link htmlItalicBoldUnderline htmlBold
+hi link htmlItalicUnderlineBold htmlBold
+
 match WhitespaceEOL /\s\+$/
 
 execute pathogen#infect()
