@@ -102,6 +102,13 @@ nmap \| <Plug>(ale_previous_wrap)
 nmap <Leader>n <Plug>(ale_next_wrap)
 nmap <Leader>N <Plug>(ale_previous_wrap)
 
+" map ,f to show syntax highlighting
+" https://stackoverflow.com/a/29030788
+nm <silent> <Leader>f :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
+    \ . '> trans<' . synIDattr(synID(line("."),col("."),0),"name")
+    \ . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
+    \ . ">"<CR>
+
 " map F10 to identify syntax highlighting group?
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
