@@ -323,7 +323,7 @@ hi link rustLifetime rustEscape
 
 " html / markdown
 hi htmlH1     ctermfg=6   ctermbg=none  cterm=none
-hi htmlTitle  ctermfg=6   ctermbg=none  cterm=none
+hi Title  ctermfg=6   ctermbg=none  cterm=none
 hi htmlLink   ctermfg=3   ctermbg=none  cterm=none
 hi htmlBold   ctermfg=4   ctermbg=none  cterm=none
 hi mkdDelimiter ctermfg=7 ctermbg=none  cterm=none
@@ -334,6 +334,15 @@ hi link mkdBold mkdDelimiter
 hi link mkdBoldItalic mkdDelimiter
 hi link mkdItalic mkdDelimiter
 hi link mkdHeading mkdDelimiter
+hi link rstEmphasis htmlBold
+hi link rstStrongEmphasis htmlBold
+hi link rstInlineLiteral mkdCode
+hi link rstLiteralBlock mkdCode
+hi link rstStandaloneHyperlink htmlLink
+hi link rstFootnote htmlLink
+hi link rstCitation htmlLink
+hi link rstCitationReference htmlLink
+hi link rstDelimiter mkdDelimiter
 hi link htmlBoldUnderline htmlBold
 hi link htmlBoldItalic htmlBold
 hi link htmlBoldUnderlineItalic htmlBold
