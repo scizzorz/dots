@@ -84,12 +84,14 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # $PATH nonsense
 export PATH=./:$PATH
+export PATH=~/dots/bin:$PATH
 export PATH=~/bin:$PATH
 export PATH=~/scripts:$PATH
 export PATH=~/pico-8:$PATH
 
 # For Skim
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
+bindkey -s '^f' '~/dots/bin/vf\n'
 
 # For Wine
 export WINEARCH=win32
