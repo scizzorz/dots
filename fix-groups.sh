@@ -11,4 +11,5 @@ if [[ $yournumber =~ '^[0-9]+$' ]] ; then
 fi
 
 usermod john -a -G $group
+echo -n "Current groups: "
 groups john

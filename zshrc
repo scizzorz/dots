@@ -252,9 +252,11 @@ d() {
       # group is gid 977. moral of the story is that user permissions are
       # hard in docker images and that's why they usually just run as root, I
       # guess.
+      echo "Fixing groups..."
+      docker cp ~/dots/fix-groups.sh $exists:/home/john/dots/fix-groups.sh
       docker exec \
         $exists \
-        /usr/bin/zsh -c 'usermod john -a -G $(exa -lg /var/run/docker.sock | cut -d" " -f4)'
+        /usr/bin/zsh /home/john/dots/fix-groups.sh
     fi
 
     echo "Entering container..."
