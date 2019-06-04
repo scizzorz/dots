@@ -4,7 +4,7 @@
 group=$(exa -lg /var/run/docker.sock | cut -d" " -f4)
 echo "Identified $group as group of /var/run/docker.sock"
 
-if [[ $yournumber =~ '^[0-9]+$' ]] ; then
+if [[ $group =~ '^[0-9]+$' ]] ; then
   echo "Unclaimed gid; creating new group..."
   groupadd -g $group dockeroo
   group=dockeroo
