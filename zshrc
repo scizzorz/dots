@@ -86,6 +86,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export PATH=./:$PATH
 export PATH=~/dots/bin:$PATH
 export PATH=~/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
 export PATH=~/scripts:$PATH
 export PATH=~/pico-8:$PATH
 
