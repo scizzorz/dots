@@ -97,6 +97,9 @@ bindkey -s '^f' '~/dots/bin/vf\n'
 # For Wine
 export WINEARCH=win32
 
+# For Exa
+export EXA_COLORS=$(cat ~/dots/exarc | grep -v '#' |tr '\n' ':')
+
 # set up alises
 alias ls='exa -F'
 alias grep='grep -I'
