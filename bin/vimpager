@@ -1,0 +1,12 @@
+#!/bin/bash
+
+stdin=$(cat /dev/stdin)
+num_lines=$(echo "$stdin" | wc -l)
+screen_height=$(tput lines)
+
+if [ "$num_lines" -lt "$screen_height" ] ; then
+	echo "$stdin"
+else
+	echo "$stdin" | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | /bin/bash -c "vim -c 'set ft=mygit' -S ~/dots/pager.vim </dev/tty <(col -b) $@"
+fi
+
