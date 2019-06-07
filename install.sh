@@ -26,15 +26,12 @@ echo "Installing from $FROM to $TO"
 inst $TO/.xinitrc $FROM/xinitrc
 inst $TO/.vimrc $FROM/vimrc
 inst $TO/.zshrc $FROM/zshrc
-inst $TO/.dircolors $FROM/dircolors
 inst $TO/.gitconfig $FROM/gitconfig
 inst $TO/.tmux.conf $FROM/tmux.conf
 inst $TO/.vim $FROM/vim
 inst $TO/.vimrc $FROM/vimrc
-inst $TO/.pylintrc $FROM/pylintrc
 inst $TO/.gtk-bookmarks $FROM/gtk-bookmarks
 inst $TO/.xmodmap $FROM/xmodmap
-inst $TO/.Xdefaults $FROM/Xdefaults
 inst $TO/.config/flake8 $FROM/flake8
 
 echo "Installing $FROM/fonts/* as $TO/.fonts/*..."
