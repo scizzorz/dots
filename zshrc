@@ -165,19 +165,19 @@ t() {
   # Docker-based attach
   if [[ "$1" == *'/'* ]]; then
     arr=("${(s:/:)1}")
-    SSH=(docker exec -it --user john $arr[1]-workspace)
-    SESS=$arr[2]
+    local SSH=(d $arr[1])
+    local SESS=$arr[2]
 
   # SSH-based attach
   elif [[ "$1" == *':'* ]]; then
     arr=("${(s/:/)1}")
-    SSH=(ssh -t $arr[1])
-    SESS=$arr[2]
+    local SSH=(ssh -t $arr[1])
+    local SESS=$arr[2]
 
   # Local attach
   else
-    SSH=
-    SESS="$1"
+    local SSH=
+    local SESS="$1"
   fi
 
   # List sessions
@@ -204,7 +204,7 @@ t() {
 # manage docker-based workspaces
 export DNS=1.1.1.1
 d() {
-  SESS="$1"
+  local SESS="$1"
   mkdir -p ~/.workspaces/"$SESS"
   mkdir -p ~/.workspaces/.share
 
@@ -234,7 +234,6 @@ d() {
           --volume ~/.ssh/id_rsa:/home/john/.ssh/id_rsa \
           --volume ~/.workspaces/"$SESS":/home/john/dev \
           --volume ~/.workspaces/.share:/home/john/shr \
-          "$@" \
           scizzorz/arch)
 
       # need to add myself to whatever group owns /var/run/docker.sock inside
@@ -259,7 +258,7 @@ d() {
       --tty \
       --user john \
       $exists \
-      /usr/bin/zsh
+      "${@:-/usr/bin/zsh}"
 
   fi
 }
