@@ -162,53 +162,41 @@ venv() {
 
 # manage tmux sessions
 t() {
-  if [[ "$1" == *':'* ]]; then
-    arr=("${(s/:/)1}")
-    SSH=$arr[1]
+  # Docker-based attach
+  if [[ "$1" == *'/'* ]]; then
+    arr=("${(s:/:)1}")
+    SSH=(docker exec -it --user john $arr[1]-workspace)
     SESS=$arr[2]
+
+  # SSH-based attach
+  elif [[ "$1" == *':'* ]]; then
+    arr=("${(s/:/)1}")
+    SSH=(ssh -t $arr[1])
+    SESS=$arr[2]
+
+  # Local attach
   else
     SSH=
     SESS="$1"
   fi
 
-  start=$(date +%s)
-
+  # List sessions
   if [ -z "$SESS" ]; then
-    if [ -z "$SSH" ]; then
-      tmux ls
-    else
-      ssh -t "$SSH" tmux ls
-    fi
+    $SSH tmux ls
 
+  # New binding to existing session
   elif [[ "$SESS" == '+'* ]]; then
     origin="${SESS: 1}"
-    if [ -z "$SSH" ]; then
-      num=$(tmux ls | grep "^$origin" | wc -l)
-      num=$(($num + 1))
-      tmux new -t $origin -s $origin$num
-      echo "$origin $start $(date +%s)" >> ~/.tmux.hist
-    else
-      num=$(ssh -t "$SSH" tmux ls | grep "^$origin" | wc -l)
-      num=$(($num + 1))
-      ssh -t "$SSH" tmux new -t $origin -s $origin$num
-      echo "$SSH:$origin $start $(date +%s)" >> ~/.tmux.hist
-    fi
+    num=$($SSH tmux ls | grep "^$origin" | wc -l)
+    num=$(($num + 1))
+    $SSH tmux new -t $origin -s $origin$num
 
+  # Attach or create session
   else
-    if [ -z "$SSH" ]; then
-      if tmux attach -t "$SESS" &> /dev/null; then
-      else
-        tmux new -s "$SESS"
-      fi
-      echo "$SESS $start $(date +%s)" >> ~/.tmux.hist
-
+    # this can probably be optimized better... docker exec is kinda slow.
+    if $SSH tmux attach -t "$SESS"; then
     else
-      if ssh -t "$SSH" "tmux attach -t '$SESS' &> /dev/null"; then
-      else
-        ssh -t "$SSH" tmux new -s "$SESS"
-      fi
-      echo "$SSH:$SESS $start $(date +%s)" >> ~/.tmux.hist
-
+      $SSH tmux new -s "$SESS"
     fi
   fi
 }
