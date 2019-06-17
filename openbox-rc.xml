@@ -165,24 +165,24 @@ Copy the file to $HOME/.config/openbox/ instead. -->
     </keybind>
 
     <!-- screenshots -->
+    <!-- full monitor -->
     <keybind key="Print">
       <action name="Execute">
-        <command>scrot</command>
+        <command>scrot ~/screenshots/%Y-%m-%d-%H%M%S.png</command>
       </action>
     </keybind>
-    <keybind key="H-Print">
-      <action name="Execute">
-        <command>sh -c 'recordmydesktop -x 1920 -y 18 --width 1920 --height 1038 --no-sound &amp;&amp; aplay /home/john/dots/ping.wav'</command>
-      </action>
-    </keybind>
-    <keybind key="H-Pause">
-      <action name="Execute">
-        <command>pkill recordmydesktop</command>
-      </action>
-    </keybind>
+
+    <!-- focused window -->
     <keybind key="A-Print">
       <action name="Execute">
-        <command>scrot -u -b</command>
+        <command>scrot --focused --border ~/screenshots/%Y-%m-%d-%H%M%S.png</command>
+      </action>
+    </keybind>
+
+    <!-- interactive select -->
+    <keybind key="S-Print">
+      <action name="Execute">
+        <command>scrot --select ~/screenshots/%Y-%m-%d-%H%M%S.png</command>
       </action>
     </keybind>
 
