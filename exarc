@@ -13,6 +13,7 @@ ex=32
 *Dockerfile*=33
 *dockerfile*=33
 BUILD=33
+Doxyfile=33
 Gruntfile.coffee=33
 Gruntfile.js=33
 MANIFEST.in=33
@@ -21,11 +22,14 @@ Moldfile=33
 Pipfile=33
 Rakefile=33
 SConstruct=33
+Vagrantfile=33
 WORKSPACE=33
 build.gradle=33
+doxyfile=33
 makefile=33
 moldfile=33
 setup.py=33
+vagrantfile=33
 
 # Directories are yellow
 di=34
@@ -122,6 +126,7 @@ Pipfile.lock=37
 
 # Binary files are grey
 *.bin=37
+*.hex=37
 
 # Data is light green
 *.csv=1;32
@@ -134,40 +139,40 @@ Pipfile.lock=37
 # Symlinks are indigo
 ln=1;33
 
-# Crypto files are orange
-*.asc=1;34
-*.enc=1;34
-*.gpg=1;34
-*.pgp=1;34
-*.sig=1;34
-*.signature=1;34
-*.pfx=1;34
-*.p12=1;34
-*id_rsa*=1;34
-*.pub=1;34
+# Archives are orange
+*.zip=1;34
+*.tar=1;34
+*.Z=1;34
+*.z=1;34
+*.gz=1;34
+*.bz2=1;34
+*.a=1;34
+*.ar=1;34
+*.7z=1;34
+*.iso=1;34
+*.dmg=1;34
+*.tc=1;34
+*.rar=1;34
+*.par=1;34
+*.tgz=1;34
+*.xz=1;34
+*.txz=1;34
+*.lzma=1;34
+*.deb=1;34
+*.rpm=1;34
+*.zst=1;34
 
-# Archives are magenta
-*.zip=1;35
-*.tar=1;35
-*.Z=1;35
-*.z=1;35
-*.gz=1;35
-*.bz2=1;35
-*.a=1;35
-*.ar=1;35
-*.7z=1;35
-*.iso=1;35
-*.dmg=1;35
-*.tc=1;35
-*.rar=1;35
-*.par=1;35
-*.tgz=1;35
-*.xz=1;35
-*.txz=1;35
-*.lzma=1;35
-*.deb=1;35
-*.rpm=1;35
-*.zst=1;35
+# Crypto files are magenta
+*.asc=1;35
+*.enc=1;35
+*.gpg=1;35
+*.pgp=1;35
+*.sig=1;35
+*.signature=1;35
+*.pfx=1;35
+*.p12=1;35
+*id_rsa*=1;35
+*.pub=1;35
 
 # Text-based documents are seafoam
 *.md=1;36
