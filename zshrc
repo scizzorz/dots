@@ -102,6 +102,7 @@ export EXA_COLORS=$(cat ~/dots/exarc | grep -v '#' |tr '\n' ':')
 
 # set up alises
 alias ls='exa -F'
+alias lt='exa -F --tree'
 alias grep='grep -I'
 alias it='git'
 alias g='git'
