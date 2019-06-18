@@ -84,11 +84,13 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # $PATH nonsense
 export PATH=./:$PATH
-export PATH=~/dots/bin:$PATH
-export PATH=~/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
-export PATH=~/scripts:$PATH
+export PATH=~/.local/bin:$PATH
+export PATH=~/.poetry/bin:$PATH
+export PATH=~/bin:$PATH
+export PATH=~/dots/bin:$PATH
 export PATH=~/pico-8:$PATH
+export PATH=~/scripts:$PATH
 
 # For Skim
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
@@ -313,6 +315,3 @@ export TERM=xterm-256color
 
 # set up proxy variables in an untracked file
 [ -f ~/.proxy.sh ] && source ~/.proxy.sh
-
-# does Cargo still use this?
-[ -f ~/.cargo/env ] && source ~/.cargo/env
