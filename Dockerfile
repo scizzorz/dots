@@ -31,6 +31,7 @@ RUN \
            python-pip \
            ripgrep \
            rustup \
+           sd \
            skim \
            thefuck \
            tmux \
