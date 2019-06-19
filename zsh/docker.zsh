@@ -43,10 +43,10 @@ d() {
       # hard in docker images and that's why they usually just run as root, I
       # guess.
       echo "Fixing groups..."
-      docker cp ~/dots/fix-groups.sh $exists:/home/john/dots/fix-groups.sh
+      docker cp ~/dots/docker/fix-groups.sh $exists:/home/john/dots/docker/fix-groups.sh
       docker exec \
         $exists \
-        /usr/bin/zsh /home/john/dots/fix-groups.sh
+        /usr/bin/zsh /home/john/dots/docker/fix-groups.sh
     fi
 
     echo "Entering container..."
