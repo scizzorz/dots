@@ -1,92 +1,88 @@
-let mapleader=","             " remap the leader key from \ to ,
+" remap the leader key from \ to ,
+let mapleader=","
 
-" map <C-HJKL> to move within windows instead of <C-W><HJKL>
+" move within windows instead of using <C-W> as a prefix
 noremap <silent> <C-H> <Esc>:wincmd h<CR>
 noremap <silent> <C-J> <Esc>:wincmd j<CR>
 noremap <silent> <C-K> <Esc>:wincmd k<CR>
 noremap <silent> <C-L> <Esc>:wincmd l<CR>
 
-" map <C-NM> to navigate between buffers
+" navigate between buffers
 noremap <silent> <C-M> <Esc>:bn<CR>
 noremap <silent> <C-N> <Esc>:bp<CR>
 
-" map <C-YUIO> to resize splits (it's confusing)
+" resize splits (it's confusing)
 noremap <silent> <C-O> <Esc>:vertical res +1<CR>
 noremap <silent> <C-I> <Esc>:res -1<CR>
 noremap <silent> <C-U> <Esc>:res +1<CR>
 noremap <silent> <C-Y> <Esc>:vertical res -1<CR>
 
-" map <C-D> to suspend (normally <C-Z>)
+" suspend (normally <C-Z>)
 nnoremap <silent> <C-D> <Esc>:stop<CR>
 
-" map \ and | to shift between ALE chunks
+" shift between ALE chunks
 nnoremap \ <Plug>(ale_next_wrap)
 nnoremap \| <Plug>(ale_previous_wrap)
 
-" map ,f to show syntax highlighting
+" show syntax highlighting group of token under cursor
 " https://stackoverflow.com/a/29030788
 nnoremap <silent> <Leader>f :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
     \ . '> trans<' . synIDattr(synID(line("."),col("."),0),"name")
     \ . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
     \ . ">"<CR>
 
-" map <Leader>s to sort the current paragraph
+" sort the current paragraph
 nnoremap <Leader>s vip:sort<CR>
 
-" map <Leader><Space> to remove all trailing whitespace
+" remove all trailing whitespace
 nnoremap <Leader><Space> :%s/\s\+$//<CR><C-o>
 
-" map <Leader>m to run :!make
+" run :!make
 nnoremap <Leader>m :!make<CR>
 
-" map <Leader>/ to clear search
+" clear search
 nnoremap <Leader>/ :let @/ = ""<CR>
 
-" map to :Rg for project searching
+" :Rg for project searching
 nnoremap <C-g> :Rg<CR>
 
-" map  to use fzf
+" fzf / skim
 nnoremap <C-f> :Files<CR>
 
-" map ; to : - save a key
+" save a modifier press
 nnoremap ; :
 
 " in visual mode, map ; to : without an automatic range, but let : still insert the range
 vnoremap ; :<Backspace><Backspace><Backspace><Backspace><Backspace>
 
-" remap = to auto indent the whole file
+" auto indent the whole file
 nnoremap = ggVG=<C-o><C-o>
 
-" Q repeats last recorded macro
+" repeat last executed macro
 nnoremap Q @@
 
-" U redoes
+" redo
 nnoremap U <C-r>
 
-" Y yanks until the end of line
-" makes it act like S, D, C
+" yank until the end of line, similar to S, D, and C
 nnoremap Y y$
 
-" zv toggles folds (za is awkward to press)
+" toggles folds (za is awkward to press)
 nnoremap zv za
 
-" zV does recursive toggling
+" recursive fold toggling
 nnoremap zV zA
 
-" <j><j> in insert mode will simulate an escape
-" (only useful on a non-full keyboard)
+" simulate <Esc> (only useful on a non-full keyboard)
 imap jj <Esc>
 
 " reselect visual block after indent / outdent
 vnoremap < <gv
 vnoremap > >gv
 
-" courtesy of Steve Losh
-" map H and L to move all the way left and all the way right
+" extreme versions of hjkl
 noremap H ^
 noremap L $
-
-" I hate it when K manpages, so I'll make it useful
 noremap K {
 noremap J }
 
