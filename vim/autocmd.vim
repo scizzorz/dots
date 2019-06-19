@@ -5,9 +5,6 @@ autocmd!
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
       \| exe "normal! g'\"" | endif
 
-" automatically reload vimrc when it's saved
-autocmd BufWritePost vimrc,.vimrc so ~/.vimrc
-
 " automatically resize splits when the window is resized
 autocmd VimResized * exe "normal! \<c-w>="
 
