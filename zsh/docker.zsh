@@ -1,5 +1,4 @@
 # manage docker-based workspaces
-export DNS=1.1.1.1
 d() {
   local SESS="$1"
   mkdir -p ~/.workspaces/"$SESS"

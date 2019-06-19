@@ -1,6 +1,7 @@
 [ -z "$PS1" ] && return
 
 # set up environment
+export DNS=1.1.1.1
 export TERM=xterm-256color
 export EDITOR=vim
 export HISTFILE=~/.histfile
@@ -24,3 +25,4 @@ source ~/dots/zsh/zsh.zsh # lol
 
 # set up proxy variables in an untracked file
 [ -f ~/.proxy.sh ] && source ~/.proxy.sh
+[ -f ~/.dns.sh ] && source ~/.dns.sh
