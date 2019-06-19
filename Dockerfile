@@ -39,6 +39,7 @@ RUN \
            vim \
            wget \
            zsh \
+           zsh-syntax-highlighting \
  && pip install \
         pipenv \
         flake8 \
