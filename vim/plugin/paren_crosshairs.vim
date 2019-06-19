@@ -31,7 +31,7 @@ func! s:targetMatchpairs()
     if targetInReticule && !w:targetAcquired
         let w:disengage = "set nocuc | hi CursorLine ctermbg=none"
         set cuc
-		hi CursorLine ctermbg=0
+        hi CursorLine ctermbg=0
         let w:targetAcquired = 1
     elseif !targetInReticule && w:targetAcquired
         exec w:disengage
