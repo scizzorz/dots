@@ -21,8 +21,8 @@ noremap <silent> <C-Y> <Esc>:vertical res -1<CR>
 nnoremap <silent> <C-D> <Esc>:stop<CR>
 
 " shift between ALE chunks
-nnoremap \ <Plug>(ale_next_wrap)
-nnoremap \| <Plug>(ale_previous_wrap)
+nmap \ <Plug>(ale_next_wrap)
+nmap \| <Plug>(ale_previous_wrap)
 
 " show syntax highlighting group of token under cursor
 " https://stackoverflow.com/a/29030788
