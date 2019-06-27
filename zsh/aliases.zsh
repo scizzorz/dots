@@ -16,6 +16,7 @@ alias p='python'
 alias p2='python2'
 alias p3='python3'
 alias pe='pipenv'
+alias tf='terraform'
 
 # python calculator
 pc() {
