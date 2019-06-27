@@ -26,6 +26,7 @@ RUN \
            httpie \
            iputils \
            jq \
+           man \
            openssh \
            python \
            python-pip \
