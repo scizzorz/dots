@@ -33,6 +33,7 @@ RUN \
            rustup \
            sd \
            skim \
+           terraform \
            thefuck \
            tmux \
            tokei \
