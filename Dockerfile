@@ -16,6 +16,7 @@ RUN \
 
 RUN \
     pacman -S --noprogressbar --noconfirm \
+           aws-cli \
            base-devel \
            bat \
            cmake \
