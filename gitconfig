@@ -42,40 +42,28 @@
 	stash = black
 
 [alias]
-	unstage = reset -q HEAD --
-	discard = checkout --
-	tags = tag
-	branches = branch -a
-	remotes = remote -v
-	stashes = stash list
-	contributors = shortlog -s -n
-
-	psuh = push
-  ppush = push
-  poush = push
-	st = status -s
-	ci = commit
 	br = branch
+	ci = commit
 	co = checkout
-  cp = cherry-pick
 	df = diff
 	dfs = diff --staged
+	psuh = push
+	rb = rebase
+	rbi = rebase -i
+	st = status -s
+  cp = cherry-pick
   fa = fetch --all --prune
+  poush = push
+  ppush = push
 
-	stl = !git log --pretty=format:'%C(bold blue)%h%C(auto)%d' -1 && git log --pretty=format:'%C(white)%an • %ad%C(reset) %C(bold black)(%ar)%C(reset)' --date=local -1 && git log --pretty=format:%s -1 && echo && git status -s
+	head = !git log --pretty=format:'%C(bold blue)%h%C(auto)%d' -1 && git log --pretty=format:'%C(white)%an • %ad%C(reset) %C(bold black)(%ar)%C(reset)' --date=local -1 && git log --pretty=format:%s -1 && echo && git status -s
 
 	top = log --pretty=format:'%C(bold blue)%h%C(reset)%C(auto)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
 
-	lr = log --graph --pretty=format:'%C(bold blue)%h%C(reset)%C(cyan)% D%C(reset) %s %C(white)%ad%C(reset) %C(bold black)%an%C(reset)' --abbrev-commit --abbrev=0 --date-order --date=short -30
+	l = log --pretty=format:'%C(bold blue)%h%C(reset)%C(cyan)% D%C(reset) %s %C(white)%ad%C(reset) %C(bold black)%an%C(reset)' --abbrev-commit --abbrev=0 --date-order --date=short -30
+	lr = !git l --graph
 	lra = !git lr --all
 
-	l = log --pretty=format:'%C(bold blue)%h%C(reset) %C(green)%ad %C(cyan)%an%C(reset)%C(auto)%d%C(reset) %s%C(reset)' --abbrev-commit --date-order --date=short
-
-	las = !git l --all --simplify-by-decoration
-	lgs = !git l --graph --simplify-by-decoration
-	lga = !git l --graph --all
-
-	lgas = !git l --graph --all --simplify-by-decoration
 
 [push]
 	default = simple
