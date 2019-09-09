@@ -1,69 +1,71 @@
 [user]
-	name = John Weachock
-	email = jweachock@gmail.com
+  name = John Weachock
+  email = jweachock@gmail.com
 
 [core]
-	pager = ~/dots/bin/vimpager
-	abbrev = 4
+  pager = ~/dots/bin/vimpager
+  abbrev = 4
 
 [color]
-	ui = true
-	branch = auto
-	diff = auto
-	status = auto
+  ui = true
+  branch = auto
+  diff = auto
+  status = auto
 
 [color "branch"]
-	current = cyan bold
-	local = blue bold
-	remote = red bold
+  current = cyan bold
+  local = blue bold
+  remote = red bold
 
 [color "diff"]
-	plain = white
-	meta = cyan bold
-	frag = cyan
-	old = red
-	new = green
-	commit = black bold
+  plain = white
+  meta = cyan bold
+  frag = cyan
+  old = red
+  new = green
+  commit = black bold
 
 [color "status"]
-	added = green
-	changed = blue bold
-	untracked = cyan bold
-	branch = blue
+  added = green
+  changed = blue bold
+  untracked = cyan bold
+  branch = blue
 
 # how the hell do I un-boold these things?
 # it seems like they've still got the bolds
 # from other places
 [color "decorate"]
-	branch = blue
-	remoteBranch = red
-	HEAD = cyan
-	tag = magenta
-	stash = black
+  branch = blue
+  remoteBranch = red
+  HEAD = cyan
+  tag = magenta
+  stash = black
 
 [alias]
-	br = branch
-	ci = commit
-	co = checkout
-	df = diff
-	dfs = diff --staged
-	psuh = push
-	rb = rebase
-	rbi = rebase -i
-	st = status -s
+  br = branch
+  ci = commit
+  co = checkout
+  df = diff
+  dfs = diff --staged
+  psuh = push
+  rb = rebase
+  rbi = rebase -i
+  rbc = rebase --continue
+  rba = rebase --abort
+  st = status -s
   cp = cherry-pick
   fa = fetch --all --prune
   poush = push
   ppush = push
 
-	head = !git log --pretty=format:'%C(bold blue)%h%C(auto)%d' -1 && git log --pretty=format:'%C(white)%an • %ad%C(reset) %C(bold black)(%ar)%C(reset)' --date=local -1 && git log --pretty=format:%s -1 && echo && git status -s
+  head = !git log --pretty=format:'%C(bold blue)%h%C(auto)%d' -1 && git log --pretty=format:'%C(white)%an • %ad%C(reset) %C(bold black)(%ar)%C(reset)' --date=local -1 && git log --pretty=format:%s -1 && echo && git status -s
 
-	top = log --pretty=format:'%C(bold blue)%h%C(reset)%C(auto)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
+  top = log --pretty=format:'%C(bold blue)%h%C(reset)%C(auto)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
 
-	l = log --pretty=format:'%C(bold blue)%h%C(reset)%C(cyan)% D%C(reset) %s %C(white)%ad%C(reset) %C(bold black)%an%C(reset)' --abbrev-commit --abbrev=0 --date-order --date=short -30
-	lr = !git l --graph
-	lra = !git lr --all
+  l = log --pretty=format:'%C(bold blue)%h%C(reset)%C(cyan)% D%C(reset) %s %C(white)%ad%C(reset) %C(bold black)%an%C(reset)' --abbrev-commit --abbrev=0 --date-order --date=short -30
+  lr = !git l --graph
+  lra = !git lr --all
 
 
 [push]
-	default = simple
+  default = simple
