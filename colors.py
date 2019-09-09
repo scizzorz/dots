@@ -431,28 +431,27 @@ def main(config, mode, format):
         greys.append(rgb2hex(r, g, b))
 
     # compute colors
-    colors = {}
-    color_lum = midway(min_lum, max_lum)
+    light = {}
+    dark = {}
+    # dark_lum = darken(max_lum, grey_contrast ** 3)
+    # light_lum = lighten(min_lum, grey_contrast ** 3)
+    light_lum = dark_lum = midway(min_lum, max_lum)
     for color, hue in data["color_hues"].items():
-        sat, val = find_shade(hue, color_lum)
-        colors[color] = rgb2hex(*hsv2rgb(hue, sat, val))
+        sat, val = find_shade(hue, dark_lum)
+        dark[color] = rgb2hex(*hsv2rgb(hue, sat, val))
+
+        sat, val = find_shade(hue, light_lum)
+        light[color] = rgb2hex(*hsv2rgb(hue, sat, val))
 
     if mode == "light":
         greys = list(reversed(greys))
-
-    formats[format](data, greys, colors)
+        formats[format](data, greys, light)
+    else:
+        formats[format](data, greys, dark)
 
     # generate images
-    generate_simple_colors_image(
-        greys=greys,
-        light=colors,
-        dark=colors,
-    )
-    generate_labeled_colors_image(
-        greys=greys,
-        light=colors,
-        dark=colors,
-    )
+    generate_simple_colors_image(greys=greys, light=light, dark=dark)
+    generate_labeled_colors_image(greys=greys, light=light, dark=dark)
 
 
 if __name__ == "__main__":
