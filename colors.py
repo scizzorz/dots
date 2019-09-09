@@ -169,9 +169,9 @@ def find_grey(hue, lum):
 
 
 def generate_simple_colors_image(
-    greys, colors, size=32, padding=8, filename="colors-simple.png"
+    greys, light, dark, size=32, padding=8, filename="colors-simple.png"
 ):
-    total_colors = len(colors) + len(greys)
+    total_colors = len(light) + len(greys)
 
     img = Image.new("RGB", (total_colors * size, size * 2), color="#" + greys[0])
     draw = ImageDraw.Draw(img)
@@ -192,23 +192,26 @@ def generate_simple_colors_image(
             (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
         )
 
-    for i, hex in enumerate(colors.values()):
+    for i, hex in enumerate(dark.values()):
         x = padding + size * (i + len(greys))
         y = padding
         draw.rectangle(
             (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
         )
+
+    for i, hex in enumerate(light.values()):
+        x = padding + size * (i + len(greys))
+        y = padding + size
         draw.rectangle(
-            (x, y + size, x + (size - padding * 2), y + size + (size - padding * 2)),
-            fill="#" + hex,
+            (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
         )
 
     with open(filename, "wb") as fp:
         img.save(fp, format="PNG")
 
 
-def generate_labeled_colors_image(greys, colors, filename="colors-labeled.png"):
-    total_colors = len(colors) + len(greys)
+def generate_labeled_colors_image(greys, light, dark, filename="colors-labeled.png"):
+    total_colors = len(light) + len(greys)
 
     size = 64
     padding = 16
@@ -253,9 +256,10 @@ def generate_labeled_colors_image(greys, colors, filename="colors-labeled.png"):
             fill="#" + text_color,
         )
 
-    for i, (color, hex) in enumerate(colors.items()):
+    for i, (color, hex) in enumerate(dark.items()):
         x = padding
         y = padding + size * (i + len(greys))
+
         draw.rectangle(
             (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
         )
@@ -266,7 +270,10 @@ def generate_labeled_colors_image(greys, colors, filename="colors-labeled.png"):
             fill="#" + hex,
         )
 
+    for i, (color, hex) in enumerate(light.items()):
         x = padding + width / 2
+        y = padding + size * (i + len(greys))
+
         draw.rectangle(
             (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
         )
@@ -436,8 +443,16 @@ def main(config, mode, format):
     formats[format](data, greys, colors)
 
     # generate images
-    generate_simple_colors_image(greys, colors)
-    generate_labeled_colors_image(greys, colors)
+    generate_simple_colors_image(
+        greys=greys,
+        light=colors,
+        dark=colors,
+    )
+    generate_labeled_colors_image(
+        greys=greys,
+        light=colors,
+        dark=colors,
+    )
 
 
 if __name__ == "__main__":
