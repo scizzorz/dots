@@ -16,13 +16,18 @@ import yaml
 # than the black and two shades darker than the light using a constant contrast
 # ratio.
 #   ie: black:grey1 == grey1:grey2 == grey2:grey3 == grey3:grey4 == grey4:white
-# The hues are slightly shifted as it progresses. Afterwards, it determines the
-# midway luminance between the black and white.
+# The hues are slightly shifted as it progresses.
+
+# In the original implementation, determined the midway luminance between the
+# black and white.
 #   ie: black:middle == middle:white
-# This should provide consistent readability between the dark and light themes.
+# This would provide consistent readability between the dark and light themes.
 # Using the midway luminance and a list of user-provided hues, it finds the
 # closest shade of that hue to the target luminance. The end result is a happy
 # color scheme.
+
+# The current implementation uses a separate list of hand-picked luminances for
+# each theme.
 
 
 def hex2rgb(code):
