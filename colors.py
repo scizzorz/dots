@@ -97,11 +97,9 @@ def luminance(r, g, b):
         Vb = v / 255
         return Vb / 12.92 if Vb <= 0.03928 else ((Vb + 0.055) / 1.055) ** 2.4
 
-    R = fix(r)
-    G = fix(g)
-    B = fix(b)
-
-    return 0.2126 * R + 0.7152 * G + 0.0722 * B
+    values = map(fix, (r, g, b))
+    balance = (0.2126, 0.7152, 0.0722)
+    return sum(v * b for v, b in zip(values, balance))
 
 
 def rel_luminance(c1, c2):
@@ -141,15 +139,11 @@ def hex_luminance(code):
 def find_shade(hue, lum, tol=0.01):
     """Find a shade within a certain tolerance of a target luminance."""
 
-    for v in range(100, -1, -1):
-        this_lum = luminance(*hsv2rgb(hue, 1.0, v / 100))
-        if abs(this_lum - lum) < tol:
-            return 1.0, v / 100
-
-    for s in range(101):
-        this_lum = luminance(*hsv2rgb(hue, s / 100, 1.0))
-        if abs(this_lum - lum) < tol:
-            return s / 100, 1.0
+    for s in range(100, -1, -2):
+        for v in range(100, -1, -2):
+            this_lum = luminance(*hsv2rgb(hue, s / 100, v / 100))
+            if abs(this_lum - lum) < tol:
+                return s / 100, v / 100
 
     raise Exception("Can't find a shade for: hue=" + str(hue) + ", lum=" + str(lum))
 
@@ -431,16 +425,18 @@ def main(config, mode, format):
         greys.append(rgb2hex(r, g, b))
 
     # compute colors
-    light = {}
     dark = {}
-    # dark_lum = darken(max_lum, grey_contrast ** 3)
-    # light_lum = lighten(min_lum, grey_contrast ** 3)
-    light_lum = dark_lum = midway(min_lum, max_lum)
-    for color, hue in data["color_hues"].items():
-        sat, val = find_shade(hue, dark_lum)
+    for (color, hue), lum in zip(
+        data["color_hues"].items(), data["dark_lums"].values()
+    ):
+        sat, val = find_shade(hue, lum)
         dark[color] = rgb2hex(*hsv2rgb(hue, sat, val))
 
-        sat, val = find_shade(hue, light_lum)
+    light = {}
+    for (color, hue), lum in zip(
+        data["color_hues"].items(), data["light_lums"].values()
+    ):
+        sat, val = find_shade(hue, lum)
         light[color] = rgb2hex(*hsv2rgb(hue, sat, val))
 
     if mode == "light":
