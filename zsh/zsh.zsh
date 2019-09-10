@@ -8,3 +8,6 @@ bindkey -s '^f' '~/dots/bin/vf\n'  # add ^f binding to launch skim and open in v
 zstyle :compinstall filename '/home/john/.zshrc'
 autoload -Uz compinit
 compinit
+
+# stop eating space before pipes
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
