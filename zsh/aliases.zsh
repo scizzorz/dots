@@ -1,22 +1,23 @@
 # set up alises
-alias ls='exa -F'
-alias lt='exa -F --tree'
-alias grep='grep -I'
-alias it='git'
-alias g='git'
-alias im='vim'
-alias v='vim'
 alias :e='vim'
+alias :q='exit'
 alias :sp="tmux split-window -v -c '#{pane_current_path}' vim"
 alias :vs="tmux split-window -h -c '#{pane_current_path}' vim"
-alias :q='exit'
-alias q='exit'
 alias :wq='exit'
-alias p='python'
+alias g='git'
+alias grep='grep -I'
+alias im='vim'
+alias it='git'
+alias ls='exa -F'
+alias lt='exa -F --tree'
+alias m='mold'
 alias p2='python2'
 alias p3='python3'
+alias p='python'
 alias pe='pipenv'
+alias q='exit'
 alias tf='terraform'
+alias v='vim'
 
 # python calculator
 pc() {
