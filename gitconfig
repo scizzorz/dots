@@ -45,18 +45,19 @@
   br = branch
   ci = commit
   co = checkout
+  cp = cherry-pick
   df = diff
   dfs = diff --staged
-  psuh = push
-  rb = rebase
-  rbi = rebase -i
-  rbc = rebase --continue
-  rba = rebase --abort
-  st = status -s
-  cp = cherry-pick
   fa = fetch --all --prune
   poush = push
   ppush = push
+  psuh = push
+  r = remote
+  rb = rebase
+  rba = rebase --abort
+  rbc = rebase --continue
+  rbi = rebase -i
+  st = status -s
 
   head = !git log --pretty=format:'%C(bold blue)%h%C(auto)%d' -1 && git log --pretty=format:'%C(white)%an • %ad%C(reset) %C(bold black)(%ar)%C(reset)' --date=local -1 && git log --pretty=format:%s -1 && echo && git status -s
 
