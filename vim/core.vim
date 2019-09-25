@@ -42,7 +42,7 @@ set wildmenu                  " enable the wild menu (EX command completion)
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class " ignore these extensions (courtesy of Armin Ronacher)
 
 set nomagic                   " turn off magic in regexps
-set cc=100                    " set a line at the 100th column
+set colorcolumn=88            " set a line at the 88th column
 
 filetype indent on
 
