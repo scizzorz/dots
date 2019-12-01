@@ -7,7 +7,7 @@ RUN \
  && curl -o /etc/pacman.d/mirrorlist "https://www.archlinux.org/mirrorlist/?country=all&protocol=https&ip_version=6&use_mirror_status=on" \
  && sed -i 's/^#//' /etc/pacman.d/mirrorlist \
  && pacman -Sy --noprogressbar --noconfirm archlinux-keyring \
- && pacman -S --noprogressbar --noconfirm --force openssl \
+ && pacman -S --noprogressbar --noconfirm openssl \
  && pacman -S --noprogressbar --noconfirm pacman \
  && pacman-db-upgrade \
  && echo "[multilib]" >> /etc/pacman.conf \
