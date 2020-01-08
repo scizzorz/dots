@@ -67,7 +67,7 @@ RUN \
  && mkdir .ssh \
  && chown john:john .ssh \
  && chmod 700 .ssh \
- && rm /etc/localtime \
+ && rm -f /etc/localtime \
  && ln -s /usr/share/zoneinfo/US/Eastern /etc/localtime
 
 COPY docker/entry.sh /entry.sh
