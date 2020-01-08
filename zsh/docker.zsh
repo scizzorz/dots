@@ -25,6 +25,7 @@ d() {
           --name "$SESS-workspace" \
           --rm \
           --tty \
+          --publish-all \
           --volume /var/run/docker.sock:/var/run/docker.sock \
           --volume ~/.aws:/home/john/.aws \
           --volume ~/.ssh/id_rsa.pub:/home/john/.ssh/id_rsa.pub \

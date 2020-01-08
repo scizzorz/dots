@@ -73,6 +73,13 @@ RUN \
 COPY docker/entry.sh /entry.sh
 ENTRYPOINT ["/entry.sh"]
 
+# expose ports that can be randomly published
+EXPOSE 5000
+EXPOSE 5001
+EXPOSE 5002
+EXPOSE 5003
+EXPOSE 5004
+
 VOLUME /home/john/dev
 WORKDIR /home/john
 CMD ["/usr/bin/zsh"]
