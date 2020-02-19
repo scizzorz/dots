@@ -44,9 +44,12 @@ RUN \
            zsh \
            zsh-syntax-highlighting \
  && pip install \
-        pipenv \
+        black \
         flake8 \
-        pylint
+        ipython \
+        pipenv \
+        pylint \
+ && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
 # Add a user and install dotfiles
 RUN \
