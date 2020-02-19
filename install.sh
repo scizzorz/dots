@@ -45,6 +45,9 @@ cp -rf $FROM/themes/* $TO/.themes/
 mkdir -p $TO/.config/openbox
 inst $TO/.config/openbox/rc.xml $FROM/openbox-rc.xml
 
+mkdir -p $TO/.ipython/profile_default
+inst $TO/.ipython/profile_default/ipython_config.py $FROM/ipython_config.py
+
 mkdir -p $TO/.config/alacritty
 bin/set-alacritty-theme.sh dark
 inst $TO/.config/alacritty/alacritty.yml $FROM/alacritty.yml
