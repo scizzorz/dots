@@ -58,6 +58,9 @@
 [submodule "vim/bundle/terraform"]
 	path = vim/bundle/terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule "vim/bundle/rdf"]
+	path = vim/bundle/rdf
+	url = https://github.com/niklasl/vim-rdf.git
 [submodule "vim/bundle/pest"]
 	path = vim/bundle/pest
 	url = https://github.com/pest-parser/pest.vim
