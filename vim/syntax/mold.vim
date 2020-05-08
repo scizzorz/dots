@@ -19,7 +19,8 @@ syn match moldWild "\v\*"
 
 syn region moldString start=+"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ keepend
 
-syn match moldComment "#.*$" display
+syn match moldComment1 "#.*$" display
+syn match moldComment2 "\/\/.*$" display
 
 hi link moldWild Special
 hi link moldSymbol Operator
@@ -27,6 +28,8 @@ hi link moldOperator Identifier
 hi link moldString String
 hi link moldWild Boolean
 hi link moldKeyword Keyword
+hi link moldComment1 Comment
+hi link moldComment2 Comment
 " hi link moldType Type
 " hi link moldGeneric Identifier
 " PreProc
