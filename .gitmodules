@@ -64,3 +64,6 @@
 [submodule "vim/bundle/pest"]
 	path = vim/bundle/pest
 	url = https://github.com/pest-parser/pest.vim
+[submodule "vim/bundle/mold"]
+	path = vim/bundle/mold
+	url = https://github.com/xtfc/mold.vim.git
