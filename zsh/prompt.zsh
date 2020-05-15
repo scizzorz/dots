@@ -36,7 +36,7 @@ export PROMPT=$PROMPT_PREFIX'%{$fg_no_bold[white]%}%{'$PROMPT_COLOR'%}%~%{$fg_no
 function precmd {
   local exit_status=$?
   if [ $exit_status -ne 0 ]; then
-    psvar[1]=" ✕"
+    psvar[1]=" x"
   else
     psvar[1]=
   fi
