@@ -37,9 +37,6 @@ nnoremap <Leader>s vip:sort<CR>
 " remove all trailing whitespace
 nnoremap <Leader><Space> :%s/\s\+$//<CR><C-o>
 
-" run :!make
-nnoremap <Leader>m :!make<CR>
-
 " clear search
 nnoremap <Leader>/ :let @/ = ""<CR>
 
@@ -72,9 +69,6 @@ nnoremap zv za
 
 " recursive fold toggling
 nnoremap zV zA
-
-" simulate <Esc> (only useful on a non-full keyboard)
-imap jj <Esc>
 
 " reselect visual block after indent / outdent
 vnoremap < <gv

@@ -21,6 +21,7 @@ echo "Initializing git submodules..."
 git submodule update --init --recursive
 
 mkdir -p $TO/.config
+mkdir -p $TO/.local/share/nvim/site/autoload
 
 echo "Installing from $FROM to $TO"
 inst $TO/.xinitrc $FROM/xinitrc
@@ -33,6 +34,8 @@ inst $TO/.vimrc $FROM/vimrc
 inst $TO/.gtk-bookmarks $FROM/gtk-bookmarks
 inst $TO/.xmodmap $FROM/xmodmap
 inst $TO/.config/flake8 $FROM/flake8
+inst $TO/.config/nvim $FROM/nvim
+inst $TO/.local/share/nvim/site/autoload/plug.vim $FROM/nvim/plug.vim
 
 echo "Installing $FROM/fonts/* as $TO/.fonts/*..."
 mkdir -p $TO/.fonts

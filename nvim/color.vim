@@ -1,12 +1,6 @@
-set background=dark
-set t_Co=256
-let python_highlight_all = 1
-let c_gnu = 1
-
+" largely yanked from my vim config without review
 syntax on
-if exists("syntax_on")
-  syntax reset
-endif
+syntax reset
 hi clear
 
 " non-syntax things

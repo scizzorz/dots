@@ -19,7 +19,7 @@ alias pe='pipenv'
 alias po='poetry'
 alias q='exit'
 alias tf='terraform'
-alias v='vim'
+alias v='nvim'
 
 # python calculator
 pc() {

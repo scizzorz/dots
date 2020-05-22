@@ -1,3 +1,4 @@
+" largely yanked from my vim config without review
 set foldcolumn=0              " show a fold column!
 set foldtext=FoldText()       " set the collapsed fold text
 set foldmethod=indent         " set automatic folding
