@@ -10,10 +10,11 @@ d() {
   else
     shift
     exists=$(docker ps -aqf "name=$SESS")
+    image=${WORKSPACE_IMAGE:-scizzorz/arch}
 
     # create a container if it doesn't exist
     if [ -z "$exists" ]; then
-      echo "Creating container..."
+      echo "Creating container from ${image}..."
       exists=$(docker run \
           --dns $DNS \
           --env "http_proxy=$http_proxy" \
@@ -23,7 +24,6 @@ d() {
           --hostname "$SESS" \
           --interactive \
           --name "$SESS-workspace" \
-          --rm \
           --tty \
           --publish-all \
           --volume /var/run/docker.sock:/var/run/docker.sock \
@@ -32,7 +32,7 @@ d() {
           --volume ~/.ssh/id_rsa:/home/john/.ssh/id_rsa \
           --volume ~/.workspaces/"$SESS":/home/john/dev \
           --volume ~/.workspaces/.share:/home/john/shr \
-          scizzorz/arch)
+          $image)
 
       # need to add myself to whatever group owns /var/run/docker.sock inside
       # the container. this can't be done as part of the image because the
