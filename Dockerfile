@@ -62,6 +62,7 @@ RUN \
  && su john -c 'rustup default stable' \
  && su john -c 'rustup component add rustfmt clippy' \
  && git clone https://github.com/scizzorz/dots.git \
+ && git checkout nvim \
  && chown -R john:john dots \
  && cd dots \
  && su john -c './install.sh' \
