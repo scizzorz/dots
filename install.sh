@@ -25,12 +25,9 @@ mkdir -p $TO/.local/share/nvim/site/autoload
 
 echo "Installing from $FROM to $TO"
 inst $TO/.xinitrc $FROM/xinitrc
-inst $TO/.vimrc $FROM/vimrc
 inst $TO/.zshrc $FROM/zshrc
 inst $TO/.gitconfig $FROM/gitconfig
 inst $TO/.tmux.conf $FROM/tmux.conf
-inst $TO/.vim $FROM/vim
-inst $TO/.vimrc $FROM/vimrc
 inst $TO/.gtk-bookmarks $FROM/gtk-bookmarks
 inst $TO/.xmodmap $FROM/xmodmap
 inst $TO/.config/flake8 $FROM/flake8
