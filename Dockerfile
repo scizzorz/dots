@@ -28,6 +28,9 @@ RUN \
            iputils \
            jq \
            man \
+           neovim \
+           nodejs \
+           npm \
            openssh \
            python \
            python-pip \
@@ -60,13 +63,12 @@ RUN \
  && chsh -s $(which zsh) john \
  && cd /home/john \
  && su john -c 'rustup default stable' \
- && su john -c 'rustup component add rustfmt clippy' \
- && git clone https://github.com/scizzorz/dots.git \
- && git checkout nvim \
- && chown -R john:john dots \
- && cd dots \
+ && su john -c 'rustup component add rustfmt clippy'
+
+ADD --chown=john:john . /home/john/dots
+RUN \
+    cd /home/john/dots \
  && su john -c './install.sh' \
- && su john -c 'python vim/bundle/youcompleteme/install.py --clang-completer --rust-completer' \
  && cd .. \
  && mkdir .ssh \
  && chown john:john .ssh \
