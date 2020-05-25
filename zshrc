@@ -3,7 +3,7 @@
 # set up environment
 export DNS=1.1.1.1
 export TERM=xterm-256color
-export EDITOR=vim
+export EDITOR=nvim
 export HISTFILE=~/.histfile
 export HISTSIZE=1000
 export SAVEHIST=1000
