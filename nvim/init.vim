@@ -67,6 +67,9 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+nmap \ <Plug>(coc-diagnostic-next)
+nmap \| <Plug>(coc-diagnostic-prev)
+
 " NERDTree config
 nmap <C-o> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
