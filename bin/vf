@@ -1,3 +1,3 @@
 #!/bin/sh
 file=$(sk)
-[ $? -eq 0 ] &&  vim $file
+[ $? -eq 0 ] && nvim $file
