@@ -126,4 +126,11 @@ hi link htmlItalic htmlBold
 hi link htmlItalicBoldUnderline htmlBold
 hi link htmlItalicUnderlineBold htmlBold
 
+" coc.nvim
+hi CocErrorSign   ctermfg=1 ctermbg=none cterm=none
+hi CocInfoSign    ctermfg=2 ctermbg=none cterm=none
+hi CocInfoSign    ctermfg=3 ctermbg=none cterm=none
+hi CocUnderline   ctermbg=0
+hi CocWarningSign ctermfg=4 ctermbg=none cterm=none
+
 match WhitespaceEOL /\s\+$/
