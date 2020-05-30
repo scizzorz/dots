@@ -127,10 +127,10 @@ hi link htmlItalicBoldUnderline htmlBold
 hi link htmlItalicUnderlineBold htmlBold
 
 " coc.nvim
-hi CocErrorSign   ctermfg=1 ctermbg=none cterm=none
-hi CocInfoSign    ctermfg=2 ctermbg=none cterm=none
-hi CocInfoSign    ctermfg=3 ctermbg=none cterm=none
+hi CocErrorSign   ctermfg=1 ctermbg=8 cterm=none
+hi CocHintSign    ctermfg=2 ctermbg=8 cterm=none
+hi CocInfoSign    ctermfg=3 ctermbg=8 cterm=none
+hi CocWarningSign ctermfg=4 ctermbg=8 cterm=none
 hi CocUnderline   ctermbg=0
-hi CocWarningSign ctermfg=4 ctermbg=none cterm=none
 
 match WhitespaceEOL /\s\+$/
