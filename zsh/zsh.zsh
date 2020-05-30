@@ -3,6 +3,7 @@ bindkey -e                         # switch to emacs bindings
 autoload -U colors && colors       # enable colors
 
 bindkey -s '^f' '~/dots/bin/vf\n'  # add ^f binding to launch skim and open in vim
+bindkey -s '^o' 'nvim\n'  # add ^o binding to launch vim
 
 # set up completion system
 zstyle :compinstall filename '/home/john/.zshrc'
