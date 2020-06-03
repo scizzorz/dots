@@ -86,6 +86,9 @@ hi link rustSelf Keyword
 hi link rustSuper Keyword
 hi link rustEnumVariant Special
 
+" python
+hi link pythonInclude Keyword
+
 hi rustEscape ctermfg=2 ctermbg=none cterm=none
 hi link rustLifetime rustEscape
 
