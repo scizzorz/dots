@@ -7,6 +7,7 @@ set shiftround
 set list
 set listchars=tab:\|\ ,trail:·
 set guicursor=
+set mouse=a
 
 set statusline=%F%(\ %m%)\ %(\ %r%)%(\ %h%)%=%{&ft}
 
