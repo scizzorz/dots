@@ -1,0 +1,2 @@
+#!/bin/bash
+scrot --focused ~/screenshots/%Y-%m-%d-%H%M%S.png
