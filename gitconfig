@@ -42,6 +42,8 @@
   stash = black
 
 [alias]
+  ap = add -p
+  cia = commit --amend
   br = branch
   ci = commit
   co = checkout
