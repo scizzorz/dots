@@ -15,48 +15,11 @@ RUN \
  && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf \
  && pacman -Syyu --noprogressbar --noconfirm
 
-# install system dev tools
-RUN \
-    pacman -S --noprogressbar --noconfirm \
-           aws-cli \
-           base-devel \
-           bat \
-           cmake \
-           docker \
-           exa \
-           fd \
-           git \
-           httpie \
-           iputils \
-           jq \
-           man \
-           neovim \
-           nodejs \
-           npm \
-           openssh \
-           python \
-           python-pip \
-           ripgrep \
-           rustup \
-           sd \
-           skim \
-           terraform \
-           thefuck \
-           tmux \
-           tokei \
-           vim \
-           wget \
-           zsh \
-           zsh-syntax-highlighting
-
-# install system Python dev tools
-RUN pip install \
-        black \
-        flake8 \
-        ipython \
-        pipenv \
-        pylint
-
+# lists of packages I like are stored in the packages dir and then pumped into
+# the appropriate package managers.
+ADD packages/ /packages/
+RUN pacman -S --noprogressbar --noconfirm $(cat /packages/pacman)
+RUN pip install $(cat /packages/pip)
 
 # add a user and install dotfiles
 ENV ME=john
