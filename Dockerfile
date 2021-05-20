@@ -1,10 +1,11 @@
 # vim: set ft=dockerfile:
-FROM archlinux/base
+FROM archlinux:latest
 
+# update all pacman packages and add some mirrors
 RUN \
     pacman -Sy --noprogressbar --noconfirm \
  && pacman -S --noprogressbar --noconfirm sed \
- && curl -o /etc/pacman.d/mirrorlist "https://www.archlinux.org/mirrorlist/?country=all&protocol=https&ip_version=6&use_mirror_status=on" \
+ && curl -o /etc/pacman.d/mirrorlist "https://archlinux.org/mirrorlist/?country=all&protocol=https&ip_version=6&use_mirror_status=on" \
  && sed -i 's/^#//' /etc/pacman.d/mirrorlist \
  && pacman -Sy --noprogressbar --noconfirm archlinux-keyring \
  && pacman -S --noprogressbar --noconfirm openssl \
@@ -14,6 +15,7 @@ RUN \
  && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf \
  && pacman -Syyu --noprogressbar --noconfirm
 
+# install system dev tools
 RUN \
     pacman -S --noprogressbar --noconfirm \
            aws-cli \
@@ -45,26 +47,31 @@ RUN \
            vim \
            wget \
            zsh \
-           zsh-syntax-highlighting \
- && pip install \
+           zsh-syntax-highlighting
+
+# install system Python dev tools
+RUN pip install \
         black \
         flake8 \
         ipython \
         pipenv \
-        pylint \
- && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+        pylint
 
-# Add a user and install dotfiles
+# add a user and install dotfiles
 RUN \
     groupadd sudo \
  && echo "%sudo ALL=(ALL) ALL" >> /etc/sudoers \
  && useradd --create-home john -G sudo \
  && echo "john:spaghetti" | chpasswd \
- && chsh -s $(which zsh) john \
- && cd /home/john \
- && su john -c 'rustup default stable' \
- && su john -c 'rustup component add rustfmt clippy'
+ && chsh -s $(which zsh) john
 
+# install user Rust/Python dev tools
+RUN cd /home/john \
+ && su john -c 'rustup default stable' \
+ && su john -c 'rustup component add rustfmt clippy' \
+ && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+
+# install user dotfiles
 ADD --chown=john:john . /home/john/dots
 RUN \
     cd /home/john/dots \
