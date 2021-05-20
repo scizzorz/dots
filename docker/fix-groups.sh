@@ -10,6 +10,6 @@ if [[ $group =~ '^[0-9]+$' ]] ; then
   group=dockeroo
 fi
 
-usermod john -a -G $group
+usermod $ME -a -G $group
 echo -n "Current groups: "
-groups john
+groups $ME

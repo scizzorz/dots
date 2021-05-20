@@ -57,28 +57,31 @@ RUN pip install \
         pipenv \
         pylint
 
+
 # add a user and install dotfiles
+ENV ME=john
 RUN \
     groupadd sudo \
  && echo "%sudo ALL=(ALL) ALL" >> /etc/sudoers \
- && useradd --create-home john -G sudo \
- && echo "john:spaghetti" | chpasswd \
- && chsh -s $(which zsh) john
+ && useradd --create-home $ME -G sudo \
+ && echo "$ME:spaghetti" | chpasswd \
+ && chsh -s $(which zsh) $ME \
+ && echo "Added user $ME"
 
 # install user Rust/Python dev tools
-RUN cd /home/john \
- && su john -c 'rustup default stable' \
- && su john -c 'rustup component add rustfmt clippy' \
+RUN cd /home/$ME \
+ && su $ME -c 'rustup default stable' \
+ && su $ME -c 'rustup component add rustfmt clippy' \
  && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
 # install user dotfiles
-ADD --chown=john:john . /home/john/dots
+ADD --chown=$ME:$ME . /home/$ME/dots
 RUN \
-    cd /home/john/dots \
- && su john -c './install.sh' \
+    cd /home/$ME/dots \
+ && su $ME -c './install.sh' \
  && cd .. \
  && mkdir .ssh \
- && chown john:john .ssh \
+ && chown $ME:$ME .ssh \
  && chmod 700 .ssh \
  && rm -f /etc/localtime \
  && ln -s /usr/share/zoneinfo/US/Eastern /etc/localtime
@@ -89,6 +92,6 @@ ENTRYPOINT ["/entry.sh"]
 # expose ports that can be randomly published
 EXPOSE 5000 5001 5002 5003 5004 8000
 
-VOLUME /home/john/dev
-WORKDIR /home/john
+VOLUME /home/$ME/dev
+WORKDIR /home/$ME
 CMD ["/usr/bin/zsh"]

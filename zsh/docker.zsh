@@ -1,4 +1,6 @@
 # manage docker-based workspaces
+export ME=john
+
 d() {
   local SESS="$1"
   mkdir -p ~/.workspaces/"$SESS"
@@ -27,11 +29,11 @@ d() {
           --tty \
           --publish-all \
           --volume /var/run/docker.sock:/var/run/docker.sock \
-          --volume ~/.aws:/home/john/.aws \
-          --volume ~/.ssh/id_rsa.pub:/home/john/.ssh/id_rsa.pub \
-          --volume ~/.ssh/id_rsa:/home/john/.ssh/id_rsa \
-          --volume ~/.workspaces/"$SESS":/home/john/dev \
-          --volume ~/.workspaces/.share:/home/john/shr \
+          --volume ~/.aws:/home/$ME/.aws \
+          --volume ~/.ssh/id_rsa.pub:/home/$ME/.ssh/id_rsa.pub \
+          --volume ~/.ssh/id_rsa:/home/$ME/.ssh/id_rsa \
+          --volume ~/.workspaces/"$SESS":/home/$ME/dev \
+          --volume ~/.workspaces/.share:/home/$ME/shr \
           $image)
 
       # need to add myself to whatever group owns /var/run/docker.sock inside
@@ -44,17 +46,17 @@ d() {
       # hard in docker images and that's why they usually just run as root, I
       # guess.
       echo "Fixing groups..."
-      docker cp ~/dots/docker/fix-groups.sh $exists:/home/john/dots/docker/fix-groups.sh
+      docker cp ~/dots/docker/fix-groups.sh $exists:/home/$ME/dots/docker/fix-groups.sh
       docker exec \
         $exists \
-        /usr/bin/zsh /home/john/dots/docker/fix-groups.sh
+        /usr/bin/zsh /home/$ME/dots/docker/fix-groups.sh
     fi
 
     echo "Entering container..."
     docker exec \
       --interactive \
       --tty \
-      --user john \
+      --user $ME \
       $exists \
       "${@:-/usr/bin/zsh}"
 
