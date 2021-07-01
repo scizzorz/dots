@@ -10,7 +10,6 @@ parse_venv() {
 parse_git_dir() {
   local GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
   local GIT_COMMIT="$(git rev-parse --short=0 HEAD 2>/dev/null)"
-  local GIT_ALL="$(git status --porcelain 2>/dev/null | wc -l)"
   if [[ -z $GIT_BRANCH ]]; then
     # no repo
   elif [[ $GIT_BRANCH = "HEAD" ]]; then
@@ -18,7 +17,8 @@ parse_git_dir() {
   else
     echo -n "/$GIT_BRANCH $GIT_COMMIT"
   fi
-  if [ $GIT_ALL -gt "0" ]; then
+  if git diff --no-ext-diff --quiet; then
+  else
     echo -n "*"
   fi
 }
