@@ -12,6 +12,7 @@ parse_git_dir() {
   local GIT_COMMIT="$(git rev-parse --short=0 HEAD 2>/dev/null)"
   if [[ -z $GIT_BRANCH ]]; then
     # no repo
+    return
   elif [[ $GIT_BRANCH = "HEAD" ]]; then
     echo -n " $GIT_COMMIT"
   else
