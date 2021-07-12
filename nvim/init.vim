@@ -40,6 +40,8 @@ Plug 'cespare/vim-toml'
 Plug 'hashivim/vim-terraform'
 Plug 'justinj/vim-pico8-syntax'
 Plug 'kshenoy/vim-signature'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'lotabout/skim.vim'
 Plug 'mileszs/ack.vim'
 Plug 'mitsuhiko/vim-jinja'
