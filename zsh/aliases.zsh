@@ -35,3 +35,26 @@ x() {
   fi
   cat "$input" | xsel -b
 }
+
+# open todo list
+l() {
+  file=~/.$(date +%m-%d-%Y).todo
+  if [ -f $file ]; then
+    nvim $file
+  else
+    back=1
+    while [ $back -lt 14 ]; do
+      oldfile=~/.$(date -v-${back}d +%m-%d-%Y).todo
+      if [ -f $oldfile ]; then
+        break
+      else
+        back=$(expr $back + 1)
+      fi
+    done
+    if [ -f $oldfile ]; then
+      nvim -O $oldfile $file
+    else
+      nvim $file
+    fi
+  fi
+}
