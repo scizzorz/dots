@@ -8,6 +8,8 @@ set list
 set listchars=tab:\|\ ,trail:·
 set guicursor=
 set mouse=a
+set ignorecase
+set smartcase
 
 set statusline=%F%(\ %m%)\ %(\ %r%)%(\ %h%)%=%{&ft}
 
