@@ -21,6 +21,9 @@ syntax match todoJira "\v[A-Z]+\-[0-9]+"
 " pull requests: foo/bar#123
 syntax match todoPR "\v[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\#[0-9]+"
 
+" urls: https://...
+syntax match todoURL "\v[a-zA-Z0-9_-]+://[a-zA-Z0-9\.\/#%_-]+"
+
 
 " Bullets must be the first non-space character on a line
 
@@ -52,6 +55,7 @@ hi link todoChannel todoContact
 hi todoExternal ctermfg=3
 hi link todoJira todoExternal
 hi link todoPR todoExternal
+hi todoURL ctermfg=6
 
 hi todoDone ctermfg=7
 hi todoSkip ctermfg=5
