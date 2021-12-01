@@ -52,9 +52,20 @@ l() {
       fi
     done
     if [ -f $oldfile ]; then
+      sed -n -e '/^ *[\*\?\!-]/p' $oldfile > $file
       nvim -O $oldfile $file
     else
       nvim $file
     fi
   fi
+}
+
+# open notepad
+n() {
+  if [ "$1" != "" ]; then
+    file=~/notes/$1.note
+  else
+    file=~/notes/
+  fi
+  nvim $file
 }

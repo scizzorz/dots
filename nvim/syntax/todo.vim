@@ -21,8 +21,17 @@ syntax match todoJira "\v[A-Z]+\-[0-9]+"
 " pull requests: foo/bar#123
 syntax match todoPR "\v[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\#[0-9]+"
 
+" github links requests: squareup/java
+syntax match todoGithub "\vsquareup\/[a-zA-Z0-9_-]+"
+
 " urls: https://...
-syntax match todoURL "\v[a-zA-Z0-9_-]+://[a-zA-Z0-9\.\/#%_-]+"
+syntax match todoURL "\v[a-zA-Z0-9_-]+://[a-zA-Z0-9\.\/#%_+=-]+"
+
+" urls: go/...
+syntax match todoGo "\vgo/[a-zA-Z0-9\.\/#%_-]+"
+
+" notes: ~foo
+syntax match todoNote "\v\~[a-zA-Z0-9._-]+"
 
 
 " Bullets must be the first non-space character on a line
@@ -56,6 +65,9 @@ hi todoExternal ctermfg=3
 hi link todoJira todoExternal
 hi link todoPR todoExternal
 hi todoURL ctermfg=6
+hi link todoGo todoURL
+hi link todoGithub todoURL
+hi todoNote ctermfg=4
 
 hi todoDone ctermfg=7
 hi todoSkip ctermfg=5
