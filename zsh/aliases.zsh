@@ -1,5 +1,5 @@
 # set up alises
-alias :e='vim'
+alias :e='nvim'
 alias :q='exit'
 alias :sp="tmux split-window -v -c '#{pane_current_path}' vim"
 alias :vs="tmux split-window -h -c '#{pane_current_path}' vim"
@@ -7,7 +7,7 @@ alias :wq='exit'
 alias c='cargo'
 alias g='git'
 alias grep='grep -I'
-alias im='vim'
+alias im='nvim'
 alias it='git'
 alias ls='exa -F'
 alias lt='exa -F --tree'
