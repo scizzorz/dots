@@ -8,7 +8,8 @@ noremap <silent> <C-K> <Esc>:wincmd k<CR>
 noremap <silent> <C-L> <Esc>:wincmd l<CR>
 
 " navigate between buffers
-noremap <silent> <C-M> <Esc>:bn<CR>
+" noremap <silent> <C-M> <Esc>:bn<CR>
+noremap <silent> <CR> <Esc>:bn<CR>
 noremap <silent> <C-N> <Esc>:bp<CR>
 
 " resize splits (it's confusing)
@@ -33,6 +34,8 @@ nnoremap <silent> <Leader>f :echo "hi<" . synIDattr(synID(line("."),col("."),1),
 
 " sort the current paragraph
 nnoremap <Leader>s vip:sort<CR>
+
+nnoremap <Leader>b :!black %<CR><CR>
 
 " fix syntax highlighting (seriously how does it break so much?)
 nnoremap <Leader>c :syn sync fromstart<CR>
