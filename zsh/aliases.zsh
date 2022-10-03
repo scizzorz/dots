@@ -38,26 +38,33 @@ x() {
 
 # open todo list
 l() {
-  file=~/.$(date +%m-%d-%Y).todo
+  file=~/todo/$(date +%m-%d-%Y).todo
+  # if today exists, just open the list
   if [ -f $file ]; then
-    nvim $file
   else
+
+    # try to find the previous day's list (only goes back 4 weeks)
     back=1
-    while [ $back -lt 14 ]; do
-      oldfile=~/.$(date -v-${back}d +%m-%d-%Y).todo
+    while [ $back -lt 28 ]; do
+      oldfile=~/todo/$(date -v-${back}d +%m-%d-%Y).todo
       if [ -f $oldfile ]; then
         break
       else
         back=$(expr $back + 1)
       fi
     done
+
+    # if the previous day exists, filter it into the new file and then open both
     if [ -f $oldfile ]; then
-      sed -n -e '/^ *[\*\?\!-]/p' $oldfile > $file
-      nvim -O $oldfile $file
-    else
-      nvim $file
+      # sed -n -e '/^ *[\*\?\!-]/p' $oldfile > $file
+      nvim -o $oldfile ~/todo/soon.todo ~/todo/eventually.todo
+      sed -n -e '/^ *[<>!-]/p' $oldfile ~/todo/soon.todo ~/todo/eventually.todo | sed -e 's/^ *[<>]/*/' | sort > $file
+      sed -i -e '/^ *[<>!-]/d' ~/todo/soon.todo
+      sed -i -e '/^ *[<>!-]/d' ~/todo/eventually.todo
     fi
   fi
+
+  nvim -o $file ~/todo/soon.todo ~/todo/eventually.todo
 }
 
 # open notepad
