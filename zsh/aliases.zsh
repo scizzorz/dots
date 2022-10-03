@@ -76,3 +76,16 @@ n() {
   fi
   nvim $file
 }
+
+# open review
+r() {
+  if [ "$2" != "" ]; then
+    file=~/reviews/$2.review
+    cp ~/reviews/$1.review $file
+  elif [ "$1" != "" ]; then
+    file=~/reviews/$1.review
+  else
+    file=~/reviews/
+  fi
+  nvim $file
+}
