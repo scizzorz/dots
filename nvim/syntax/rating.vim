@@ -43,9 +43,9 @@ syntax match todoBullet "\v^ *\*"
 syntax match todoQ "\v^ *\?"
 
 " priority bullets: ! task, !! task, !!! task
-syntax match todoLow "\v^ *\!"
-syntax match todoMed "\v^ *\!\!"
-syntax match todoHigh "\v^ *\!\!\!"
+syntax match todoBad "\v*\!"
+syntax match todoOkay "\v*\!\!"
+syntax match todoGood "\v*\!\!\!"
 
 " completed bullet: x task
 syntax match todoDone "\v^ *x.*"

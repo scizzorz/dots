@@ -41,6 +41,15 @@ syntax match noteBullet "\v^ *\*"
 " question bullets: ? note
 syntax match noteQ "\v^ *\?"
 
+" neutral bullets: ~ note
+syntax match noteNeutral "\v^ *\~"
+
+" pro bullets: + note
+syntax match notePro "\v^ *\+"
+
+" con bullets: - note
+syntax match noteCon "\v^ *\-"
+
 " priority bullets: ! note, !! note, !!! note
 syntax match noteLow "\v^\!"
 syntax match noteMed "\v^\!\!"
@@ -78,6 +87,9 @@ hi noteH3 ctermfg=6
 hi noteBullet ctermfg=7
 hi noteComment ctermfg=5
 hi noteQ ctermfg=13
+hi noteNeutral ctermfg=4
+hi notePro ctermfg=2
+hi noteCon ctermfg=1
 hi noteLow ctermfg=4
 hi noteMed ctermfg=12
 hi noteHigh ctermfg=1
