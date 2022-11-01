@@ -46,7 +46,10 @@ syntax match todoMagic "\v\~\*[a-zA-Z0-9._ -]+"
 syntax match todoBullet "\v^ *\*"
 
 " question bullets: ? task
-syntax match todoQ "\v^ *\?"
+syntax match todoQuestion "\v^ *\?"
+
+" waiting bullets: - task
+syntax match todoWaiting "\v^ *\-"
 
 " priority bullets: ! task, !! task, !!! task
 syntax match todoLow "\v^ *\!"
@@ -75,13 +78,14 @@ hi link todoPR todoExternal
 hi todoURL ctermfg=6
 hi link todoGo todoURL
 hi link todoGithub todoURL
-hi todoNote ctermfg=12
-hi todoMagic ctermfg=4
+hi todoNote ctermfg=4
+hi todoMagic ctermfg=12
 
 hi todoDone ctermfg=7
 hi todoSkip ctermfg=5
 hi todoBullet ctermfg=7
-hi todoQ ctermfg=13
+hi todoQuestion ctermfg=13
+hi todoWaiting ctermfg=3
 hi todoLow ctermfg=4
 hi todoMed ctermfg=12
 hi todoHigh ctermfg=1
