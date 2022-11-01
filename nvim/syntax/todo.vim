@@ -34,9 +34,11 @@ syntax match todoURL "\v[a-zA-Z0-9_-]+://[a-zA-Z0-9?\.\/#%_+=-]+"
 " urls: go/...
 syntax match todoGo "\vgo/[a-zA-Z0-9\.\/#%_-]+"
 
-" notes: ~foo
-syntax match todoNote "\v\~[a-zA-Z0-9._-]+"
+" notes / lists: ~foo
+syntax match todoNote "\v\~[a-zA-Z0-9._ -]+"
 
+" magic lists: ~*foo
+syntax match todoMagic "\v\~\*[a-zA-Z0-9._ -]+"
 
 " Bullets must be the first non-space character on a line
 
@@ -73,7 +75,8 @@ hi link todoPR todoExternal
 hi todoURL ctermfg=6
 hi link todoGo todoURL
 hi link todoGithub todoURL
-hi todoNote ctermfg=4
+hi todoNote ctermfg=12
+hi todoMagic ctermfg=4
 
 hi todoDone ctermfg=7
 hi todoSkip ctermfg=5
