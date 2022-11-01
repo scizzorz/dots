@@ -8,6 +8,10 @@ endif
 " projects: +foo, +foo/bar
 syntax match todoProject "\v\+[a-zA-Z0-9\/._+-]+"
 
+" ids: item:foo, :foo
+syntax match todoIDFull "\vitem:[0-9a-f]{40}"
+syntax match todoIDShort "\v:[0-9a-f]{2}"
+
 " people: @person, person@, person@foo.com
 syntax match todoPerson "\v\@[a-z0-9._+-]+"
 syntax match todoPersonPostfix "\v[a-z0-9._+-]+\@([a-z0-9._-]+\a{2})?"
@@ -56,6 +60,8 @@ syntax match todoSkip "\v^ *\/.*"
 
 " Colors
 
+hi todoIDFull ctermfg=0
+hi link todoIDShort todoIDFull
 hi todoProject ctermfg=14
 hi todoContact ctermfg=2
 hi link todoPerson todoContact
