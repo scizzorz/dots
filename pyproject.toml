@@ -6,7 +6,7 @@ authors = ["John Weachock <jweachock@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-pillow = "^7.2.0"
+pillow = "^9.3.0"
 click = "^7.1.2"
 pyyaml = "^5.3.1"
 ipython = "^7.18.1"
