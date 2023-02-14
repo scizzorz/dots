@@ -52,9 +52,7 @@ syntax match todoQuestion "\v^ *\?"
 syntax match todoWaiting "\v^ *\-"
 
 " priority bullets: ! task, !! task, !!! task
-syntax match todoLow "\v^ *\!"
-syntax match todoMed "\v^ *\!\!"
-syntax match todoHigh "\v^ *\!\!\!"
+syntax match todoUrgent "\v^ *\!"
 
 " completed bullet: x task
 syntax match todoDone "\v^ *x.*"
@@ -86,6 +84,4 @@ hi todoSkip ctermfg=5
 hi todoBullet ctermfg=7
 hi todoQuestion ctermfg=13
 hi todoWaiting ctermfg=3
-hi todoLow ctermfg=4
-hi todoMed ctermfg=12
-hi todoHigh ctermfg=1
+hi todoUrgent ctermfg=1
