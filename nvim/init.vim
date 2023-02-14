@@ -25,7 +25,6 @@ set wildignore+=*.jpeg
 set wildignore+=*.png
 
 set colorcolumn=100
-set textwidth=100
 
 " automatically resize splits when the window is resized
 autocmd VimResized * exe "normal! \<c-w>="
