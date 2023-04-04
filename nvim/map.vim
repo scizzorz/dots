@@ -35,6 +35,9 @@ nnoremap <silent> <Leader>f :echo "hi<" . synIDattr(synID(line("."),col("."),1),
 " sort the current paragraph
 nnoremap <Leader>s vip:sort<CR>
 
+" rehighlight syntax
+nnoremap <Leader>r :syn sync fromstart<CR>
+
 nnoremap <Leader>b :!black %<CR><CR>
 
 " fix syntax highlighting (seriously how does it break so much?)
