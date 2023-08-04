@@ -24,6 +24,17 @@ parse_git_dir() {
   fi
 }
 
+parse_work_dir() {
+  local GIT_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+  if [[ -z "$GIT_ROOT" ]]; then
+    # no repo
+    print -nrD $PWD
+  else
+    local REPO_NAME="$(basename $GIT_ROOT)"
+    echo -n $REPO_NAME${PWD##"$GIT_ROOT"}
+  fi
+}
+
 # set up prompt
 export PROMPT_COLOR=$'\033[96m' # bright cyan
 export PROMPT_PREFIX='%{$fg_no_bold[white]%}%m ' # hostname
@@ -31,7 +42,7 @@ export PROMPT_PREFIX='%{$fg_no_bold[white]%}%m ' # hostname
 
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
-export PROMPT=$PROMPT_PREFIX'%{$fg_no_bold[white]%}%{'$PROMPT_COLOR'%}%~%{$fg_no_bold[white]%}$(parse_git_dir)$(parse_venv)%(1j, %%,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
+export PROMPT=$PROMPT_PREFIX'%{$fg_no_bold[white]%}%{'$PROMPT_COLOR'%}$(parse_work_dir)%{$fg_no_bold[white]%}$(parse_git_dir)$(parse_venv)%(1j, %%,) %(?,%{$fg_no_bold[green]%},%{$fg_no_bold[red]%})» %{$reset_color%}%b'
 
 # set up window titles
 function precmd {
