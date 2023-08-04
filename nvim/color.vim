@@ -12,7 +12,7 @@ hi CursorLineNr ctermfg=6     ctermbg=none cterm=none
 hi VertSplit    ctermfg=0     ctermbg=0    cterm=none
 
 hi SpellBad     ctermfg=1     ctermbg=0    cterm=None
-hi SpellCap     ctermfg=4     ctermbg=0    cterm=None
+hi SpellCap     ctermfg=3     ctermbg=0    cterm=None
 
 hi MatchParen   ctermfg=9     ctermbg=none cterm=none
 
@@ -57,11 +57,11 @@ hi SignColumn   ctermfg=none  ctermbg=none cterm=none
 
 " syntax TODO
 hi Error        ctermfg=1     ctermbg=none cterm=none
-hi Todo         ctermfg=4     ctermbg=none cterm=none
+hi Todo         ctermfg=3     ctermbg=none cterm=none
 hi Identifier   ctermfg=11    ctermbg=none cterm=none
-hi Type         ctermfg=3     ctermbg=none cterm=none
+hi Type         ctermfg=4     ctermbg=none cterm=none
 hi Constant     ctermfg=12    ctermbg=none cterm=none
-hi String       ctermfg=4     ctermbg=none cterm=none
+hi String       ctermfg=3     ctermbg=none cterm=none
 hi Comment      ctermfg=5     ctermbg=none cterm=none
 hi Statement    ctermfg=6     ctermbg=none cterm=none
 hi PreProc      ctermfg=9     ctermbg=none cterm=none
@@ -72,7 +72,7 @@ hi Operator     ctermfg=7     ctermbg=none cterm=none
 
 " diff
 hi DiffAdd     ctermfg=2      ctermbg=0    cterm=none
-hi DiffChange  ctermfg=4      ctermbg=0    cterm=none
+hi DiffChange  ctermfg=3      ctermbg=0    cterm=none
 hi DiffDelete  ctermfg=1      ctermbg=0    cterm=none
 hi DiffText    ctermfg=6      ctermbg=0    cterm=none
 
@@ -95,8 +95,8 @@ hi link rustLifetime rustEscape
 " html / markdown
 hi htmlH1     ctermfg=6   ctermbg=none  cterm=none
 hi Title  ctermfg=6   ctermbg=none  cterm=none
-hi htmlLink   ctermfg=3   ctermbg=none  cterm=none
-hi htmlBold   ctermfg=4   ctermbg=none  cterm=none
+hi htmlLink   ctermfg=4   ctermbg=none  cterm=none
+hi htmlBold   ctermfg=3   ctermbg=none  cterm=none
 hi mkdDelimiter ctermfg=7 ctermbg=none  cterm=none
 hi mkdCode    ctermfg=15   ctermbg=0  cterm=none
 hi link mkdCodeDelimiter mkdDelimiter
@@ -132,8 +132,8 @@ hi link htmlItalicUnderlineBold htmlBold
 " coc.nvim
 hi CocErrorSign   ctermfg=1 ctermbg=8 cterm=none
 hi CocHintSign    ctermfg=2 ctermbg=8 cterm=none
-hi CocInfoSign    ctermfg=3 ctermbg=8 cterm=none
-hi CocWarningSign ctermfg=4 ctermbg=8 cterm=none
+hi CocInfoSign    ctermfg=4 ctermbg=8 cterm=none
+hi CocWarningSign ctermfg=3 ctermbg=8 cterm=none
 hi CocUnderline   ctermbg=0
 
 match WhitespaceEOL /\s\+$/
