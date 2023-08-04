@@ -38,7 +38,7 @@ source ~/.config/nvim/fold.vim
 call plug#begin("~/.config/nvim/plugged")
 
 Plug 'JulesWang/css.vim'
-Plug 'cespare/vim-toml'
+Plug 'cespare/vim-toml', {'branch': 'main'}
 Plug 'hashivim/vim-terraform'
 Plug 'justinj/vim-pico8-syntax'
 Plug 'kshenoy/vim-signature'
@@ -47,7 +47,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'lotabout/skim.vim'
 Plug 'mileszs/ack.vim'
 Plug 'mitsuhiko/vim-jinja'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'niklasl/vim-rdf'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
