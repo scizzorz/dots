@@ -29,11 +29,20 @@ pc() {
 
 # copy things to clipboard
 x() {
-  input="$@"
+  local cmd
+  local input="$@"
   if [ ! -t 0 ]; then
     input=/dev/stdin
   fi
-  cat "$input" | xsel -b
+  if which pbcopy &>/dev/null; then
+    cat "$input" | pbcopy
+  elif which xsel &>/dev/null; then
+    cmd=xsel
+    cat "$input" | xsel -b
+  else
+    echo "no suitable clipboard helper found"
+    return 1
+  fi
 }
 
 # open todo list
