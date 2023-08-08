@@ -64,3 +64,12 @@ _h() {
 }
 
 compdef _h h
+
+sqh() {
+  if [ ! -d ~/dev/$1 ]; then
+    git clone org-49461806@github.com:squareup/$1 ~/dev/$1
+  fi
+  cd ~/dev/$1
+}
+
+compdef _h sqh
