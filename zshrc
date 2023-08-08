@@ -13,6 +13,8 @@ export WINEARCH=win32
 export EXA_COLORS=$(cat ~/dots/exarc | grep -v '#' |tr '\n' ':')
 
 # source various personal extensions
+source ~/dots/zsh/zsh.zsh # needs to be first
+
 source ~/dots/zsh/aliases.zsh
 source ~/dots/zsh/docker.zsh
 source ~/dots/zsh/fuck.zsh
@@ -21,7 +23,6 @@ source ~/dots/zsh/prompt.zsh
 source ~/dots/zsh/syntax.zsh
 source ~/dots/zsh/tmux.zsh
 source ~/dots/zsh/venv.zsh
-source ~/dots/zsh/zsh.zsh # lol
 
 # set up proxy variables in an untracked file
 [ -f ~/.proxy.sh ] && source ~/.proxy.sh

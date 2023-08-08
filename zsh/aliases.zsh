@@ -45,37 +45,6 @@ x() {
   fi
 }
 
-# open todo list
-l() {
-  file=~/todo/$(date +%m-%d-%Y).todo
-  # if today exists, just open the list
-  if [ -f $file ]; then
-  else
-
-    # try to find the previous day's list (only goes back 4 weeks)
-    back=1
-    while [ $back -lt 28 ]; do
-      oldfile=~/todo/$(date -v-${back}d +%m-%d-%Y).todo
-      if [ -f $oldfile ]; then
-        break
-      else
-        back=$(expr $back + 1)
-      fi
-    done
-
-    # if the previous day exists, filter it into the new file and then open both
-    if [ -f $oldfile ]; then
-      # sed -n -e '/^ *[\*\?\!-]/p' $oldfile > $file
-      nvim -o $oldfile ~/todo/soon.todo ~/todo/eventually.todo
-      sed -n -e '/^ *[<>!-]/p' $oldfile ~/todo/soon.todo ~/todo/eventually.todo | sed -e 's/^ *[<>]/*/' | sort > $file
-      sed -i -e '/^ *[<>!-]/d' ~/todo/soon.todo
-      sed -i -e '/^ *[<>!-]/d' ~/todo/eventually.todo
-    fi
-  fi
-
-  nvim -o $file ~/todo/soon.todo ~/todo/eventually.todo
-}
-
 # open notepad
 n() {
   if [ "$1" != "" ]; then
@@ -86,15 +55,12 @@ n() {
   nvim $file
 }
 
-# open review
-r() {
-  if [ "$2" != "" ]; then
-    file=~/reviews/$2.review
-    cp ~/reviews/$1.review $file
-  elif [ "$1" != "" ]; then
-    file=~/reviews/$1.review
-  else
-    file=~/reviews/
-  fi
-  nvim $file
+h() {
+  cd ~/dev/$1
 }
+
+_h() {
+  compadd $(ls ~/dev/)
+}
+
+compdef _h h
