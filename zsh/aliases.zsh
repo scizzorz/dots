@@ -22,6 +22,10 @@ alias q='exit'
 alias tf='terraform'
 alias v='nvim'
 
+hm() {
+  zsh -c '. bin/activate-hermit; exec zsh -i'
+}
+
 # python calculator
 pc() {
   python -c "print($1)"
@@ -56,6 +60,15 @@ n() {
 }
 
 h() {
+  local repo=$(basename $1)
+  if [ ! -d ~/dev/$repo ]; then
+    if [ "$repo" = "$1" ]; then
+      echo "Local repo does not exist and '$1' isn't qualified to clone."
+      return 1
+    else
+      git clone git@github.com:$1.git ~/dev/$repo
+    fi
+  fi
   cd ~/dev/$1
 }
 

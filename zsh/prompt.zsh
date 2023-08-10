@@ -1,8 +1,17 @@
 # used by prompt to show an @ sign if a Python virtualenv is active
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 parse_venv() {
+  if [ "$VIRTUAL_ENV" -o "$HERMIT_ENV" ]; then
+    echo -n " "
+  fi
   if [ "$VIRTUAL_ENV" ]; then
-    echo " @"
+    echo -n "@"
+  fi
+  if [ "$HERMIT_ENV" ]; then
+    echo -n "$"
+  fi
+  if [ "$VIRTUAL_ENV" -o "$HERMIT_ENV" ]; then
+    echo ""
   fi
 }
 
