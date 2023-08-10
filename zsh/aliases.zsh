@@ -23,7 +23,7 @@ alias tf='terraform'
 alias v='nvim'
 
 hm() {
-  zsh -c '. bin/activate-hermit; exec zsh -i'
+  zsh -c '. bin/activate-hermit && exec zsh -i'
 }
 
 # python calculator
