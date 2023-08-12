@@ -57,6 +57,7 @@ Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
 Plug 'xtfc/mold.vim'
+Plug 'NoahTheDuke/vim-just'
 
 call plug#end()
 
