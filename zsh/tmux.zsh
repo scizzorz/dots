@@ -38,3 +38,9 @@ t() {
     fi
   fi
 }
+
+_t() {
+  compadd $(tmux ls -F '#S')
+}
+
+compdef _t t
