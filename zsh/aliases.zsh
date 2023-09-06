@@ -87,3 +87,16 @@ sqh() {
 }
 
 compdef _h sqh
+
+tmp() {
+  local name="$1"
+  if [ -z "$name" ]; then
+    name=$(hexdump -n 2 -v -e '/1 "%02x"' /dev/urandom)
+  fi
+
+  if [ ! -d ~/tmp/$name ]; then
+    mkdir -p ~/tmp/$name
+  fi
+
+  cd ~/tmp/$name
+}
