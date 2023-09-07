@@ -22,19 +22,26 @@ t() {
   if [ -z "$SESS" ]; then
     $SSH tmux ls
 
+  elif [ -n "$TMUX" ]; then
+    if tmux switch-client -t "$SESS"; then
+    else
+      tmux new-session -d -s "$SESS"
+      tmux switch-client -t "$SESS"
+    fi
+
   # New binding to existing session
   elif [[ "$SESS" == '+'* ]]; then
     origin="${SESS: 1}"
     num=$($SSH tmux ls | grep "^$origin" | wc -l)
     num=$(($num + 1))
-    $SSH tmux new -t $origin -s $origin$num
+    $SSH tmux new-session -t $origin -s $origin$num
 
   # Attach or create session
   else
     # this can probably be optimized better... docker exec is kinda slow.
-    if $SSH tmux attach -t "$SESS"; then
+    if $SSH tmux attach-session -t "$SESS"; then
     else
-      $SSH tmux new -s "$SESS"
+      $SSH tmux new-session -s "$SESS"
     fi
   fi
 }
