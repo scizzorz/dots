@@ -8,6 +8,7 @@ ex=32
 # Project files are blue
 # Some things at bottom for priority
 *.docker=34
+*.just=34
 *.make=34
 *.mk=34
 *Dockerfile*=34
@@ -16,6 +17,7 @@ BUILD=34
 Doxyfile=34
 Gruntfile.coffee=34
 Gruntfile.js=34
+Justfile=34
 MANIFEST.in=34
 Makefile=34
 Moldfile=34
@@ -26,6 +28,7 @@ Vagrantfile=34
 WORKSPACE=34
 build.gradle=34
 doxyfile=34
+justfile=34
 makefile=34
 moldfile=34
 setup.py=34
