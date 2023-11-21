@@ -185,13 +185,17 @@ ln=1;34
 
 # These are here for priority
 *LICENSE*=31
-*license*=31
 *README*=31
+*license*=31
 *readme*=31
 *requirements*.txt=34
-mold.toml=34
 Cargo.toml=34
-package.json=34
-build.xml=34
 MakeLists.txt=34
+OWNERS.yaml=34
+OWNERS.yml=34
+build.xml=34
+kochiku.yaml=34
+kochiku.yml=34
+mold.toml=34
+package.json=34
 pyproject.toml=34
