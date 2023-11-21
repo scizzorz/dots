@@ -111,6 +111,7 @@ di=33
 # Project lock files are grey
 Cargo.lock=37
 Pipfile.lock=37
+poetry.lock=37
 
 # Temp files are grey
 *.tmp=37
@@ -193,3 +194,4 @@ Cargo.toml=34
 package.json=34
 build.xml=34
 MakeLists.txt=34
+pyproject.toml=34
