@@ -1,0 +1,80 @@
+#!/usr/bin/env zsh
+
+# github.com/square/exit
+OK=0
+NotOK=1
+UsageError=80
+UnknownSubcommand=81
+RequirementNotMet=82
+Forbidden=83
+MovedPermanently=84
+InternalError=100
+Unavailable=101
+
+ERROR='\033[31m'
+GOOD='\033[32m'
+WARN='\033[33m'
+INFO='\033[34m'
+HELP='\033[35m'
+RESET='\033[0m'
+
+# strip color if the output of this command isn't a terminal
+if [ ! -t 1 ]; then
+  ERROR=''
+  GOOD=''
+  WARN=''
+  INFO=''
+  RESET=''
+fi
+
+# these are used for user-facing output, eg: check results
+CROSS="${ERROR}✗${RESET}"
+BANG="${WARN}!${RESET}"
+CHECK="${GOOD}✓${RESET}"
+QUESTION="${HELP}?${RESET}"
+SUGGESTION="${HELP}!${RESET}"
+
+SELF="$0"
+COMMA_PATH=${COMMA_PATH:-./comma}
+SEARCH_PATHS=(${(s/:/)COMMA_PATH})
+
+if [[ $# -eq 0 ]]; then
+  echo "${CROSS} Usage: ${SELF} <command>"
+  exit $UsageError
+fi
+
+exec_path=""
+script_path=""
+while [[ $# -gt 0 ]]; do
+  if [[ -z "${script_path}" ]]; then
+    script_path="$1"
+  else
+    script_path="${script_path}/$1"
+  fi
+
+  shift
+  for dir in $SEARCH_PATHS; do
+    if [[ -d "${dir}/${script_path}" ]]; then
+      # echo "${BANG} Found pack at ${dir}/${script_path}"
+      continue 2
+    elif [[ -x "${dir}/${script_path}" ]]; then
+      exec_path="${dir}/${script_path}"
+      # echo "${BANG} Found script at ${exec_path}"
+      break 2
+    elif [[ -f "${dir}/${script_path}" ]]; then
+      echo "${CROSS} Found script at ${dir}/${script_path} but it's not executable."
+      exit $RequirementNotMet
+    fi
+  done
+done
+
+if [[ -z "${exec_path}" ]]; then
+  echo "${CROSS} Unable to find a matching script for ${script_path}"
+  echo "  Searched:"
+  for dir in $SEARCH_PATHS; do
+    echo "    ${dir}"
+  done
+  exit $UsageError
+fi
+
+exec "${exec_path}" $@

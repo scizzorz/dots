@@ -11,6 +11,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib  # for Rust
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 export WINEARCH=win32
 export EXA_COLORS=$(cat ~/dots/exarc | grep -v '#' |tr '\n' ':')
+export COMMA_PATH=./comma:./script:~/dots/comma
 
 # source various personal extensions
 source ~/dots/zsh/zsh.zsh # needs to be first
