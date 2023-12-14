@@ -37,36 +37,73 @@ SUGGESTION="${HELP}!${RESET}"
 SELF="$0"
 COMMA_PATH=${COMMA_PATH:-./comma}
 SEARCH_PATHS=(${(s/:/)COMMA_PATH})
+SHOW_COMPLETION=no
+ARGS=()
 
-if [[ $# -eq 0 ]]; then
+if [[ "$#" -eq 0 ]]; then
   echo "${CROSS} Usage: ${SELF} <command>"
   exit $UsageError
 fi
 
+while [[ "$#" -gt 0 ]]; do
+  if [[ "$1" == "--help" ]]; then
+    exit $OK
+  elif [[ "$1" == "--version" ]]; then
+    exit $OK
+  elif [[ "$1" == "--completion" ]]; then
+    SHOW_COMPLETION=yes
+  else
+    ARGS+="$1"
+  fi
+  shift
+done
+
 exec_path=""
 script_path=""
-while [[ $# -gt 0 ]]; do
+deepest_found_path=""
+do_complete="yes"
+
+while [[ "${#ARGS}" -gt 0 ]]; do
   if [[ -z "${script_path}" ]]; then
-    script_path="$1"
+    script_path="${ARGS[1]}"
   else
-    script_path="${script_path}/$1"
+    script_path="${script_path}/${ARGS[1]}"
   fi
 
-  shift
+  shift ARGS
   for dir in $SEARCH_PATHS; do
     if [[ -d "${dir}/${script_path}" ]]; then
       # echo "${BANG} Found pack at ${dir}/${script_path}"
+      deepest_found_path="${script_path}"
       continue 2
     elif [[ -x "${dir}/${script_path}" ]]; then
-      exec_path="${dir}/${script_path}"
       # echo "${BANG} Found script at ${exec_path}"
+      if [[ "${SHOW_COMPLETION}" == "yes" ]]; then
+        do_complete="no"
+      fi
+      exec_path="${dir}/${script_path}"
       break 2
     elif [[ -f "${dir}/${script_path}" ]]; then
-      echo "${CROSS} Found script at ${dir}/${script_path} but it's not executable."
-      exit $RequirementNotMet
+      if [[ "${SHOW_COMPLETION}" == "yes" ]]; then
+        do_complete="no"
+      else
+        echo "${CROSS} Found script at ${dir}/${script_path} but it's not executable."
+        exit $RequirementNotMet
+      fi
     fi
   done
 done
+
+if [[ "${SHOW_COMPLETION}" == "yes" ]]; then
+  if [[ "${do_complete}" == "yes" ]]; then
+    for dir in $SEARCH_PATHS; do
+      if [[ -d "${dir}/${deepest_found_path}" ]]; then
+        /usr/bin/env ls "${dir}/${deepest_found_path}"
+      fi
+    done
+  fi
+  exit $OK
+fi
 
 if [[ -z "${exec_path}" ]]; then
   echo "${CROSS} Unable to find a matching script for ${script_path}"
@@ -77,4 +114,4 @@ if [[ -z "${exec_path}" ]]; then
   exit $UsageError
 fi
 
-exec "${exec_path}" $@
+exec "${exec_path}" ${ARGS[@]}

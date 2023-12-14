@@ -100,3 +100,10 @@ tmp() {
 
   cd ~/tmp/$name
 }
+
+_comma() {
+  compadd $($=words --completion)
+}
+
+compdef _comma comma
+compdef _comma ,
