@@ -1,5 +1,10 @@
 #!/usr/bin/env zsh
 
+MAJOR_VERSION=0
+MINOR_VERSION=1
+PATCH_VERSION=0
+VERSION="${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}"
+
 # github.com/square/exit
 OK=0
 NotOK=1
@@ -11,28 +16,29 @@ MovedPermanently=84
 InternalError=100
 Unavailable=101
 
-ERROR='\033[31m'
-GOOD='\033[32m'
-WARN='\033[33m'
-INFO='\033[34m'
-HELP='\033[35m'
-RESET='\033[0m'
+C_RED='\033[31m'
+C_GREEN='\033[32m'
+C_YELLOW='\033[33m'
+C_BLUE='\033[34m'
+C_MAGENTA='\033[35m'
+C_RESET='\033[0m'
 
 # strip color if the output of this command isn't a terminal
 if [ ! -t 1 ]; then
-  ERROR=''
-  GOOD=''
-  WARN=''
-  INFO=''
-  RESET=''
+  C_RED=''
+  C_GREEN=''
+  C_YELLOW=''
+  C_BLUE=''
+  C_MAGENTA=''
+  C_RESET=''
 fi
 
-# these are used for user-facing output, eg: check results
-CROSS="${ERROR}✗${RESET}"
-BANG="${WARN}!${RESET}"
-CHECK="${GOOD}✓${RESET}"
-QUESTION="${HELP}?${RESET}"
-SUGGESTION="${HELP}!${RESET}"
+# these are used for user-facing output
+ERROR="${C_RED}✗${C_RESET}"
+INFO="${C_YELLOW}!${C_RESET}"
+SUCCESS="${C_GREEN}✓${C_RESET}"
+QUESTION="${C_MAGENTA}?${C_RESET}"
+SUGGESTION="${C_MAGENTA}!${C_RESET}"
 
 SELF="$0"
 COMMA_PATH=${COMMA_PATH:-./comma}
@@ -40,15 +46,42 @@ SEARCH_PATHS=(${(s/:/)COMMA_PATH})
 SHOW_COMPLETION=no
 ARGS=()
 
+show_version() {
+  echo "comma ${VERSION}"
+}
+
+show_help() {
+  cat << USAGE
+comma - Script snippet gizmo
+
+Usage:  comma [...]
+
+comma is a tool to help remember semi-frequently used commands and scripts.
+That is, things you need to run regularly but not frequently enough to actually
+memorize.
+
+Comma treats its arguments as a series of subcommands that correspond to a
+nested directory structure somewhere in \$COMMA_PATH. That is, running \`comma
+foo bar\` will search all directories in \$COMMA_PATH for a \`foo/bar\` script,
+then execute it. Additional arguments are allowed.
+
+Command options:
+  -h, --help      Show this help text.
+  -v, --version   Show comma version.
+USAGE
+}
+
 if [[ "$#" -eq 0 ]]; then
-  echo "${CROSS} Usage: ${SELF} <command>"
+  echo "${ERROR} Usage: ${SELF} <command>"
   exit $UsageError
 fi
 
 while [[ "$#" -gt 0 ]]; do
-  if [[ "$1" == "--help" ]]; then
+  if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
+    show_help
     exit $OK
-  elif [[ "$1" == "--version" ]]; then
+  elif [[ "$1" == "--version" ]] || [[ "$1" == "-v" ]]; then
+    show_version
     exit $OK
   elif [[ "$1" == "--completion" ]]; then
     SHOW_COMPLETION=yes
@@ -73,11 +106,11 @@ while [[ "${#ARGS}" -gt 0 ]]; do
   shift ARGS
   for dir in $SEARCH_PATHS; do
     if [[ -d "${dir}/${script_path}" ]]; then
-      # echo "${BANG} Found pack at ${dir}/${script_path}"
+      # echo "${INFO} Found pack at ${dir}/${script_path}"
       deepest_found_path="${script_path}"
       continue 2
     elif [[ -x "${dir}/${script_path}" ]]; then
-      # echo "${BANG} Found script at ${exec_path}"
+      # echo "${INFO} Found script at ${exec_path}"
       if [[ "${SHOW_COMPLETION}" == "yes" ]]; then
         do_complete="no"
       fi
@@ -87,7 +120,8 @@ while [[ "${#ARGS}" -gt 0 ]]; do
       if [[ "${SHOW_COMPLETION}" == "yes" ]]; then
         do_complete="no"
       else
-        echo "${CROSS} Found script at ${dir}/${script_path} but it's not executable."
+        echo "${ERROR} Found script at ${C_YELLOW}${dir}/${script_path}${C_RESET} but it's not executable."
+        echo "${SUGGESTION} Try running ${C_BLUE}chmod +x ${dir}/${script_path}${C_RESET}"
         exit $RequirementNotMet
       fi
     fi
@@ -106,10 +140,10 @@ if [[ "${SHOW_COMPLETION}" == "yes" ]]; then
 fi
 
 if [[ -z "${exec_path}" ]]; then
-  echo "${CROSS} Unable to find a matching script for ${script_path}"
+  echo "${ERROR} Unable to find a script for ${C_YELLOW}${script_path}${C_RESET}"
   echo "  Searched:"
   for dir in $SEARCH_PATHS; do
-    echo "    ${dir}"
+    echo "    ${C_YELLOW}${dir}${C_RESET}"
   done
   exit $UsageError
 fi
