@@ -47,7 +47,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'lotabout/skim.vim'
 Plug 'mileszs/ack.vim'
 Plug 'mitsuhiko/vim-jinja'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'niklasl/vim-rdf'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
