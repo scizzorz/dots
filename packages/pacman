@@ -3,7 +3,7 @@ base-devel
 bat
 cmake
 docker
-exa
+eza
 fd
 git
 httpie
