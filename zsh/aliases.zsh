@@ -11,8 +11,8 @@ alias i='ipython'
 alias im='nvim'
 alias it='git'
 alias j='just'
-alias ls='eza -F'
-alias lt='eza -F --tree'
+alias ls=eza -F
+alias lt=eza -F --tree
 alias m='mold'
 alias p2='python2'
 alias p3='python3'
@@ -70,7 +70,7 @@ h() {
       git clone git@github.com:$1.git ~/dev/$repo
     fi
   fi
-  cd ~/dev/$1
+  cd ~/dev/$repo
 }
 
 _h() {
