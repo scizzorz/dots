@@ -48,6 +48,7 @@ plug("kshenoy/vim-signature")
 plug("lotabout/skim.vim")
 plug("mileszs/ack.vim")
 plug("mitsuhiko/vim-jinja")
+plug("neovim/nvim-lspconfig")
 plug("niklasl/vim-rdf")
 plug("othree/html5.vim")
 plug("pangloss/vim-javascript")
@@ -59,3 +60,7 @@ plug("tpope/vim-surround")
 plug("xtfc/mold.vim")
 
 vim.fn["plug#end"]()
+
+local lspconfig = require("lspconfig")
+
+lspconfig.pyright.setup({})
