@@ -68,9 +68,9 @@
   pu = push -u origin HEAD
   pf = !git fetch --all --prune && git reset --soft origin/$(git branch --show-current)
 
-  head = !git log --pretty=format:'%C(bold blue)%h%C(auto)%d' -1 && git log --pretty=format:'%C(white)%an • %ad%C(reset) %C(bold black)(%ar)%C(reset)' --date=local -1 && git log --pretty=format:%s -1 && echo && git status -s
+  head = !git log --pretty=format:'%C(bold blue)%h%C(auto)%d' -1 && git log --pretty=format:'%C(white)%an • %ad%C(reset) %C(bold black)(%an)%C(reset)' --date=local -1 && git log --pretty=format:%s -1 && echo && git status -s
 
-  top = log --pretty=format:'%C(bold blue)%h%C(reset)%C(auto)%d%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order
+  top = log --pretty=format:'%C(bold blue)%h%C(reset)%C(auto)%d%C(reset) %C(bold black)(%ad)%C(reset)' --abbrev-commit --all --graph --simplify-by-decoration --date-order --date=short
 
   l = log --pretty=format:'%C(bold blue)%h%C(reset)%C(cyan)% D%C(reset) %s %C(white)%ad%C(reset) %C(bold black)%an%C(reset)' --abbrev-commit --abbrev=0 --date-order --date=short -30
   lr = !git l --graph
