@@ -2,6 +2,7 @@
 syntax on
 syntax reset
 hi clear
+set notermguicolors
 
 " non-syntax things
 " Lines everywhere
