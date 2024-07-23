@@ -6,6 +6,9 @@
   # pager = ~/dots/bin/vimpager
   abbrev = 4
 
+[blame]
+  date = short
+
 [color]
   ui = true
   branch = auto
@@ -44,6 +47,7 @@
 [alias]
   ap = add -p
   cia = commit --amend
+  bl = blame
   br = branch
   ci = commit
   co = checkout
