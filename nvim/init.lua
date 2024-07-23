@@ -62,5 +62,10 @@ plug("xtfc/mold.vim")
 vim.fn["plug#end"]()
 
 local lspconfig = require("lspconfig")
-
 lspconfig.pyright.setup({})
+-- lspconfig.lua_ls.setup({})
+
+vim.api.nvim_create_autocmd(
+  {"BufEnter"},
+  {pattern = "*.lua", callback = function(ev) vim.treesitter.stop() end}
+)
