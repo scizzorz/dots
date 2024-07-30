@@ -7,3 +7,4 @@ export PATH=~/bin:$PATH
 export PATH=~/dots/bin:$PATH
 export PATH=~/pico-8:$PATH
 export PATH=~/scripts:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
