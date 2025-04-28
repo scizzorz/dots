@@ -1,0 +1,29 @@
+#!/bin/zsh
+repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+if [[ $? != 0 ]]; then
+  echo "don't use outside of git repo"
+  exit 80 # UsageError
+fi
+
+session=$(basename ${repo_root})
+name=".tmp$(hexdump -n 2 -v -e '/1 "%02x"' /dev/urandom)"
+print -n "\033[36m( O)>\033[0m "
+read gooseprompt
+if [[ $? != 0 ]]; then
+  echo "no prompt"
+  exit 80 # UsageError
+fi
+
+echo ${gooseprompt} > ${name}
+
+start_time=$(gdate "+%s.%N")
+if [[ -f ~/.config/goose/sessions/${session}.jsonl ]]; then
+  goose run -r -n ${session} -i ${name}
+else
+  goose run -n ${session} -i ${name}
+fi
+end_time=$(gdate "+%s.%N")
+elapsed=$((end_time - start_time))
+printf "\033[37mgoose took \033[36m%.3f\033[37m seconds\033[0m\n" ${elapsed}
+
+rm ${name}

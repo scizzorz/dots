@@ -1,0 +1,93 @@
+#!/bin/zsh
+repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+if [[ $? != 0 ]]; then
+  >&2 echo "$0 must be used within a git repository"
+  exit 80 # UsageError
+fi
+
+# colors
+grey="\033[37m"
+teal="\033[36m"
+reset="\033[0m"
+
+# prep
+session=$(hexdump -n 2 -v -e '/1 "%02x"' /dev/urandom)
+promptfile="${repo_root}/.tmp-prompt-${session}"
+prerun="${repo_root}/.tmp-prerun-${session}"
+postrun="${repo_root}/.tmp-postrun-${session}"
+commit="${repo_root}/.tmp-commit-${session}"
+
+# build prompt
+if [[ -t 0 ]]; then # interactive, i.e. no stdin
+  if [[ $# -gt 0 ]]; then # inline prompt or -f/--file
+    if [[ $1 == "-f" ]] || [[ $1 == "--file" ]]; then
+      gooseprompt=$(cat $2)
+    else
+      gooseprompt="$@"
+    fi
+
+  else # prompt the user
+    print -n "${teal}( O)>${reset} "
+    read gooseprompt
+    if [[ $? != 0 ]]; then
+      >&2 echo "prompt was canceled"
+      exit 80 # UsageError
+    fi
+  fi
+
+  echo ${gooseprompt} > ${promptfile}
+
+else # stdin
+  while read -r line; do
+    echo ${line} >> ${promptfile}
+  done
+
+  gooseprompt=$(cat ${promptfile})
+fi
+
+echo "When you're done, write a good git commit message to the file ${commit}" >> ${promptfile}
+
+# capture state before Goose
+pushd ${repo_root}
+git status --porcelain --untracked=all | grep -v '.tmp' | sort > ${prerun}
+popd
+
+# run Goose
+start_time=$(gdate "+%s.%N")
+if [[ -f ~/.config/goose/sessions/${session}.jsonl ]]; then
+  goose run -r -n ${session} -i ${promptfile}
+else
+  goose run -n ${session} -i ${promptfile}
+fi
+end_time=$(gdate "+%s.%N")
+elapsed=$((end_time - start_time))
+printf "${grey}goose took ${teal}%.1f${grey} seconds${reset}\n" ${elapsed}
+
+# finalize and commit
+pushd ${repo_root}
+git status --porcelain --untracked=all | grep -v '.tmp' | sort > ${postrun}
+if [[ ! -f ${commit} ]]; then
+  >&2 echo "${grey}goose failed to write commit data at ${teal}${commit}${reset}"
+  echo "(please edit message with git commit --amend)" > ${commit}
+fi
+
+>&2 echo "${grey}staging new and modified files${reset}\n"
+git add --update
+comm -13 ${prerun} ${postrun}| awk '{print $2}' | xargs git add
+
+git reset ${commit}
+git reset ${repo_root}/.tmp*
+git status --short
+
+echo "" >> ${commit}
+echo "" >> ${commit}
+echo "This commit was generated using Goose with the following prompt:" >> ${commit}
+echo '```' >> ${commit}
+echo ${gooseprompt} >> ${commit}
+echo '```' >> ${commit}
+popd
+
+>&2 echo "${grey}committing${reset}\n"
+git commit --message "[goose] $(cat ${commit})"
+
+rm ${promptfile} ${prerun} ${postrun} ${commit}
