@@ -2,20 +2,23 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword shroomEvent onChoice onPrepare onDiscard onModPower onModStamina onUseStamina onGather onPlay onSummon onDie onEmpty onStart onMorning onTurn onNight onFinish
+syn keyword shroomEvent on_choice on_prepare on_discard on_mod_power on_mod_stamina on_use_stamina on_gather on_play on_summon on_summon_friend on_die on_empty on_start on_morning on_turn on_night on_finish
 
 syn keyword shroomKeyword if elif else return
 syn keyword shroomKeyword has and or space
 
-syn keyword shroomFunction activate event setPower setStamina setTraits modPower modStamina forceModPower forceModStamina useStamina summon
+syn keyword shroomFunction activate add_trait event force_mod_power force_mod_stamina mod_power mod_stamina prevent_action remove_trait set_name set_power set_stamina set_trait set_traits summon use_stamina gather force_use_stamina flag_removal
 
-syn keyword shroomVariable critter area amount source played target discarded first second none trait from to name value credit at pow stam name
+syn keyword shroomVariable amount area at count credit critter discarded first from name none other played pow second source stam summoned target to trait traits value can_act mushrooms
 
 syn match shroomSymbol "\v\("
 syn match shroomSymbol "\v\)"
 syn match shroomSymbol "\v\{"
 syn match shroomSymbol "\v\}"
 syn match shroomSymbol "\v\="
+syn match shroomSymbol "\v\<"
+syn match shroomSymbol "\v\>"
+syn match shroomSymbol "\v\!"
 syn match shroomSymbol "\v\."
 syn match shroomSymbol "\v\,"
 " syn match shroomSymbol "\v\:\="
@@ -24,6 +27,7 @@ syn match shroomOperator "\v\+"
 syn match shroomOperator "\v\/"
 syn match shroomOperator "\v\-"
 syn match shroomOperator "\v\*"
+syn match shroomOperator "\v\%"
 
 syn region shroomString start=+"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ keepend
 
