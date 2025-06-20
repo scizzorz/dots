@@ -13,7 +13,7 @@ noremap <silent> <CR> <Esc>:bn<CR>
 noremap <silent> <C-N> <Esc>:bp<CR>
 
 " resize splits (it's confusing)
-noremap <silent> <C-O> <Esc>:vertical res +1<CR>
+noremap <silent> <C-O> <Esc>:NERDTree<CR>
 noremap <silent> <C-I> <Esc>:res -1<CR>
 noremap <silent> <C-U> <Esc>:res +1<CR>
 noremap <silent> <C-Y> <Esc>:vertical res -1<CR>
