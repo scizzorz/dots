@@ -1,8 +1,15 @@
 #!/bin/zsh
 repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
 if [[ $? != 0 ]]; then
-  >&2 echo "$0 must be used within a git repository"
-  exit 80 # UsageError
+  >&2 echo "$0 must be used within a git repository."
+  exit 82 # RequirementNotMet
+fi
+
+if ! git diff --no-ext-diff --quiet 1>/dev/null; then
+  >&2 echo "The current git repository has untracked modifications."
+  >&2 echo "To protect your project, $0 will not run without starting"
+  >&2 echo "  on a clean working tree of a git repository."
+  exit 82 # RequirementNotMet
 fi
 
 # colors
