@@ -9,6 +9,7 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib  # for Rust
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
+export FZF_DEFAULT_COMMAND="${SKIM_DEFAULT_COMMAND}"
 export WINEARCH=win32
 export EXA_COLORS=$(cat ~/dots/ezarc | grep -v '#' |tr '\n' ':')
 export EZA_COLORS=$(cat ~/dots/ezarc | grep -v '#' |tr '\n' ':')
