@@ -71,7 +71,7 @@ h() {
 }
 
 _h() {
-  compadd $(ls ~/dev/)
+  compadd $(ls ~/dev/$1)
 }
 
 compdef _h h
