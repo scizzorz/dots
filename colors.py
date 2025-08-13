@@ -1,9 +1,8 @@
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
 from math import sqrt
+
 import click
 import yaml
+from PIL import Image, ImageDraw, ImageFont
 
 # This script is responsible for generating the color palette based on a few
 # rules and configuration settings from colors.yml. It uses some formulas
@@ -423,7 +422,6 @@ def main(config, mode, format):
     # compute final grey colors
     greys = []
     for i, grey_lum in enumerate(grey_lums):
-
         # in the first half of greys, we want to base our result off of the dark_hue.
         # in the second half, we want to base our result off the light_hue.
         if i < len(grey_lums) / 2:

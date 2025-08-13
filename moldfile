@@ -1,5 +1,0 @@
-version "0.7"
-
-import "github.com/xtfc/docker.mold#0.7" as docker/
-var DOCKER_IMAGE="scizzorz/arch"
-var DOCKER_TAG="latest"

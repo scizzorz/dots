@@ -30,7 +30,6 @@ inst $TO/.gitconfig $FROM/gitconfig
 inst $TO/.tmux.conf $FROM/tmux.conf
 inst $TO/.gtk-bookmarks $FROM/gtk-bookmarks
 inst $TO/.xmodmap $FROM/xmodmap
-inst $TO/.config/flake8 $FROM/flake8
 inst $TO/.config/nvim $FROM/nvim
 inst $TO/.local/share/nvim/site/autoload/plug.vim $FROM/nvim/plug.vim
 
@@ -41,12 +40,6 @@ cp -rf $FROM/fonts/* $TO/.fonts/
 echo "Installing $FROM/themes/* as $TO/.themes/*..."
 mkdir -p $TO/.themes
 cp -rf $FROM/themes/* $TO/.themes/
-
-mkdir -p $TO/.config/openbox
-inst $TO/.config/openbox/rc.xml $FROM/openbox-rc.xml
-
-mkdir -p $TO/.ipython/profile_default
-inst $TO/.ipython/profile_default/ipython_config.py $FROM/ipython_config.py
 
 mkdir -p $TO/.config/alacritty
 bin/set-alacritty-theme.sh dark
