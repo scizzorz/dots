@@ -168,39 +168,46 @@ def find_grey(hue, lum):
 
 
 def generate_simple_colors_image(
-    greys, light, dark, size=32, padding=8, filename="colors-simple.png"
+    greys,
+    light,
+    dark,
+    size=32,
+    padding=8,
+    filename="colors-simple.png",
 ):
     total_colors = len(light) + len(greys)
 
-    img = Image.new("RGB", (total_colors * size, size * 2), color="#" + greys[0])
+    img = Image.new("RGB", (total_colors * size // 2, size * 4), color="#" + greys[0])
     draw = ImageDraw.Draw(img)
 
-    draw.rectangle((0, size, total_colors * size, size * 2), fill="#" + greys[-1])
+    draw.rectangle((0, size * 2, total_colors * size, size * 4), fill="#" + greys[-1])
 
+    grey_cols = len(greys) // 2
     for i, hex in enumerate(greys):
-        x = padding + size * i
-        y = padding
+        x = padding + size * (i % grey_cols)
+        y = padding + size * (i // grey_cols)
         draw.rectangle(
             (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
         )
 
     for i, hex in enumerate(reversed(greys)):
-        x = padding + size * i
-        y = padding + size
+        x = padding + size * (i % grey_cols)
+        y = padding + size * (i // grey_cols + 2)
         draw.rectangle(
             (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
         )
 
+    color_cols = len(dark) // 2
     for i, hex in enumerate(dark.values()):
-        x = padding + size * (i + len(greys))
-        y = padding
+        x = padding + size * (i % color_cols + grey_cols)
+        y = padding + size * (i // color_cols)
         draw.rectangle(
             (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
         )
 
     for i, hex in enumerate(light.values()):
-        x = padding + size * (i + len(greys))
-        y = padding + size
+        x = padding + size * (i % color_cols + grey_cols)
+        y = padding + size * (i // color_cols + 2)
         draw.rectangle(
             (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
         )
@@ -421,7 +428,7 @@ def main(config, mode, format):
         # in the second half, we want to base our result off the light_hue.
         if i < len(grey_lums) / 2:
             # as we leave i=0, scale goes up and our hue should leave dark_hue
-            hue = dark_hue - 10 * (grey_contrast ** i)
+            hue = dark_hue - 10 * (grey_contrast**i)
         else:
             # as we approach i=len, scale keeps going up and our hue should approach light_hue
             hue = light_hue + 10 * (grey_contrast ** (5 - i))

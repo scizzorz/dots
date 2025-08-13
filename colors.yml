@@ -4,55 +4,55 @@ dark_lum: 0.03
 light_hue: 30
 light_lum: 0.97
 
-grey_contrast: 1.3
+grey_contrast: 1.6
 
 color_hues:
-  red: 3
-  orange: 27
-  yellow: 47
-  lime: 83
-  green: 123
-  teal: 167
-  cyan: 183
-  blue: 213
-  indigo: 237
-  purple: 267
-  magenta: 297
-  pink: 327
+  red: 0
+  orange: 30
+  yellow: 55
+  lime: 85
+  green: 120
+  teal: 155
+  cyan: 180
+  blue: 210
+  indigo: 240
+  purple: 270
+  magenta: 300
+  pink: 330
 
 dark_lums:
-  red: 0.27
-  orange: 0.38
-  yellow: 0.53
-  lime: 0.44
-  green: 0.41
-  teal: 0.37
-  cyan: 0.33
-  blue: 0.30
-  indigo: 0.25
-  purple: 0.27
-  magenta: 0.31
-  pink: 0.27
+  red: 0.28
+  orange: 0.48
+  yellow: 0.72
+  lime: 0.48
+  green: 0.48
+  teal: 0.48
+  cyan: 0.40
+  blue: 0.32
+  indigo: 0.28
+  purple: 0.28
+  magenta: 0.28
+  pink: 0.28
 
 light_lums:
-  red: 0.11
-  orange: 0.23
-  yellow: 0.33
-  lime: 0.32
-  green: 0.30
-  teal: 0.28
+  red: 0.08
+  orange: 0.16
+  yellow: 0.24
+  lime: 0.28
+  green: 0.24
+  teal: 0.20
   cyan: 0.24
-  blue: 0.17
-  indigo: 0.12
-  purple: 0.16
-  magenta: 0.18
-  pink: 0.15
+  blue: 0.16
+  indigo: 0.04
+  purple: 0.12
+  magenta: 0.12
+  pink: 0.12
 
 ansi_map:
   red: red
   green: green
-  yellow: blue # this happened a while ago and I'm just too
-  blue: yellow # lazy to fix all my color schemes now
+  blue: blue
+  yellow: yellow
   magenta: purple
   cyan: cyan
   br_red: pink
