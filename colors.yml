@@ -21,32 +21,32 @@ color_hues:
   pink: 330
 
 dark_lums:
-  red: 0.28
-  orange: 0.48
-  yellow: 0.72
-  lime: 0.48
-  green: 0.48
-  teal: 0.48
+  red: 0.30
+  orange: 0.50
+  yellow: 0.70
+  lime: 0.50
+  green: 0.60
+  teal: 0.50
   cyan: 0.40
-  blue: 0.32
-  indigo: 0.28
-  purple: 0.28
-  magenta: 0.28
-  pink: 0.28
+  blue: 0.30
+  indigo: 0.30
+  purple: 0.30
+  magenta: 0.35
+  pink: 0.35
 
 light_lums:
-  red: 0.08
-  orange: 0.16
-  yellow: 0.24
-  lime: 0.28
-  green: 0.24
-  teal: 0.20
-  cyan: 0.24
-  blue: 0.16
+  red: 0.10
+  orange: 0.167
+  yellow: 0.233
+  lime: 0.167
+  green: 0.20
+  teal: 0.167
+  cyan: 0.133
+  blue: 0.08
   indigo: 0.04
-  purple: 0.12
-  magenta: 0.12
-  pink: 0.12
+  purple: 0.10
+  magenta: 0.117
+  pink: 0.117
 
 ansi_map:
   red: red
