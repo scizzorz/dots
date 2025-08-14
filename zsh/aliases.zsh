@@ -23,13 +23,9 @@ alias q='exit'
 alias tf='terraform'
 alias v='nvim'
 
+# activate Hermit env in a new shell that I can ^D out of
 hm() {
-  zsh -c '. bin/activate-hermit && exec zsh -i'
-}
-
-# python calculator
-pc() {
-  python -c "print($1)"
+  zsh -c '. bin/activate-hermit && exec zsh'
 }
 
 # copy things to clipboard
@@ -60,6 +56,7 @@ n() {
   nvim $file
 }
 
+# clone + cd into a repo
 h() {
   local repo=$(basename $1)
   if [ ! -d ~/dev/$repo ]; then
@@ -79,6 +76,7 @@ _h() {
 
 compdef _h h
 
+# clone + cd into a squareup/ repo
 sqh() {
   if [ ! -d ~/dev/$1 ]; then
     git clone org-49461806@github.com:squareup/$1 ~/dev/$1
@@ -88,6 +86,7 @@ sqh() {
 
 compdef _h sqh
 
+# create + cd into a temp dir
 tmp() {
   local name="$1"
   if [ -z "$name" ]; then
