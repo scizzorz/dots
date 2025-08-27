@@ -58,3 +58,8 @@ if [[ -f "${ZSH_SYNTAX_HIGHLIGHTING}" ]]; then
 
   ZSH_HIGHLIGHT_STYLES[rc-quote]='fg=red,bold'
 fi
+
+ZSH_AUTOSUGGESTIONS=/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -f "${ZSH_AUTOSUGGESTIONS}" ]]; then
+  source "${ZSH_AUTOSUGGESTIONS}"
+fi
