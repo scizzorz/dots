@@ -3,7 +3,7 @@
   email = jweachock@gmail.com
 
 [core]
-  # pager = ~/dots/bin/vimpager
+  pager = riff
   abbrev = 4
 
 [blame]
