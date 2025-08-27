@@ -15,7 +15,7 @@ export EZA_COLORS=$(cat ~/dots/ezarc | grep -v '#' |tr '\n' ':')
 export COMMA_PATH=./comma:./script:~/dots/comma
 
 if command -v moor &>/dev/null; then
-  export MOOR=--quit-if-one-screen
+  export MOOR='--quit-if-one-screen --terminal-fg'
   export PAGER=moor
 fi
 
