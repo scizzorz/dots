@@ -23,9 +23,9 @@ color_hues:
 dark_lums:
   red: 0.30
   orange: 0.50
-  yellow: 0.70
+  yellow: 0.63
   lime: 0.50
-  green: 0.60
+  green: 0.50
   teal: 0.50
   cyan: 0.40
   blue: 0.30
