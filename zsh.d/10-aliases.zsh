@@ -32,12 +32,12 @@ hm() {
 x() {
   local cmd
   local input="$@"
-  if [ ! -t 0 ]; then
+  if [[ ! -t 0 ]]; then
     input=/dev/stdin
   fi
-  if which pbcopy &>/dev/null; then
+  if command -v pbcopy &>/dev/null; then
     cat "$input" | pbcopy
-  elif which xsel &>/dev/null; then
+  elif command -v xsel &>/dev/null; then
     cmd=xsel
     cat "$input" | xsel -b
   else
@@ -48,26 +48,28 @@ x() {
 
 # open notepad
 n() {
-  if [ "$1" != "" ]; then
-    file=~/notes/$1.note
+  local note_dir="${HOME}/notes"
+  if [[ "$1" != "" ]]; then
+    file="${note_dir}/$1.note"
   else
-    file=~/notes/
+    file="${note_dir}"
   fi
-  nvim $file
+  nvim "${file}"
 }
 
 # clone + cd into a repo
 h() {
   local repo=$(basename $1)
-  if [ ! -d ~/dev/$repo ]; then
-    if [ "$repo" = "$1" ]; then
+  local clone_path="${HOME}/dev/${repo}"
+  if [[ ! -d "${clone_path}" ]]; then
+    if [[ "${repo}" == "$1" ]]; then
       echo "Local repo does not exist and '$1' isn't qualified to clone. Please use a '<owner>/<repo>' format."
       return 1
     else
-      git clone git@github.com:$1.git ~/dev/$repo
+      git clone "git@github.com:$1.git" "${clone_path}"
     fi
   fi
-  cd ~/dev/$repo
+  cd "${clone_path}"
 }
 
 _h() {
@@ -78,10 +80,11 @@ compdef _h h
 
 # clone + cd into a squareup/ repo
 sqh() {
-  if [ ! -d ~/dev/$1 ]; then
-    git clone org-49461806@github.com:squareup/$1 ~/dev/$1
+  local clone_path="${HOME}/dev/$1"
+  if [[ ! -d "${clone_path}" ]]; then
+    git clone "org-49461806@github.com:squareup/$1" "${clone_path}"
   fi
-  cd ~/dev/$1
+  cd "${clone_path}"
 }
 
 compdef _h sqh
@@ -89,15 +92,16 @@ compdef _h sqh
 # create + cd into a temp dir
 tmp() {
   local name="$1"
-  if [ -z "$name" ]; then
+  if [[ -z "$name" ]]; then
     name=$(hexdump -n 2 -v -e '/1 "%02x"' /dev/urandom)
   fi
 
-  if [ ! -d ~/tmp/$name ]; then
-    mkdir -p ~/tmp/$name
+  local tmp_path="${HOME}/tmp/${name}"
+  if [ ! -d "${tmp_path}" ]; then
+    mkdir -p "${tmp_path}"
   fi
 
-  cd ~/tmp/$name
+  cd "${tmp_path}"
 }
 
 _comma() {

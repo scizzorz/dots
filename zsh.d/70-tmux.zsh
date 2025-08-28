@@ -1,47 +1,31 @@
 # manage tmux sessions
 t() {
-  # Docker-based attach
-  if [[ "$1" == *'/'* ]]; then
-    arr=("${(s:/:)1}")
-    local SSH=(d $arr[1])
-    local SESS=$arr[2]
+  local session="$1"
 
-  # SSH-based attach
-  elif [[ "$1" == *':'* ]]; then
-    arr=("${(s/:/)1}")
-    local SSH=(ssh -t $arr[1])
-    local SESS=$arr[2]
+  # list sessions
+  if [[ -z "${session}" ]]; then
+    tmux ls
 
-  # Local attach
-  else
-    local SSH=
-    local SESS="$1"
-  fi
-
-  # List sessions
-  if [ -z "$SESS" ]; then
-    $SSH tmux ls
-
-  elif [ -n "$TMUX" ]; then
-    if tmux switch-client -t "$SESS"; then
+  # we're already attached to a tmux session, so try switching to the target
+  elif [ -n "${TMUX}" ]; then
+    if tmux switch-client -t "${session}"; then
     else
-      tmux new-session -d -s "$SESS"
-      tmux switch-client -t "$SESS"
+      tmux new-session -d -s "${session}"
+      tmux switch-client -t "${session}"
     fi
 
-  # New binding to existing session
-  elif [[ "$SESS" == '+'* ]]; then
-    origin="${SESS: 1}"
-    num=$($SSH tmux ls | grep "^$origin" | wc -l)
+  # create a new binding to an existing session
+  elif [[ "${session}" == '+'* ]]; then
+    origin="${session: 1}"
+    num=$(tmux ls | grep "^${origin}" | wc -l)
     num=$(($num + 1))
-    $SSH tmux new-session -t $origin -s $origin$num
+    tmux new-session -t "${origin}" -s "${origin}${num}"
 
-  # Attach or create session
+  # attach or create session
   else
-    # this can probably be optimized better... docker exec is kinda slow.
-    if $SSH tmux attach-session -t "$SESS"; then
+    if tmux attach-session -t "${session}"; then
     else
-      $SSH tmux new-session -s "$SESS"
+      tmux new-session -s "${session}"
     fi
   fi
 }
