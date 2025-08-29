@@ -57,7 +57,7 @@ ansi_map:
   cyan: cyan
   br_red: pink
   br_green: lime
-  br_yellow: indigo
-  br_blue: orange
+  br_yellow: orange
+  br_blue: indigo
   br_magenta: magenta
   br_cyan: teal
