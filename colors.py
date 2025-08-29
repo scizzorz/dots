@@ -186,14 +186,16 @@ def generate_simple_colors_image(
         x = padding + size * (i % grey_cols)
         y = padding + size * (i // grey_cols)
         draw.rectangle(
-            (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
+            (x, y, x + (size - padding * 2), y + (size - padding * 2)),
+            fill="#" + hex,
         )
 
     for i, hex in enumerate(reversed(greys)):
         x = padding + size * (i % grey_cols)
         y = padding + size * (i // grey_cols + 2)
         draw.rectangle(
-            (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
+            (x, y, x + (size - padding * 2), y + (size - padding * 2)),
+            fill="#" + hex,
         )
 
     color_cols = len(dark) // 2
@@ -201,14 +203,16 @@ def generate_simple_colors_image(
         x = padding + size * (i % color_cols + grey_cols)
         y = padding + size * (i // color_cols)
         draw.rectangle(
-            (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
+            (x, y, x + (size - padding * 2), y + (size - padding * 2)),
+            fill="#" + hex,
         )
 
     for i, hex in enumerate(light.values()):
         x = padding + size * (i % color_cols + grey_cols)
         y = padding + size * (i // color_cols + 2)
         draw.rectangle(
-            (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
+            (x, y, x + (size - padding * 2), y + (size - padding * 2)),
+            fill="#" + hex,
         )
 
     with open(filename, "wb") as fp:
@@ -252,7 +256,8 @@ def generate_labeled_colors_image(greys, light, dark, filename="colors-labeled.p
         x = padding + width / 2
         y = padding + size * i
         draw.rectangle(
-            (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
+            (x, y, x + (size - padding * 2), y + (size - padding * 2)),
+            fill="#" + hex,
         )
         draw.text(
             (x + size - padding, y + padding / 2),
@@ -266,7 +271,8 @@ def generate_labeled_colors_image(greys, light, dark, filename="colors-labeled.p
         y = padding + size * (i + len(greys))
 
         draw.rectangle(
-            (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
+            (x, y, x + (size - padding * 2), y + (size - padding * 2)),
+            fill="#" + hex,
         )
         draw.text(
             (x + size - padding, y + padding / 2),
@@ -280,7 +286,8 @@ def generate_labeled_colors_image(greys, light, dark, filename="colors-labeled.p
         y = padding + size * (i + len(greys))
 
         draw.rectangle(
-            (x, y, x + (size - padding * 2), y + (size - padding * 2)), fill="#" + hex
+            (x, y, x + (size - padding * 2), y + (size - padding * 2)),
+            fill="#" + hex,
         )
         draw.text(
             (x + size - padding, y + padding / 2),
