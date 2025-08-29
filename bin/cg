@@ -1,0 +1,202 @@
+#!/usr/bin/env zsh
+# This script is meant to extend a Claude Code session with external,
+# deterministic version control. It reads the prompt from the command line
+# arguments an argument, from a file specified by --file / -f, or read from
+# stdin if available. It executes Claude Code (`claude`) with the prompt in
+# one-shot mode, reviews the diff of changes (if there is one), writes a commit
+# message summarizing the changes, and then uses that message to make a git
+# commit.
+#
+# Usage: cg [--file/-f FILE] [PROMPT]
+#   -f, --file Provide a file that should be read for the prompt
+
+# When possible, variable expansion should be quoted with braces: "${FOO}" instead of $FOO
+# Most user-facing output should be directed to stderr rather than stdout
+# Important user-facing messages should be prefixed with one of the tone indicators: ERROR, INFO, SUCCESS, SUGGESTION, or QUESTION
+# Important details in user-facing messages should be highlighted with a tone color: C_ERROR, C_INFO, C_SUCCESS, C_SUGGESTION, or C_QUESTION
+# This script is executed in zsh, so care should be taken to not use bash-specific behavior
+
+# Enable sq-run utils and color support if installed
+if [[ -z "${SQ_RUN_HOME}" ]]; then
+  SQ_RUN_HOME=$(brew --prefix sq-run 2>/dev/null)
+  if [[ -z "${SQ_RUN_HOME}" ]]; then
+    SQ_RUN_HOME=${SQ_RUN_HOME:-~/Development/sq-run}
+  fi
+  export SQ_RUN_HOME
+fi
+
+if [[ -f "${SQ_RUN_HOME}/utils/base.zsh" ]]; then
+  . "${SQ_RUN_HOME}/utils/base.zsh"
+  enable_color "$@"
+fi
+
+# Set up default values for all color labels in case sq-run isn't installed
+ERROR="${ERROR:-ERROR:}"
+INFO="${INFO:-INFO:}"
+SUCCESS="${SUCCESS:-SUCCESS:}"
+SUGGESTION="${SUGGESTION:-SUGGESTION:}"
+QUESTION="${QUESTION:-QUESTION:}"
+QUIET="${QUIET:-QUIET:}"
+C_ERROR="${C_ERROR:-}"
+C_INFO="${C_INFO:-}"
+C_QUIET="${C_QUIET:-}"
+C_SUCCESS="${C_SUCCESS:-}"
+C_RESET="${C_RESET:-}"
+C_PROMPT="\033[92m" # light green
+
+# These are the default values used to properly run `claude`:
+export AWS_PROFILE=cline-bedrock-staging--bedrock-access-role
+export AWS_REGION=us-west-2
+export CLAUDE_CODE_USE_BEDROCK=1
+export ANTHROPIC_MODEL=us.anthropic.claude-sonnet-4-20250514-v1:0
+
+# Validate that we're in a git repo
+if ! git rev-parse --git-dir 2>&1 >/dev/null; then
+  >&2 echo "${ERROR} Not in a git repository"
+  exit 1
+fi
+
+# Validate that the git repo is clean without any file modifications
+if [[ -n "$(git status --porcelain | grep -v '^??')" ]]; then
+  >&2 echo "${ERROR} Git repository has uncommitted changes. Please commit or stash them first."
+  exit 1
+fi
+
+# Store the initial list of untracked files to compare against later
+INITIAL_UNTRACKED=$(git status --porcelain | grep '^??' | cut -c4-)
+
+# Parse command line arguments and read prompt
+PROMPT=""
+FILE_ARG=""
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -f|--file)
+      FILE_ARG="$2"
+      shift 2
+      ;;
+    *)
+      PROMPT="${PROMPT} $1"
+      shift
+      ;;
+  esac
+done
+
+# Read prompt from file if specified
+if [[ -n "${FILE_ARG}" ]]; then
+  if [[ ! -f "${FILE_ARG}" ]]; then
+    >&2 echo "${ERROR} File ${C_ERROR}${FILE_ARG}${C_RESET} not found"
+    exit 1
+  fi
+  PROMPT=$(cat "${FILE_ARG}")
+
+# Read from stdin if no file and no args
+elif [[ -z "${PROMPT// /}" ]]; then
+  if [[ ! -t 0 ]]; then
+    PROMPT=$(cat)
+  else
+    print -n "${C_PROMPT}claude »${C_RESET} "
+    read PROMPT
+    if [[ $? != 0 ]]; then
+      >&2 echo "${ERROR} Prompt was canceled"
+      exit 1
+    fi
+  fi
+fi
+
+# Trim leading/trailing whitespace
+PROMPT="${PROMPT## }"
+PROMPT="${PROMPT%% }"
+
+if [[ -z "${PROMPT}" ]]; then
+  >&2 echo "${ERROR} Prompt was empty"
+  exit 1
+fi
+
+# Run claude with the prompt
+>&2 echo "${INFO} Running Claude..."
+if ! claude "${PROMPT}"; then
+  >&2 echo "${ERROR} Claude execution failed"
+  exit 1
+fi
+
+# Check if there are any changes to commit
+CURRENT_STATUS=$(git status --porcelain)
+CURRENT_UNTRACKED=$(echo "${CURRENT_STATUS}" | grep '^??' | cut -c4-)
+MODIFIED_OR_STAGED=$(echo "${CURRENT_STATUS}" | grep -v '^??' | cut -c4-)
+FILES_TO_STAGE=()
+
+# Check if we have any modified/staged files
+HAS_MODIFIED_FILES=false
+if [[ -n "${MODIFIED_OR_STAGED}" ]]; then
+  HAS_MODIFIED_FILES=true
+  >&2 echo "${INFO} Modified files:"
+  for file in ${(f)MODIFIED_OR_STAGED}; do
+    >&2 echo "  ${C_QUIET}${file}${C_RESET}"
+  done
+fi
+
+# Check if we have any newly created untracked files (not pre-existing ones)
+HAS_NEW_UNTRACKED=false
+if [[ -n "${CURRENT_UNTRACKED}" ]]; then
+  while IFS= read -r file; do
+    if [[ -n "${file}" && ! "${INITIAL_UNTRACKED}" =~ (^|$'\n')"${file}"($'\n'|$) ]]; then
+      FILES_TO_STAGE+="${file}"
+      HAS_NEW_UNTRACKED=true
+    fi
+  done <<< "${CURRENT_UNTRACKED}"
+  >&2 echo "${INFO} New files:"
+  for file in $FILES_TO_STAGE; do
+    >&2 echo "  ${C_QUIET}${file}${C_RESET}"
+  done
+fi
+
+# Only proceed with commit message generation if there are actual changes
+if [[ "${HAS_MODIFIED_FILES}" == false && "${HAS_NEW_UNTRACKED}" == false ]]; then
+  >&2 echo "${INFO} No changes made by Claude"
+  exit 0
+fi
+
+# Stage only files that have changed since Claude ran
+# First, stage all modified tracked files
+git add -u
+
+for file in $FILES_TO_STAGE; do
+  git add "${file}"
+done
+
+# Create temporary file for commit message generation
+TEMP_DIFF_FILE=$(mktemp)
+trap "rm -f ${TEMP_DIFF_FILE}" EXIT
+
+# Get the git diff and generate commit message
+git diff --staged > "${TEMP_DIFF_FILE}"
+>&2 echo "${INFO} Generating commit message..."
+
+COMMIT_PROMPT="Based on the following git diff, write a concise commit message that summarizes the changes. The message should be clear and descriptive but not more than 72 characters for the first line:
+
+$(cat "${TEMP_DIFF_FILE}")
+
+Please respond with only the commit message, no additional text or formatting."
+
+COMMIT_MSG=$(claude --print "${COMMIT_PROMPT}" | head -1 | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//')
+
+if [[ -z "${COMMIT_MSG}" ]]; then
+  >&2 echo "${ERROR} Failed to generate commit message"
+  exit 1
+fi
+
+# Format final commit message
+FINAL_COMMIT_MSG="[claude] ${COMMIT_MSG}
+
+This commit was generated by Claude Code with the following prompt:
+
+${PROMPT}"
+
+# Commit the changes
+if git commit -m "${FINAL_COMMIT_MSG}"; then
+  >&2 echo "${SUCCESS} Changes committed successfully"
+else
+  >&2 echo "${ERROR} Failed to commit changes"
+  exit 1
+fi
