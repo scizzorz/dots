@@ -320,6 +320,17 @@ def text(config, greys, colors):
 
 
 @add_format
+def pastel(config, greys, colors):
+    # dump colors
+    for color in colors.values():
+        click.echo(f"#{color}")
+
+    # dump greys
+    for color in greys:
+        click.echo(f"#{color}")
+
+
+@add_format
 def alacritty(config, greys, colors):
     map = config["ansi_map"]
     output = {
