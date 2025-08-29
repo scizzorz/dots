@@ -8,10 +8,10 @@ grey_contrast: 1.6
 
 color_hues:
   red: 0
-  orange: 30
-  yellow: 55
-  lime: 85
-  green: 120
+  orange: 25
+  yellow: 50
+  lime: 80
+  green: 115
   teal: 155
   cyan: 180
   blue: 210
