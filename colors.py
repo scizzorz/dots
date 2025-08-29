@@ -403,6 +403,104 @@ def css3(config, greys, colors):
     click.echo("}")
 
 
+@add_format
+def iterm(config, greys, colors):
+    from xml.etree import ElementTree as ET
+
+    type_tag_map = {
+        str: "string",
+        float: "real",
+        int: "real",
+    }
+
+    type_val_map = {
+        str: str,
+        float: str,
+        int: str,
+    }
+
+    def dict_element(kwargs):
+        rootEl = ET.Element("dict")
+        for key, val in kwargs.items():
+            keyEl = ET.Element("key")
+            keyEl.text = key
+            if isinstance(val, ET.Element):
+                valEl = val
+            else:
+                valEl = ET.Element(type_tag_map[type(val)])
+                valEl.text = type_val_map[type(val)](val)
+            rootEl.append(keyEl)
+            rootEl.append(valEl)
+        return rootEl
+
+    def xml_color(color, alpha: float = 1):
+        r, g, b = hex2rgb(color)
+        return dict_element(
+            {
+                "Alpha Component": alpha,
+                "Blue Component": b / 255,
+                "Color Space": "P3",
+                "Green Component": g / 255,
+                "Red Component": r / 255,
+            }
+        )
+
+    root = ET.Element("plist", version="1.0")
+
+    ansi_map = config["ansi_map"]
+    indexed_colors = [
+        greys[1],
+        colors[ansi_map["red"]],
+        colors[ansi_map["green"]],
+        colors[ansi_map["yellow"]],
+        colors[ansi_map["blue"]],
+        colors[ansi_map["magenta"]],
+        colors[ansi_map["cyan"]],
+        greys[3],
+        greys[2],
+        colors[ansi_map["br_red"]],
+        colors[ansi_map["br_green"]],
+        colors[ansi_map["br_yellow"]],
+        colors[ansi_map["br_blue"]],
+        colors[ansi_map["br_magenta"]],
+        colors[ansi_map["br_cyan"]],
+        greys[4],
+    ]
+
+    # My reference file does these in string ordering
+    original_ordering = [0, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9]
+    xml_map = {
+        f"Ansi {index} Color": xml_color(indexed_colors[index])
+        for index in original_ordering
+    }
+
+    xml_map["Background Color"] = xml_color(greys[0])
+    xml_map["Badge Color"] = xml_color(colors[ansi_map["red"]], alpha=0.5)
+    xml_map["Bold Color"] = xml_color(greys[5])
+    xml_map["Cursor Color"] = xml_color(greys[5])
+    xml_map["Cursor Guide Color"] = xml_color(greys[5], alpha=0.25)
+    xml_map["Cursor Text Color"] = xml_color(greys[0])
+    xml_map["Foreground Color"] = xml_color(greys[5])
+    xml_map["Link Color"] = xml_color(colors[ansi_map["blue"]])
+    xml_map["Match Background Color"] = xml_color(colors[ansi_map["yellow"]])
+    xml_map["Selected Text Color"] = xml_color(greys[0])
+    xml_map["Selection Color"] = xml_color(greys[5])
+
+    # I do not know why the dict isn't indented appropriately in the exported
+    # file I referenced, but it wasn't.
+    root_dict = dict_element(xml_map)
+    root.text = "\n"
+    root_dict.tail = "\n"
+    ET.indent(root_dict, space="\t")
+
+    root.append(root_dict)
+
+    click.echo('<?xml version="1.0" encoding="UTF-8"?>')
+    click.echo(
+        '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">'
+    )
+    click.echo(ET.tostring(root, encoding="utf-8"))
+
 
 @click.command()
 @click.argument("config", type=str, default="colors.yml")
