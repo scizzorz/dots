@@ -8,31 +8,31 @@ grey_contrast: 1.6
 
 color_hues:
   red: 0
-  orange: 25
+  orange: 20
   yellow: 50
-  lime: 80
-  green: 115
-  teal: 155
+  lime: 70
+  green: 110
+  teal: 160
   cyan: 180
-  blue: 210
-  indigo: 240
-  purple: 270
+  blue: 200
+  indigo: 235
+  purple: 265
   magenta: 300
   pink: 330
 
 dark_lums:
-  red: 0.30
-  orange: 0.50
+  red: 0.31
+  orange: 0.45
   yellow: 0.63
   lime: 0.50
-  green: 0.50
+  green: 0.40
   teal: 0.50
-  cyan: 0.40
-  blue: 0.30
+  cyan: 0.38
+  blue: 0.29
   indigo: 0.30
   purple: 0.30
-  magenta: 0.35
-  pink: 0.35
+  magenta: 0.40
+  pink: 0.39
 
 light_lums:
   red: 0.10
