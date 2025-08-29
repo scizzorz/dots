@@ -305,11 +305,11 @@ def add_format(fn):
 def text(config, greys, colors):
     # dump colors
     for color, hex in colors.items():
-        print(f"{color:>8}: #{hex}")
+        click.echo(f"{color:>8}: #{hex}")
 
     # dump greys
     for i, hex in enumerate(greys):
-        print(f" shade {i}: #{hex}")
+        click.echo(f" shade {i}: #{hex}")
 
 
 @add_format
@@ -375,24 +375,26 @@ def hterm(config, greys, colors):
 
     output = ["#" + hex for hex in output]
 
-    print(f"background: #{greys[0]}")
-    print(f"cursor: #{greys[5]}")
+    click.echo(f"background: #{greys[0]}")
+    click.echo(f"cursor: #{greys[5]}")
+
     import json
 
-    print(json.dumps(output, indent=2))
+    click.echo(json.dumps(output, indent=2))
 
 
 @add_format
 def css3(config, greys, colors):
-    print(":root {")
+    click.echo(":root {")
 
     for i, shade in enumerate(greys):
-        print(f"  --base{i}: #{shade};")
+        click.echo(f"  --base{i}: #{shade};")
 
     for key, hex in colors.items():
-        print(f"  --{key}: #{hex};")
+        click.echo(f"  --{key}: #{hex};")
 
-    print("}")
+    click.echo("}")
+
 
 
 @click.command()
@@ -437,14 +439,16 @@ def main(config, mode, format):
     # compute colors
     dark = {}
     for (color, hue), lum in zip(
-        data["color_hues"].items(), data["dark_lums"].values()
+        data["color_hues"].items(),
+        data["dark_lums"].values(),
     ):
         sat, val = find_shade(hue, lum)
         dark[color] = rgb2hex(*hsv2rgb(hue, sat, val))
 
     light = {}
     for (color, hue), lum in zip(
-        data["color_hues"].items(), data["light_lums"].values()
+        data["color_hues"].items(),
+        data["light_lums"].values(),
     ):
         sat, val = find_shade(hue, lum)
         light[color] = rgb2hex(*hsv2rgb(hue, sat, val))
