@@ -66,21 +66,15 @@ setopt PROMPT_SUBST
 # enable %-escaped fancy codes
 setopt PROMPT_PERCENT
 
-local black=$'\033[30m'
-local green=$'\033[32m'
-local red=$'\033[31m'
-local reset=$'\033[0m'
-local white=$'\033[37m'
-
-export PROMPT_COLOR=$'\033[96m' # bright cyan
-export PROMPT_PREFIX="${white}%m " # hostname
+export PROMPT_COLOR="%F{cyan}"
+export PROMPT_PREFIX="%F{white}%m " # hostname
 [ -f ~/dots/prompt.sh ] && source ~/dots/prompt.sh
 
 # add a % to the prompt to indicate suspended jobs
 local job_indicator="%(1j, %%,)"
-local delimiter="%(?,${green},${red})» ${reset}"
+local delimiter="%(?,%F{green},%F{red})» %f"
 
-export PROMPT="${PROMPT_PREFIX}${PROMPT_COLOR}\$(show_work_dir)${white}\$(show_git_ref)\$(show_venv)${job_indicator} ${delimiter}%b"
+export PROMPT="${PROMPT_PREFIX}${PROMPT_COLOR}\$(show_work_dir)%F{white}\$(show_git_ref)\$(show_venv)${job_indicator} ${delimiter}"
 
 # === Window titles=============================================================
 function precmd {
