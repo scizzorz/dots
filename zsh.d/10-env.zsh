@@ -16,7 +16,7 @@ export COMMA_PATH=./comma:./script:~/dots/comma
 # stop eating space before pipes
 export ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
 
-if command -v moor &>/dev/null; then
+if [[ -f /opt/homebrew/bin/moor ]] || command -v moor &>/dev/null; then
   export MOOR='--quit-if-one-screen --terminal-fg'
   export PAGER=moor
 fi
