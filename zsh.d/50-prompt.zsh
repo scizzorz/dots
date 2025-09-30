@@ -49,13 +49,14 @@ show_git_ref() {
 
 show_work_dir() {
   local git_root="$(git rev-parse --show-toplevel 2>/dev/null)"
+  local pwd=$(realpath "${PWD}")
   if [[ -z "${git_root}" ]]; then
     # no repo: display the full path
-    print -nrD "${PWD}"
+    print -nrD "${pwd}"
   else
     # repo: display the repo name + path within repo
     local repo_name="$(basename ${git_root})"
-    echo -n "${repo_name}${PWD##${git_root}}"
+    echo -n "${repo_name}${pwd##${git_root}}"
   fi
 }
 
