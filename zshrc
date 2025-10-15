@@ -5,6 +5,9 @@ local SOURCE_CAT=true
 # don't do any zsh config if there's no prompt
 [[ -z "${PS1}" ]] && return
 
+local startfile="${HOME}/Library/Caches/zshstartup"
+date +%s >> "${startfile}"
+
 local zshd="${HOME}/dots/zsh.d"
 if [[ "${SOURCE_CAT}" == "true" ]]; then
   source <(cat ${zshd}/*.zsh)
