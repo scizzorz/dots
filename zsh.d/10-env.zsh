@@ -13,6 +13,10 @@ export EXA_COLORS=$(cat ~/dots/ezarc | grep -v '#' |tr '\n' ':')
 export EZA_COLORS=$(cat ~/dots/ezarc | grep -v '#' |tr '\n' ':')
 export COMMA_PATH=./comma:./script:~/dots/comma
 
+# for # and cg scripts
+export ZAQ_PREFIXES=('cg')
+export ZAQ_PREFIXES_GREEDY=('\#')
+
 # stop eating space before pipes
 export ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
 
