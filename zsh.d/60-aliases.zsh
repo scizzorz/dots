@@ -49,12 +49,17 @@ x() {
 # open notepad
 n() {
   local note_dir="${HOME}/notes"
-  if [[ "$1" != "" ]]; then
-    file="${note_dir}/$1.note"
+  local files=()
+  if [[ $# == 0 ]]; then
+    files+=("${note_dir}")
   else
-    file="${note_dir}"
+    while [[ $# > 0 ]]; do
+      files+=("${note_dir}/$1.note")
+      shift
+    done
   fi
-  nvim "${file}"
+
+  nvim "${files[@]}"
 }
 
 # clone + cd into a repo
