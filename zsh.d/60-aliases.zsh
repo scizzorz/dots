@@ -51,7 +51,10 @@ n() {
   local note_dir="${HOME}/notes"
   local files=()
   if [[ $# == 0 ]]; then
-    files+=("${note_dir}")
+    for file in $(ls "${note_dir}"); do
+      echo "${file%.note}"
+    done
+    return 0
   else
     while [[ $# > 0 ]]; do
       files+=("${note_dir}/$1.note")
