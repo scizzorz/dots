@@ -38,7 +38,7 @@ nnoremap <Leader>s vip:sort<CR>
 " rehighlight syntax
 nnoremap <Leader>r :syn sync fromstart<CR>
 
-nnoremap <Leader>b :!black %<CR><CR>
+nnoremap <Leader>b :!ruff format %<CR><CR>
 
 " fix syntax highlighting (seriously how does it break so much?)
 nnoremap <Leader>c :syn sync fromstart<CR>
