@@ -59,6 +59,11 @@ n() {
 
 # clone + cd into a repo
 h() {
+  if [[ $# == 0 ]]; then
+    cd "${HOME}/dev/"
+    return $?
+  fi
+
   local repo=$(basename $1)
   local clone_path="${HOME}/dev/${repo}"
   if [[ ! -d "${clone_path}" ]]; then
