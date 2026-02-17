@@ -20,6 +20,7 @@ alias p='python'
 alias pe='pipenv'
 alias po='poetry'
 alias q='exit'
+alias s='staqk'
 alias tf='terraform'
 alias v='nvim'
 
