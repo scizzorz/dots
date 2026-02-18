@@ -4,7 +4,7 @@ endif
 
 
 " projects: +foo, +foo/bar
-syntax match noteProject "\v\+[a-zA-Z0-9\/._+-]+"
+syntax match noteProject "\v(^| )\+[a-zA-Z0-9\/._+-]+"
 
 " people: @person, person@, person@foo.com
 syntax match notePerson "\v\@[a-z0-9._+-]+"
