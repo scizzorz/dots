@@ -67,9 +67,8 @@ plug("xtfc/mold.vim")
 vim.fn["plug#end"]()
 
 -- LSP config
-local lspconfig = require("lspconfig")
-lspconfig.pyright.setup({})
--- lspconfig.lua_ls.setup({})
+vim.lsp.enable("pyright")
+-- vim.lsp.enable("lua_ls")
 
 -- disable treesitter for lua files
 vim.api.nvim_create_autocmd(
