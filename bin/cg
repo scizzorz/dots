@@ -48,7 +48,8 @@ C_PROMPT="\033[92m" # light green
 export AWS_PROFILE=cline-bedrock-staging--bedrock-access-role
 export AWS_REGION=us-west-2
 export CLAUDE_CODE_USE_BEDROCK=1
-export ANTHROPIC_MODEL=us.anthropic.claude-sonnet-4-20250514-v1:0
+# export ANTHROPIC_MODEL=us.anthropic.claude-sonnet-4-20250514-v1:0
+export ANTHROPIC_MODEL=us.anthropic.claude-sonnet-4-5-20250929-v1:0
 
 # Validate that we're in a git repo
 if ! git rev-parse --git-dir 2>&1 >/dev/null; then
