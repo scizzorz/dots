@@ -63,6 +63,34 @@ n() {
   nvim "${files[@]}"
 }
 
+# open obsidian note
+o() {
+  local note_dir="${HOME}/obsidian/notes"
+  local files=()
+  if [[ $# == 0 ]]; then
+    if [[ -f "obsidian.json" ]]; then
+      notebook="$(jq -r .notebook obsidian.json)"
+      files+="${note_dir}/${notebook}.md"
+    fi
+  else
+    while [[ $# > 0 ]]; do
+      files+=("${note_dir}/$1.md")
+      shift
+    done
+  fi
+
+  nvim "${files[@]}"
+}
+
+_o() {
+  files=("${HOME}/obsidian/notes/"*.md)
+  for file in $files; do
+    compadd -- "$(basename ${file} | sed 's/\.md$//')"
+  done
+}
+
+compdef _o o
+
 # clone + cd into a repo
 h() {
   if [[ $# == 0 ]]; then
