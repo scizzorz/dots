@@ -35,7 +35,7 @@ fi
 
 # these are used for user-facing output
 ERROR="${C_RED}✗${C_RESET}"
-INFO="${C_YELLOW}!${C_RESET}"
+INFO="${C_YELLOW}#${C_RESET}"
 SUCCESS="${C_GREEN}✓${C_RESET}"
 QUESTION="${C_MAGENTA}?${C_RESET}"
 SUGGESTION="${C_MAGENTA}!${C_RESET}"
