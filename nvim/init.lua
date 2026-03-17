@@ -66,6 +66,8 @@ plug("xtfc/mold.vim")
 
 vim.fn["plug#end"]()
 
+vim.g.fzf_vim = {preview_window = {}}
+
 -- LSP config
 vim.lsp.enable("pyright")
 -- vim.lsp.enable("lua_ls")
