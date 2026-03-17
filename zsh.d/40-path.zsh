@@ -1,6 +1,7 @@
 PATH=~/.cargo/bin:$PATH
 PATH=~/.local/bin:$PATH
 PATH=~/.poetry/bin:$PATH
+PATH=~/Developer/PlaydateSDK/bin:$PATH
 PATH=~/bin:$PATH
 PATH=~/dots/bin:$PATH
 PATH=~/pico-8:$PATH
