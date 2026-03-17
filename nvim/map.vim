@@ -13,9 +13,8 @@ noremap <silent> <CR> <Esc>:bn<CR>
 noremap <silent> <C-N> <Esc>:bp<CR>
 
 " resize splits (it's confusing)
-noremap <silent> <C-O> <Esc>:NERDTree<CR>
-noremap <silent> <C-I> <Esc>:res -1<CR>
-noremap <silent> <C-U> <Esc>:res +1<CR>
+"noremap <silent> <C-I> <Esc>:res -1<CR>
+"noremap <silent> <C-U> <Esc>:res +1<CR>
 noremap <silent> <C-Y> <Esc>:vertical res -1<CR>
 
 " suspend (normally <C-Z>)
@@ -50,10 +49,13 @@ nnoremap <Leader><Space> :%s/\s\+$//<CR><C-o>
 nnoremap <Leader>/ :let @/ = ""<CR>
 
 " :Rg for project searching
-nnoremap <C-g> :Rg<CR>
+noremap <C-g> <Esc>:Rg<CR>
 
 " fzf / skim
-nnoremap <C-f> :Files<CR>
+noremap <C-f> <esc>:Files<CR>
+noremap <C-o> <Esc>:Buffers<CR>
+noremap <C-u> <Esc>:History<CR>
+
 
 " save a modifier press
 nnoremap ; :
