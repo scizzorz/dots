@@ -4,6 +4,7 @@ entr
 eza
 fd
 fzf
+gh
 gron
 hermit
 hugo
@@ -20,6 +21,7 @@ python@3.13
 rename
 riff
 ripgrep
+ruff
 sd
 sk
 tmux
