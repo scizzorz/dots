@@ -35,7 +35,7 @@ vim.opt.colorcolumn = "100"
 vim.api.nvim_create_autocmd({"VimResized"}, {pattern = {"*"}, command = 'exe "normal! \\<c-w>="'})
 
 require('map')
-vim.cmd("source ~/.config/nvim/color.vim")
+require('color')
 vim.cmd("source ~/.config/nvim/fold.vim")
 
 local plug = vim.fn["plug#"]
