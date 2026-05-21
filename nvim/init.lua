@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd({"VimResized"}, {pattern = {"*"}, command = 'exe "no
 
 require('map')
 require('color')
-vim.cmd("source ~/.config/nvim/fold.vim")
+require('fold')
 
 local plug = vim.fn["plug#"]
 vim.fn["plug#begin"]("~/.config/nvim/plugged")
