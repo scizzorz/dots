@@ -5,7 +5,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.list = true
-vim.opt.listchars = {tab = "| ", trail="·"}
+vim.opt.listchars = {tab = "» ", trail="·"}
 vim.opt.guicursor = ""
 vim.opt.mouse = "a"
 vim.opt.ignorecase = true
@@ -16,15 +16,18 @@ vim.opt.statusline = "%F%( %m%) %( %r%)%( %h%)%=%{&ft}"
 vim.opt.fillchars = {stl = " ", stlnc = " ", vert = "│", diff = " ", fold = " "}
 
 vim.opt.wildignore = {
-  "*.dll",
-  "*.o",
-  "*.pyc",
   "*.bak",
+  "*.dll",
+  "*.dylib",
   "*.exe",
-  "*.jpg",
-  "*.jpeg",
-  "*.png",
   "*.gif",
+  "*.jpeg",
+  "*.jpg",
+  "*.lib",
+  "*.o",
+  "*.png",
+  "*.pyc",
+  "*.so",
 }
 
 vim.opt.colorcolumn = "100"
