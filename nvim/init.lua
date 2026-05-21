@@ -13,7 +13,7 @@ vim.opt.smartcase = true
 vim.opt.updatetime = 1000
 
 vim.opt.statusline = "%F%( %m%) %( %r%)%( %h%)%=%{&ft}"
-vim.opt.fillchars = {stl = " ", stlnc = " ", vert = " ", diff = " ", fold = " "}
+vim.opt.fillchars = {stl = " ", stlnc = " ", vert = "│", diff = " ", fold = " "}
 
 vim.opt.wildignore = {
   "*.dll",

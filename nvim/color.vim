@@ -10,7 +10,7 @@ hi CursorColumn ctermfg=none  ctermbg=0    cterm=none
 hi ColorColumn  ctermfg=none  ctermbg=0    cterm=none
 hi CursorLine   ctermfg=none  ctermbg=none cterm=none
 hi CursorLineNr ctermfg=6     ctermbg=none cterm=none
-hi VertSplit    ctermfg=0     ctermbg=0    cterm=none
+hi WinSeparator ctermfg=0     ctermbg=none    cterm=none
 
 hi SpellBad     ctermfg=1     ctermbg=0    cterm=None
 hi SpellCap     ctermfg=3     ctermbg=0    cterm=None
