@@ -46,6 +46,7 @@
   stash = black
 
 [alias]
+  rp = rev-parse
   ap = add -p
   cia = commit --amend
   bl = blame
