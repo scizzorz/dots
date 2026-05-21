@@ -9,7 +9,7 @@ local function fold_text()
   local stripped = line:match('^%s*(.-)%s*$')
 
   local dashes = vim.v.folddashes
-  local tabbed = dashes:gsub('-', '  ')
+  local tabbed = dashes:gsub('-', string.rep(' ', vim.fn.shiftwidth()))
 
   local diff = vim.v.foldend - vim.v.foldstart
 
