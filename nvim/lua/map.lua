@@ -23,7 +23,7 @@ map('n', '<C-D>', '<cmd>stop<CR>', {silent = true})
 
 -- shift between diagnostic chunks
 map('n', '\\', function() vim.diagnostic.jump({ count = 1, float = true }) end)
-map('n', '\\|', function() vim.diagnostic.jump({ count = -1, float = true }) end)
+map('n', '|', function() vim.diagnostic.jump({ count = -1, float = true }) end)
 
 -- show syntax highlighting group of token under cursor
 map('n', '<Leader>f', '<cmd>Inspect<CR>', {silent = true})
