@@ -21,8 +21,8 @@ noremap <silent> <C-Y> <Esc>:vertical res -1<CR>
 nnoremap <silent> <C-D> <Esc>:stop<CR>
 
 " shift between ALE chunks
-nmap \ <Plug>(ale_next_wrap)
-nmap \| <Plug>(ale_previous_wrap)
+nmap \ <cmd>lua vim.diagnostic.jump({ count = 1, float = true })<CR>
+nmap \| <cmd>lua vim.diagnostic.jump({ count = -1, float = true })<CR>
 
 " show syntax highlighting group of token under cursor
 " https://stackoverflow.com/a/29030788
@@ -37,6 +37,7 @@ nnoremap <Leader>s vip:sort<CR>
 " rehighlight syntax
 nnoremap <Leader>r :syn sync fromstart<CR>
 
+" run autoformattter (kinda bad tho)
 nnoremap <Leader>b :!ruff format %<CR><CR>
 
 " fix syntax highlighting (seriously how does it break so much?)

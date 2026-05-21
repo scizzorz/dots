@@ -10,6 +10,7 @@ vim.opt.guicursor = ""
 vim.opt.mouse = "a"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.updatetime = 500
 
 vim.opt.statusline = "%F%( %m%) %( %r%)%( %h%)%=%{&ft}"
 vim.opt.fillchars = {stl = " ", stlnc = " ", vert = " ", diff = " ", fold = " "}
@@ -70,7 +71,44 @@ vim.g.fzf_vim = {preview_window = {}}
 
 -- LSP config
 vim.lsp.enable("pyright")
--- vim.lsp.enable("lua_ls")
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      workspace = {
+        -- Path to your Addons directory
+        userThirdParty = {os.getenv("HOME") .. "dots/lua-ls-addons"},
+        checkThirdParty = "Apply"
+      }
+    }
+  }
+})
+vim.lsp.enable("lua_ls")
+
+local function open_diagnostic()
+  vim.diagnostic.open_float(nil, {
+    focus = false,
+    scope = "cursor",
+    border = "rounded"
+  })
+end
+
+-- diagnostic config
+vim.diagnostic.config({
+  float = {
+    border = "rounded", -- Options: "single", "double", "rounded", "solid", "shadow"
+  },
+})
+-- Automatically show diagnostics on hover when cursor rests
+vim.api.nvim_create_augroup("DiagnosticHover", {clear = true})
+vim.api.nvim_create_autocmd("CursorHold", {
+  group = "DiagnosticHover",
+  pattern = "*",
+  callback = vim.diagnostic.open_float,
+})
+
+-- Set a specific keybinding to toggle/view them
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, {desc = "Show line diagnostics"})
 
 -- disable treesitter for lua files
 vim.api.nvim_create_autocmd(

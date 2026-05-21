@@ -10,6 +10,7 @@ hugo
 jq
 just
 lua
+lua-language-server
 md5sha1sum
 moor
 neovim
