@@ -78,6 +78,31 @@ hi DiffChange  ctermfg=3      ctermbg=0    cterm=none
 hi DiffDelete  ctermfg=1      ctermbg=0    cterm=none
 hi DiffText    ctermfg=6      ctermbg=0    cterm=none
 
+" diagnostics
+hi FloatBorder           ctermfg=0 ctermbg=none cterm=none
+hi DiagnosticError       NONE
+hi DiagnosticWarn        NONE
+hi DiagnosticInfo        NONE
+hi DiagnosticHint        NONE
+hi DiagnosticOk          NONE
+hi DiagnosticUnnecessary NONE
+hi link DiagnosticUnnecessary NONE
+
+" these underlines can't be specified with ANSI, annoyingly.
+hi DiagnosticUnderlineError cterm=undercurl guisp=#ff6060
+hi DiagnosticUnderlineWarn  cterm=undercurl guisp=#ff9966
+hi DiagnosticUnderlineInfo  cterm=undercurl guisp=#f4cc00
+hi DiagnosticUnderlineHint  cterm=undercurl guisp=#b17aff
+hi DiagnosticUnderlineOk    cterm=undercurl guisp=#21c600
+
+hi DiagnosticSignError        ctermfg=1      ctermbg=none cterm=none
+hi DiagnosticSignWarn         ctermfg=11     ctermbg=none cterm=none
+hi DiagnosticSignInfo         ctermfg=3      ctermbg=none cterm=none
+hi DiagnosticSignHint         ctermfg=5      ctermbg=none cterm=none
+hi DiagnosticSignUnnecessary  ctermfg=5      ctermbg=none cterm=none
+hi DiagnosticSignOk           ctermfg=2      ctermbg=none cterm=none
+
+
 " rust
 hi link rustModPath Identifier
 hi link rustPubScope Identifier

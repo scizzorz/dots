@@ -10,7 +10,7 @@ vim.opt.guicursor = ""
 vim.opt.mouse = "a"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.updatetime = 500
+vim.opt.updatetime = 1000
 
 vim.opt.statusline = "%F%( %m%) %( %r%)%( %h%)%=%{&ft}"
 vim.opt.fillchars = {stl = " ", stlnc = " ", vert = " ", diff = " ", fold = " "}
@@ -104,11 +104,11 @@ vim.api.nvim_create_augroup("DiagnosticHover", {clear = true})
 vim.api.nvim_create_autocmd("CursorHold", {
   group = "DiagnosticHover",
   pattern = "*",
-  callback = vim.diagnostic.open_float,
+  callback = open_diagnostic,
 })
 
 -- Set a specific keybinding to toggle/view them
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, {desc = "Show line diagnostics"})
+vim.keymap.set('n', '<leader>d', open_diagnostic, {desc = "Show line diagnostics"})
 
 -- disable treesitter for lua files
 vim.api.nvim_create_autocmd(
