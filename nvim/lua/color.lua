@@ -4,6 +4,7 @@ vim.cmd([[
   hi clear
 ]])
 vim.opt.termguicolors = false
+vim.cmd('match WhitespaceEOL /\\s\\+$/')
 
 local hi = function(name, opts) vim.api.nvim_set_hl(0, name, opts) end
 
@@ -102,6 +103,11 @@ hi('DiagnosticSignHint',        {ctermfg=5})
 hi('DiagnosticSignUnnecessary', {ctermfg=5})
 hi('DiagnosticSignOk',          {ctermfg=2})
 
+-- disable all @lsp highlights
+for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+  vim.api.nvim_set_hl(0, group, {})
+end
+
 -- rust
 hi('rustModPath',       {link='Identifier'})
 hi('rustPubScope',      {link='Identifier'})
@@ -155,5 +161,3 @@ hi('htmlItalicUnderline',      {link='htmlBold'})
 hi('htmlItalic',               {link='htmlBold'})
 hi('htmlItalicBoldUnderline',  {link='htmlBold'})
 hi('htmlItalicUnderlineBold',  {link='htmlBold'})
-
-vim.cmd('match WhitespaceEOL /\\s\\+$/')
