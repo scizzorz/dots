@@ -41,7 +41,7 @@ map('n', '<Leader>b', ':!ruff format %<CR><CR>')
 map('n', '<Leader>c', '<cmd>syn sync fromstart<CR>')
 
 -- remove all trailing whitespace
-map('n', '<Leader><Space>', ':%s/\\s\\+$//<CR><C-o>')
+map('n', '<Leader><Space>', ':%s/\\s\\+$//<CR>')
 
 -- clear search
 map('n', '<Leader>/', function() vim.fn.setreg('/', '') end)
@@ -60,7 +60,7 @@ map('n', ';', ':')
 map('v', ';', ':<Backspace><Backspace><Backspace><Backspace><Backspace>')
 
 -- auto indent the whole file
-map('n', '=', 'ggVG=<C-o><C-o>')
+map('n', '=', 'ggVG=')
 
 -- repeat last executed macro
 map('n', 'Q', '@@')
