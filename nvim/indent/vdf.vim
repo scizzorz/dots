@@ -1,9 +1,9 @@
 setlocal nolisp
 setlocal autoindent
 setlocal indentkeys+=<:>,0=},0=]
-setlocal indentexpr=JunkIndent(v:lnum)
+setlocal indentexpr=VDFIndent(v:lnum)
 
-function! JunkIndent(lnum) abort
+function! VDFIndent(lnum) abort
   let l:prevlnum = prevnonblank(a:lnum-1)
   if l:prevlnum == 0
     return 0
